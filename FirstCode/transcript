@@ -1,0 +1,27 @@
+# Reading pref.tcl
+# Project file C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/intro.mpf was not found.
+# Unable to open project.
+# Load canceled
+vsim work.top
+# vsim work.top 
+# Start time: 14:53:40 on Jan 18,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(intro_arch)
+# Loading work.intro_tb(intro_arch)
+# Loading work.intro(intro_arch)
+run
+run
+run
+run
+run
+run
+run
+restart
+run -all
+# Break key hit
+# Simulation stop requested.
+# End time: 14:54:53 on Jan 18,2024, Elapsed time: 0:01:13
+# Errors: 0, Warnings: 0

@@ -13,6 +13,24 @@ architecture Intro_ARCH of Intro_tb is
     
 begin
     
-    
+    SWITCH_DRIVER: process is
+    begin
+        sw <= "000";
+        wait for 100 ns;
+        sw <= "001";
+        wait for 100 ns;
+        sw <= "010";
+        wait for 100 ns;
+        sw <= "011";
+        wait for 100 ns;
+        sw <= "100";
+        wait for 100 ns;
+        sw <= "101";
+        wait for 100 ns;
+        sw <= "110";
+        wait for 100 ns;
+        sw <= "111";
+
+    end process SWITCH_DRIVER;
     
 end architecture Intro_ARCH;
