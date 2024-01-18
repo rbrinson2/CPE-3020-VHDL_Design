@@ -1,0 +1,30 @@
+C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/Intro_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/Intro_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Intro_tb
+-- Compiling architecture Intro_ARCH of Intro_tb
+
+} {} {}} C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity top
+-- Compiling architecture Intro_Arch of top
+-- Loading entity Intro_tb
+-- Loading entity Intro
+
+} {} {}} C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/Intro.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/Intro.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Intro
+-- Compiling architecture Intro_ARCH of Intro
+
+} {} {}}
