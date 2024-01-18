@@ -1,10 +1,14 @@
-# Reading pref.tcl
-# Project file C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/intro.mpf was not found.
-# Unable to open project.
-# Load canceled
+# vsim work 
+# Start time: 15:04:52 on Jan 18,2024
+# ** Error: (vsim-3170) Could not find 'work'.
+#         Searched libraries:
+#             C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/work
+# Error loading design
+# End time: 15:04:53 on Jan 18,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
 vsim work.top
 # vsim work.top 
-# Start time: 14:53:40 on Jan 18,2024
+# Start time: 15:04:55 on Jan 18,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -12,6 +16,9 @@ vsim work.top
 # Loading work.top(intro_arch)
 # Loading work.intro_tb(intro_arch)
 # Loading work.intro(intro_arch)
+add wave -position insertpoint  \
+sim:/top/switches \
+sim:/top/leds
 run
 run
 run
@@ -19,9 +26,7 @@ run
 run
 run
 run
-restart
-run -all
-# Break key hit
-# Simulation stop requested.
-# End time: 14:54:53 on Jan 18,2024, Elapsed time: 0:01:13
+run
+run
+# End time: 15:05:15 on Jan 18,2024, Elapsed time: 0:00:20
 # Errors: 0, Warnings: 0

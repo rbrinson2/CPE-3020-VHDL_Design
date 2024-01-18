@@ -100,23 +100,23 @@ Z21 w1705606191
 R2
 R3
 R4
-!i122 6
+!i122 7
 R0
-Z22 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd
-Z23 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd
+Z22 8top.vhd
+Z23 Ftop.vhd
 l0
 L6 1
-VBQYPaM<U@PCnCb<1MHB:P2
+VK62LPdAghAEXWBA0nNRoB1
 !s100 g0U1CKXOMd?5mYQAmm;iz1
 R7
 32
-R8
+Z24 !s110 1705608366
 !i10b 1
-R9
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd|
-!s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd|
+Z25 !s108 1705608366.000000
+Z26 !s90 -work|work|top.vhd|
+!s107 top.vhd|
 !i113 1
-R12
+Z27 o-work work
 R13
 Aintro_arch
 R14
@@ -124,19 +124,19 @@ R20
 R2
 R3
 R4
-DEx4 work 3 top 0 22 BQYPaM<U@PCnCb<1MHB:P2
-!i122 6
+DEx4 work 3 top 0 22 K62LPdAghAEXWBA0nNRoB1
+!i122 7
 l12
 L9 7
-Vz:8h1UAXnAFf^_oKLG[eI3
-Z25 !s100 hIB@R4FKmmHeC?>_c73W12
+VN@k?6fg[4LhHAV5RHVGa23
+Z28 !s100 hIB@R4FKmmHeC?>_c73W12
 R7
 32
-R8
-!i10b 1
-R9
 R24
-Z26 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/top.vhd|
+!i10b 1
+R25
+R26
+Z29 !s107 top.vhd|
 !i113 1
-R12
+R27
 R13
