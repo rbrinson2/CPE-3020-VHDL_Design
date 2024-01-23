@@ -1,14 +1,12 @@
-# vsim work 
-# Start time: 15:04:52 on Jan 18,2024
-# ** Error: (vsim-3170) Could not find 'work'.
-#         Searched libraries:
-#             C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/FirstCode/work
-# Error loading design
-# End time: 15:04:53 on Jan 18,2024, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
-vsim work.top
-# vsim work.top 
-# Start time: 15:04:55 on Jan 18,2024
+# Reading pref.tcl
+# Loading project firstcode
+# Compile of Intro.vhd was successful.
+# Compile of Intro_tb.vhd was successful.
+# Compile of top.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.top
+# vsim -gui work.top 
+# Start time: 20:48:12 on Jan 22,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -16,9 +14,8 @@ vsim work.top
 # Loading work.top(intro_arch)
 # Loading work.intro_tb(intro_arch)
 # Loading work.intro(intro_arch)
-add wave -position insertpoint  \
-sim:/top/switches \
-sim:/top/leds
+add wave -position end  sim:/top/switches
+add wave -position end  sim:/top/leds
 run
 run
 run
@@ -28,5 +25,46 @@ run
 run
 run
 run
-# End time: 15:05:15 on Jan 18,2024, Elapsed time: 0:00:20
-# Errors: 0, Warnings: 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 20:48:47 on Jan 22,2024, Elapsed time: 0:00:35
+# Errors: 0, Warnings: 5
