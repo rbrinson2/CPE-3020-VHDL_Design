@@ -55,10 +55,10 @@ R11
 R12
 R13
 Ereferee
-Z15 w1706197107
+Z15 w1706201674
 R3
 R4
-!i122 8
+!i122 9
 R0
 Z16 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
 Z17 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
@@ -68,9 +68,9 @@ V2onXNgAXzcQ:3J@B_EfGG3
 !s100 ITGQOnJ^4GDRGJmNUf<Dn3
 R7
 32
-Z18 !s110 1706197120
+Z18 !s110 1706202746
 !i10b 1
-Z19 !s108 1706197120.000000
+Z19 !s108 1706202746.000000
 Z20 !s90 -reportprogress|300|-work|work|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd|
 Z21 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd|
 !i113 1
@@ -80,11 +80,11 @@ Aref_arch
 R3
 R4
 R14
-!i122 8
+!i122 9
 l13
-Z22 L12 8
-V_dPL46NjhEfm9lBXP15=60
-!s100 OZUUR6z83:K9ZXohlHPdJ2
+L12 9
+VQG^e7Lh6Fg9>gP6D_ML3C2
+!s100 XeAJ3`Be<4SfoQTGz1:=f2
 R7
 32
 R18
