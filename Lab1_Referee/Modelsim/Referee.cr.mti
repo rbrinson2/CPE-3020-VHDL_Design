@@ -1,0 +1,21 @@
+C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Ref_TB
+-- Compiling architecture ref_tb of Ref_TB
+-- Loading entity Referee
+-- Loading package ENV
+** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(25): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+
+} {} {}} C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Referee
+-- Compiling architecture Ref_Arch of Referee
+
+} {} {}}

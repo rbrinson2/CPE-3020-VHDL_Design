@@ -1,0 +1,122 @@
+# Reading pref.tcl
+# vsim -gui . 
+# Start time: 10:28:39 on Jan 25,2024
+# ** Error (suppressible): (vsim-19) Failed to access library '' at "".
+# Invalid argument. (errno = EINVAL)
+# Error loading design
+# End time: 10:28:46 on Jan 25,2024, Elapsed time: 0:00:07
+# Errors: 1, Warnings: 0
+vsim -gui work.ref_tb
+# vsim -gui work.ref_tb 
+# Start time: 10:29:22 on Jan 25,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.ref_tb(ref_tb)
+# Loading work.referee(ref_arch)
+add wave -position end  sim:/ref_tb/clk
+add wave -position end  sim:/ref_tb/rst
+add wave -position end  sim:/ref_tb/outpt
+add wave -position end  sim:/ref_tb/cntvec
+run -all
+# 1
+# Break in Process line__21 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 25
+quit -sim
+# End time: 10:29:58 on Jan 25,2024, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:30:07 on Jan 25,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Referee
+# -- Compiling architecture Ref_Arch of Referee
+# End time: 10:30:07 on Jan 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:30:07 on Jan 25,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Ref_TB
+# -- Compiling architecture ref_tb of Ref_TB
+# -- Loading entity Referee
+# -- Loading package ENV
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(25): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# End time: 10:30:07 on Jan 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vsim -gui work.ref_tb
+# vsim -gui work.ref_tb 
+# Start time: 10:30:22 on Jan 25,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.ref_tb(ref_tb)
+# Loading work.referee(ref_arch)
+add wave -position end  sim:/ref_tb/clk
+add wave -position end  sim:/ref_tb/rst
+add wave -position end  sim:/ref_tb/outpt
+add wave -position end  sim:/ref_tb/cntvec
+run -all
+# Break in Process line__21 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 25
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:33:37 on Jan 25,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Referee
+# -- Compiling architecture Ref_Arch of Referee
+# End time: 10:33:37 on Jan 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:33:37 on Jan 25,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Ref_TB
+# -- Compiling architecture ref_tb of Ref_TB
+# -- Loading entity Referee
+# -- Loading package ENV
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(25): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# End time: 10:33:37 on Jan 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+restart
+# Loading work.ref_tb(ref_tb)
+# Loading work.referee(ref_arch)
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Break in Process line__21 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 25
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:38:40 on Jan 25,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Referee
+# -- Compiling architecture Ref_Arch of Referee
+# End time: 10:38:40 on Jan 25,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# Loading work.referee(ref_arch)
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Break in Process line__21 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 25
