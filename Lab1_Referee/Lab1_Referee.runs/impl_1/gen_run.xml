@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1706199342">
-  <File Type="OPT-HWDEF" Name="Referee.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="Referee_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="Referee.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1706201687">
   <File Type="ROUTE-PWR" Name="Referee_power_routed.rpt"/>
   <File Type="PA-TCL" Name="Referee.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="Referee_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="Referee_reports.tcl"/>
+  <File Type="OPT-RQA-PB" Name="Referee_rqa_opted.pb"/>
+  <File Type="BITSTR-MMI" Name="Referee.mmi"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="Referee_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="Referee_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="Referee_power_summary_routed.pb"/>
-  <File Type="OPT-RQA-PB" Name="Referee_rqa_opted.pb"/>
-  <File Type="REPORTS-TCL" Name="Referee_reports.tcl"/>
   <File Type="OPT-TIMING" Name="Referee_timing_summary_opted.rpt"/>
   <File Type="OPT-DCP" Name="Referee_opt.dcp"/>
   <File Type="OPT-DRC" Name="Referee_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="Referee.hwdef"/>
   <File Type="PWROPT-DCP" Name="Referee_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="Referee_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="Referee_timing_summary_pwropted.rpt"/>
@@ -52,6 +51,7 @@
   <File Type="ROUTE-TIMING-RPX" Name="Referee_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="Referee_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="Referee_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="Referee_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="Referee_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="Referee_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="Referee_postroute_physopt.dcp"/>
@@ -65,7 +65,6 @@
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Referee_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-NKY" Name="Referee.nky"/>
   <File Type="BITSTR-BMM" Name="Referee_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="Referee.mmi"/>
   <File Type="PDI-FILE" Name="Referee.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="Referee_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="Referee_pld.pdi"/>
@@ -127,9 +126,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
