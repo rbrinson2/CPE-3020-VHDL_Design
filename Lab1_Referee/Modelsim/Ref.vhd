@@ -13,7 +13,8 @@ architecture Ref_Arch of Referee is
 begin
 
 vote <= (href and (not ref3) and ref4) 
-        or (href and (not ref2) and ref3) 
+        or (href and (not ref2) and ref4)
+        or (href and ref3 and (not ref4)) 
         or ((not href) and ref2 and ref3 and ref4);
 
 end Ref_Arch;
