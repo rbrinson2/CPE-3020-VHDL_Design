@@ -16,7 +16,9 @@ begin
     rst <= '1', '0' after 20 ns;
     
     dut : entity work.Referee(Ref_Arch)
-        port map(href=>cntvec(0), ref2 => cntvec(1), ref3 => cntvec(2), ref4 => cntvec(3), vote => outpt);
+        port map(href=>cntvec(0), ref2 => cntvec(1), 
+            ref3 => cntvec(2), ref4 => cntvec(3), 
+            vote => outpt);
     
     process (clk) begin
         cnt <= cnt + 1;
