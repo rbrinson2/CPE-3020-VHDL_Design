@@ -23,9 +23,9 @@ begin
 
 ----- Statements -----
 --Logic to decide the outcome
-vote <= (href and ref2 and not ref3)
-        or (href and not ref2 and ref4)
-        or (href and ref3 and not ref4)
-        or (not href and ref2 and ref3 and ref4);
+vote <= (href and ref2)
+        or (href and ref3)
+        or (ref2 and ref3 and ref4)
+        or (href and not ref2 and ref4);
 
 end Ref_Arch;

@@ -18,32 +18,36 @@ architecture ref_tb of Ref_TB is
     signal cntVec : std_logic_vector (3 downto 0);
 
     -- Variables
-    signal cnt : unsigned (3 downto 0) := "0000";
+    signal cnt : integer := 0;
 begin
 
 ----- Statements -----
-    --Clock Generator
+    -- Clock Generator
     clk <= not clk after 10 ns;
 
-    --Start the simulation with a reset signal
+    -- Start the simulation with a reset signal
     rst <= '1', '0' after 20 ns;
     
-    --Instatiation of the Referee module
+    -- Instatiation of the Referee module
     dut : entity work.Referee(Ref_Arch)
-        port map(href=>cntVec(0), ref2 => cntVec(1), 
-            ref3 => cntVec(2), ref4 => cntVec(3), 
-            vote => output);
+        port map(
+            href => cntVec(0), 
+            ref2 => cntVec(1), 
+            ref3 => cntVec(2), 
+            ref4 => cntVec(3), 
+            vote => output
+        );
     
-    --Testbench process
+    -- Testbench process
     process (clk) begin
-        --Increment the count
+        -- Increment the count
         cnt <= cnt + 1;
 
-        --Convert count to count vector
-        cntVec <= std_logic_vector (cnt);
+        -- Convert count to count vector
+        cntVec <= std_logic_vector(to_unsigned(cnt, 4));
 
-        --Stop condition when count is complete
-        if (cnt = "1111") then
+        -- Stop condition when count is complete
+        if (cnt = 17) then
           std.env.stop;
         end if;
     end process;
