@@ -1,290 +1,38 @@
 # Reading pref.tcl
 # vsim -gui . 
-# Start time: 14:39:01 on Jan 31,2024
+# Start time: 15:08:10 on Jan 31,2024
 # ** Error (suppressible): (vsim-19) Failed to access library '' at "".
 # Invalid argument. (errno = EINVAL)
 # Error loading design
-# End time: 14:39:01 on Jan 31,2024, Elapsed time: 0:00:00
+# End time: 15:08:10 on Jan 31,2024, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:39:05 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# -- Loading entity Referee
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(53): Length field for bit string literal is not defined until VHDL 2008.
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(57): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(60): VHDL Compiler exiting
-# End time: 14:39:05 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 1
 vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:40:49 on Jan 31,2024
+# Start time: 15:08:15 on Jan 31,2024
 # vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Referee
 # -- Compiling architecture Ref_Arch of Referee
-# End time: 14:40:49 on Jan 31,2024, Elapsed time: 0:00:00
+# End time: 15:08:15 on Jan 31,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:40:49 on Jan 31,2024
+# Start time: 15:08:15 on Jan 31,2024
 # vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
 # -- Compiling entity Ref_TB
 # -- Compiling architecture ref_tb of Ref_TB
 # -- Loading entity Referee
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(53): (vcom-1581) No feasible entries for infix operator '+'.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(53): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(48): (vcom-1581) No feasible entries for infix operator '+'.
+# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(48): Type error resolving infix expression "+" as type ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(57): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(60): VHDL Compiler exiting
-# End time: 14:40:49 on Jan 31,2024, Elapsed time: 0:00:00
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(52): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(55): VHDL Compiler exiting
+# End time: 15:08:15 on Jan 31,2024, Elapsed time: 0:00:00
 # Errors: 2, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:53:51 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(16): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-# -- Loading entity Referee
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(60): Length field for bit string literal is not defined until VHDL 2008.
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:53:51 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 4, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:54:46 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(16): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(20): Cannot drive signal "sum" from function "+".
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(21): Cannot drive signal "carry" from function "+".
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(16): Signal declaration 'sum' not allowed in this region.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Signal declaration 'carry' not allowed in this region.
-# -- Loading entity Referee
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(60): Length field for bit string literal is not defined until VHDL 2008.
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:54:46 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 8, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:55:52 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(16): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-# -- Loading entity Referee
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(60): Length field for bit string literal is not defined until VHDL 2008.
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:55:52 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 4, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:56:21 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Length field for bit string literal is not defined until VHDL 2008.
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:56:21 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:56:35 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): String literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:56:35 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:57:00 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(17): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC.
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(67): VHDL Compiler exiting
-# End time: 14:57:00 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 1
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:57:12 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(64): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 14:57:12 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.ref_tb
-# vsim -gui work.ref_tb 
-# Start time: 14:57:21 on Jan 31,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.ref_tb(ref_tb)
-# Loading work.referee(ref_arch)
-add wave -position end  sim:/ref_tb/clk
-add wave -position end  sim:/ref_tb/rst
-add wave -position end  sim:/ref_tb/output
-add wave -position end  sim:/ref_tb/cntVec
-run -all
-# Break in Process line__55 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 64
-quit -sim
-# End time: 14:59:29 on Jan 31,2024, Elapsed time: 0:02:08
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:59:33 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(51): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 14:59:33 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.ref_tb
-# vsim -gui work.ref_tb 
-# Start time: 14:59:40 on Jan 31,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.ref_tb(ref_tb)
-# Loading work.referee(ref_arch)
-add wave -position end  sim:/ref_tb/clk
-add wave -position end  sim:/ref_tb/rst
-add wave -position end  sim:/ref_tb/rst
-add wave -position end  sim:/ref_tb/cntVec
-run -all
-# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
-#    Time: 160 ns  Iteration: 0  Instance: /ref_tb
-# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
-#    Time: 170 ns  Iteration: 0  Instance: /ref_tb
-# Break in Process line__42 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 51
-quit -sim
-# End time: 15:00:49 on Jan 31,2024, Elapsed time: 0:01:09
-# Errors: 0, Warnings: 2
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:00:52 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Referee
-# -- Compiling architecture Ref_Arch of Referee
-# End time: 15:00:52 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:00:52 on Jan 31,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Ref_TB
-# -- Compiling architecture ref_tb of Ref_TB
-# -- Loading entity Referee
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(51): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 15:00:52 on Jan 31,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.ref_tb
-# vsim -gui work.ref_tb 
-# Start time: 15:00:58 on Jan 31,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.ref_tb(ref_tb)
-# Loading work.referee(ref_arch)
-add wave -position end  sim:/ref_tb/clk
-add wave -position end  sim:/ref_tb/rst
-add wave -position end  sim:/ref_tb/output
-add wave -position end  sim:/ref_tb/cntVec
-run -all
-# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
-#    Time: 160 ns  Iteration: 0  Instance: /ref_tb
-# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
-#    Time: 170 ns  Iteration: 0  Instance: /ref_tb
-# Break in Process line__42 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 51
-# End time: 15:01:15 on Jan 31,2024, Elapsed time: 0:00:17
-# Errors: 0, Warnings: 2
