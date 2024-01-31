@@ -10,31 +10,31 @@ z2
 cModel Technology
 Z0 dC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim
 Eref_tb
-Z1 w1706728145
+Z1 w1706728862
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 20
+!i122 21
 R0
 Z5 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
 Z6 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
 l0
-L7 1
-VGHDhU6E762A1Q0`>GYO;V0
-!s100 XBMc`^8<48Fl?`3l[IhF:2
+L10 1
+V<`J2`m?6bQGC]ne<_0`mX0
+!s100 nNkZ1^@:b^2=@E<O_ZXYB2
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1706728164
+!s110 1706728879
 !i10b 1
-Z9 !s108 1706728164.000000
-Z10 !s90 -reportprogress|300|-work|work|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd|
-Z11 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd|
+!s108 1706728879.000000
+Z8 !s90 -reportprogress|300|-work|work|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd|
+Z9 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd|
 !i113 1
-Z12 o-work work
-Z13 tExplicit 1 CvgOpt 0
+Z10 o-work work
+Z11 tExplicit 1 CvgOpt 0
 Aref_tb
 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
-Z14 DEx4 work 7 referee 0 22 F>MEgXkndc:MinbiJNKAV0
+Z12 DEx4 work 7 referee 0 22 F>MEgXkndc:MinbiJNKAV0
 R2
 R3
 R4
@@ -49,37 +49,37 @@ R7
 !s110 1706644586
 !i10b 1
 !s108 1706644586.000000
+R8
+R9
+!i113 1
 R10
 R11
-!i113 1
-R12
-R13
 Ereferee
-Z15 w1706644577
+Z13 w1706644577
 R3
 R4
 !i122 19
 R0
-Z16 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
-Z17 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+Z14 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+Z15 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
 l0
 L6 1
 VF>MEgXkndc:MinbiJNKAV0
 !s100 BFGInZFOPDd[e<3fYVzXg3
 R7
 32
-R8
+Z16 !s110 1706728164
 !i10b 1
-R9
+Z17 !s108 1706728164.000000
 Z18 !s90 -reportprogress|300|-work|work|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd|
 Z19 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd|
 !i113 1
-R12
-R13
+R10
+R11
 Aref_arch
 R3
 R4
-R14
+R12
 !i122 19
 l22
 L20 12
@@ -87,11 +87,11 @@ VbL5IV1bik>ShPD;mKW_VE3
 !s100 EAiQD6dN`RNeAk6iY58ch1
 R7
 32
-R8
+R16
 !i10b 1
-R9
+R17
 R18
 R19
 !i113 1
-R12
-R13
+R10
+R11

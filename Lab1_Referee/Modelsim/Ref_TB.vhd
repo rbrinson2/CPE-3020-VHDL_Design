@@ -3,13 +3,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
 
+
+
+
 ------- Entity -------
 entity Ref_TB is
 end;
 
 ------- Architecture -------
 architecture ref_tb of Ref_TB is
-
 ----- Declarations --- --
     -- Wires
     signal clk : std_logic := '0';
