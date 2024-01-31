@@ -26,3 +26,51 @@ vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHD
 # ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(57): VHDL Compiler exiting
 # End time: 14:21:19 on Jan 31,2024, Elapsed time: 0:00:00
 # Errors: 2, Warnings: 1
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:24:11 on Jan 31,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Ref_TB
+# -- Compiling architecture ref_tb of Ref_TB
+# -- Loading entity Referee
+# -- Loading package ENV
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd(54): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# End time: 14:24:11 on Jan 31,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:24:14 on Jan 31,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Referee
+# -- Compiling architecture Ref_Arch of Referee
+# End time: 14:24:14 on Jan 31,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui work.ref_tb
+# vsim -gui work.ref_tb 
+# Start time: 14:24:23 on Jan 31,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.ref_tb(ref_tb)
+# Loading work.referee(ref_arch)
+add wave -position end  sim:/ref_tb/clk
+add wave -position end  sim:/ref_tb/rst
+add wave -position end  sim:/ref_tb/output
+add wave -position end  sim:/ref_tb/cntVec
+run -all
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 160 ns  Iteration: 0  Instance: /ref_tb
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 170 ns  Iteration: 0  Instance: /ref_tb
+# Break in Process line__45 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab1_Referee/Modelsim/Ref_TB.vhd line 54
+# End time: 14:24:56 on Jan 31,2024, Elapsed time: 0:00:33
+# Errors: 0, Warnings: 2

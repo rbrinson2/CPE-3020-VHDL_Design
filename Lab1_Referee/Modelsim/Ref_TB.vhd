@@ -12,6 +12,7 @@ end;
 
 ------- Architecture -------
 architecture ref_tb of Ref_TB is
+    subtype short is integer range 0 to 32;
 ----- Declarations --- --
     -- Wires
     signal clk : std_logic := '0';
@@ -20,7 +21,7 @@ architecture ref_tb of Ref_TB is
     signal cntVec : std_logic_vector (3 downto 0);
 
     -- Variables
-    signal cnt : integer := 0;
+    signal cnt : short := 0;
 begin
 
 ----- Statements -----
