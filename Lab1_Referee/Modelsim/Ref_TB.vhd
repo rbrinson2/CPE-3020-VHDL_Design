@@ -3,9 +3,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
 
-
-
-
 ------- Entity -------
 entity Ref_TB is
 end;
@@ -21,7 +18,7 @@ architecture ref_tb of Ref_TB is
     signal cntVec : std_logic_vector (3 downto 0);
 
     -- Variables
-    signal cnt : short := 0;
+    signal cnt: short := 0;
 begin
 
 ----- Statements -----
