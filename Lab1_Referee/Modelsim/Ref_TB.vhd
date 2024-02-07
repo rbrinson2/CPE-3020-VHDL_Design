@@ -10,7 +10,7 @@ end;
 ------- Architecture -------
 architecture ref_tb of Ref_TB is
     subtype short is integer range 0 to 32;
------ Declarations --- --
+    ----- Declarations -----
     -- Wires
     signal clk : std_logic := '0';
     signal rst : std_logic;
@@ -21,7 +21,7 @@ architecture ref_tb of Ref_TB is
     signal cnt: short := 0;
 begin
 
------ Statements -----
+    ----- Statements -----
     -- Clock Generator
     clk <= not clk after 10 ns;
 

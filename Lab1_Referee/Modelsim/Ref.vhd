@@ -18,14 +18,15 @@ end Referee;
 ------- Architectures -------
 
 architecture Ref_Arch of Referee is
------ Declarations -----
+    ----- Declarations -----
+    
 begin
+    ----- Statements -----
 
------ Statements -----
---Logic to decide the outcome
-vote <= (href and ref2)
-        or (href and ref3)
-        or (ref2 and ref3 and ref4)
-        or (href and not ref2 and ref4);
+    --Logic to decide the outcome
+    vote <= (href and ref2)
+            or (href and ref3)
+            or (ref2 and ref3 and ref4)
+            or (href and not ref2 and ref4);
 
 end Ref_Arch;
