@@ -13,11 +13,11 @@ entity JoyToLed is
 end entity;
 
 architecture JoyToLED_ARCH of JoyToLed is
-    signal leftLed  : std_logic_vector(7 downto 0);
-    --signal rightLed : std_logic_vector(7 downto 0);
+    --signal leftLed  : std_logic_vector(7 downto 0);
+    signal rightLed : std_logic_vector(7 downto 0);
 begin
 
-    outputLed(15 downto 8) <= leftLed;
+    outputLed(15 downto 8) <= rightLed;
     
     LED_DRIVER: process (switches) is
         variable count: integer range 0 to 7 := 0;
@@ -32,7 +32,12 @@ begin
             count := count + 4;
         end if;
     
-        leftLed <= std_logic_vector(to_unsigned(count, 8));
+        for i in 0 to count loop
+            rightLed(i) <= '1'; 
+        end loop;
+        for j in 0 to (rightLed'length - count) loop
+            rightLed(j) <= '0';
+        end loop;
     
     end process LED_DRIVER;
 
