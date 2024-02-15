@@ -25,3 +25,66 @@
 # Compile of JoyToLed.vhd failed with 2 errors.
 # Compile of JoyToLed_TB.vhd failed with 1 errors.
 # 2 compiles, 2 failed with 3 errors.
+# Compile of JoyToLed.vhd failed with 2 errors.
+# Compile of JoyToLed_TB.vhd was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of JoyToLed.vhd failed with 2 errors.
+# Compile of JoyToLed_TB.vhd was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of JoyToLed.vhd failed with 1 errors.
+# Compile of JoyToLed_TB.vhd was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of JoyToLed.vhd was successful.
+# Compile of JoyToLed_TB.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.joytoled_tb
+# vsim -gui work.joytoled_tb 
+# Start time: 09:25:07 on Feb 15,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.joytoled_tb(joytoled_tb_arch)
+# Loading work.joytoled(joytoled_arch)
+# ** Warning: (vsim-8684) No drivers exist on out port /joytoled_tb/DUT/outputLed(7 downto 0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /joytoled_tb/outputLed(7 downto 0).
+add wave -position end  sim:/joytoled_tb/clock
+add wave -position end  sim:/joytoled_tb/switches
+add wave -position end  sim:/joytoled_tb/outputLed
+run
+run
+run
+run
+run
+run
+run
+# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
+#    Time: 70 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 32
+# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 32
+# 
+# HDL call sequence:
+# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 Process LED_DRIVER
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 Process LED_DRIVER
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 Process LED_DRIVER
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 Process LED_DRIVER
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 Process LED_DRIVER
+# 
+# End time: 09:26:05 on Feb 15,2024, Elapsed time: 0:00:58
+# Errors: 1, Warnings: 15

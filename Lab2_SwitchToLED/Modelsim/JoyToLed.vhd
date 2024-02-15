@@ -17,23 +17,23 @@ architecture JoyToLED_ARCH of JoyToLed is
     --signal rightLed : std_logic_vector(7 downto 0);
 begin
 
-outputLed <= (leftLed, others => '0');
-
-LED_DRIVER: process (switches) is
-    variable count: integer range 0 to 7 := 0;
-begin
-    if (switches(0) = '1') then
-        count := count + 1;
-    end if; 
-    if (switches(1) = '1') then
-        count := count + 2;
-    end if;
-    if (switches(2) = '1') then
-        count := count + 4;
-    end if;
-
-    leftLed <= (std_logic_vector(to_unsigned(count, 8)) , others => '0');
-
-end process LED_DRIVER;
+    outputLed(15 downto 8) <= leftLed;
+    
+    LED_DRIVER: process (switches) is
+        variable count: integer range 0 to 7 := 0;
+    begin
+        if (switches(0) = '1') then
+            count := count + 1;
+        end if; 
+        if (switches(1) = '1') then
+            count := count + 2;
+        end if;
+        if (switches(2) = '1') then
+            count := count + 4;
+        end if;
+    
+        leftLed <= std_logic_vector(to_unsigned(count, 8));
+    
+    end process LED_DRIVER;
 
 end architecture;

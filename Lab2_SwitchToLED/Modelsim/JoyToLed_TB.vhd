@@ -20,11 +20,14 @@ begin
   );
 
   process (clock) is
-    variable switchCount: unsigned(2 downto 0) := 0;
+    variable switchCount: unsigned(3 downto 0) := "0000";
   begin
     if rising_edge(clock) then
       switchCount := switchCount + 1;
-      switches <= std_logic_vector(switchCount);
+      switches <= std_logic_vector(switchCount(2 downto 0));
+      if (switchCount(3) = '1') then
+        std.env.stop;
+      end if;
     end if;
   end process;
 
