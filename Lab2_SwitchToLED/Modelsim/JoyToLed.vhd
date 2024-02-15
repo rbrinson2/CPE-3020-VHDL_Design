@@ -4,30 +4,36 @@ library ieee;
 
 entity JoyToLed is
   port (
-    leftJoy     : std_logic;
-    rightJoy    : std_logic;
-    switches    : std_logic_vector(2 downto 0);
-    outputLed   : std_logic_vector(15 downto 0);
-    sevenSegs   : std_logic_vector(6 downto 0)
+    --leftJoy     : std_logic;
+    --rightJoy    : std_logic;
+    signal switches    : std_logic_vector(2 downto 0);
+    signal outputLed   : std_logic_vector(15 downto 0)
+    --sevenSegs   : std_logic_vector(6 downto 0)
   );
 end entity;
 
 architecture JoyToLED_ARCH of JoyToLed is
     signal leftLed  : std_logic_vector(7 downto 0);
-    signal rightLed : std_logic_vector(7 downto 0);
+    --signal rightLed : std_logic_vector(7 downto 0);
 begin
 
+outputLed <= (leftLed, others => '0');
 
 LED_DRIVER: process (switches) is
+    variable count: integer range 0 to 7 := 0;
 begin
+    if (switches(0) = '1') then
+        count := count + 1;
+    end if; 
+    if (switches(1) = '1') then
+        count := count + 2;
+    end if;
+    if (switches(2) = '1') then
+        count := count + 4;
+    end if;
+
+    leftLed <= (std_logic_vector(to_unsigned(count, 8)) , others => '0');
+
 end process LED_DRIVER;
-
-MIRROR: process (leftLed) is
-begin
-end process MIRROR;
-
-SEGMENT_DRIVER: process (switches) is
-begin
-end process SEGMENT_DRIVER;
 
 end architecture;

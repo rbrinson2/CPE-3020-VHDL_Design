@@ -1,0 +1,24 @@
+# Reading pref.tcl
+# vsim -gui . 
+# Start time: 08:45:27 on Feb 15,2024
+# ** Error (suppressible): (vsim-19) Failed to access library '' at "".
+# Invalid argument. (errno = EINVAL)
+# Error loading design
+# End time: 08:45:27 on Feb 15,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Loading project JoyToLed
+# Compile of JoyToLed.vhd failed with 1 errors.
+# Compile of JoyToLed_TB.vhd failed with 4 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of JoyToLed.vhd failed with 1 errors.
+# Compile of JoyToLed_TB.vhd failed with 4 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of JoyToLed.vhd failed with 1 errors.
+# Compile of JoyToLed_TB.vhd failed with 4 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of JoyToLed.vhd failed with 1 errors.
+# Compile of JoyToLed_TB.vhd failed with 1 errors.
+# 2 compiles, 2 failed with 2 errors.
+# Compile of JoyToLed.vhd failed with 3 errors.
+# Compile of JoyToLed_TB.vhd failed with 1 errors.
+# 2 compiles, 2 failed with 4 errors.
