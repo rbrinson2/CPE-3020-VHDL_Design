@@ -9,6 +9,8 @@ architecture JoyToLed_TB_ARCH of JoyToLed_TB is
   signal clock      : std_logic := '0';
   signal switches   : std_logic_vector(2 downto 0);
   signal outputLed  : std_logic_vector(15 downto 0);
+  signal leftJoy    : std_logic := '0';
+  signal rightJoy   : std_logic := '1';
 begin
 
   clock <= not clock after 10 ns;
@@ -16,7 +18,9 @@ begin
   DUT: entity work.JoyToLed
   port map (
     switches  => switches,
-    outputLed => outputLed
+    outputLed => outputLed,
+    leftJoy => leftJoy,
+    rightJoy => rightJoy
   );
 
   process (clock) is
@@ -29,6 +33,8 @@ begin
       end if;
     end if;
     switches <= std_logic_vector(switchCount(2 downto 0));
+    leftJoy <= not leftJoy;
+    rightJoy <= not rightJoy;
   end process;
 
 
