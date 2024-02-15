@@ -22,3 +22,6 @@
 # Compile of JoyToLed.vhd failed with 3 errors.
 # Compile of JoyToLed_TB.vhd failed with 1 errors.
 # 2 compiles, 2 failed with 4 errors.
+# Compile of JoyToLed.vhd failed with 2 errors.
+# Compile of JoyToLed_TB.vhd failed with 1 errors.
+# 2 compiles, 2 failed with 3 errors.

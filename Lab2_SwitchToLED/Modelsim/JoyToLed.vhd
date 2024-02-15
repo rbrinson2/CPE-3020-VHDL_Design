@@ -6,8 +6,8 @@ entity JoyToLed is
   port (
     --leftJoy     : std_logic;
     --rightJoy    : std_logic;
-    signal switches    : std_logic_vector(2 downto 0);
-    signal outputLed   : std_logic_vector(15 downto 0)
+    signal switches    : in std_logic_vector(2 downto 0);
+    signal outputLed   : out std_logic_vector(15 downto 0)
     --sevenSegs   : std_logic_vector(6 downto 0)
   );
 end entity;
