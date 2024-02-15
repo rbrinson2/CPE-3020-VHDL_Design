@@ -23,7 +23,7 @@ begin
     rightJoy => rightJoy
   );
 
-  process (clock) is
+  INPUT_DRIVER: process (clock) is
     variable switchCount: unsigned(3 downto 0) := "0000";
   begin
     if rising_edge(clock) then

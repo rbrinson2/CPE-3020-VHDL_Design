@@ -79,3 +79,5 @@ add wave -position end  sim:/joytoled_tb/leftJoy
 add wave -position end  sim:/joytoled_tb/rightJoy
 run -all
 # Break in Process line__26 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd line 32
+# End time: 14:33:09 on Feb 15,2024, Elapsed time: 0:22:45
+# Errors: 0, Warnings: 0
