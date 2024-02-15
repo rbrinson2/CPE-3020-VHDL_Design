@@ -1,14 +1,28 @@
 # Reading pref.tcl
 # vsim -gui . 
-# Start time: 12:02:23 on Feb 15,2024
+# Start time: 14:09:10 on Feb 15,2024
 # ** Error (suppressible): (vsim-19) Failed to access library '' at "".
 # Invalid argument. (errno = EINVAL)
 # Error loading design
-# End time: 12:02:24 on Feb 15,2024, Elapsed time: 0:00:01
+# End time: 14:09:10 on Feb 15,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim -gui work.joytoled_tb
+# vsim -gui work.joytoled_tb 
+# Start time: 14:09:19 on Feb 15,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.joytoled_tb(joytoled_tb_arch)
+# ** Error: (vsim-13) Recompile work.joytoled(joytoled_arch) because work.joytoled has changed.
+# Load interrupted
+# Error loading design
+# End time: 14:09:20 on Feb 15,2024, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0
 vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:32 on Feb 15,2024
+# Start time: 14:09:25 on Feb 15,2024
 # vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -16,52 +30,14 @@ vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHD
 # -- Loading package NUMERIC_STD
 # -- Compiling entity JoyToLed
 # -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 12:02:32 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:32 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(30): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 12:02:32 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# vsim -gui work.joytoled_tb 
-# Start time: 12:02:40 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
-#    Time: 90 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 34
-# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 34
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
+# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd(20): Signal [mode IN port] "rightJoy" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+# ** Error: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd(22): Signal [mode IN port] "leftJoy" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+# ** Note: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd(51): VHDL Compiler exiting
+# End time: 14:09:25 on Feb 15,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
 vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:06:04 on Feb 15,2024
+# Start time: 14:10:12 on Feb 15,2024
 # vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -69,11 +45,11 @@ vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHD
 # -- Loading package NUMERIC_STD
 # -- Compiling entity JoyToLed
 # -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 12:06:04 on Feb 15,2024, Elapsed time: 0:00:00
+# End time: 14:10:12 on Feb 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:06:09 on Feb 15,2024
+# Start time: 14:10:18 on Feb 15,2024
 # vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -83,14 +59,12 @@ vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHD
 # -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
 # -- Loading entity JoyToLed
 # -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 12:06:09 on Feb 15,2024, Elapsed time: 0:00:00
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(32): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# End time: 14:10:19 on Feb 15,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 1
 vsim -gui work.joytoled_tb
-# End time: 12:06:19 on Feb 15,2024, Elapsed time: 0:03:39
-# Errors: 1, Warnings: 0
 # vsim -gui work.joytoled_tb 
-# Start time: 12:06:19 on Feb 15,2024
+# Start time: 14:10:24 on Feb 15,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -101,375 +75,7 @@ vsim -gui work.joytoled_tb
 add wave -position end  sim:/joytoled_tb/clock
 add wave -position end  sim:/joytoled_tb/switches
 add wave -position end  sim:/joytoled_tb/outputLed
-# Break key hit
+add wave -position end  sim:/joytoled_tb/leftJoy
+add wave -position end  sim:/joytoled_tb/rightJoy
 run -all
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
-#    Time: 40 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 34
-# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 34
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:09:32 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 12:09:33 on Feb 15,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:09:33 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(29): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 12:09:33 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 12:09:41 on Feb 15,2024, Elapsed time: 0:03:22
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 12:09:41 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-run -all
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
-#    Time: 90 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 34
-# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 34
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
-#    Time: 90 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 34
-# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 34
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:14:05 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 12:14:05 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:14:05 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 12:14:05 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 12:14:13 on Feb 15,2024, Elapsed time: 0:04:32
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 12:14:13 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 10 is out of range 0 to 7.
-#    Time: 70 ns  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 34
-# Fatal error in Process LED_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 34
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 34 Process LED_DRIVER
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:43:56 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 13:43:56 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:43:56 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 13:43:56 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 13:44:07 on Feb 15,2024, Elapsed time: 1:29:54
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 13:44:07 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# Break in Process line__22 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd line 28
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:46:36 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 13:46:36 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:46:36 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 13:46:36 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 13:46:43 on Feb 15,2024, Elapsed time: 0:02:36
-# Errors: 0, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 13:46:43 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-run -all
-# ** Fatal: (vsim-3421) Value 11 is out of range 0 to 7.
-#    Time: 0 ps  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 32
-# Fatal error in ForLoop loop at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 ForLoop loop
-# 
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 11 is out of range 0 to 7.
-#    Time: 0 ps  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 32
-# Fatal error in ForLoop loop at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 ForLoop loop
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:48:03 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 13:48:03 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:48:03 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 13:48:03 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 13:48:10 on Feb 15,2024, Elapsed time: 0:01:27
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 13:48:10 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 11 is out of range 0 to 7.
-#    Time: 0 ps  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 32
-# Fatal error in ForLoop loop at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 32 ForLoop loop
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:49:00 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 13:49:00 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:49:00 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 13:49:00 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 13:49:07 on Feb 15,2024, Elapsed time: 0:00:57
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 13:49:07 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
-#    Time: 0 ps  Iteration: 1  Process: /joytoled_tb/DUT/LED_DRIVER File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd Line: 30
-# Fatal error in ForLoop loop at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd line 30
-# 
-# HDL call sequence:
-# Stopped at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 30 ForLoop loop
-# 
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:53:36 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed
-# -- Compiling architecture JoyToLED_ARCH of JoyToLed
-# End time: 13:53:36 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:53:36 on Feb 15,2024
-# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity JoyToLed_TB
-# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
-# -- Loading entity JoyToLed
-# -- Loading package ENV
-# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(28): (vcom-1516) Package "STD.ENV" does not exist in this language version.
-# End time: 13:53:36 on Feb 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vsim -gui work.joytoled_tb
-# End time: 13:53:45 on Feb 15,2024, Elapsed time: 0:04:38
-# Errors: 1, Warnings: 0
-# vsim -gui work.joytoled_tb 
-# Start time: 13:53:45 on Feb 15,2024
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.joytoled_tb(joytoled_tb_arch)
-# Loading work.joytoled(joytoled_arch)
-add wave -position end  sim:/joytoled_tb/clock
-add wave -position end  sim:/joytoled_tb/switches
-add wave -position end  sim:/joytoled_tb/outputLed
-run -all
-# Break in Process line__22 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd line 28
+# Break in Process line__26 at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd line 32
