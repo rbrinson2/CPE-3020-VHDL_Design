@@ -3,13 +3,13 @@ library ieee;
   use ieee.numeric_std.all;
 
 entity JoyToLed is
-  port (
-    --leftJoy     : std_logic;
-    --rightJoy    : std_logic;
-    signal switches    : in std_logic_vector(2 downto 0);
-    signal outputLed   : out std_logic_vector(15 downto 0)
-    --sevenSegs   : std_logic_vector(6 downto 0)
-  );
+    port (
+        --leftJoy     : std_logic;
+        --rightJoy    : std_logic;
+        signal switches    : in std_logic_vector(2 downto 0);
+        signal outputLed   : out std_logic_vector(15 downto 0)
+        --sevenSegs   : std_logic_vector(6 downto 0)
+    );
 end entity;
 
 architecture JoyToLED_ARCH of JoyToLed is
@@ -17,28 +17,27 @@ architecture JoyToLED_ARCH of JoyToLed is
     signal rightLed : std_logic_vector(7 downto 0);
 begin
 
-    outputLed(15 downto 8) <= rightLed;
-    
+    outputLed(7 downto 0) <= rightLed;
+    outputLed(15 downto 8) <= (others => '0');
+
+
     LED_DRIVER: process (switches) is
         variable count: integer range 0 to 7 := 0;
     begin
-        if (switches(0) = '1') then
-            count := count + 1;
-        end if; 
-        if (switches(1) = '1') then
-            count := count + 2;
-        end if;
-        if (switches(2) = '1') then
-            count := count + 4;
-        end if;
-    
-        for i in 0 to count loop
-            rightLed(i) <= '1'; 
+        count := 0;
+        for i in switches'range loop
+            if (switches(i) = '1') then
+                count := count + (2 ** i);
+            end if;
         end loop;
-        for j in 0 to (rightLed'length - count) loop
-            rightLed(j) <= '0';
+        
+        for i in rightLed'range loop
+            if (i < count) then
+                rightLed(i) <= '1';
+            else
+                rightLed(i) <= '0';
+            end if;
         end loop;
-    
     end process LED_DRIVER;
 
 end architecture;

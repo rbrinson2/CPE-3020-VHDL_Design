@@ -24,11 +24,11 @@ begin
   begin
     if rising_edge(clock) then
       switchCount := switchCount + 1;
-      switches <= std_logic_vector(switchCount(2 downto 0));
       if (switchCount(3) = '1') then
         std.env.stop;
       end if;
     end if;
+    switches <= std_logic_vector(switchCount(2 downto 0));
   end process;
 
 
