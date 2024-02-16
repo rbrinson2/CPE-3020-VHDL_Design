@@ -1,21 +1,36 @@
 ### (!) Only settings that differ from the default are shown.
 ### (!) Find a complete list of settings at the end of this file
 ###
-###   MasterConfig (<none>)
-###   |--- Root[C:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab2_SwitchToLED\Modelsim]: <none>
+###   MasterConfig (C:\Users\rbrin\config.v4p)
+###   |--- Root[C:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab2_SwitchToLED\Modelsim]: ..\..\..\..\..\config.v4p
+
+###################################
+##### MasterConfig            #####
+###################################
+### 'C:\Users\rbrin\config.v4p' ###
+[libraries]
+  math/*.vhd = "math_lib"
+[excludes]
+  **/obj = True
+[settings]
+  V4p.Settings.Formatting.Indentation.TabWidth = 4
 
 ####################################################################################################
 ### RootFolder: 'C:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab2_SwitchToLED\Modelsim' ###
-### ConfigFile: ''                                                                               ###
+### ConfigFile: 'C:\Users\rbrin\config.v4p'                                                      ###
+[libraries]
+  math/*.vhd = "math_lib"
+[excludes]
+  **/obj = True
 [settings]
-  
+  V4p.Settings.Formatting.Indentation.TabWidth = 4
 
 
 ### This is a list of all available settings with their respective default values.
 ### Please visit http://www.vide-software.at/cheatsheet_v4p.php for more information.
 ###
 ###    V4p.Settings.Formatting.Indentation.UseTabs = False
-###    V4p.Settings.Formatting.Indentation.TabWidth = 4
+###    V4p.Settings.Formatting.Indentation.TabWidth = 2
 ###    V4p.Settings.Formatting.Indentation.ReportSeverity = True
 ###    V4p.Settings.Formatting.Indentation.WhenChoices = True
 ###    V4p.Settings.Formatting.Indentation.Declarations = True
@@ -31,7 +46,7 @@
 ###    V4p.Settings.Formatting.AlignSequentialAssignments = False
 ###    V4p.Settings.Basics.LicenseFile = ""
 ###    V4p.Settings.Basics.LogSeverity = Note
-###    V4p.Settings.Basics.TopLevelEntities = "JoyToLed"
+V4p.Settings.Basics.TopLevelEntities = "JoyToLed_TB"
 ###    V4p.Settings.HoverInfo.ShowLibraries = False
 ###    V4p.Settings.HoverInfo.ShowLocation = False
 ###    V4p.Settings.HoverInfo.ResolveStdTypes = False
