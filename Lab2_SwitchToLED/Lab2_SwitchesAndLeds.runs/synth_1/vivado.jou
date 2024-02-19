@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Feb 19 15:09:05 2024
+# Process ID: 8716
+# Current directory: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Lab2_SwitchesAndLeds.runs/synth_1
+# Command line: vivado.exe -log JoyToLed_Wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source JoyToLed_Wrapper.tcl
+# Log file: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Lab2_SwitchesAndLeds.runs/synth_1/JoyToLed_Wrapper.vds
+# Journal file: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Lab2_SwitchesAndLeds.runs/synth_1\vivado.jou
+# Running On: rbrinson, OS: Windows, CPU Frequency: 3992 MHz, CPU Physical cores: 16, Host memory: 33522 MB
+#-----------------------------------------------------------
+source JoyToLed_Wrapper.tcl -notrace
