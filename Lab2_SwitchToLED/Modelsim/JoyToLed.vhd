@@ -3,6 +3,7 @@ library ieee;
     use ieee.numeric_std.all;
 ------------------------------------------------ Entity
 entity JoyToLed is
+    --------------------- Ports
     port (
         ----- Input Ports 
         leftJoy             : in std_logic;
@@ -48,9 +49,9 @@ begin
         outputLed(7 downto 0)  <=
             rightLed when PRESS,
             (others => '0') when others;
-    
-    ----- Processes
 
+    ----- Processes -----
+    
     -- Mirror to reflect right to left
     MIRROR: process (rightLed) is
     begin
