@@ -82,6 +82,7 @@ begin
         end loop;
     end process LED_DRIVER;
 
+    -- Seven Segment Driver
     with switches select
         sevenSegs <= 
             ZERO    when "000",
