@@ -17,7 +17,7 @@ end entity;
 
 architecture JoyToLED_ARCH of JoyToLed is
     ----- Constants -----
-    constant ON: std_logic := '1';
+    --constant ON : std_logic := '1';
     constant OFF: std_logic := '0';
     ----- Internal Signals -----
     signal leftLed  : std_logic_vector(7 downto 0);
@@ -25,9 +25,9 @@ architecture JoyToLED_ARCH of JoyToLed is
 begin
 
     -- Final Led output
-    outputLed(15 downto 8) <= leftLed when (leftJoy = ON) else
+    outputLed(15 downto 8) <= leftLed when (leftJoy = '1') else
                                 (others => '0');
-    outputLed(7 downto 0)  <= rightLed when (rightJoy = ON) else
+    outputLed(7 downto 0)  <= rightLed when (rightJoy = '1') else
                                 (others => '0');
     
     ----- Processes -----
@@ -48,7 +48,7 @@ begin
 
         -- For loop to count active switches
         for i in switches'range loop
-            if (switches(i) = ON) then
+            if (switches(i) = '1') then
                 count := count + (2 ** i);
             end if;
         end loop;
@@ -56,7 +56,7 @@ begin
         -- For loop to convert to leds active
         for i in rightLed'range loop
             if (i < count) then
-                rightLed(i) <= ON;
+                rightLed(i) <= '1';
             else
                 rightLed(i) <= OFF;
             end if;

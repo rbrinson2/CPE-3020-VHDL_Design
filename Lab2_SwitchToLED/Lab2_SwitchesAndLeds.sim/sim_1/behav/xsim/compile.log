@@ -1,6 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'JoyToLed'
-ERROR: [VRFC 10-3760] type 'std_ulogic' does not match with the integer literal [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd:39]
-ERROR: [VRFC 10-3760] type 'std_ulogic' does not match with the integer literal [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd:41]
-ERROR: [VRFC 10-9458] unit 'joytoled_arch' is ignored due to previous errors [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd:15]
-INFO: [VRFC 10-8704] VHDL file 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd' is ignored due to errors
