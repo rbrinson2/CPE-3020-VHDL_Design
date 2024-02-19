@@ -45,10 +45,24 @@ begin
         outputLed(15 downto 8) <=
             leftLed when PRESS,
             (others => '0') when others;
+            
     with rightJoy select
         outputLed(7 downto 0)  <=
             rightLed when PRESS,
             (others => '0') when others;
+
+    -- Seven Segment Driver
+    with switches select
+        sevenSegs <= 
+            ZERO    when "000",
+            ONE     when "001",
+            TWO     when "010",
+            THREE   when "011",
+            FOUR    when "100",
+            FIVE    when "101",
+            SIX     when "110",
+            SEVEN   when "111",
+            OTHER   when others;
 
     ----- Processes -----
     
@@ -62,6 +76,7 @@ begin
 
     -- Led Driver to convert switch count to leds
     LED_DRIVER: process (switches) is
+        ------ Variables
         variable count: integer range 0 to 7 := 0;
     begin
         count := 0;
@@ -82,20 +97,6 @@ begin
             end if;
         end loop;
     end process LED_DRIVER;
-
-    -- Seven Segment Driver
-    with switches select
-        sevenSegs <= 
-            ZERO    when "000",
-            ONE     when "001",
-            TWO     when "010",
-            THREE   when "011",
-            FOUR    when "100",
-            FIVE    when "101",
-            SIX     when "110",
-            SEVEN   when "111",
-            OTHER   when others;
-
 
 
 end architecture;

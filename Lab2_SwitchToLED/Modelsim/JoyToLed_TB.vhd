@@ -42,7 +42,6 @@ begin
         variable switchCount: integer range 0 to 8 := 0;
         variable joyVar     : unsigned(1 downto 0) := "00";
         
-        
     begin
         clockCount := clockCount +1;
         if (clockCount = STOP) then 
