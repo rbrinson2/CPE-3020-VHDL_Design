@@ -316,3 +316,49 @@ vsim -gui work.joytoled_tb
 # Error loading design
 # End time: 13:00:28 on Feb 19,2024, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:02:16 on Feb 19,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity JoyToLed
+# -- Compiling architecture JoyToLED_ARCH of JoyToLed
+# End time: 14:02:16 on Feb 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:02:16 on Feb 19,2024
+# vcom -reportprogress 300 -work work C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity JoyToLed_TB
+# -- Compiling architecture JoyToLed_TB_ARCH of JoyToLed_TB
+# -- Loading entity JoyToLed
+# -- Loading package ENV
+# ** Warning: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd(37): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+# End time: 14:02:16 on Feb 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vsim -gui work.joytoled_tb
+# vsim -gui work.joytoled_tb 
+# Start time: 14:02:26 on Feb 19,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.joytoled_tb(joytoled_tb_arch)
+# Loading work.joytoled(joytoled_arch)
+add wave -position end  sim:/joytoled_tb/clock
+add wave -position end  sim:/joytoled_tb/switches
+add wave -position end  sim:/joytoled_tb/sevenSegs
+run -all
+# ** Warning: NUMERIC_STD.TO_UNSIGNED: vector truncated
+#    Time: 310 ns  Iteration: 0  Instance: /joytoled_tb
+# Break in Process INPUT_DRIVER at C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim/JoyToLed_TB.vhd line 37
+# End time: 14:03:36 on Feb 19,2024, Elapsed time: 0:01:10
+# Errors: 0, Warnings: 1

@@ -12,8 +12,8 @@ entity JoyToLed is
 
         ----- Output Ports 
 
-        signal outputLed    : out std_logic_vector(15 downto 0)
-        --signal sevenSegs  : out std_logic_vector(6 downto 0)
+        signal outputLed    : out std_logic_vector(15 downto 0);
+        signal sevenSegs    : out std_logic_vector(6 downto 0)
     );
 end entity;
 
@@ -22,7 +22,16 @@ architecture JoyToLED_ARCH of JoyToLed is
     --------------------- Declarations
 
     ----- Constants
-    constant PRESS : std_logic := '1';
+    constant PRESS  : std_logic := '1';
+    constant ZERO   : std_logic_vector (6 downto 0) := "1000000";
+    constant ONE    : std_logic_vector (6 downto 0) := "1111001";
+    constant TWO    : std_logic_vector (6 downto 0) := "0100100";
+    constant THREE  : std_logic_vector (6 downto 0) := "0110000";
+    constant FOUR   : std_logic_vector (6 downto 0) := "0011001";
+    constant FIVE   : std_logic_vector (6 downto 0) := "0010010";
+    constant SIX    : std_logic_vector (6 downto 0) := "0000010";
+    constant SEVEN  : std_logic_vector (6 downto 0) := "1111000";
+    constant OTHER  : std_logic_vector (6 downto 0) := "0111111";
 
     ----- Internal Signals
     signal leftLed  : std_logic_vector(7 downto 0);
@@ -72,5 +81,19 @@ begin
             end if;
         end loop;
     end process LED_DRIVER;
+
+    with switches select
+        sevenSegs <= 
+            ZERO    when "000",
+            ONE     when "001",
+            TWO     when "010",
+            THREE   when "011",
+            FOUR    when "100",
+            FIVE    when "101",
+            SIX     when "110",
+            SEVEN   when "111",
+            OTHER   when others;
+
+
 
 end architecture;
