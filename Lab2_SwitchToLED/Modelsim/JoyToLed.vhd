@@ -1,36 +1,46 @@
 library ieee;
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
-
+------------------------------------------------ Entity
 entity JoyToLed is
     port (
-        ----- Input Ports -----
+        ----- Input Ports 
         leftJoy             : in std_logic;
         rightJoy            : in std_logic;
         signal switches     : in std_logic_vector(2 downto 0);
-        signal outputLed    : out std_logic_vector(15 downto 0)
+        
 
-        ----- Output Ports -----
+        ----- Output Ports 
+
+        signal outputLed    : out std_logic_vector(15 downto 0)
         --signal sevenSegs  : out std_logic_vector(6 downto 0)
     );
 end entity;
 
+------------------------------------------------ Architecture
 architecture JoyToLED_ARCH of JoyToLed is
-    ----- Constants -----
-    --constant ON : std_logic := '1';
-    constant OFF: std_logic := '0';
-    ----- Internal Signals -----
+    --------------------- Declarations
+
+    ----- Constants
+    constant PRESS : std_logic := '1';
+
+    ----- Internal Signals
     signal leftLed  : std_logic_vector(7 downto 0);
     signal rightLed : std_logic_vector(7 downto 0);
 begin
 
+    --------------------- Statements
     -- Final Led output
-    outputLed(15 downto 8) <= leftLed when (leftJoy = '1') else
-                                (others => '0');
-    outputLed(7 downto 0)  <= rightLed when (rightJoy = '1') else
-                                (others => '0');
+    with leftJoy select
+        outputLed(15 downto 8) <=
+            leftLed when PRESS,
+            (others => '0') when others;
+    with rightJoy select
+        outputLed(7 downto 0)  <=
+            rightLed when PRESS,
+            (others => '0') when others;
     
-    ----- Processes -----
+    ----- Processes
 
     -- Mirror to reflect right to left
     MIRROR: process (rightLed) is
@@ -58,7 +68,7 @@ begin
             if (i < count) then
                 rightLed(i) <= '1';
             else
-                rightLed(i) <= OFF;
+                rightLed(i) <= '0';
             end if;
         end loop;
     end process LED_DRIVER;

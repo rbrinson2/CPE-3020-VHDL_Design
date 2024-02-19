@@ -2,10 +2,14 @@ library ieee;
   use ieee.std_logic_1164.all;
   use ieee.numeric_std.all;
 
+
+------------------------------------------------ Entity
 entity JoyToLed_TB is
 end entity;
 
+------------------------------------------------ Architecture
 architecture JoyToLed_TB_ARCH of JoyToLed_TB is
+  --------------------- Declarations
   signal clock      : std_logic := '0';
   signal switches   : std_logic_vector(2 downto 0);
   signal outputLed  : std_logic_vector(15 downto 0);
@@ -13,8 +17,11 @@ architecture JoyToLed_TB_ARCH of JoyToLed_TB is
   signal rightJoy   : std_logic := '1';
 begin
 
+  --------------------- Statements
+  -- Testbench Clock
   clock <= not clock after 10 ns;
 
+  -- JoyToLed Instantiation
   DUT: entity work.JoyToLed
   port map (
     switches  => switches,
@@ -23,6 +30,7 @@ begin
     rightJoy => rightJoy
   );
 
+  -- Main Input Driver
   INPUT_DRIVER: process (clock) is
     variable clockCount: integer range 0 to 35 := 0;
     variable switchCount: integer range 0 to 8 := 0;
@@ -34,7 +42,7 @@ begin
       std.env.stop;
     end if;
 
-
+    -- Cases for each instance
     case (clockCount mod 4) is
       when 0 => 
         joyVar := "00";
