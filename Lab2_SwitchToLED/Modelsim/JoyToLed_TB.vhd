@@ -24,17 +24,33 @@ begin
   );
 
   INPUT_DRIVER: process (clock) is
-    variable switchCount: unsigned(3 downto 0) := "0000";
+    variable clockCount: integer range 0 to 35 := 0;
+    variable switchCount: integer range 0 to 8 := 0;
+    variable joyVar: unsigned(1 downto 0) := "00";
+    constant STOP: integer := 33;
   begin
-    if rising_edge(clock) then
-      switchCount := switchCount + 1;
-      if (switchCount(3) = '1') then
-        std.env.stop;
-      end if;
+    clockCount := clockCount +1;
+    if (clockCount = STOP) then 
+      std.env.stop;
     end if;
-    switches <= std_logic_vector(switchCount(2 downto 0));
-    leftJoy <= not leftJoy;
-    rightJoy <= not rightJoy;
+
+
+    case (clockCount mod 4) is
+      when 0 => 
+        joyVar := "00";
+        switchCount := switchCount +1;
+      when 1 =>
+        joyVar := "01";
+      when 2 =>
+        joyVar := "10";
+      when 3 =>
+        joyVar := "11";
+      when others => 
+        joyVar := "00";
+    end case;
+
+    (leftJoy, rightJoy) <= std_logic_vector(joyVar);
+    switches <= std_logic_vector(to_unsigned(switchCount, 3));
   end process;
 
 
