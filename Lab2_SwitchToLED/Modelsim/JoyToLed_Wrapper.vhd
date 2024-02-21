@@ -1,3 +1,14 @@
+----------------------------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 02/21/2024 
+-- Design Name: JoyToLed Wrapper
+-- Lab Name: Lab 2 - Switches and LEDs
+-- Target Devices: Basys 3
+-- Description: Converts main design into Basys 3 inputs
+----------------------------------------------------------------------------------
+
 library ieee;
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
@@ -31,6 +42,6 @@ begin
         sevenSegs => seg
     );
 
-    an <= (0 => '1', others => '0');
+    an <= (0 => '0', others => '1');
     
 end architecture;

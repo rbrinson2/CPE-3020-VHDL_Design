@@ -1,3 +1,15 @@
+----------------------------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 02/21/2024 
+-- Design Name: JoyToLed
+-- Lab Name: Lab 2 - Switches and LEDs
+-- Target Devices: Basys 3
+-- Description: Design to convert the combination of switch and joystick 
+-- inputs to led and seven seg output
+----------------------------------------------------------------------------------
+
 library ieee;
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
