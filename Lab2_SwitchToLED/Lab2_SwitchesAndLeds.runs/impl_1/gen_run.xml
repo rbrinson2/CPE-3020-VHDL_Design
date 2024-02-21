@@ -4,67 +4,60 @@
   <File Type="PA-TCL" Name="JoyToLed_Wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="JoyToLed_Wrapper_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="JoyToLed_Wrapper_reports.tcl"/>
-  <File Type="OPT-RQA-PB" Name="JoyToLed_Wrapper_rqa_opted.pb"/>
+  <File Type="BITSTR-MSK" Name="JoyToLed_Wrapper.msk"/>
+  <File Type="ROUTE-CLK" Name="JoyToLed_Wrapper_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="JoyToLed_Wrapper.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="JoyToLed_Wrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="JoyToLed_Wrapper.bit"/>
+  <File Type="BG-DRC" Name="JoyToLed_Wrapper.drc"/>
+  <File Type="BG-BGN" Name="JoyToLed_Wrapper.bgn"/>
+  <File Type="BG-BIN" Name="JoyToLed_Wrapper.bin"/>
+  <File Type="BITSTR-RBT" Name="JoyToLed_Wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="JoyToLed_Wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="JoyToLed_Wrapper_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="JoyToLed_Wrapper.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="JoyToLed_Wrapper_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="JoyToLed_Wrapper_timing_summary_init.rpt"/>
-  <File Type="OPT-TIMING" Name="JoyToLed_Wrapper_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="JoyToLed_Wrapper_opt.dcp"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="JoyToLed_Wrapper_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="JoyToLed_Wrapper.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="JoyToLed_Wrapper.ltx"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="OPT-DRC" Name="JoyToLed_Wrapper_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="JoyToLed_Wrapper.hwdef"/>
-  <File Type="PWROPT-DCP" Name="JoyToLed_Wrapper_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="JoyToLed_Wrapper_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="JoyToLed_Wrapper_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="JoyToLed_Wrapper_placed.dcp"/>
   <File Type="PLACE-IO" Name="JoyToLed_Wrapper_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="JoyToLed_Wrapper_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="JoyToLed_Wrapper_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="JoyToLed_Wrapper_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="JoyToLed_Wrapper_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="JoyToLed_Wrapper_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="JoyToLed_Wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="JoyToLed_Wrapper.bin"/>
-  <File Type="PLACE-TIMING" Name="JoyToLed_Wrapper_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="JoyToLed_Wrapper_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="JoyToLed_Wrapper_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="JoyToLed_Wrapper_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="JoyToLed_Wrapper.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="JoyToLed_Wrapper_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="JoyToLed_Wrapper_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="JoyToLed_Wrapper_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="JoyToLed_Wrapper.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="JoyToLed_Wrapper_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="JoyToLed_Wrapper_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="JoyToLed_Wrapper_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="JoyToLed_Wrapper_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="JoyToLed_Wrapper_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="JoyToLed_Wrapper_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="JoyToLed_Wrapper_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="JoyToLed_Wrapper_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="JoyToLed_Wrapper_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="JoyToLed_Wrapper_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="JoyToLed_Wrapper_rqs_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="JoyToLed_Wrapper_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="JoyToLed_Wrapper_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="JoyToLed_Wrapper_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="JoyToLed_Wrapper_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="JoyToLed_Wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="JoyToLed_Wrapper_routed_bb.dcp"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="JoyToLed_Wrapper_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="JoyToLed_Wrapper_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="JoyToLed_Wrapper_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="JoyToLed_Wrapper_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="JoyToLed_Wrapper_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="JoyToLed_Wrapper_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="JoyToLed_Wrapper_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="JoyToLed_Wrapper_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="JoyToLed_Wrapper_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="JoyToLed_Wrapper_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="JoyToLed_Wrapper_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="JoyToLed_Wrapper_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="JoyToLed_Wrapper_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="JoyToLed_Wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="JoyToLed_Wrapper_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="JoyToLed_Wrapper_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="JoyToLed_Wrapper_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="JoyToLed_Wrapper_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="JoyToLed_Wrapper_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="JoyToLed_Wrapper.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="JoyToLed_Wrapper_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="JoyToLed_Wrapper_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="JoyToLed_Wrapper.nky"/>
-  <File Type="BITSTR-BMM" Name="JoyToLed_Wrapper_bd.bmm"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="JoyToLed_Wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="JoyToLed_Wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="JoyToLed_Wrapper_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="JoyToLed_Wrapper.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="JoyToLed_Wrapper_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="JoyToLed_Wrapper_pld.pdi"/>
@@ -73,13 +66,6 @@
   <File Type="RNPI_FILE" Name="JoyToLed_Wrapper.rnpi"/>
   <File Type="NPI_FILE" Name="JoyToLed_Wrapper.npi"/>
   <File Type="RBD_FILE" Name="JoyToLed_Wrapper.rbd"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="JoyToLed_Wrapper.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="JoyToLed_Wrapper.sysdef"/>
-  <File Type="BG-BGN" Name="JoyToLed_Wrapper.bgn"/>
-  <File Type="BG-DRC" Name="JoyToLed_Wrapper.drc"/>
-  <File Type="RDI-RDI" Name="JoyToLed_Wrapper.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="JoyToLed_Wrapper_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="JoyToLed_Wrapper_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -141,5 +127,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>
