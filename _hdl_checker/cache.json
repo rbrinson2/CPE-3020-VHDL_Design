@@ -419,6 +419,11 @@
     "name": "default_library",
     "case_sensitive": false,
     "__class__": "Identifier"
+   },
+   {
+    "name": "work",
+    "case_sensitive": false,
+    "__class__": "Identifier"
    }
   ],
   "__class__": "MSim"
@@ -838,7 +843,7 @@
      "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab3_Moving_LED\\Modelsim\\MovingLed.vhd",
      "__class__": "Path"
     },
-    "mtime": 1709144924.8805697,
+    "mtime": 1709149770.3365405,
     "flags": {
      "source_specific": [],
      "single": [],
@@ -892,7 +897,12 @@
       "__class__": "RequiredDesignUnit"
      }
     ],
-    "diags": []
+    "diags": [],
+    "library": {
+     "name": "not_in_project",
+     "case_sensitive": true,
+     "__class__": "Identifier"
+    }
    },
    {
     "path": {

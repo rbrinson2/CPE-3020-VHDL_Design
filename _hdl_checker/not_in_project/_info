@@ -9,54 +9,98 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design
-Emovingled_tb
-Z1 w1709142830
+Emovingled
+Z1 w1709149770
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 6
+!i122 7
 R0
-Z5 8c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd
-Z6 Fc:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd
+Z5 8c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed.vhd
+Z6 Fc:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed.vhd
 l0
-L5 1
-VVXDU_90EV7HU[Ymibi?B=3
-!s100 YnT]M[j1d:oiEOk5nch[n1
+L6 1
+VkP`@AV]T>C5n[_DZ7daLX0
+!s100 XT7ji?`Ho`1[l@I:RjnH52
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1709142831
+Z8 !s110 1709152943
 !i10b 1
-Z9 !s108 1709142831.000000
-Z10 !s90 -modelsimini|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\modelsim.ini|-quiet|-work|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd|
-!s107 c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd|
+Z9 !s108 1709152943.000000
+Z10 !s90 -modelsimini|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\modelsim.ini|-quiet|-work|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project|-defercheck|-nocheck|-permissive|-explicit|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed.vhd|
+Z11 !s107 c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed.vhd|
 !i113 1
-Z11 o-quiet -work {c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project} -check_synthesis -lint -rangecheck -pedanticerrors -explicit
-Z12 tExplicit 1 CvgOpt 0
-Amovingled_tb_arch
+Z12 o-permissive -quiet -work {c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project} -defercheck -nocheck -explicit
+Z13 tExplicit 1 CvgOpt 0
+Amovingled_arch
 R2
 R3
 R4
-Z13 DEx4 work 12 movingled_tb 0 22 VXDU_90EV7HU[Ymibi?B=3
-!i122 6
-l11
-L9 7
-Z14 VAoK[jdLlV?]4>GFS1o^Z42
-Z15 !s100 V6;N<hKXmm]Xj27jHzNMM3
+Z14 DEx4 work 9 movingled 0 22 kP`@AV]T>C5n[_DZ7daLX0
+!i122 7
+l26
+L21 59
+V0SPTSRikjm1jDCdo6McS33
+!s100 RecT2KE58P:Go1eFPTZPj3
 R7
 32
 R8
 !i10b 1
 R9
 R10
-Z16 !s107 c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd|
-!i113 1
 R11
+!i113 1
 R12
+R13
+Emovingled_tb
+Z15 w1709150178
+R2
+R3
+R4
+!i122 8
+R0
+Z16 8c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd
+Z17 Fc:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd
+l0
+L5 1
+VVXDU_90EV7HU[Ymibi?B=3
+!s100 YnT]M[j1d:oiEOk5nch[n1
+R7
+32
+R8
+!i10b 1
+R9
+Z18 !s90 -modelsimini|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\modelsim.ini|-quiet|-work|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd|
+Z19 !s107 c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\Lab3_Moving_LED\Modelsim\MovingLed_TB.vhd|
+!i113 1
+Z20 o-quiet -work {c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project} -check_synthesis -lint -rangecheck -pedanticerrors -explicit
+R13
+Amovingled_tb_arch
+R14
+R2
+R3
+R4
+Z21 DEx4 work 12 movingled_tb 0 22 VXDU_90EV7HU[Ymibi?B=3
+!i122 8
+l19
+L9 38
+VHHR5i8=o7PXig6X[W3;UA1
+!s100 MQ53[fTaO>hM4bo_Z?Dgj2
+R7
+32
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R20
+R13
 Artl
 R2
 R3
 R4
-R13
+R21
 !i122 2
 l11
 L9 7
@@ -70,8 +114,8 @@ R7
 !s90 -modelsimini|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\modelsim.ini|-quiet|-work|c:\Users\rbrin\Documents\GitHub\CPE-3020-VHDL_Design\_hdl_checker\not_in_project|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|C:\Users\rbrin\AppData\Local\Temp\tmpq_nj5yjz.vhd|
 !s107 C:\Users\rbrin\AppData\Local\Temp\tmpq_nj5yjz.vhd|
 !i113 1
-R11
-R12
+R20
+R13
 FC:\Users\rbrin\AppData\Local\Temp\tmpq_nj5yjz.vhd
 w1709142821
 8C:\Users\rbrin\AppData\Local\Temp\tmpq_nj5yjz.vhd
