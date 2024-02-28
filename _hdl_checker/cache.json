@@ -9,57 +9,7 @@
   "_work_folder": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\_hdl_checker",
   "_builtin_libraries": [
    {
-    "name": "twentynm_hip",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "twentynm_hssi",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "sgate",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaii_pcie_hip",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
     "name": "lpm_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaiigz_hssi_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaiigz_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclonev_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixv_hssi",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriav_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaii_hssi_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
@@ -69,17 +19,277 @@
     "__class__": "Identifier"
    },
    {
+    "name": "arriaiigz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sv_std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_mf",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std_developerskit",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "ieee",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "modelsim_lib",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
     "name": "altera_mf_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "altera_lnsim",
+    "name": "arriav_hssi_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "arriaiigz_ver",
+    "name": "arriaiigz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
@@ -89,17 +299,52 @@
     "__class__": "Identifier"
    },
    {
-    "name": "twentynm_hip_ver",
+    "name": "synopsys",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "arriavgz_ver",
+    "name": "altera_lnsim",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "stratixv_hssi_ver",
+    "name": "lpm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "verilog",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sgate",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
@@ -114,42 +359,7 @@
     "__class__": "Identifier"
    },
    {
-    "name": "stratixv_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "verilog",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclone10lp",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriavgz_hssi_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclonev_hssi_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "maxv",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclone10lp_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cycloneiv_hssi",
+    "name": "arriaiigz_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
@@ -159,157 +369,12 @@
     "__class__": "Identifier"
    },
    {
-    "name": "cycloneiv_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "maxii",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "fiftyfivenm_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "std_developerskit",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixiv_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixv_pcie_hip",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "modelsim_lib",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixiv_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
     "name": "sgate_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "altera_mf",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixiv",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixv",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaii_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriav_hssi_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "twentynm_hssi_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriavgz_hssi",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "sv_std",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixv_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriav_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cycloneiv_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cycloneive_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaii_hssi",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclonev",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "maxv_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "ieee",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "lpm",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "maxii_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cycloneive",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriavgz_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaii_pcie_hip_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixiv_pcie_hip",
+    "name": "arriavgz_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
@@ -319,92 +384,27 @@
     "__class__": "Identifier"
    },
    {
-    "name": "cycloneiv_pcie_hip",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriav",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaiigz",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "fiftyfivenm",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "twentynm_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "stratixiv_hssi",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cycloneiv",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "std",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriaiigz_pcie_hip",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "cyclonev_ver",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
     "name": "twentynm",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "220model_ver",
+    "name": "stratixv_pcie_hip_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "arriavgz",
+    "name": "maxii",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "altera_ver",
+    "name": "arriav_pcie_hip_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    },
    {
-    "name": "220model",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "altera",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "synopsys",
-    "case_sensitive": false,
-    "__class__": "Identifier"
-   },
-   {
-    "name": "arriavgz_pcie_hip",
+    "name": "twentynm_hip_ver",
     "case_sensitive": false,
     "__class__": "Identifier"
    }
@@ -420,14 +420,169 @@
  },
  "config_file": [
   {
-   "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\hdl_checker_project_pid26380_v4rc5314.json",
+   "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\hdl_checker_project_pid26040_dl6lim3y.json",
    "__class__": "Path"
   },
-  1708559411.9568434,
+  1708826522.7024968,
   "generated"
  ],
  "database": {
   "sources": [
+   {
+    "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1706566541.282646,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        6
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        6
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\architecture.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1706567295.0043209,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1708536947.2594564,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        6
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "JoyToLed",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        33,
+        16
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        6
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
    {
     "path": {
      "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
@@ -467,6 +622,128 @@
       "owner": {
        "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
        "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        14,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpi5lxvjhh.vhd",
+     "__class__": "TemporaryPath"
+    },
+    "mtime": 1708716530.3438575,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpi5lxvjhh.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        14,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpi5lxvjhh.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1708536892.9146047,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+       "__class__": "Path"
       },
       "name": {
        "name": "numeric_std",
@@ -552,6 +829,67 @@
    },
    {
     "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1705953240.6427102,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        3,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
      "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\top.vhd",
      "__class__": "Path"
     },
@@ -568,7 +906,7 @@
        "__class__": "Path"
       },
       "name": {
-       "name": "std_logic_1164",
+       "name": "numeric_std",
        "case_sensitive": false,
        "__class__": "VhdlIdentifier"
       },
@@ -579,7 +917,7 @@
       },
       "locations": [
        [
-        2,
+        3,
         6
        ]
       ],
@@ -629,6 +967,67 @@
        "__class__": "Path"
       },
       "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        6
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1708536915.7429645,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+       "__class__": "Path"
+      },
+      "name": {
        "name": "numeric_std",
        "case_sensitive": false,
        "__class__": "VhdlIdentifier"
@@ -640,8 +1039,27 @@
       },
       "locations": [
        [
-        3,
-        6
+        13,
+        8
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "JoyToLed",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        35,
+        26
        ]
       ],
       "__class__": "RequiredDesignUnit"
@@ -712,10 +1130,10 @@
    },
    {
     "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref.vhd",
      "__class__": "Path"
     },
-    "mtime": 1708536892.9146047,
+    "mtime": 1707311908.9263065,
     "flags": {
      "source_specific": [],
      "single": [],
@@ -724,46 +1142,23 @@
     "dependencies": [
      {
       "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref.vhd",
        "__class__": "Path"
       },
       "name": {
-       "name": "std_logic_1164",
+       "name": "STD_LOGIC_1164",
        "case_sensitive": false,
        "__class__": "VhdlIdentifier"
       },
       "library": {
-       "name": "ieee",
+       "name": "IEEE",
        "case_sensitive": false,
        "__class__": "VhdlIdentifier"
       },
       "locations": [
        [
-        13,
-        8
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "numeric_std",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        14,
-        8
+        2,
+        4
        ]
       ],
       "__class__": "RequiredDesignUnit"
@@ -850,377 +1245,19 @@
      }
     ],
     "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1708536947.2594564,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "numeric_std",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        13,
-        6
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "std_logic_1164",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        12,
-        6
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "JoyToLed",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": null,
-      "locations": [
-       [
-        33,
-        16
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     }
-    ],
-    "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1707311908.9263065,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "STD_LOGIC_1164",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "IEEE",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        2,
-        4
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     }
-    ],
-    "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1708536915.7429645,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "JoyToLed",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": null,
-      "locations": [
-       [
-        35,
-        26
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "std_logic_1164",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        12,
-        8
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "numeric_std",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        13,
-        8
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     }
-    ],
-    "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1706566541.282646,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "numeric_std",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        2,
-        6
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\signals.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "std_logic_1164",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "ieee",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        1,
-        6
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     }
-    ],
-    "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\ClassCodes\\architecture.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1706567295.0043209,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [],
-    "diags": []
-   },
-   {
-    "path": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
-     "__class__": "Path"
-    },
-    "mtime": 1705953240.6427102,
-    "flags": {
-     "source_specific": [],
-     "single": [],
-     "dependencies": []
-    },
-    "dependencies": [
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "std_logic_1164",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "IEEE",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        2,
-        4
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     },
-     {
-      "owner": {
-       "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro_tb.vhd",
-       "__class__": "Path"
-      },
-      "name": {
-       "name": "numeric_std",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "library": {
-       "name": "IEEE",
-       "case_sensitive": false,
-       "__class__": "VhdlIdentifier"
-      },
-      "locations": [
-       [
-        3,
-        4
-       ]
-      ],
-      "__class__": "RequiredDesignUnit"
-     }
-    ],
-    "diags": []
    }
   ],
   "inferred_libraries": [
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpwswm6g4t.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpvehy14s2.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp41017xie.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmphep3zjno.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpudv8c_b2.vhd",
-    "__class__": "Path"
-   },
    {
     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp7cnuf8by.vhd",
     "__class__": "Path"
    },
    {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpj_e26kfk.vhd",
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpjotcrrdo.vhd",
     "__class__": "Path"
    },
    {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpks_zrc2h.vhd",
     "__class__": "Path"
    },
    {
@@ -1228,31 +1265,11 @@
     "__class__": "Path"
    },
    {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp0n6je2n2.vhd",
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpeq5xkp79.vhd",
     "__class__": "Path"
    },
    {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmppafpdk43.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmphy181uiq.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpna_pk2iy.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpx_5a50zh.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpcurj4m16.vhd",
-    "__class__": "Path"
-   },
-   {
-    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp5gykhyip.vhd",
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpccxi7hqg.vhd",
     "__class__": "Path"
    },
    {
@@ -1260,57 +1277,107 @@
     "__class__": "Path"
    },
    {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpiq6qgsq3.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpvehy14s2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp0n6je2n2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpdvn_xuch.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmphep3zjno.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpwswm6g4t.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpqk0pinlw.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpi5lxvjhh.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp41017xie.vhd",
+    "__class__": "Path"
+   },
+   {
     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp09cffhv1.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpudv8c_b2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp5gykhyip.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmphy181uiq.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmps5elgzwb.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpna_pk2iy.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmplum_wrys.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpcurj4m16.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpj_e26kfk.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpx_5a50zh.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmppafpdk43.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp0_2qd4j0.vhd",
     "__class__": "Path"
    }
   ],
   "design_units": [
    {
     "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro.vhd",
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
      "__class__": "Path"
     },
     "type_": "entity",
     "name": {
-     "name": "Intro",
-     "case_sensitive": false,
-     "__class__": "VhdlIdentifier"
-    },
-    "locations": [
-     [
-      5,
-      7
-     ]
-    ],
-    "__class__": "VhdlDesignUnit"
-   },
-   {
-    "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref_TB.vhd",
-     "__class__": "Path"
-    },
-    "type_": "entity",
-    "name": {
-     "name": "Ref_TB",
-     "case_sensitive": false,
-     "__class__": "VhdlIdentifier"
-    },
-    "locations": [
-     [
-      6,
-      7
-     ]
-    ],
-    "__class__": "VhdlDesignUnit"
-   },
-   {
-    "owner": {
-     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp0n6je2n2.vhd",
-     "__class__": "TemporaryPath"
-    },
-    "type_": "entity",
-    "name": {
-     "name": "JoyToLed",
+     "name": "JoyToLed_TB",
      "case_sensitive": false,
      "__class__": "VhdlIdentifier"
     },
@@ -1324,8 +1391,8 @@
    },
    {
     "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
-     "__class__": "Path"
+     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
+     "__class__": "TemporaryPath"
     },
     "type_": "entity",
     "name": {
@@ -1381,31 +1448,12 @@
    },
    {
     "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\top.vhd",
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed.vhd",
      "__class__": "Path"
     },
     "type_": "entity",
     "name": {
-     "name": "top",
-     "case_sensitive": false,
-     "__class__": "VhdlIdentifier"
-    },
-    "locations": [
-     [
-      5,
-      7
-     ]
-    ],
-    "__class__": "VhdlDesignUnit"
-   },
-   {
-    "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_TB.vhd",
-     "__class__": "Path"
-    },
-    "type_": "entity",
-    "name": {
-     "name": "JoyToLed_TB",
+     "name": "JoyToLed",
      "case_sensitive": false,
      "__class__": "VhdlIdentifier"
     },
@@ -1419,7 +1467,45 @@
    },
    {
     "owner": {
-     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp8z9wlw6y.vhd",
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab1_Referee\\Modelsim\\Ref_TB.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "Ref_TB",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      6,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "JoyToLed_Wrapper",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      16,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmp0n6je2n2.vhd",
      "__class__": "TemporaryPath"
     },
     "type_": "entity",
@@ -1457,12 +1543,50 @@
    },
    {
     "owner": {
-     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\Lab2_SwitchToLED\\Modelsim\\JoyToLed_Wrapper.vhd",
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\Intro.vhd",
      "__class__": "Path"
     },
     "type_": "entity",
     "name": {
-     "name": "JoyToLed_Wrapper",
+     "name": "Intro",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      5,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "c:\\Users\\rbrin\\Documents\\GitHub\\CPE-3020-VHDL_Design\\FirstCode\\top.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "top",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      5,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "C:\\Users\\rbrin\\AppData\\Local\\Temp\\tmpi5lxvjhh.vhd",
+     "__class__": "TemporaryPath"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "JoyToLed",
      "case_sensitive": false,
      "__class__": "VhdlIdentifier"
     },
