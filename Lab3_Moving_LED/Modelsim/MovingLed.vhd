@@ -24,10 +24,14 @@ architecture MovingLed_ARCH of MovingLed is
 
 	signal position	: std_logic_vector(3 downto 0);
 begin
-	
+	sevenSegs <= "0000000";
+	anodes <= "0000";
+
+
 	LED_DRIVER: process (position) is
-		variable ledPos : integer range 0 to 15;
+		variable ledPos : integer range 0 to 15 := 0;
 	begin
+		ledPos := 0;
 		for i in position'range loop
 			if position(i) = '1' then
 			    ledPos := ledPos + 2 ** i;

@@ -4,5 +4,14 @@ Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot MovingLed_TB_behav xil_defaultlib.MovingLed_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-9565] expression has 5 elements; formal 'anodes' expects 4 [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd:30]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit movingled_tb in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture movingled_arch of entity xil_defaultlib.MovingLed [movingled_default]
+Compiling architecture movingled_tb_arch of entity xil_defaultlib.movingled_tb
+Built simulation snapshot MovingLed_TB_behav

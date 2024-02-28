@@ -1,0 +1,56 @@
+# Compile of MovingLed.vhd was successful with warnings.
+# Compile of MovingLed_TB.vhd failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of MovingLed.vhd was successful with warnings.
+# Compile of MovingLed_TB.vhd failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of MovingLed.vhd was successful with warnings.
+# Compile of MovingLed_TB.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.movingled_tb
+# vsim -gui work.movingled_tb 
+# Start time: 14:19:36 on Feb 28,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.movingled_tb(movingled_tb_arch)
+# Loading work.movingled(movingled_arch)
+# ** Warning: (vsim-8683) Uninitialized out port /movingled_tb/movingled_inst/sevenSegs(6 downto 0) has no driver.
+# This port will contribute value (UUUUUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /movingled_tb/movingled_inst/anodes(3 downto 0) has no driver.
+# This port will contribute value (UUUU) to the signal network.
+add wave -position end  sim:/movingled_tb/clock
+add wave -position end  sim:/movingled_tb/reset
+add wave -position end  sim:/movingled_tb/rightMove
+add wave -position end  sim:/movingled_tb/leftMove
+add wave -position end  sim:/movingled_tb/led
+add wave -position end  sim:/movingled_tb/sevenSegs
+add wave -position end  sim:/movingled_tb/anodes
+run
+run
+quit -sim
+# End time: 14:21:06 on Feb 28,2024, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 9
+# Compile of MovingLed.vhd was successful with warnings.
+# Compile of MovingLed_TB.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.movingled_tb
+# vsim -gui work.movingled_tb 
+# Start time: 14:21:17 on Feb 28,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.movingled_tb(movingled_tb_arch)
+# Loading work.movingled(movingled_arch)
+add wave -position end  sim:/movingled_tb/clock
+add wave -position end  sim:/movingled_tb/reset
+add wave -position end  sim:/movingled_tb/rightMove
+add wave -position end  sim:/movingled_tb/leftMove
+add wave -position end  sim:/movingled_tb/led
+add wave -position end  sim:/movingled_tb/sevenSegs
+add wave -position end  sim:/movingled_tb/anodes
+run
+# End time: 14:30:12 on Feb 28,2024, Elapsed time: 0:08:55
+# Errors: 0, Warnings: 2
