@@ -33,13 +33,12 @@ begin
     );
     
     STIMULUS: process (clock, reset) is
+        constant count : integer range 0 to 31 := 0;
     begin
         if falling_edge(reset) then 
-            rightMove <= '1';
-            leftMove <= '0';
-        elsif rising_edge(clock) then 
+            rightMove <= '0';
+            leftMove <= '1';
 
-        end if;
     end process;
 
 	
