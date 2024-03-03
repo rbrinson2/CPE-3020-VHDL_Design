@@ -42,35 +42,21 @@ begin
 	end process;
 	
 	LED_POSITION: process(clock, reset) is
-		variable stillActive	: integer range 0 to 1 := 0;
-		variable location		: integer range 0 to 15 := 0;
+		variable location : integer range 0 to 15 := 0;
 	begin
 		if reset = ACTIVE then
 			position <= START;	
 		elsif rising_edge(clock) then
 			if leftMove = ACTIVE then
-				if stillActive = 1 then
-				else 
-					stillActive := 1;
-					if location = 15 then
-					else
-						location := location + 1;
-					end if;
-				end if;
+                if location /= 15 then
+                   location := location + 1;
+                end if;
 			elsif rightMove = ACTIVE then
-				if stillActive = 1 then
-				else
-					stillActive := 1;
-					if location = 0 then 
-					else 
-						location := location - 1;
-					end if;
-				end if;
-			else
-				stillActive := 0;
-			end if;	
+                if location /= 0 then 
+                   location := location - 1;
+                end if;
+            end if;
 		end if;
-
 		position <= std_logic_vector(to_unsigned(location, 4));
 	end process ;	
 	

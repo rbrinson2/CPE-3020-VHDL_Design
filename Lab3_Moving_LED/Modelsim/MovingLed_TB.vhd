@@ -32,13 +32,32 @@ begin
         anodes    => anodes
     );
     
-    STIMULUS: process (clock, reset) is
-        constant count : integer range 0 to 31 := 0;
+    STIMULUS: process (clock) is
+        variable clockCount : integer := 0;
+        variable moveCount : integer := 0;
     begin
-        if falling_edge(reset) then 
+        if (clockCount mod 4 = 0) then
+            if (moveCount < 16) then
+                leftMove <= '1';
+            elsif (moveCount >= 16) then
+                rightMove <= '1';
+            end if;
+            moveCount := moveCount + 1;
+        elsif (clockCount mod 4 = 2) then
+            if (moveCount < 16) then
+                leftMove <= '0';
+            elsif (moveCount >= 16) then   
+                rightMove <= '0';
+            end if;
+        end if;
+        
+        if (moveCount >= 16) then
+            leftMove <= '0';
+        end if;
+        if (moveCount < 16) then
             rightMove <= '0';
-            leftMove <= '1';
-
+        end if;
+        clockCount := clockCount + 1;
     end process;
 
 	
