@@ -66,7 +66,27 @@ begin
                 rightMove <= '1';
             end if;
         else    
-
+            if (clockCount > 128 and clockCount < 132) then
+                leftMove <= '1';
+                rightMove <= '0';
+            elsif (clockCount >= 132 and clockCount < 136) then
+                leftMove <= '1';
+                rightMove <= '1';
+            elsif (clockCount >= 136 and clockCount < 140) then
+                leftMove <= '0';
+                rightMove <= '1';
+            elsif (clockCount >= 140 and clockCount < 144) then
+                leftMove <= '0';
+                rightMove <= '0';
+            elsif (clockCount >= 144 and clockCount < 148) then
+                leftMove <= '0';
+                rightMove <= '1';
+            elsif (clockCount >= 148 and clockCount < 162) then
+                leftMove <= '1';
+                rightMove <= '1';
+            elsif (clockCount >= 160) then
+                std.env.stop;
+            end if;
         end if;
 
         clockCount := clockCount + 1;

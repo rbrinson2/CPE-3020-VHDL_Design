@@ -1,4 +1,7 @@
-Running: xsim.dir/MovingLed_TB_behav/xsimk.exe -simmode gui -wdb MovingLed_TB_behav.wdb -simrunnum 0 -socket 52146
+Running: xsim.dir/MovingLed_TB_behav/xsimk.exe -simmode gui -wdb MovingLed_TB_behav.wdb -simrunnum 0 -socket 54588
 Design successfully loaded
-Design Loading Memory Usage: 7900 KB (Peak: 7900 KB)
+Design Loading Memory Usage: 7960 KB (Peak: 7960 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8488 KB (Peak: 8488 KB)
+Simulation CPU Usage: 0 ms
