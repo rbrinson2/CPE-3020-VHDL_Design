@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-
+--------------------------------------------------------- Entity
 entity MovingLed_Wrapper is
     port ( 
         signal clk  : in std_logic;
@@ -17,19 +17,21 @@ entity MovingLed_Wrapper is
     );
 end entity MovingLed_Wrapper;
 
+--------------------------------------------------------- Architecture
 architecture MovingLed_Wrapper_ARCH of MovingLed_Wrapper is
 
 begin
 
+    ---------- Insantiation
     MovingLed_inst: entity work.MovingLed
-     port map(
-        clock => clk,
-        reset => btnU,
-        rightMove => btnR,
-        leftMove => btnL,
-        led => led,
-        sevenSegs => seg,
-        anodes => an
+        port map(
+            clock => clk,
+            reset => btnU,
+            rightMove => btnR,
+            leftMove => btnL,
+            led => led,
+            sevenSegs => seg,
+            anodes => an
     );
 
 end architecture;

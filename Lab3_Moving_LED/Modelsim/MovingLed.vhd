@@ -5,13 +5,13 @@ use IEEE.numeric_std.all;
 ---------------------------------------------------------Entity
 entity MovingLed is
 	port (
-		----- Inputs -----
+		---------- Inputs 
 		clock		: in std_logic;
 		reset		: in std_logic;
 		rightMove	: in std_logic;
 		leftMove	: in std_logic;
 
-		----- Outputs -----
+		---------- Outputs 
 		led			: out std_logic_vector(15 downto 0);
 		sevenSegs	: out std_logic_vector(6 downto 0);
 		anodes		: out std_logic_vector(3 downto 0)
@@ -20,13 +20,15 @@ end entity MovingLed;
 
 ---------------------------------------------------------Architecture
 architecture MovingLed_ARCH of MovingLed is
-	----- Functions -----
 
-	-- Bit to Onehot Function --
+	---------- Function
 
+	-- Bin to Onehot Function --
 	function bin_to_onehot (bin: std_logic_vector) return std_logic_vector is
+		-- Constants
 		constant BITON 		: std_logic := '1';
 		constant BITOFF		: std_logic := '0';
+		-- Variables
 		variable bit_pos	: integer := 0;
 		variable oneHot		: std_logic_vector (15 downto 0);	
 	begin
@@ -51,7 +53,7 @@ architecture MovingLed_ARCH of MovingLed is
 	end function;
 
 
-	----- Constants -----
+	---------- Constants 
 	constant ACTIVE 		: std_logic := '1';
 	constant BLANKON		: std_logic := '0';
 	constant BLANKOFF		: std_logic := '1';
@@ -62,13 +64,14 @@ architecture MovingLed_ARCH of MovingLed is
 	constant ONE			: std_logic_vector(3 downto 0) := "0001";
 	constant TEN			: std_logic_vector(3 downto 0) := "1010";
 
-	----- Internal Signals -----
+	---------- Internal Signals 
 	signal position	: std_logic_vector(3 downto 0);
 	signal upper	: std_logic_vector(3 downto 0);
 	signal lower	: std_logic_vector(3 downto 0);
 begin
 
-	----- Instantiations -----
+	---------- Instantiation
+	-- Seven Segment Driver --
 	sevensegmentdriver_inst: entity work.SevenSegmentDriver
 	port map (
 		reset     => reset,
@@ -85,7 +88,7 @@ begin
 		anodes    => anodes
 	);
 
-	----- Signal Assignments -----
+	---------- Signal Assignments 
 	-- Led Driver --
 	LED_DRIVER: process (position) is
 	begin
@@ -96,6 +99,7 @@ begin
 	-- Determins the led position and
 	-- if the button is still being pressed or not
 	LED_POSITION: process(clock, reset) is
+		-- Variables
 		variable location : integer range 0 to 15 := 0;
 		-- stillActive tests if the move button is
 		-- actively being pressed

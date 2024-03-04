@@ -2,28 +2,26 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
+---------------------------------------------------------Entity
 entity MovingLed_TB is
 end entity MovingLed_TB;
 
-
+---------------------------------------------------------Architecture
 architecture MovingLed_TB_ARCH of MovingLed_TB is
-
+    ---------- Internal Signals 
     signal clock            : std_logic := '0';
-    signal reset            : std_logic := '1';
+    signal reset            : std_logic := '0';
     signal rightMove        : std_logic := '1';
     signal leftMove         : std_logic := '0';
     signal led              : std_logic_vector(15 downto 0);
     signal sevenSegs        : std_logic_vector(6 downto 0);
     signal anodes           : std_logic_vector(3 downto 0);
-
-
-  
 begin
-
+    ---------- Clock Generator
     clock <= not clock after 10 ns;
-    reset <= '0' after 60 ns;
 	
-	movingled_inst: entity work.MovingLed
+    ---------- Instantiation
+	DUT: entity work.MovingLed
     port map (
         clock     => clock,
         reset     => reset,
@@ -34,12 +32,13 @@ begin
         anodes    => anodes
     );
     
-
+    ---------- Signal Assignments
+    -- Stimulus --
     STIMULUS: process (clock, reset) is
         variable clockCount : integer range 0 to 1 := 0;
-        variable moveCount : integer range 0 to 31 := 0;
+        variable moveCount  : integer range 0 to 31 := 0;
     begin
-        if (clockCount < 4 * 32) then
+        if (clockCount < 128) then
             if (clockCount mod 4 = 0) then
                 if (moveCount < 16) then
                     leftMove <= '1';
