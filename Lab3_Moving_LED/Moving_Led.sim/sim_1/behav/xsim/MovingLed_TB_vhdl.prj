@@ -1,5 +1,6 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"../../../../Modelsim/SevenSegmentDriver.vhd" \
 "../../../../Modelsim/MovingLed.vhd" \
 "../../../../Modelsim/MovingLed_TB.vhd" \
 
