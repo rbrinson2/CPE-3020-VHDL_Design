@@ -21,7 +21,7 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
 begin
 
     clock <= not clock after 10 ns;
-    reset <= '0' after 20 ns;
+    reset <= '0' after 60 ns;
 	
 	movingled_inst: entity work.MovingLed
     port map (
@@ -35,7 +35,7 @@ begin
     );
     
 
-    STIMULUS: process (clock) is
+    STIMULUS: process (clock, reset) is
         variable clockCount : integer range 0 to 1 := 0;
         variable moveCount : integer range 0 to 31 := 0;
     begin
