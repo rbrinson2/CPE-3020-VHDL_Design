@@ -46,11 +46,14 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     begin
         if (moveCount < 8) then
             sig_move(clockCount, moveCount, leftMv);
+            reset := '0';
         elsif (moveCount >= 8) then
+            sig_move(clockCount, moveCount, leftMv);
             reset := '1';
         end if;
         rightMv := '0';
     end procedure;
+
     ---------- Internal Signals 
     signal clock            : std_logic := '0';
     signal reset            : std_logic := '0';
@@ -79,7 +82,7 @@ begin
     -- Stimulus --
     STIMULUS: process (clock, reset) is
         constant PYRAMIDEND     : integer := 128;
-        constant RESETEND       : integer := 200;
+        constant RESETEND       : integer := 164;
         variable clockCount     : integer := 0;
         variable pyramidCount   : integer := 0;
         variable resetCount     : integer := 0;
@@ -92,6 +95,8 @@ begin
             pyramid(clockCount, pyramidCount, leftMv, rightMv);
         elsif (clockCount < RESETEND) then
             reset_test(clockCount, resetCount, leftMv, rightMv, resetTest);
+        else 
+            std.env.stop;
         end if;
 
         clockCount := clockCount + 1;

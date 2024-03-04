@@ -12,6 +12,7 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package std.env
 Compiling architecture sevensegmentdriver_arch of entity xil_defaultlib.SevenSegmentDriver [sevensegmentdriver_default]
 Compiling architecture movingled_arch of entity xil_defaultlib.MovingLed [movingled_default]
 Compiling architecture movingled_tb_arch of entity xil_defaultlib.movingled_tb
