@@ -81,14 +81,23 @@ begin
     ---------- Signal Assignments
     -- Stimulus --
     STIMULUS: process (clock, reset) is
-        constant PYRAMIDEND     : integer := 128;
-        constant RESETEND       : integer := 164;
+
+        -------- Clock Count
         variable clockCount     : integer := 0;
+
+        -------- Pyramid Const/Vars
+        constant PYRAMIDEND     : integer := 128;
         variable pyramidCount   : integer := 0;
+
+        -------- Reset Const/Vars
+        constant RESETEND       : integer := 164;
         variable resetCount     : integer := 0;
         variable resetTest      : std_logic := '0';
+        
+        -------- Output Variables
         variable leftMv         : std_logic := '0';
         variable rightMv        : std_logic := '0';
+        
     begin
         
         if (clockCount < PYRAMIDEND) then
