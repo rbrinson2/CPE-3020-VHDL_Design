@@ -2,7 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-
 entity MovingLed is
 	port (
 		clock		: in std_logic;
@@ -43,19 +42,24 @@ begin
 	
 	LED_POSITION: process(clock, reset) is
 		variable location : integer range 0 to 15 := 0;
+		variable stillActive : integer := 0;
 	begin
-		if reset = ACTIVE then
+		if (reset = ACTIVE) then
 			position <= START;	
-		elsif rising_edge(clock) then
-			if leftMove = ACTIVE then
-                if location /= 15 then
-                   location := location + 1;
-                end if;
-			elsif rightMove = ACTIVE then
-                if location /= 0 then 
-                   location := location - 1;
-                end if;
-            end if;
+		elsif (rising_edge(clock)) then
+			if (leftMove = ACTIVE) then
+				if (location /= 15 and stillActive = 0) then
+					location := location + 1;
+					stillActive := 1;
+				end if;
+			elsif (rightMove = ACTIVE) then
+				if (location /= 0 and stillActive = 0) then 
+					location := location - 1;
+					stillActive := 1;
+				end if;
+			else	
+				stillActive := 0;
+			end if;
 		end if;
 		position <= std_logic_vector(to_unsigned(location, 4));
 	end process ;	
