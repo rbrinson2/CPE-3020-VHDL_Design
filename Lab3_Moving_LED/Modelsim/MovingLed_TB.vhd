@@ -9,6 +9,7 @@ end entity MovingLed_TB;
 ---------------------------------------------------------Architecture
 architecture MovingLed_TB_ARCH of MovingLed_TB is
     ---------- Procedures
+    -- Sig move --
     procedure sig_move (clockCount : in integer; moveCount : inout integer; movingSignal : out std_logic) 
     is
     begin
@@ -24,6 +25,7 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
         end if;
     end procedure;
 
+    -- Pyramid Test --
     procedure pyramid (clockCount : in integer; moveCount : inout integer;
         leftMv : out std_logic; rightMv : out std_logic) 
     is
@@ -37,6 +39,7 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
         end if;
     end procedure;
 
+    -- Rest Test --
     procedure reset_test (clockCount : in integer; moveCount : inout integer;
     leftMv : out std_logic; rightMv : out std_logic; reset : out std_logic) 
     is
