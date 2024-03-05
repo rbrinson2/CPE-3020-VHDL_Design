@@ -8,6 +8,52 @@ end entity MovingLed_TB;
 
 ---------------------------------------------------------Architecture
 architecture MovingLed_TB_ARCH of MovingLed_TB is
+    ---------- Procedures
+    -- Sig move --
+    procedure sig_move (clockCount : in integer; moveCount : inout integer; movingSignal : out std_logic) 
+    is
+    begin
+        if (clockCount mod 4 = 0) then
+            movingSignal := '1';
+            moveCount := moveCount + 1;
+        elsif (clockCount mod 4 = 1) then
+            movingSignal := '1';
+        elsif (clockCount mod 4 = 2) then
+            movingSignal := '0';
+        elsif (clockCount mod 4 = 3) then
+            movingSignal := '0';
+        end if;
+    end procedure;
+
+    -- Pyramid Test --
+    procedure pyramid (clockCount : in integer; moveCount : inout integer;
+        leftMv : out std_logic; rightMv : out std_logic) 
+    is
+    begin
+        if (moveCount < 16) then   
+            sig_move (clockCount, moveCount, leftMv);
+            rightMv := '0';
+        elsif (moveCount >= 16) then
+            sig_move (clockCount, moveCount, rightMv);
+            leftMv := '0';
+        end if;
+    end procedure;
+
+    -- Rest Test --
+    procedure reset_test (clockCount : in integer; moveCount : inout integer;
+    leftMv : out std_logic; rightMv : out std_logic; reset : out std_logic) 
+    is
+    begin
+        if (moveCount < 8) then
+            sig_move(clockCount, moveCount, leftMv);
+            reset := '0';
+        elsif (moveCount >= 8) then
+            sig_move(clockCount, moveCount, leftMv);
+            reset := '1';
+        end if;
+        rightMv := '0';
+    end procedure;
+
     ---------- Internal Signals 
     signal clock            : std_logic := '0';
     signal reset            : std_logic := '0';
@@ -35,60 +81,39 @@ begin
     ---------- Signal Assignments
     -- Stimulus --
     STIMULUS: process (clock, reset) is
-        variable clockCount : integer range 0 to 1 := 0;
-        variable moveCount  : integer range 0 to 31 := 0;
-    begin
-        if (clockCount < 128) then
-            if (clockCount mod 4 = 0) then
-                if (moveCount < 16) then
-                    leftMove <= '1';
-                elsif (moveCount >= 16) then
-                    rightMove <= '1';
-                end if;
-                moveCount := moveCount + 1;
-            elsif (clockCount mod 4 = 2) then
-                if (moveCount < 16) then
-                    leftMove <= '0';
-                elsif (moveCount >= 16) then   
-                    rightMove <= '0';
-                end if;
-            end if;
-            
-            if (moveCount >= 16) then
-                leftMove <= '0';
-            end if;
-            if (moveCount < 16) then
-                rightMove <= '0';
-            end if;
 
-            if (moveCount > 32) then
-                rightMove <= '1';
-            end if;
-        else    
-            if (clockCount > 128 and clockCount < 132) then
-                leftMove <= '1';
-                rightMove <= '0';
-            elsif (clockCount >= 132 and clockCount < 136) then
-                leftMove <= '1';
-                rightMove <= '1';
-            elsif (clockCount >= 136 and clockCount < 140) then
-                leftMove <= '0';
-                rightMove <= '1';
-            elsif (clockCount >= 140 and clockCount < 144) then
-                leftMove <= '0';
-                rightMove <= '0';
-            elsif (clockCount >= 144 and clockCount < 148) then
-                leftMove <= '0';
-                rightMove <= '1';
-            elsif (clockCount >= 148 and clockCount < 162) then
-                leftMove <= '1';
-                rightMove <= '1';
-            elsif (clockCount >= 160) then
-                std.env.stop;
-            end if;
+        -------- Clock Count
+        variable clockCount     : integer := 0;
+
+        -------- Pyramid Const/Vars
+        constant PYRAMIDEND     : integer := 128;
+        variable pyramidCount   : integer := 0;
+
+        -------- Reset Const/Vars
+        constant RESETEND       : integer := 164;
+        variable resetCount     : integer := 0;
+        variable resetTest      : std_logic := '0';
+        
+        -------- Output Variables
+        variable leftMv         : std_logic := '0';
+        variable rightMv        : std_logic := '0';
+        
+    begin
+        
+        if (clockCount < PYRAMIDEND) then
+            pyramid(clockCount, pyramidCount, leftMv, rightMv);
+        elsif (clockCount < RESETEND) then
+            reset_test(clockCount, resetCount, leftMv, rightMv, resetTest);
+        else 
+            std.env.stop;
         end if;
 
         clockCount := clockCount + 1;
+
+        leftMove <= leftMv;
+        rightMove <= rightMv;
+        reset <= resetTest;
+
     end process;
 
 
