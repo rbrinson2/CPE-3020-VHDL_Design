@@ -34,7 +34,7 @@ entity MovingLed is
 	);
 end entity MovingLed;
 
----------------------------------------------------------Architecture
+---------------------------------------------------Architecture
 architecture MovingLed_ARCH of MovingLed is
 
 	---------- Function

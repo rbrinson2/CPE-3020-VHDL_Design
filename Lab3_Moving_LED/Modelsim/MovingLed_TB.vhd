@@ -24,7 +24,7 @@ use IEEE.numeric_std.all;
 entity MovingLed_TB is
 end entity MovingLed_TB;
 
----------------------------------------------------------Architecture
+---------------------------------------------------Architecture
 architecture MovingLed_TB_ARCH of MovingLed_TB is
     ---------- Procedures
     -- Sig move --

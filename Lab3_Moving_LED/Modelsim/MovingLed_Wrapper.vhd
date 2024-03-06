@@ -30,7 +30,7 @@ entity MovingLed_Wrapper is
     );
 end entity MovingLed_Wrapper;
 
---------------------------------------------------------- Architecture
+---------------------------------------------------Architecture
 architecture MovingLed_Wrapper_ARCH of MovingLed_Wrapper is
 
 begin
