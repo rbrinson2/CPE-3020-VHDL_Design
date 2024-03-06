@@ -54,6 +54,27 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
         rightMv := '0';
     end procedure;
 
+    -- Double Press Test --
+    procedure double_press (doubleCount : inout integer;
+    leftMv : out std_logic; rightMv : out std_logic) is
+    begin
+        if (doubleCount < 10) then
+            leftMv := '1';
+            rightMv := '0';
+        elsif (doubleCount < 16) then
+            leftMv := '1';
+            rightMv := '1';
+        elsif (doubleCount < 20) then
+            leftMv := '0';
+            rightMv := '1';
+        elsif (doubleCount < 24) then
+            leftMv := '0';
+            rightMv := '0';
+        end if;
+
+        doubleCount := doubleCount + 1;
+    end procedure;
+
     ---------- Internal Signals 
     signal clock            : std_logic := '0';
     signal reset            : std_logic := '0';
@@ -93,6 +114,10 @@ begin
         constant RESETEND       : integer := 164;
         variable resetCount     : integer := 0;
         variable resetTest      : std_logic := '0';
+
+        -------- Double Input Const/Vars
+        constant DOUBLEEND      : integer := 196;
+        variable doubleCount    : integer := 0;
         
         -------- Output Variables
         variable leftMv         : std_logic := '0';
@@ -100,10 +125,13 @@ begin
         
     begin
         
+        -- Testing Functions
         if (clockCount < PYRAMIDEND) then
             pyramid(clockCount, pyramidCount, leftMv, rightMv);
         elsif (clockCount < RESETEND) then
             reset_test(clockCount, resetCount, leftMv, rightMv, resetTest);
+        elsif (clockCount < DOUBLEEND) then
+            double_press(doubleCount, leftMv, rightMv);
         else 
             std.env.stop;
         end if;
