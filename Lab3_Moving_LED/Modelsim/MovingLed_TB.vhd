@@ -140,7 +140,7 @@ begin
     
     ---------- Signal Assignments
     -- Stimulus --
-    STIMULUS: process (clock, reset) is
+    STIMULUS: process (clock) is
 
         -------- Clock Count
         variable clockCount     : integer := 0;
@@ -168,7 +168,7 @@ begin
         -- 1) Pyramid
         -- 2) Reset
         -- 3) Double Inputs
-        
+
         if (clockCount < PYRAMIDEND) then
             pyramid(clockCount, pyramidCount, leftMv, rightMv);
         elsif (clockCount < RESETEND) then
