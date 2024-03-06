@@ -3,8 +3,8 @@
   <File Type="PA-TCL" Name="MovingLed_Wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="MovingLed_Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="MovingLed_Wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="MovingLed_Wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="MovingLed_Wrapper_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="MovingLed_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="MovingLed_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="MovingLed_Wrapper.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>

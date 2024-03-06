@@ -58,16 +58,25 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     procedure double_press (doubleCount : inout integer;
     leftMv : out std_logic; rightMv : out std_logic) is
     begin
-        if (doubleCount < 10) then
-            leftMv := '1';
+        if (doubleCount < 8) then
+            leftMv := '0';
             rightMv := '0';
         elsif (doubleCount < 16) then
             leftMv := '1';
-            rightMv := '1';
+            rightMv := '0';
         elsif (doubleCount < 20) then
-            leftMv := '0';
+            leftMv := '1';
             rightMv := '1';
         elsif (doubleCount < 24) then
+            leftMv := '0';
+            rightMv := '1';
+        elsif (doubleCount < 28) then
+            leftMv := '1';
+            rightMv := '1';
+        elsif (doubleCount < 32) then
+            leftMv := '1';
+            rightMv := '0';
+        else
             leftMv := '0';
             rightMv := '0';
         end if;
@@ -116,7 +125,7 @@ begin
         variable resetTest      : std_logic := '0';
 
         -------- Double Input Const/Vars
-        constant DOUBLEEND      : integer := 196;
+        constant DOUBLEEND      : integer := 216;
         variable doubleCount    : integer := 0;
         
         -------- Output Variables
@@ -132,6 +141,7 @@ begin
             reset_test(clockCount, resetCount, leftMv, rightMv, resetTest);
         elsif (clockCount < DOUBLEEND) then
             double_press(doubleCount, leftMv, rightMv);
+            resetTest := '0';
         else 
             std.env.stop;
         end if;
