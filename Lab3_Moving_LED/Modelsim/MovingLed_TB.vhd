@@ -1,3 +1,21 @@
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 03/06/2024 
+-- Design Name: Moving Led Testbench
+-- Lab Name: Lab 3 - Moving Led
+-- Target Devices: Basys 3
+-- Description: 
+-- Test the Moving Led entity in three ways: 
+-- 1) Creates a pyramid to test each left to right position of 
+-- the led bar.
+-- 2) Tests the reset by moving the led to the middle of the 
+-- led bar then turning the reset signal on.
+-- 3) Tests what happens if both buttons are pressed at the 
+-- same time.
+---------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -10,7 +28,10 @@ end entity MovingLed_TB;
 architecture MovingLed_TB_ARCH of MovingLed_TB is
     ---------- Procedures
     -- Sig move --
-    procedure sig_move (clockCount : in integer; moveCount : inout integer; movingSignal : out std_logic) 
+    -- Moves the signal in either direction depending on if left
+    -- or right is passed to it
+    procedure sig_move (clockCount : in integer; 
+        moveCount : inout integer; movingSignal : out std_logic) 
     is
     begin
         if (clockCount mod 4 = 0) then
@@ -26,6 +47,8 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     end procedure;
 
     -- Pyramid Test --
+    -- Moves the led all the way to the left, then all the way
+    -- back to the right
     procedure pyramid (clockCount : in integer; moveCount : inout integer;
         leftMv : out std_logic; rightMv : out std_logic) 
     is
@@ -39,7 +62,9 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
         end if;
     end procedure;
 
-    -- Rest Test --
+    -- Reset Test --
+    -- Tests the reset signal by moving the led to the middle
+    -- then turning the reset signal on
     procedure reset_test (clockCount : in integer; moveCount : inout integer;
     leftMv : out std_logic; rightMv : out std_logic; reset : out std_logic) 
     is
@@ -55,6 +80,8 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     end procedure;
 
     -- Double Press Test --
+    -- Tests various states of the signals being high and low
+    -- at the same time
     procedure double_press (doubleCount : inout integer;
     leftMv : out std_logic; rightMv : out std_logic) is
     begin
@@ -85,10 +112,13 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     end procedure;
 
     ---------- Internal Signals 
+    ---- DUT Inputs
     signal clock            : std_logic := '0';
     signal reset            : std_logic := '0';
     signal rightMove        : std_logic := '1';
     signal leftMove         : std_logic := '0';
+
+    ----- DUT Outputs
     signal led              : std_logic_vector(15 downto 0);
     signal sevenSegs        : std_logic_vector(6 downto 0);
     signal anodes           : std_logic_vector(3 downto 0);
@@ -134,7 +164,11 @@ begin
         
     begin
         
-        -- Testing Functions
+        -- Testing Procedures Order:
+        -- 1) Pyramid
+        -- 2) Reset
+        -- 3) Double Inputs
+        
         if (clockCount < PYRAMIDEND) then
             pyramid(clockCount, pyramidCount, leftMv, rightMv);
         elsif (clockCount < RESETEND) then
@@ -148,6 +182,7 @@ begin
 
         clockCount := clockCount + 1;
 
+        -- Updates signals to the DUT
         leftMove <= leftMv;
         rightMove <= rightMv;
         reset <= resetTest;

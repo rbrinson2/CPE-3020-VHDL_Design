@@ -1,3 +1,14 @@
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 03/06/2024 
+-- Design Name: Moving LED
+-- Lab Name: Lab 3 - Moving Led
+-- Target Devices: Basys 3
+-- Description: The LED on the LED bar will move
+---------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

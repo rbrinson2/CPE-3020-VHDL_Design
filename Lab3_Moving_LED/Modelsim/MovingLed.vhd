@@ -1,3 +1,19 @@
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 03/06/2024 
+-- Design Name: Moving LED
+-- Lab Name: Lab 3 - Moving Led
+-- Target Devices: Basys 3
+-- Description: 
+-- The LED on the LED bar will move each time the left or right
+-- input is detected. The led will only move by one position
+-- each time. If both inputs are pressed at the same time the 
+-- LED will not move and the left move has priority over the 
+-- right move.
+---------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -22,9 +38,9 @@ end entity MovingLed;
 architecture MovingLed_ARCH of MovingLed is
 
 	---------- Function
-
 	-- Bin to Onehot Function --
-	function bin_to_onehot (bin: std_logic_vector) return std_logic_vector is
+	function bin_to_onehot (bin: std_logic_vector) return std_logic_vector 
+	is
 		-- Constants
 		constant BITON 		: std_logic := '1';
 		constant BITOFF		: std_logic := '0';
@@ -47,16 +63,14 @@ architecture MovingLed_ARCH of MovingLed is
 				oneHot(i) := BITOFF;
 			end if;
 		end loop;
-
-		
 		return oneHot;
 	end function;
 
 
 	---------- Constants 
 	constant ACTIVE 		: std_logic := '1';
-	constant BLANKON		: std_logic := '0';
-	constant BLANKOFF		: std_logic := '1';
+	constant PASS			: std_logic := '0';
+	constant BLANK			: std_logic := '1';
 	constant START			: std_logic_vector(3 downto 0) := "0000";
 	constant NOTSTILLACT 	: integer := 0;
 	constant STILLACT		: integer := 1;
@@ -65,9 +79,9 @@ architecture MovingLed_ARCH of MovingLed is
 	constant TEN			: std_logic_vector(3 downto 0) := "1010";
 
 	---------- Internal Signals 
-	signal position	: std_logic_vector(3 downto 0);
-	signal upper	: std_logic_vector(3 downto 0);
-	signal lower	: std_logic_vector(3 downto 0);
+	signal position			: std_logic_vector(3 downto 0);
+	signal upperDigit		: std_logic_vector(3 downto 0);
+	signal lowerDigit		: std_logic_vector(3 downto 0);
 begin
 
 	---------- Instantiation
@@ -78,12 +92,12 @@ begin
 		clock     => clock,
 		digit3    => position,
 		digit2    => ZERO,
-		digit1    => upper,
-		digit0    => lower,
-		blank3    => BLANKON,
-		blank2    => BLANKOFF,
-		blank1    => BLANKON,
-		blank0    => BLANKON,
+		digit1    => upperDigit,
+		digit0    => lowerDigit,
+		blank3    => PASS,
+		blank2    => BLANK,
+		blank1    => PASS,
+		blank0    => PASS,
 		sevenSegs => sevenSegs,
 		anodes    => anodes
 	);
@@ -134,11 +148,11 @@ begin
 	SPLIT: process (position) is
 	begin
 		if (position >= TEN) then
-			upper <= ONE;
-			lower <= std_logic_vector(unsigned(position) - 10);
+			upperDigit <= ONE;
+			lowerDigit <= std_logic_vector(unsigned(position) - 10);
 		else 
-			upper <= ZERO;
-			lower <= position;
+			upperDigit <= ZERO;
+			lowerDigit <= position;
 		end if;
 	end process;
 
