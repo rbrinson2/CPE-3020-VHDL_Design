@@ -6,7 +6,9 @@
 -- Design Name: Moving LED
 -- Lab Name: Lab 3 - Moving Led
 -- Target Devices: Basys 3
--- Description: The LED on the LED bar will move
+-- Description: 
+-- Converts the signals of the Moving Led enitity into Basys3
+-- specific signals.
 ---------------------------------------------------------------
 
 library ieee;

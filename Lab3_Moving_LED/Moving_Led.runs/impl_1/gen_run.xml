@@ -1,71 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1709581648">
-  <File Type="ROUTE-PWR" Name="MovingLed_power_routed.rpt"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1709745550">
+  <File Type="ROUTE-PWR" Name="MovingLed_Wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="MovingLed_Wrapper.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="MovingLed_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-SUM" Name="MovingLed_Wrapper_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="MovingLed_Wrapper_reports.tcl"/>
-  <File Type="BITSTR-MSK" Name="MovingLed_Wrapper.msk"/>
-  <File Type="ROUTE-CLK" Name="MovingLed_clock_utilization_routed.rpt"/>
-  <File Type="RDI-RDI" Name="MovingLed_Wrapper.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="MovingLed_bus_skew_postroute_physopted.pb"/>
-  <File Type="BG-BIT" Name="MovingLed_Wrapper.bit"/>
-  <File Type="BG-DRC" Name="MovingLed_Wrapper.drc"/>
-  <File Type="BG-BGN" Name="MovingLed_Wrapper.bgn"/>
-  <File Type="BG-BIN" Name="MovingLed_Wrapper.bin"/>
-  <File Type="BITSTR-RBT" Name="MovingLed_Wrapper.rbt"/>
-  <File Type="BITSTR-NKY" Name="MovingLed_Wrapper.nky"/>
-  <File Type="BITSTR-BMM" Name="MovingLed_Wrapper_bd.bmm"/>
+  <File Type="OPT-RQA-PB" Name="MovingLed_Wrapper_rqa_opted.pb"/>
   <File Type="BITSTR-MMI" Name="MovingLed_Wrapper.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="MovingLed_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-SYSDEF" Name="MovingLed_Wrapper.sysdef"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="MovingLed_methodology_drc_routed.pb"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="MovingLed_Wrapper.ltx"/>
-  <File Type="BOOT-PDI-FILE" Name="MovingLed_Wrapper_boot.pdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="NPI_FILE" Name="MovingLed_Wrapper.npi"/>
-  <File Type="OPT-DRC" Name="MovingLed_drc_opted.rpt"/>
-  <File Type="RBD_FILE" Name="MovingLed_Wrapper.rbd"/>
-  <File Type="OPT-HWDEF" Name="MovingLed_Wrapper.hwdef"/>
-  <File Type="PLACE-IO" Name="MovingLed_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="MovingLed_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="MovingLed_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="MovingLed_control_sets_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="MovingLed_Wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="MovingLed_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="MovingLed_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="MovingLed_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="MovingLed_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="MovingLed_route_status.pb"/>
-  <File Type="ROUTE-DCP" Name="MovingLed_Wrapper_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="MovingLed_Wrapper_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="MovingLed_Wrapper_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="MovingLed_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="MovingLed_Wrapper_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="MovingLed_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="MovingLed_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="MovingLed_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="MovingLed_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="MovingLed_bus_skew_routed.rpx"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="MovingLed_Wrapper_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="MovingLed_Wrapper_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="MovingLed_Wrapper_timing_summary_opted.rpt"/>
   <File Type="OPT-DCP" Name="MovingLed_Wrapper_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="MovingLed_Wrapper_placed.dcp"/>
+  <File Type="OPT-DRC" Name="MovingLed_Wrapper_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="MovingLed_Wrapper.hwdef"/>
   <File Type="PWROPT-DCP" Name="MovingLed_Wrapper_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="MovingLed_Wrapper_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="MovingLed_Wrapper_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="MovingLed_Wrapper_placed.dcp"/>
+  <File Type="PLACE-IO" Name="MovingLed_Wrapper_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="MovingLed_Wrapper_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="MovingLed_Wrapper_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="MovingLed_Wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="MovingLed_Wrapper_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="MovingLed_Wrapper_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="MovingLed_Wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="MovingLed_Wrapper.bin"/>
+  <File Type="PLACE-TIMING" Name="MovingLed_Wrapper_timing_summary_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="MovingLed_Wrapper_power_routed.rpx"/>
+  <File Type="PLACE-RQA-PB" Name="MovingLed_Wrapper_rqa_placed.pb"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="MovingLed_Wrapper_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="MovingLed_Wrapper.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="MovingLed_Wrapper_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="MovingLed_Wrapper_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="MovingLed_Wrapper_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="MovingLed_Wrapper.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="MovingLed_Wrapper_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="MovingLed_Wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="MovingLed_Wrapper_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="MovingLed_Wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="MovingLed_Wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="MovingLed_Wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="MovingLed_Wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="MovingLed_Wrapper_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="MovingLed_Wrapper_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="MovingLed_Wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-RQS-PB" Name="MovingLed_Wrapper_rqs_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="MovingLed_Wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="MovingLed_Wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="MovingLed_Wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="MovingLed_Wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="MovingLed_Wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="MovingLed_Wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="MovingLed_Wrapper_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="MovingLed_Wrapper_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="MovingLed_Wrapper_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="MovingLed_Wrapper_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="MovingLed_Wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="MovingLed_Wrapper_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="MovingLed_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="MovingLed_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="MovingLed_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="MovingLed_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="MovingLed_Wrapper.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="MovingLed_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="MovingLed_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-DRC-RPX" Name="MovingLed_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="MovingLed_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-NKY" Name="MovingLed_Wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="MovingLed_Wrapper_bd.bmm"/>
   <File Type="PDI-FILE" Name="MovingLed_Wrapper.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="MovingLed_Wrapper_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="MovingLed_Wrapper_pld.pdi"/>
   <File Type="RCFI_FILE" Name="MovingLed_Wrapper.rcfi"/>
   <File Type="CFI_FILE" Name="MovingLed_Wrapper.cfi"/>
   <File Type="RNPI_FILE" Name="MovingLed_Wrapper.rnpi"/>
+  <File Type="NPI_FILE" Name="MovingLed_Wrapper.npi"/>
+  <File Type="RBD_FILE" Name="MovingLed_Wrapper.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="MovingLed_Wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="MovingLed_Wrapper.sysdef"/>
+  <File Type="BG-BGN" Name="MovingLed_Wrapper.bgn"/>
+  <File Type="BG-DRC" Name="MovingLed_Wrapper.drc"/>
+  <File Type="RDI-RDI" Name="MovingLed_Wrapper.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="MovingLed_Wrapper_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="MovingLed_Wrapper_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -133,6 +147,5 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>
