@@ -39,7 +39,8 @@ architecture MovingLed_ARCH of MovingLed is
 
 	---------- Function
 	-- Bin to Onehot Function --
-	function bin_to_onehot (bin: std_logic_vector) return std_logic_vector 
+	function bin_to_onehot (bin: std_logic_vector) 
+		return std_logic_vector 
 	is
 		-- Constants
 		constant BITON 		: std_logic := '1';
@@ -71,12 +72,12 @@ architecture MovingLed_ARCH of MovingLed is
 	constant ACTIVE 		: std_logic := '1';
 	constant PASS			: std_logic := '0';
 	constant BLANK			: std_logic := '1';
-	constant START			: std_logic_vector(3 downto 0) := "0000";
+	constant START			: std_logic_vector(3 downto 0):="0000";
 	constant NOTSTILLACT 	: integer := 0;
 	constant STILLACT		: integer := 1;
-	constant ZERO			: std_logic_vector(3 downto 0) := "0000";
-	constant ONE			: std_logic_vector(3 downto 0) := "0001";
-	constant TEN			: std_logic_vector(3 downto 0) := "1010";
+	constant ZERO			: std_logic_vector(3 downto 0):="0000";
+	constant ONE			: std_logic_vector(3 downto 0):="0001";
+	constant TEN			: std_logic_vector(3 downto 0):="1010";
 
 	---------- Internal Signals 
 	signal position			: std_logic_vector(3 downto 0);
@@ -125,12 +126,14 @@ begin
 			location := 0;
 		elsif (rising_edge(clock)) then
 			if (leftMove = ACTIVE) then
-				if (location /= 15 and stillActive = NOTSTILLACT) then
+				if (location /= 15 and stillActive = NOTSTILLACT) 
+				then
 					location := location + 1;
 					stillActive := STILLACT;
 				end if;
 			elsif (rightMove = ACTIVE) then
-				if (location /= 0 and stillActive = NOTSTILLACT) then 
+				if (location /= 0 and stillActive = NOTSTILLACT) 
+				then 
 					location := location - 1;
 					stillActive := STILLACT;
 				end if;
@@ -149,7 +152,7 @@ begin
 	begin
 		if (position >= TEN) then
 			upperDigit <= ONE;
-			lowerDigit <= std_logic_vector(unsigned(position) - 10);
+			lowerDigit <= std_logic_vector(unsigned(position) -10);
 		else 
 			upperDigit <= ZERO;
 			lowerDigit <= position;

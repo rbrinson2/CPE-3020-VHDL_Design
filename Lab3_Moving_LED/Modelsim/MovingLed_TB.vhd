@@ -31,7 +31,8 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     -- Moves the signal in either direction depending on if left
     -- or right is passed to it
     procedure sig_move (clockCount : in integer; 
-        moveCount : inout integer; movingSignal : out std_logic) 
+        moveCount : inout integer; 
+        movingSignal : out std_logic) 
     is
     begin
         if (clockCount mod 4 = 0) then
@@ -49,7 +50,9 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     -- Pyramid Test --
     -- Moves the led all the way to the left, then all the way
     -- back to the right
-    procedure pyramid (clockCount : in integer; moveCount : inout integer;
+    procedure pyramid (
+        clockCount : in integer; 
+        moveCount : inout integer;
         leftMv : out std_logic; rightMv : out std_logic) 
     is
     begin
@@ -65,8 +68,11 @@ architecture MovingLed_TB_ARCH of MovingLed_TB is
     -- Reset Test --
     -- Tests the reset signal by moving the led to the middle
     -- then turning the reset signal on
-    procedure reset_test (clockCount : in integer; moveCount : inout integer;
-    leftMv : out std_logic; rightMv : out std_logic; reset : out std_logic) 
+    procedure reset_test (
+        clockCount : in integer; 
+        moveCount : inout integer;
+        leftMv : out std_logic; rightMv : out std_logic; 
+        reset : out std_logic) 
     is
     begin
         if (moveCount < 8) then
@@ -172,7 +178,8 @@ begin
         if (clockCount < PYRAMIDEND) then
             pyramid(clockCount, pyramidCount, leftMv, rightMv);
         elsif (clockCount < RESETEND) then
-            reset_test(clockCount, resetCount, leftMv, rightMv, resetTest);
+            reset_test(clockCount, resetCount, 
+                leftMv, rightMv, resetTest);
         elsif (clockCount < DOUBLEEND) then
             double_press(doubleCount, leftMv, rightMv);
             resetTest := '0';
