@@ -18,7 +18,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
----------------------------------------------------------Entity
+--------------------------------------------------------- Entity
 entity MovingLed is
 	port (
 		---------- Inputs 
@@ -34,7 +34,7 @@ entity MovingLed is
 	);
 end entity MovingLed;
 
----------------------------------------------------Architecture
+--------------------------------------------------------- Architecture
 architecture MovingLed_ARCH of MovingLed is
 
 	---------- Function
