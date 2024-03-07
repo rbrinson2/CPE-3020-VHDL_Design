@@ -16,7 +16,7 @@ end entity;
 architecture Practicum1_ARCH of Practicum1 is
 begin
 
-
+    
 
     ZERO_COUNT: process (switches) is
         variable even       : std_logic;

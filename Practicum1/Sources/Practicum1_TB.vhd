@@ -24,7 +24,7 @@ begin
         switches => switches,
         led      => led
     );
-
+    
     STIMULUS: process (clock) is
         variable count : integer := 0;
     begin
