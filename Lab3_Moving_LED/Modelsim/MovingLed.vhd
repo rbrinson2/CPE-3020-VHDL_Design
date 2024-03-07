@@ -70,7 +70,14 @@ architecture MovingLed_ARCH of MovingLed is
 		return oneHot;
 	end function;
 
+	function position_calc (right : std_logic; left : std_logic) 
+		return std_logic_vector
+	is
+		variable position : std_logic_vector(3 downto 0) := (others => '0');
+	begin
 
+		return position;
+	end function;
 	---------- Constants 
 	constant ACTIVE 		: std_logic := '1';
 	constant PASS			: std_logic := '0';
@@ -118,7 +125,11 @@ begin
 	-- if the button is still being pressed or not
 	LED_POSITION: process(clock, reset) is
 	begin
-		
+		if (reset = ACTIVE) then
+			position <= (others => '0');
+		else
+			position <= position_calc(rightMove, leftMove);
+		end if;
 	end process ;	
 	
 	-- Split --
