@@ -46,7 +46,7 @@ architecture MovingLed_ARCH of MovingLed is
 		constant BITON 		: std_logic := '1';
 		constant BITOFF		: std_logic := '0';
 		-- Variables
-		variable bit_pos	: integer := 0;
+		variable bit_pos	: integer range 0 to 15 := 0;
 		variable oneHot		: std_logic_vector (15 downto 0);	
 	begin
 		-- BCD for loop 
