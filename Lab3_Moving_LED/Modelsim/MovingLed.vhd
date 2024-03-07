@@ -36,6 +36,9 @@ end entity MovingLed;
 
 --------------------------------------------------------- Architecture
 architecture MovingLed_ARCH of MovingLed is
+	---------- Type Definitions
+	type pos_t is (WAIT_FOR_PRESS, PULSE, WAIT_FOR_RELEASE);
+	
 
 	---------- Function
 	-- Bin to Onehot Function --
@@ -114,34 +117,8 @@ begin
 	-- Determins the led position and
 	-- if the button is still being pressed or not
 	LED_POSITION: process(clock, reset) is
-		-- Variables
-		variable location : integer range 0 to 15 := 0;
-		-- stillActive tests if the move button is
-		-- actively being pressed
-		variable stillActive : integer := NOTSTILLACT; 
 	begin
-		-- On reset return everything to the start
-		if (reset = ACTIVE) then
-			position <= START;	
-			location := 0;
-		elsif (rising_edge(clock)) then
-			if (leftMove = ACTIVE) then
-				if (location /= 15 and stillActive = NOTSTILLACT) 
-				then
-					location := location + 1;
-					stillActive := STILLACT;
-				end if;
-			elsif (rightMove = ACTIVE) then
-				if (location /= 0 and stillActive = NOTSTILLACT) 
-				then 
-					location := location - 1;
-					stillActive := STILLACT;
-				end if;
-			else	
-				stillActive := NOTSTILLACT;
-			end if;
-			position <= std_logic_vector(to_unsigned(location, 4));
-		end if;
+		
 	end process ;	
 	
 	-- Split --
