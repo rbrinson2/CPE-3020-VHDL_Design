@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab2_SwitchToLED/Modelsim
 Emovingled
-Z0 w1709149770
+Z0 w1709843700
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 12
+!i122 14
 Z4 dC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim
 Z5 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed.vhd
 Z6 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed.vhd
 l0
-L6 1
-V>chj5WKdU[PV6V=>P0d?B0
-!s100 XT7ji?`Ho`1[l@I:RjnH52
+L22 1
+VPU^<R5MNUEY:Hb<?no0NM2
+!s100 74Y9;PFQbda6^:6lmRBzb0
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1709157419
+Z8 !s110 1709918309
 !i10b 1
-Z9 !s108 1709157419.000000
+Z9 !s108 1709918309.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed.vhd|
 Z11 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed.vhd|
 !i113 1
@@ -44,55 +44,56 @@ VWf2Qblb^zH<Liej8?I4f20
 !s100 RecT2KE58P:Go1eFPTZPj3
 R7
 32
-R8
+Z15 !s110 1709157419
 !i10b 1
-R9
+Z16 !s108 1709157419.000000
 R10
 R11
 !i113 1
 R12
 R13
 Emovingled_tb
-Z15 w1709157403
+Z17 w1709842844
 R1
 R2
 R3
-!i122 13
+!i122 15
 R4
-Z16 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd
-Z17 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd
+Z18 8C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd
+Z19 FC:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd
 l0
-L5 1
-V9F<RP8E@mY_QAMfQ;Lhde0
-!s100 YnT]M[j1d:oiEOk5nch[n1
+L24 1
+VG=@LFlB3AbW7Q:4OQU@bI3
+!s100 AfzNH4?9WanSm6SMk[V8c3
 R7
 32
 R8
 !i10b 1
 R9
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd|
-Z19 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd|
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd|
+Z21 !s107 C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab3_Moving_LED/Modelsim/MovingLed_TB.vhd|
 !i113 1
 R12
 R13
 Amovingled_tb_arch
-R14
+DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+DEx4 work 9 movingled 0 22 PU^<R5MNUEY:Hb<?no0NM2
 R1
 R2
 R3
-Z20 DEx4 work 12 movingled_tb 0 22 9F<RP8E@mY_QAMfQ;Lhde0
-!i122 13
-l19
-Z21 L9 38
-Z22 VZ]OoW[DYb[gPWZ[06L<^N0
-Z23 !s100 3lgj2@`9i=08A3B]TagFn2
+DEx4 work 12 movingled_tb 0 22 G=@LFlB3AbW7Q:4OQU@bI3
+!i122 15
+l131
+L28 174
+V]mmzh9D>jU1?OEX9USPD40
+!s100 2^5_o9D`a5JN<KCAZ]`023
 R7
 32
 R8
 !i10b 1
 R9
-R18
-R19
+R20
+R21
 !i113 1
 R12
 R13
