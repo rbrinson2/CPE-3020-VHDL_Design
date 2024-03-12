@@ -36,7 +36,8 @@ end entity MovingLed;
 
 --------------------------------------------------------- Architecture
 architecture MovingLed_ARCH of MovingLed is
-	
+	---------- Type Definition
+	type pos_t is (WAIT_FOR_PRESS, PULSE, WAIT_FOR_RELEASE);
 	---------- Functions
 	-- Bin to Onehot Function --
 	function bin_to_onehot (bin: std_logic_vector) 
@@ -67,31 +68,7 @@ architecture MovingLed_ARCH of MovingLed is
 		return oneHot;
 	end function;
 
-	function position_calc (position : std_logic_vector; right : std_logic; left : std_logic) 
-		return std_logic_vector
-	is
-		type pos_t is (WAIT_FOR_PRESS, PULSE, WAIT_FOR_RELEASE);
-		constant ACTIVE    		: std_logic := '1';
-		variable currPosition 	: std_logic_vector (3 downto 0) := position;
-		variable CURRSTATE 		: pos_t := WAIT_FOR_PRESS;
-		variable NEXTSTATE 		: pos_t := WAIT_FOR_PRESS;
-	begin
-		case CURRSTATE is
-			when WAIT_FOR_PRESS =>
-				if (left = ACTIVE) then
-					NEXTSTATE := PULSE;
-				end if;
-			when PULSE =>
-				currPosition := std_logic_vector(unsigned(currPosition) + 1);
-				NEXTSTATE := WAIT_FOR_RELEASE;
-			when WAIT_FOR_RELEASE =>
-				if (left = not ACTIVE) then
-					NEXTSTATE := WAIT_FOR_PRESS;
-				end if;				
-		end case;	
-		
-		return currPosition;
-	end function;
+	
 	---------- Constants 
 	constant ACTIVE 		: std_logic := '1';
 	constant PASS			: std_logic := '0';
@@ -138,11 +115,12 @@ begin
 	-- Determins the led position and
 	-- if the button is still being pressed or not
 	LED_POSITION: process(clock, reset) is
+		variable CURRSTATE : pos_t := WAIT_FOR_PRESS;
 	begin
 		if (reset = ACTIVE) then
 			position <= (others => '0');
 		elsif (rising_edge(clock)) then
-			position <= position_calc(position, rightMove, leftMove);
+			
 		end if;
 	end process ;	
 	
