@@ -72,7 +72,7 @@ architecture MovingLed_ARCH of MovingLed is
 	is
 		type pos_t is (WAIT_FOR_PRESS, PULSE, WAIT_FOR_RELEASE);
 		constant ACTIVE    		: std_logic := '1';
-		variable currPosition 	: std_logic_vector := position;
+		variable currPosition 	: std_logic_vector (3 downto 0) := position;
 		variable CURRSTATE 		: pos_t := WAIT_FOR_PRESS;
 		variable NEXTSTATE 		: pos_t := WAIT_FOR_PRESS;
 	begin
