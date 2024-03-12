@@ -38,6 +38,7 @@ end entity MovingLed;
 architecture MovingLed_ARCH of MovingLed is
 	---------- Type Definition
 	type pos_t is (WAIT_FOR_PRESS, PULSE, WAIT_FOR_RELEASE);
+	
 	---------- Functions
 	-- Bin to Onehot Function --
 	function bin_to_onehot (bin: std_logic_vector) 
@@ -68,7 +69,55 @@ architecture MovingLed_ARCH of MovingLed is
 		return oneHot;
 	end function;
 
-	
+	---------- Procedures
+	procedure PositionStateMachine (
+		move		: in std_logic;
+		direction 	: in integer range 0 to 1;
+		CURRST 		: inout pos_t; 
+		position 	: inout std_logic_vector (3 downto 0)
+	)
+	is
+		variable NEXTST : pos_t;
+	begin
+		case CURRST is
+			when WAIT_FOR_PRESS =>
+				if (move = '1') then
+					NEXTST := PULSE;
+				else 
+					NEXTST := WAIT_FOR_PRESS;
+				end if;
+
+			when PULSE =>
+				if (direction = 0) then
+					if (position = "0000") then
+						null;
+					else 
+						position := std_logic_vector(unsigned(position) - 1);
+					end if;
+				elsif (direction = 1) then
+					if (position = "1111") then 
+						null;
+					else 
+						position := std_logic_vector(unsigned(position) + 1);
+					end if;
+				end if;
+
+				NEXTST := WAIT_FOR_RELEASE;
+
+			when WAIT_FOR_RELEASE =>
+				if (move = '0') then 
+					NEXTST := WAIT_FOR_PRESS;
+				else 
+					NEXTST := WAIT_FOR_RELEASE;
+				end if;
+			when others =>
+				null;
+		end case;
+
+		CURRST := NEXTST;
+	end procedure;
+
+
 	---------- Constants 
 	constant ACTIVE 		: std_logic := '1';
 	constant PASS			: std_logic := '0';
@@ -116,11 +165,21 @@ begin
 	-- if the button is still being pressed or not
 	LED_POSITION: process(clock, reset) is
 		variable CURRSTATE : pos_t := WAIT_FOR_PRESS;
+		variable leftM : std_logic := '0';
+		variable rightM : std_logic := '0';
+		variable pos : std_logic_vector (3 downto 0) := (others => '0');
 	begin
 		if (reset = ACTIVE) then
+			pos := (others => '0'); 
 			position <= (others => '0');
 		elsif (rising_edge(clock)) then
+			leftM := leftMove;
+			rightM := rightMove;
 			
+			PositionStateMachine(leftM, 0, CURRSTATE, pos);
+			PositionStateMachine(rightM, 1, CURRSTATE, pos);
+			
+			position <= pos;
 		end if;
 	end process ;	
 	
