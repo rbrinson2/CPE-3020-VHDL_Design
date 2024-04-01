@@ -17,14 +17,16 @@ entity MineSweep is
 end entity MineSweep;
 
 architecture MineSweep_ARCH of MineSweep is
+    constant ACTIVE : std_logic := '1';
+    
     signal flashDone        : std_logic :='0';
     signal startEn          : std_logic := '0';
     signal countDown        : std_logic_vector(6 downto 0); 
     signal playerMoveSync   : std_logic_vector(15 downto 0);
-    
+    signal moveDetected     : std_logic;
 begin
     
-       
+    --Seven-Segment-Driver------------------------------------------- Component
     SEVEN_SEG: SevenSegmentDriver
         port map(
             reset     => reset,
@@ -40,34 +42,44 @@ begin
             sevenSegs => timer,
             anodes    => refreshRate
         );
-    
-    SynchronizerChain_inst : SynchronizerChain
-        generic map(
-            CHAIN_SIZE => CHAIN_SIZE
-        )
-        port map(
-            reset   => reset,
-            clock   => clock,
-            asyncIn => asyncIn,
-            syncOut => syncOut
-        );
-    
-        LevelDetector_inst : LevelDetector
+
+    --Move-Syncronizer----------------------------------------------- Component
+    MOVE_SYNC: for i in 0 to 15 generate
+        SynchronizerChain_inst: SynchronizerChain
+            generic map(
+                CHAIN_SIZE => 8
+            )
             port map(
-                reset    => reset,
-                clock    => clock,
-                trigger  => trigger,
-                pulseOut => pulseOut
+                reset   => reset,
+                clock   => clock,
+                asyncIn => playerMove(i),
+                syncOut => playerMoveSync(i)
             );
-        
+    end generate;
     
-
-    MOVE_DET : process(playerMoveSync, flashDone) is
+    --Move-Detect------------------------------------------------------ Process
+    MOVE_DET: process(clock, reset) is
+        variable hold : std_logic_vector(15 downto 0) := (others => '0');
     begin
-        
-    end process MOVE_DET;
-    
+        if (reset = ACTIVE) then
+            moveDetected    <= not ACTIVE;
+            hold            := (others => not ACTIVE);
+        elsif rising_edge(clock) then
+            moveDetected    <= not ACTIVE;
+            for i in playerMoveSync'range loop
+                if (playerMoveSync(i) = ACTIVE) then
+                    if (hold(i) = not ACTIVE) then
+                        moveDetected <= ACTIVE;
+                        hold(i)      := ACTIVE;
+                    end if;
+                else
+                    hold(i) := not ACTIVE;
+                end if;
+            end loop;
+        end if;
+    end process;
 
+    --Game-Timer------------------------------------------------------- Process
     GAME_TIMER : process (clock, reset) is
         variable upperDigit : integer range 0 to 6 := 0;
         variable lowerDigit : integer range 0 to 9 := 0;
@@ -81,8 +93,6 @@ begin
         countDown <= std_logic_vector(to_unsigned(upperDigit, 3)) 
                      & std_logic_vector(to_unsigned(lowerDigit, 4));
     end process GAME_TIMER;
-    
-    
-    
+     
     
 end architecture MineSweep_ARCH;

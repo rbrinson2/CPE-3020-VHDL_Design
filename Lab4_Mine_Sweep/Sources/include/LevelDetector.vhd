@@ -40,7 +40,7 @@ begin
 			if (trigger=ACTIVE) then
 				if (held = not ACTIVE) then
 					pulseOut <= ACTIVE;
-					held        := ACTIVE;
+					held     := ACTIVE;
 				end if;
 			else
 				held := not ACTIVE;
