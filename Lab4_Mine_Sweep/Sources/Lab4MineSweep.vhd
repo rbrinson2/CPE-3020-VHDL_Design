@@ -4,6 +4,7 @@ use ieee.numeric_std.all;
 
 use work.physical_io_package.all;
 
+--====================================================================== ENTITY
 entity MineSweep is
     port(
         clock       : in std_logic;
@@ -16,9 +17,13 @@ entity MineSweep is
     );
 end entity MineSweep;
 
+--================================================================ ARCHITECTURE
 architecture MineSweep_ARCH of MineSweep is
+
+    ---------- Constants
     constant ACTIVE : std_logic := '1';
     
+    ---------- Signals
     signal flashDone        : std_logic :='0';
     signal startEn          : std_logic := '0';
     signal countDown        : std_logic_vector(6 downto 0); 
