@@ -36,6 +36,7 @@ begin
         wait for 200 ns;
         startEn <= not startEn;
         wait for 100 ns;
+        std.env.stop;
         wait on clock;
     end process TEST;
 end architecture Randomizer_TB_ARCH;

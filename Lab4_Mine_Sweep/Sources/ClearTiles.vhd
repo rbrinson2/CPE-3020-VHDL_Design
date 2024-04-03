@@ -32,12 +32,29 @@ architecture ClearTiles_ARCH of ClearTiles is
     signal bomb2Width : std_logic;
     signal bomb3Width : std_logic;
 
-    function checkHit(move : std_logic_vector(15 downto 0))
+    --Check-Hit------------------------------------------------------- Function
+    function checkHit(
+        move : std_logic_vector(15 downto 0);
+        bomb1 : std_logic;
+        bomb2 : std_logic;
+        bomb3 : std_logic
+        )
         return std_logic 
     is
         variable hit : std_logic;
     begin
-        
+        hit := not ACTIVE;
+        for pos in move'range loop
+            if (move(pos) = ACTIVE) then
+                if (
+                    pos = to_integer(unsigned(bomb1))
+                    or pos = to_integer(unsigned(bomb2))
+                    or pos = to_integer(unsigned(bomb3))
+                    ) then
+                    hit := ACTIVE;
+                end if;
+            end if;
+        end loop;
         return hit;
     end function checkHit;
     
@@ -49,23 +66,12 @@ begin
     bomb2 <= bombLocation(8 downto 5);
     bomb3 <= bombLocation(3 downto 0);
 
-    CLEARTILESPROC: process(clock, reset)
-        
+    CLEARTILESPROC: process(clock, reset)        
     begin
         if (reset = ACTIVE) then
             bombHitEn <= not ACTIVE;
         elsif (rising_edge(clock)) then
-            for i in playerMoveSync'range loop
-                if (playerMoveSync(i) = ACTIVE) then
-                    if (
-                        i = to_integer(unsigned(bomb1))
-                        or i = to_integer(unsigned(bomb2))
-                        or i = to_integer(unsigned(bomb3))
-                        ) then
-                        bombHitEn <= ACTIVE;
-                    end if;
-                end if;
-            end loop;
+            bombHitEn <= checkHit(playerMoveSync, bomb1, bomb2, bomb3);
             
         end if;
     end process CLEARTILESPROC;
