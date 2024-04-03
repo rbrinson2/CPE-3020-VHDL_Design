@@ -24,9 +24,9 @@ architecture MineSweep_ARCH of MineSweep is
     constant ACTIVE : std_logic := '1';
     
     ---------- Signals
-    signal flashDone        : std_logic :='0';
-    signal startEn          : std_logic := '0';
-    signal countDown        : std_logic_vector(6 downto 0); 
+    signal bombLocation     : std_logic_vector(14 downto 0);
+    signal gamePlayMode     : std_logic;    
+    signal startEn          : std_logic;
     signal playerMoveSync   : std_logic_vector(15 downto 0);
     signal moveDetected     : std_logic;
 begin
@@ -62,6 +62,18 @@ begin
             );
     end generate;
     
+    --Randomizer------------------------------------------------------- Process
+    RANDOMIZER : entity work.Randomizer
+        port map(
+            clock        => clock,
+            reset        => reset,
+            startEn      => startEn,
+            gamePlayMode => gamePlayMode,
+            bombLocation => bombLocation
+        );
+    
+
+
     --Move-Detect------------------------------------------------------ Process
     MOVE_DET: process(clock, reset) is
         variable hold : std_logic_vector(15 downto 0) := (others => '0');
@@ -85,19 +97,7 @@ begin
     end process;
 
     --Game-Timer------------------------------------------------------- Process
-    GAME_TIMER : process (clock, reset) is
-        variable upperDigit : integer range 0 to 6 := 0;
-        variable lowerDigit : integer range 0 to 9 := 0;
-    begin
-        if reset = '1' then
-            startEn <= '0';
-        elsif rising_edge(clock) then
-            
-        end if;
-
-        countDown <= std_logic_vector(to_unsigned(upperDigit, 3)) 
-                     & std_logic_vector(to_unsigned(lowerDigit, 4));
-    end process GAME_TIMER;
+    
      
     
 end architecture MineSweep_ARCH;
