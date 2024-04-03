@@ -23,14 +23,15 @@ architecture Randomizer_ARCH of Randomizer is
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     procedure bomb2Counter(
         clockIn : in std_logic;
-        counter : inout integer range 0 to 2;
+        counter : inout integer range 0 to 1;
         clockOut : out std_logic
     ) is
     begin
-        if (rising_edge(clockIn)) then
-            if (counter < 2) then
+        clockOut := not ACTIVE;
+        if (clockIn = ACTIVE) then
+            if (counter < 1) then
                 counter  := counter + 1;
-            elsif (counter >= 2) then
+            elsif (counter >= 1) then
                 counter  := 0;
                 clockOut := ACTIVE;
             end if;
@@ -40,11 +41,12 @@ architecture Randomizer_ARCH of Randomizer is
     --Bomb-3-Pulse-Generator----------------------------------------- Procedure
     procedure bomb3Counter(
         clockIn : in std_logic;
-        counter : inout integer range 0 to 3;
+        counter : inout integer range 0 to 2;
         clockOut : out std_logic
     ) is
     begin
-        if (rising_edge(clockIn)) then
+        clockOut := not ACTIVE;
+        if (clockIn = ACTIVE) then
             if (counter < 2) then
                 counter  := counter + 1;
             elsif (counter >= 2) then
@@ -77,7 +79,7 @@ begin
             bomb2Count      := 0;
             bomb3Count      := 0;
             startFlag       := not ACTIVE;
-            
+
         elsif (rising_edge(clock)) then
             if (gamePlayMode = ACTIVE and startFlag = not ACTIVE) then
                 -- Call counting procedures for bomb2 and bomb3
@@ -88,17 +90,17 @@ begin
                 bomb1 := std_logic_vector(unsigned(bomb1) + 1);
 
                 -- Increment bomb2 on bomb2Clock pulse
-                if (rising_edge(bomb2Clock)) then
+                if (bomb2Clock = ACTIVE) then
                     bomb2 := std_logic_vector(unsigned(bomb2) + 1);
                 end if;
 
                 -- Increment bomb3 on bomb3Clock pulse
-                if (rising_edge(bomb3Clock)) then
+                if (bomb3Clock = ACTIVE) then
                     bomb3 := std_logic_vector(unsigned(bomb3) + 1);
                 end if;
 
                 -- If startEn activates, latch the bomb positions
-                if (rising_edge(startEn)) then
+                if (startEn = ACTIVE) then
                     startFlag := ACTIVE;
                     bombLocation <= bomb1 & bomb2 & bomb3;
                 end if;
