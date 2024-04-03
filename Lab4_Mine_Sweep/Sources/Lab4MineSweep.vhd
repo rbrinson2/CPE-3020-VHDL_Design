@@ -7,10 +7,12 @@ use work.physical_io_package.all;
 --====================================================================== ENTITY
 entity MineSweep is
     port(
+        --------- Inputs
         clock       : in std_logic;
         reset       : in std_logic;
         playerMove  : in std_logic_vector(15 downto 0);
 
+        ---------- Outputs
         tiles       : out std_logic_vector(15 downto 0);
         timer       : out std_logic_vector(6 downto 0);
         refreshRate : out std_logic_vector(3 downto 0)
@@ -72,8 +74,6 @@ begin
             bombLocation => bombLocation
         );
     
-
-
     --Move-Detect------------------------------------------------------ Process
     MOVE_DET: process(clock, reset) is
         variable hold : std_logic_vector(15 downto 0) := (others => '0');
