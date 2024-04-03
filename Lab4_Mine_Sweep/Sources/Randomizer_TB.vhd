@@ -33,7 +33,7 @@ begin
         wait until (reset = '0');
         wait for 40 ns;
         gamePlayMode <= not gamePlayMode;
-        wait for 200 ns;
+        wait for 100 ns;
         startEn <= not startEn;
         wait for 100 ns;
         std.env.stop;

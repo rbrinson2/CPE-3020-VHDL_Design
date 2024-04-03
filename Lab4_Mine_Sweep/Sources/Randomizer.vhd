@@ -56,6 +56,15 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
     
+    --Collision-Detect----------------------------------------------- Procedure
+    procedure collisionDetect (
+        bomb1 : inout std_logic_vector(4 downto 0);
+        bomb2 : inout std_logic_vector(4 downto 0);
+        bomb3 : inout std_logic_vector(4 downto 0)
+        ) is
+    begin
+        --TODO: Fill in collision detection
+    end procedure;
 begin
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
