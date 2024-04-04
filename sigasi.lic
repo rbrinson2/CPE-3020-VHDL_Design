@@ -1,12 +1,12 @@
-INCREMENT com.sigasi.hdt.xl sigasi 5.0 07-sep-2024 uncounted \
-	VENDOR_STRING=company:kennesaw.edu;mac:F0E31579033B;mail:rbrinso8@students.kennesaw.edu;stamp:1709825645.205261;start:2024-03-07;talkback:true;type:edu;update:true \
-	HOSTID=ANY ISSUER=Sigasi ISSUED=07-Mar-2024 SIGN="07F6 D989 \
-	CE4F DAA9 0406 BF62 674D 8434 CE5E E091 C0DD 9AAD 2040 563F \
-	EBBD 10DC BF08 1C0E 8013 CC86 E5A1 2801 BB96 8514 106D 04B8 \
-	67C5 5B08 BFE2 3CB8"
-INCREMENT com.sigasi.hdt.xl.doc sigasi 5.0 07-sep-2024 uncounted \
-	VENDOR_STRING=company:kennesaw.edu;mac:F0E31579033B;mail:rbrinso8@students.kennesaw.edu;stamp:1709825645.2053037;start:2024-03-07;talkback:true;type:edu;update:true \
-	HOSTID=ANY ISSUER=Sigasi ISSUED=07-Mar-2024 SIGN="1F77 D99F \
-	692F 77D7 6A22 6010 4D45 772F 5EB4 D566 B1BC C620 BFF6 22A0 \
-	CBA3 03B1 F47F 29C2 F88C AD6E C657 959E 1564 2896 594A 3EBC \
-	4289 C2B0 34AF 89E8"
+INCREMENT com.sigasi.hdt.xl sigasi 5.0 04-oct-2024 uncounted \
+	VENDOR_STRING=company:kennesaw.edu;mac:1068388ECC3B;mail:rbrinso8@students.kennesaw.edu;stamp:1712216074.260147;start:2024-04-04;talkback:true;type:edu;update:true \
+	HOSTID=ANY ISSUER=Sigasi ISSUED=04-Apr-2024 SIGN="1827 5C63 \
+	995A B1F1 F581 61A7 1973 701E 4D1B 2DF5 8CC4 ACB1 9ED1 A2D3 \
+	9314 1AD0 38D0 5A37 3BFF 8233 F252 E23E 0761 24EB FF43 7CCA \
+	B317 3D1D E28C 8BEA"
+INCREMENT com.sigasi.hdt.xl.doc sigasi 5.0 04-oct-2024 uncounted \
+	VENDOR_STRING=company:kennesaw.edu;mac:1068388ECC3B;mail:rbrinso8@students.kennesaw.edu;stamp:1712216074.2602146;start:2024-04-04;talkback:true;type:edu;update:true \
+	HOSTID=ANY ISSUER=Sigasi ISSUED=04-Apr-2024 SIGN="1C0E AA2A \
+	8485 F7FF C98F 2650 3307 404E 8747 709E 7A92 2128 C394 CD2B \
+	9FB3 00D7 99FF 95EF 6E46 4DEF 1CA2 7216 BFBF 4B63 F999 EE5B \
+	C1BD E67A 0F07 E876"
