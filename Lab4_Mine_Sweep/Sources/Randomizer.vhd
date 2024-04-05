@@ -66,14 +66,10 @@ architecture Randomizer_ARCH of Randomizer is
         bomb3 : inout std_logic_vector(4 downto 0)
     ) 
     is
-        --variable bomb1Width : integer range 0 to 1;
-        --variable bomb2Width : integer range 0 to 1;
         variable bomb1Pos : integer range 0 to 15;
         variable bomb2Pos : integer range 0 to 15;
         variable bomb3Pos : integer range 0 to 15;
     begin
-        -- bomb1Width  := to_integer(unsigned(bomb1(4)));
-        -- bomb2Width  := to_integer(unsigned(bomb2(4)));
         bomb1Pos    := to_integer(unsigned(bomb1(3 downto 0)));
         bomb2Pos    := to_integer(unsigned(bomb2(3 downto 0)));
         bomb3Pos    := to_integer(unsigned(bomb3(3 downto 0)));
