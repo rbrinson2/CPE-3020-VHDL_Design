@@ -7,7 +7,10 @@ use ieee.numeric_std.all;
 entity TileDriver is
     port(
         clock : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        bombLocations : in std_logic_vector(14 downto 0);
+
+        tiles : out std_logic_vector(15 downto 0)
     );
 end entity TileDriver;
 

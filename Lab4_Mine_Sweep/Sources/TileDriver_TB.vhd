@@ -15,12 +15,7 @@ architecture TileDriver_TB_ARCH of TileDriver_TB is
     
 begin
    
-    
-    TileDriver_inst : entity work.TileDriver
-        port map(
-            clock => clock,
-            reset => reset
-        );
+
     
 end architecture TileDriver_TB_ARCH;
 
