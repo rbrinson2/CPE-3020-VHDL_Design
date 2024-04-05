@@ -19,8 +19,8 @@ end entity Randomizer;
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
     constant ACTIVE : std_logic := '1';
-    constant DOUBLEWIDTH : integer := 1;
-    constant SINGLEWIDTH : integer := 0;
+    constant DOUBLEWIDTH : std_logic := '1';
+    constant SINGLEWIDTH : std_logic := '0';
     
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
@@ -66,27 +66,53 @@ architecture Randomizer_ARCH of Randomizer is
         bomb3 : inout std_logic_vector(4 downto 0)
     ) 
     is
-        variable bomb1Width : integer range 0 to 1;
-        variable bomb2Width : integer range 0 to 1;
-        variable bomb3Width : integer range 0 to 1;
+        --variable bomb1Width : integer range 0 to 1;
+        --variable bomb2Width : integer range 0 to 1;
         variable bomb1Pos : integer range 0 to 15;
         variable bomb2Pos : integer range 0 to 15;
         variable bomb3Pos : integer range 0 to 15;
     begin
-        bomb1Width  := to_integer(unsigned(bomb1(4)));
-        bomb2Width  := to_integer(unsigned(bomb2(4)));
-        bomb3Width  := to_integer(unsigned(bomb3(4)));
+        -- bomb1Width  := to_integer(unsigned(bomb1(4)));
+        -- bomb2Width  := to_integer(unsigned(bomb2(4)));
         bomb1Pos    := to_integer(unsigned(bomb1(3 downto 0)));
         bomb2Pos    := to_integer(unsigned(bomb2(3 downto 0)));
         bomb3Pos    := to_integer(unsigned(bomb3(3 downto 0)));
-        if (bomb1Width = DOUBLEWIDTH) then
+        if (bomb1(4) = DOUBLEWIDTH) then
             if ((bomb1Pos = bomb2Pos) or (bomb1Pos + 1 = bomb2Pos)) then  
-                bomb1Pos := bomb1Pos - 3;
-                bomb1(3 downto 0) := std_logic_vector(to_unsigned(bomb1Pos, 4));
+                report "Collision between bomb1 and bomb2";
+                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
             end if;
             if ((bomb1Pos = bomb3Pos) or (bomb1Pos + 1 = bomb3Pos)) then  
-                bomb1Pos := bomb1Pos - 3;
-                bomb1(3 downto 0) := std_logic_vector(to_unsigned(bomb1Pos, 4));
+                report "Collision between bomb1 and bomb3";
+                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
+            end if;
+        elsif (bomb1(4) = SINGLEWIDTH) then 
+            if ((bomb1Pos = bomb2Pos)) then  
+                report "Collsion between bomb1 and bomb2";
+                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
+            end if;
+            if ((bomb1Pos = bomb3Pos)) then  
+                report "Collision between bomb1 and bomb3";
+                bomb1(3 downto 0) :=  std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
+            end if;
+        end if;
+        if (bomb2(4) = DOUBLEWIDTH) then
+            if ((bomb2Pos = bomb3Pos) or (bomb2Pos + 1 = bomb3Pos)) then
+                report "Collision between bomb2 and bomb3";
+                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
+            end if;
+            if ((bomb2Pos = bomb1Pos) or (bomb2Pos + 1 = bomb1Pos)) then
+                report "Collision between bomb2 and bomb1";
+                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
+            end if;
+        elsif (bomb2(4) = SINGLEWIDTH) then
+            if ((bomb2Pos = bomb3Pos)) then
+                report "Collision between bomb2 and bomb3";
+                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
+            end if;
+            if ((bomb2Pos = bomb1Pos)) then
+                report "Collision between bomb2 and bomb1";
+                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
             end if;
         end if;
     end procedure;
