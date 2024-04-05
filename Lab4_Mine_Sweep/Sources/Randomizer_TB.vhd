@@ -18,6 +18,7 @@ begin
     
     clock <= not clock after 10 ns;
     reset <= '1', '0' after 40 ns;
+    gamePlayMode <= '0', '1' after 80 ns;
 
     Randomizer_inst : entity work.Randomizer
         port map(
@@ -28,15 +29,21 @@ begin
             bombLocation => bombLocation
         );
     
-    TEST: process
+    TEST: process(clock, reset)
+        variable count : integer range 0 to 100;
+        
     begin
-        wait until (reset = '0');
-        wait for 40 ns;
-        gamePlayMode <= not gamePlayMode;
-        wait for 100 ns;
-        startEn <= not startEn;
-        wait for 100 ns;
-        std.env.stop;
-        wait on clock;
+        if reset = '1' then
+            startEn <= '0';
+        elsif rising_edge(clock) then
+            if (gamePlayMode = '1') then
+                count := count + 1;
+                if (count < 100) then 
+                    startEn <= not startEn;
+                else 
+                    std.env.stop;
+                end if;
+            end if; 
+        end if;
     end process TEST;
 end architecture Randomizer_TB_ARCH;
