@@ -63,7 +63,7 @@ architecture Randomizer_ARCH of Randomizer is
     procedure collisionDetect (
         bomb1 : inout std_logic_vector(4 downto 0);
         bomb2 : inout std_logic_vector(4 downto 0);
-        bomb3 : inout std_logic_vector(4 downto 0)
+        bomb3 : inout std_logic_vector(4 downto 0
     ) 
     is
         variable bomb1Pos : integer range 0 to 15;

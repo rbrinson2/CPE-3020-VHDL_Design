@@ -33,22 +33,6 @@ architecture MineSweep_ARCH of MineSweep is
     signal moveDetected     : std_logic;
 begin
     
-    --Seven-Segment-Driver------------------------------------------- Component
-    SEVEN_SEG: SevenSegmentDriver
-        port map(
-            reset     => reset,
-            clock     => clock,
-            digit3    => '0' & countDown(6 downto 4),
-            digit2    => countDown(3 downto 0),
-            digit1    => "0000",
-            digit0    => "0000",
-            blank3    => '0',
-            blank2    => '0',
-            blank1    => '0',
-            blank0    => '0',
-            sevenSegs => timer,
-            anodes    => refreshRate
-        );
 
     --Move-Syncronizer----------------------------------------------- Component
     MOVE_SYNC: for i in 0 to 15 generate
