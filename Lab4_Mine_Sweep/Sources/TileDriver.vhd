@@ -28,12 +28,14 @@ architecture TileDriver_ARCH of TileDriver is
         end if;
         return tile;
     end function tileShaper;
-    
+
+        
 begin
   
     
 
     process (clock, reset) is
+        variable tempTiles  : std_logic_vector(15 downto 0);
         variable tile1Shape : std_logic_vector(1 downto 0);
         variable tile2Shape : std_logic_vector(1 downto 0);
         variable tile3Shape : std_logic_vector(1 downto 0);
@@ -57,16 +59,20 @@ begin
             tile1Shape := tileShaper(bombLocations(14)); 
             tile2Shape := tileShaper(bombLocations(9)); 
             tile3Shape := tileShaper(bombLocations(4)); 
-            
-            tiles <= (
-                bomb1Pos + 1    => tile1Shape(1),
-                bomb1Pos        => tile1Shape(0), 
-                bomb2Pos + 1    => tile2Shape(1),
-                bomb2Pos        => tile2Shape(0),
-                bomb3Pos + 1    => tile3Shape(1),
-                bomb3Pos        => tile3Shape(0),
-                others => '0' 
-            );
+            tempTiles := (others => '0'); 
+            for tile in 0 to (tempTiles'high - 1) loop
+                if (tile = bomb1Pos) then
+                    tempTiles(tile + 1 downto tile) := tile1Shape;
+                end if;
+                if (tile = bomb2Pos) then
+                    tempTiles(tile + 1 downto tile) := tile2Shape;
+                end if;
+                if (tile = bomb3Pos) then
+                    tempTiles(tile + 1 downto tile) := tile3Shape;
+                end if;
+            end loop;
+
+            tiles <= tempTiles;
         end if;
     end process;
 end architecture TileDriver_ARCH;
