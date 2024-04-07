@@ -14,8 +14,7 @@ entity MoveDetect is
 
         ---------- Output Ports
         gamePlayMode : out std_logic;
-        startEn : out std_logic;
-        zeroMode : out std_logic
+        startEn : out std_logic
     );
 end entity MoveDetect;
 
@@ -30,6 +29,7 @@ architecture MoveDetect_ARCH of MoveDetect is
     ---------- Signals
     signal nextState    : detect_t;
     signal currState    : detect_t;
+    signal zeroMode     : std_logic;
 begin
     
     --Zero-Mode-------------------------------------------- Selected Assignment

@@ -13,9 +13,7 @@ entity MineSweep is
         playerMove  : in std_logic_vector(15 downto 0);
 
         ---------- Outputs
-        tiles       : out std_logic_vector(15 downto 0);
-        timer       : out std_logic_vector(6 downto 0);
-        refreshRate : out std_logic_vector(3 downto 0)
+        tiles       : out std_logic_vector(15 downto 0)
     );
 end entity MineSweep;
 
@@ -30,7 +28,6 @@ architecture MineSweep_ARCH of MineSweep is
     signal gamePlayMode     : std_logic;    
     signal startEn          : std_logic;
     signal playerMoveSync   : std_logic_vector(15 downto 0);
-    signal moveDetected     : std_logic;
 begin
     
 
@@ -48,7 +45,7 @@ begin
             );
     end generate;
     
-    --Randomizer------------------------------------------------------- Process
+    --Randomizer------------------------------------------------------- Instant 
     RANDOMIZER : entity work.Randomizer
         port map(
             clock        => clock,
@@ -58,27 +55,25 @@ begin
             bombLocation => bombLocation
         );
     
-    --Move-Detect------------------------------------------------------ Process
-    MOVE_DET: process(clock, reset) is
-        variable hold : std_logic_vector(15 downto 0) := (others => '0');
-    begin
-        if (reset = ACTIVE) then
-            moveDetected    <= not ACTIVE;
-            hold            := (others => not ACTIVE);
-        elsif rising_edge(clock) then
-            moveDetected    <= not ACTIVE;
-            for i in playerMoveSync'range loop
-                if (playerMoveSync(i) = ACTIVE) then
-                    if (hold(i) = not ACTIVE) then
-                        moveDetected <= ACTIVE;
-                        hold(i)      := ACTIVE;
-                    end if;
-                else
-                    hold(i) := not ACTIVE;
-                end if;
-            end loop;
-        end if;
-    end process;
+    --Move-Detect------------------------------------------------------ Instant 
+    MoveDetect_inst : entity work.MoveDetect
+        port map(
+            clock          => clock,
+            reset          => reset,
+            playerMoveSync => playerMoveSync,
+            gamePlayMode   => gamePlayMode,
+            startEn        => startEn
+        );
+    
+    --Tile-Driver------------------------------------------------------ Instant
+    TileDriver_inst : entity work.TileDriver
+        port map(
+            clock         => clock,
+            reset         => reset,
+            bombLocations => bombLocation,
+            tiles         => tiles
+        );
+    
 
     --Game-Timer------------------------------------------------------- Process
     
