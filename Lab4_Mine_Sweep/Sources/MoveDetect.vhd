@@ -14,7 +14,8 @@ entity MoveDetect is
 
         ---------- Output Ports
         gamePlayMode : out std_logic;
-        startEn : out std_logic
+        startEn : out std_logic;
+        zeroMode : out std_logic
     );
 end entity MoveDetect;
 
@@ -29,7 +30,6 @@ architecture MoveDetect_ARCH of MoveDetect is
     ---------- Signals
     signal nextState    : detect_t;
     signal currState    : detect_t;
-    signal zeroMode     : std_logic;
 begin
     
     --Zero-Mode-------------------------------------------- Selected Assignment
@@ -48,23 +48,38 @@ begin
     end process DETECT_REG;
     
     --Detect----------------------------------------------------- State Machine
-    DETECT : process (currState, playerMoveSync, zeroMode) is
+    DETECT : process (currState, playerMoveSync, zeroMode, reset) is
+        variable moveTracker : std_logic_vector(15 downto 0) := (others => '0');
     begin
-        gamePlayMode    <= not ACTIVE;
-        startEn         <= not ACTIVE;
+        -- Default State Enable 
+        startEn <= not ACTIVE;
+
         case (currState) is 
             when WAITING =>
-                if (zeroMode = ACTIVE) then
-                    nextState <= PLAYING;
+                report "State: Waiting";
+                nextState <= WAITING;
+                moveTracker := (others => '0');
+                gamePlayMode <= not ACTIVE;
+                if (reset = not ACTIVE) then
+                    if (zeroMode = ACTIVE) then
+                        gamePlayMode <= ACTIVE;
+                        report "Gamplay mode active";
+                        nextState <= PLAYING;
+                    end if;
                 end if;
             when PLAYING =>
-                gamePlayMode <= ACTIVE;
+                report "State: Playing";
+                nextState <= PLAYING;
                 for move in playerMoveSync'range loop
-                    if (playerMoveSync(move) = ACTIVE) then
+                    if (playerMoveSync(move) = ACTIVE 
+                        and moveTracker(move) = not ACTIVE
+                    ) then
+                        moveTracker(move) := ACTIVE;
                         nextState <= MOVEDETECTED;
                     end if;
                 end loop;
             when MOVEDETECTED =>
+                report "State: Move Detected";
                 startEn     <= ACTIVE;
                 nextState   <= PLAYING;
         end case;        
