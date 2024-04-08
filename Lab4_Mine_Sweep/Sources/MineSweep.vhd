@@ -20,30 +20,13 @@ end entity MineSweep;
 --================================================================ ARCHITECTURE
 architecture MineSweep_ARCH of MineSweep is
 
-    ---------- Constants
-    constant ACTIVE : std_logic := '1';
-    
     ---------- Signals
     signal bombLocation     : std_logic_vector(14 downto 0);
     signal gamePlayMode     : std_logic;    
     signal startEn          : std_logic;
-    signal playerMoveSync   : std_logic_vector(15 downto 0);
 begin
     
 
-    --Move-Syncronizer----------------------------------------------- Component
-    MOVE_SYNC: for i in 0 to 15 generate
-        SynchronizerChain_inst: SynchronizerChain
-            generic map(
-                CHAIN_SIZE => 8
-            )
-            port map(
-                reset   => reset,
-                clock   => clock,
-                asyncIn => playerMove(i),
-                syncOut => playerMoveSync(i)
-            );
-    end generate;
     
     --Randomizer------------------------------------------------------- Instant 
     RANDOMIZER : entity work.Randomizer
@@ -60,7 +43,7 @@ begin
         port map(
             clock          => clock,
             reset          => reset,
-            playerMoveSync => playerMoveSync,
+            playerMoveSync => playerMove,
             gamePlayMode   => gamePlayMode,
             startEn        => startEn
         );
@@ -75,8 +58,5 @@ begin
         );
     
 
-    --Game-Timer------------------------------------------------------- Process
-    
-     
     
 end architecture MineSweep_ARCH;

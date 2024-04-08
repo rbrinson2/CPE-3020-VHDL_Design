@@ -34,7 +34,7 @@ begin
     
     --Zero-Mode-------------------------------------------- Selected Assignment
     with playerMoveSync select
-        zeroMode <= ACTIVE when (others => '0'),
+        zeroMode <= ACTIVE when "0000000000000000",
                     not ACTIVE when others;
     
     --Detect-Register-------------------------------------------------- Process
@@ -57,19 +57,30 @@ begin
         case (currState) is 
             when WAITING =>
                 report "State: Waiting";
+
+                -- Set default to stay in state
                 nextState <= WAITING;
+                
+                -- Set default values
                 moveTracker := (others => '0');
                 gamePlayMode <= not ACTIVE;
-                if (reset = not ACTIVE) then
-                    if (zeroMode = ACTIVE) then
-                        gamePlayMode <= ACTIVE;
-                        report "Gamplay mode active";
-                        nextState <= PLAYING;
-                    end if;
+                startEn <= not ACTIVE;
+                
+                -- Once Zero is reached, move state
+                if (zeroMode = ACTIVE) then
+                    nextState <= PLAYING;
                 end if;
+
             when PLAYING =>
                 report "State: Playing";
+
+                -- Set Default to remain in state
                 nextState <= PLAYING;
+
+                -- Turn gameplay mode on
+                gamePlayMode <= ACTIVE;
+
+                -- Check if a move has occured
                 for move in playerMoveSync'range loop
                     if (playerMoveSync(move) = ACTIVE 
                         and moveTracker(move) = not ACTIVE
@@ -78,6 +89,8 @@ begin
                         nextState <= MOVEDETECTED;
                     end if;
                 end loop;
+
+            
             when MOVEDETECTED =>
                 report "State: Move Detected";
                 startEn     <= ACTIVE;

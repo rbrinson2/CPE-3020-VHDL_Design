@@ -4,6 +4,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+--====================================================================== Entity
 entity TileDriver is
     port(
         clock : in std_logic;
@@ -14,6 +15,7 @@ entity TileDriver is
     );
 end entity TileDriver;
 
+--================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
     --Tile-Shaper----------------------------------------------------- Function    
     function tileShaper(width : std_logic) return std_logic_vector is
@@ -31,9 +33,6 @@ architecture TileDriver_ARCH of TileDriver is
 
         
 begin
-  
-    
-
     process (clock, reset) is
         variable tempTiles  : std_logic_vector(15 downto 0);
         variable tile1Shape : std_logic_vector(1 downto 0);

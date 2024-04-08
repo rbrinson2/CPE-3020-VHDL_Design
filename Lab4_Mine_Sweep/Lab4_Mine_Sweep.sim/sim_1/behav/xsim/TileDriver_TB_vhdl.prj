@@ -1,0 +1,18 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Sources/physical_io_package.vhd" \
+"../../../../Sources/Randomizer.vhd" \
+"../../../../Sources/MoveDetect.vhd" \
+"../../../../Sources/TileDriver.vhd" \
+"../../../../Sources/MineSweep.vhd" \
+"../../../../Sources/include/SynchronizerChain.vhd" \
+"../../../../Sources/MineSweepWrapper.vhd" \
+"../../../../Sources/include/LevelDetector.vhd" \
+"../../../../Sources/include/SevenSegmentDriver.vhd" \
+"../../../../Sources/MineSweep_TB.vhd" \
+"../../../../Sources/MoveDetect_TB.vhd" \
+"../../../../Sources/Randomizer_TB.vhd" \
+"../../../../Sources/TileDriver_TB.vhd" \
+
+# Do not sort compile order
+nosort

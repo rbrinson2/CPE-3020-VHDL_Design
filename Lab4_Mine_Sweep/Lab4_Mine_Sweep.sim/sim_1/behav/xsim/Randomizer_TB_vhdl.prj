@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Sources/Randomizer.vhd" \
-"../../../../Sources/Randomizer_TB.vhd" \
-
-# Do not sort compile order
-nosort

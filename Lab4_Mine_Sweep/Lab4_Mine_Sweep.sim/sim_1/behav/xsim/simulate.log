@@ -1,1 +1,40 @@
 Time resolution is 1 ps
+Note: y = 32767
+Time: 10 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 2
+Time: 10 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 32347
+Time: 30 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 3
+Time: 30 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 7171
+Time: 50 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 4
+Time: 50 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 29874
+Time: 70 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 5
+Time: 70 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 31128
+Time: 90 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 6
+Time: 90 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 28269
+Time: 110 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 7
+Time: 110 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 30336
+Time: 130 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 8
+Time: 130 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 32058
+Time: 150 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 9
+Time: 150 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 3401
+Time: 170 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: count = 10
+Time: 170 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+Note: y = 27965
+Time: 190 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
+$stop called at time : 190 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd" Line 50

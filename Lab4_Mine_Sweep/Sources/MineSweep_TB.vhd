@@ -6,6 +6,8 @@ entity MineSweep_TB is
 end entity MineSweep_TB;
 
 architecture MineSweep_TB_ARCH of MineSweep_TB is
+    constant ACTIVE : std_logic := '1';
+    
     ---------- Input Ports
     signal clock : std_logic := '0';
     signal reset : std_logic;
@@ -26,10 +28,12 @@ begin
             tiles      => tiles
         );
     
-    STIMULUS : process (clock) is
+    STIMULUS : process (clock, reset) is
         variable count : integer := 0;
     begin
-        if (rising_edge(clock)) then
+        if (reset = ACTIVE)then
+            playerMove <= (others => '0');
+        elsif (rising_edge(clock)) then
             if (count < 100) then
                 count := count + 1;
                 playerMove <= std_logic_vector(unsigned(playerMove) + 1);

@@ -16,8 +16,6 @@ architecture MoveDetect_TB_ARCH of MoveDetect_TB is
     -------- Ouput Ports
     signal gamePlayMode     : std_logic;
     signal startEn          : std_logic;
-    signal zeroMode         : std_logic;
-     
     
 begin
     
@@ -30,8 +28,7 @@ begin
             reset          => reset,
             playerMoveSync => playerMoveSync,
             gamePlayMode   => gamePlayMode,
-            startEn        => startEn,
-            zeroMode       => zeroMode
+            startEn        => startEn
         );
     
     STIMULUS : process(clock) is
