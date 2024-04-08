@@ -17,6 +17,9 @@ end entity TileDriver;
 
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
+    ---------- Consant
+    constant zero : std_logic_vector(14 downto 0) := (others => '0');
+    
     --Tile-Shaper----------------------------------------------------- Function    
     function tileShaper(width : std_logic) return std_logic_vector is
         constant DOUBLEWIDE : std_logic := '1';
@@ -33,6 +36,7 @@ architecture TileDriver_ARCH of TileDriver is
 
         
 begin
+    --Tile-Driver-Process---------------------------------------------- Process
     process (clock, reset) is
         variable tempTiles  : std_logic_vector(15 downto 0);
         variable tile1Shape : std_logic_vector(1 downto 0);
@@ -44,6 +48,7 @@ begin
          
     begin
         if (reset = '1') then
+            tempTiles := (others => '0');
             tiles <= (others => '0');  
             tile1Shape := "00";
             tile2Shape := "00";
@@ -52,25 +57,30 @@ begin
             bomb2Pos := 0;
             bomb3Pos := 0;
         elsif (rising_edge(clock)) then
-            bomb1Pos := to_integer(unsigned(bombLocations(13 downto 10)));
-            bomb2Pos := to_integer(unsigned(bombLocations(8 downto 5)));
-            bomb3Pos := to_integer(unsigned(bombLocations(3 downto 0)));
-            tile1Shape := tileShaper(bombLocations(14)); 
-            tile2Shape := tileShaper(bombLocations(9)); 
-            tile3Shape := tileShaper(bombLocations(4)); 
-            tempTiles := (others => '0'); 
-            for tile in 0 to (tempTiles'high - 1) loop
-                if (tile = bomb1Pos) then
-                    tempTiles(tile + 1 downto tile) := tile1Shape;
-                end if;
-                if (tile = bomb2Pos) then
-                    tempTiles(tile + 1 downto tile) := tile2Shape;
-                end if;
-                if (tile = bomb3Pos) then
-                    tempTiles(tile + 1 downto tile) := tile3Shape;
-                end if;
-            end loop;
+            if (bombLocations = zero) then
+                tempTiles := zero & '0';
+            else
+                bomb1Pos := to_integer(unsigned(bombLocations(13 downto 10)));
+                bomb2Pos := to_integer(unsigned(bombLocations(8 downto 5)));
+                bomb3Pos := to_integer(unsigned(bombLocations(3 downto 0)));
+                tile1Shape := tileShaper(bombLocations(14)); 
+                tile2Shape := tileShaper(bombLocations(9)); 
+                tile3Shape := tileShaper(bombLocations(4)); 
+                tempTiles := (others => '0'); 
+                for tile in 0 to (tempTiles'high - 1) loop
+                    if (tile = bomb1Pos) then
+                        tempTiles(tile + 1 downto tile) := tile1Shape;
+                    end if;
+                    if (tile = bomb2Pos) then
+                        tempTiles(tile + 1 downto tile) := tile2Shape;
+                    end if;
+                    if (tile = bomb3Pos) then
+                        tempTiles(tile + 1 downto tile) := tile3Shape;
+                    end if;
+                end loop;
+            end if;
 
+            tempTiles := bombLocations & '0';
             tiles <= tempTiles;
         end if;
     end process;

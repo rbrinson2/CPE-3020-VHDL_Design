@@ -1,0 +1,27 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.sim/sim_1/synth/func/xsim/MineSweep_TB_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Randomizer'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_0'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_1'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_10'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_11'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_12'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_13'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_14'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_2'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_3'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_4'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_5'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_6'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_7'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_8'
+INFO: [VRFC 10-3107] analyzing entity 'SynchronizerChain_9'
+INFO: [VRFC 10-3107] analyzing entity 'TileDriver'
+INFO: [VRFC 10-3107] analyzing entity 'MineSweep'
+INFO: [VRFC 10-3107] analyzing entity 'MineSweepWrapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'MineSweep_TB'
+ERROR: [VRFC 10-719] formal port/generic <clock> is not declared in <minesweep> [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd:25]
+ERROR: [VRFC 10-3353] formal port 'clk_ibuf_bufg' has no actual or default value [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd:23]
+ERROR: [VRFC 10-9458] unit 'minesweep_tb_arch' is ignored due to previous errors [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd:8]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd' is ignored due to errors

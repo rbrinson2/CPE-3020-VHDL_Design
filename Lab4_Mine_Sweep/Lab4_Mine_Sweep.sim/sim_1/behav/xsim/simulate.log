@@ -1,40 +1,100 @@
 Time resolution is 1 ps
-Note: y = 32767
-Time: 10 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 2
-Time: 10 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 32347
-Time: 30 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 3
-Time: 30 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 7171
-Time: 50 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 4
-Time: 50 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 29874
-Time: 70 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 5
-Time: 70 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 31128
-Time: 90 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 6
-Time: 90 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 28269
-Time: 110 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 7
-Time: 110 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 30336
-Time: 130 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 8
-Time: 130 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 32058
-Time: 150 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 9
-Time: 150 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 3401
-Time: 170 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: count = 10
-Time: 170 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-Note: y = 27965
-Time: 190 ns  Iteration: 0  Process: /TileDriver_TB/SIGNALDRIVER  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd
-$stop called at time : 190 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver_TB.vhd" Line 50
+Note: State: Waiting
+Time: 0 ps  Iteration: 0  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Waiting
+Time: 0 ps  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Stopped at time : 50 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Note: State: Playing
+Time: 50 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Stopped at time : 70 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Stopped at time : 90 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Stopped at time : 110 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Stopped at time : 130 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Note: State: Playing
+Time: 130 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 130 ns  Iteration: 2  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Stopped at time : 150 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Note: State: Move Detected
+Time: 150 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Stopped at time : 170 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Note: State: Playing
+Time: 170 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Stopped at time : 190 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Stopped at time : 210 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Stopped at time : 230 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd" Line 84
+Note: State: Playing
+Time: 230 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 250 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: Collsion between bomb1 and bomb2
+Time: 270 ns  Iteration: 0  Process: /MineSweep_TB/MineSweep_inst/RANDOMIZER/RANDOMIZER_PROC  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd
+Note: Collision between bomb2 and bomb1
+Time: 270 ns  Iteration: 0  Process: /MineSweep_TB/MineSweep_inst/RANDOMIZER/RANDOMIZER_PROC  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd
+Note: State: Playing
+Time: 270 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 330 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 430 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 450 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 470 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 530 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 630 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 730 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Waiting
+Time: 800 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Waiting
+Time: 800 ns  Iteration: 2  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 850 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 870 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 870 ns  Iteration: 2  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 890 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 910 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 970 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 990 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1010 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1070 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1170 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 1190 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1210 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1270 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1370 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1470 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1570 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Move Detected
+Time: 1590 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1610 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1670 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1770 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1870 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 1970 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+Note: State: Playing
+Time: 2070 ns  Iteration: 1  Process: /MineSweep_TB/MineSweep_inst/DETECT  File: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd
+$stop called at time : 2090 ns : File "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep_TB.vhd" Line 43

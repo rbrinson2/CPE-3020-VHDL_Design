@@ -18,7 +18,7 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
 begin
     
     clock <= not clock after 10 ns;
-    reset <= '1', '0' after 40 ns;
+    reset <= '1', '0' after 40 ns, '1' after 800 ns, '0' after 840 ns;
     
     MineSweep_inst : entity work.MineSweep
         port map(
@@ -36,7 +36,9 @@ begin
         elsif (rising_edge(clock)) then
             if (count < 100) then
                 count := count + 1;
-                playerMove <= std_logic_vector(unsigned(playerMove) + 1);
+                if (count mod 5 = 0) then
+                    playerMove <= std_logic_vector(unsigned(playerMove) + 1);
+                end if;
             else 
                 std.env.stop;
             end if;

@@ -1,9 +1,0 @@
-+====================+===================+==========================================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                                      |
-+====================+===================+==========================================================+
-| sys_clk_pin        | sys_clk_pin       | MineSweep_inst/RANDOMIZER/RANDOMIZER_PROC.bomb2_reg[0]/D |
-| sys_clk_pin        | sys_clk_pin       | MineSweep_inst/RANDOMIZER/bombLocation_reg[6]/D          |
-| sys_clk_pin        | sys_clk_pin       | MineSweep_inst/RANDOMIZER/RANDOMIZER_PROC.bomb2_reg[1]/D |
-| sys_clk_pin        | sys_clk_pin       | MineSweep_inst/RANDOMIZER/bombLocation_reg[7]/D          |
-| sys_clk_pin        | sys_clk_pin       | MineSweep_inst/RANDOMIZER/RANDOMIZER_PROC.bomb2_reg[2]/D |
-+--------------------+-------------------+----------------------------------------------------------+

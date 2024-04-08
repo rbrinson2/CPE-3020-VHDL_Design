@@ -25,37 +25,32 @@ architecture Randomizer_ARCH of Randomizer is
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     procedure bomb2Counter(
-        clockIn : in std_logic;
         counter : inout integer range 0 to 1;
         clockOut : out std_logic
     ) is
     begin
         clockOut := not ACTIVE;
-        if (clockIn = ACTIVE) then
-            if (counter < 1) then
-                counter  := counter + 1;
-            elsif (counter >= 1) then
-                counter  := 0;
-                clockOut := ACTIVE;
-            end if;
+        if (counter < 1) then
+            counter  := counter + 1;
+        elsif (counter >= 1) then
+            counter  := 0;
+            clockOut := ACTIVE;
         end if;
+
     end procedure bomb2Counter;
 
     --Bomb-3-Pulse-Generator----------------------------------------- Procedure
     procedure bomb3Counter(
-        clockIn : in std_logic;
         counter : inout integer range 0 to 2;
         clockOut : out std_logic
     ) is
     begin
         clockOut := not ACTIVE;
-        if (clockIn = ACTIVE) then
-            if (counter < 2) then
-                counter  := counter + 1;
-            elsif (counter >= 2) then
-                counter  := 0;
-                clockOut := ACTIVE;
-            end if;
+        if (counter < 2) then
+            counter  := counter + 1;
+        elsif (counter >= 2) then
+            counter  := 0;
+            clockOut := ACTIVE;
         end if;
     end procedure bomb3Counter;
 
@@ -137,8 +132,8 @@ begin
         elsif (rising_edge(clock)) then
             if (gamePlayMode = ACTIVE) then
                 -- Call counting procedures for bomb2 and bomb3
-                bomb2Counter(clock, bomb2Count, bomb2Clock);
-                bomb3Counter(clock, bomb3Count, bomb3Clock);
+                bomb2Counter(bomb2Count, bomb2Clock);
+                bomb3Counter(bomb3Count, bomb3Clock);
 
                 -- Increment bomb1 on each clock
                 bomb1 := std_logic_vector(unsigned(bomb1) + 1);

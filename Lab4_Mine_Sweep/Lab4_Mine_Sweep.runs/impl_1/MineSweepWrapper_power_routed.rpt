@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Mon Apr  8 11:08:34 2024
+| Date             : Mon Apr  8 13:25:16 2024
 | Host             : rbrinson running 64-bit major release  (build 9200)
 | Command          : report_power -file MineSweepWrapper_power_routed.rpt -pb MineSweepWrapper_power_summary_routed.pb -rpx MineSweepWrapper_power_routed.rpx
 | Design           : MineSweepWrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.084        |
+| Total On-Chip Power (W)  | 0.076        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.012        |
+| Dynamic (W)              | 0.004        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -49,21 +49,22 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |      286 |       --- |             --- |
-|   LUT as Logic |     0.002 |      150 |     20800 |            0.72 |
-|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
-|   Register     |    <0.001 |       68 |     41600 |            0.16 |
-|   Others       |     0.000 |        5 |       --- |             --- |
-| Signals        |    <0.001 |      197 |       --- |             --- |
-| I/O            |     0.005 |       34 |       106 |           32.08 |
-| Static Power   |     0.072 |          |           |                 |
-| Total          |     0.084 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |     0.002 |        3 |       --- |             --- |
+| Slice Logic             |    <0.001 |      299 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      105 |     20800 |            0.50 |
+|   LUT as Shift Register |    <0.001 |       16 |      9600 |            0.17 |
+|   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
+|   Register              |    <0.001 |      102 |     41600 |            0.25 |
+|   F7/F8 Muxes           |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others                |     0.000 |       38 |       --- |             --- |
+| Signals                 |    <0.001 |      215 |       --- |             --- |
+| I/O                     |     0.001 |       34 |       106 |           32.08 |
+| Static Power            |     0.072 |          |           |                 |
+| Total                   |     0.076 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.017 |       0.007 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.013 |       0.003 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -141,9 +142,9 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| MineSweepWrapper |     0.012 |
-|   MineSweep_inst |     0.007 |
-|     RANDOMIZER   |     0.006 |
+| MineSweepWrapper |     0.004 |
+|   MineSweep_inst |     0.002 |
+|     RANDOMIZER   |     0.001 |
 +------------------+-----------+
 
 

@@ -48,7 +48,7 @@ begin
     end process DETECT_REG;
     
     --Detect----------------------------------------------------- State Machine
-    DETECT : process (currState, playerMoveSync, zeroMode, reset) is
+    DETECT : process (currState, playerMoveSync, zeroMode) is
         variable moveTracker : std_logic_vector(15 downto 0) := (others => '0');
     begin
         -- Default State Enable 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1712588831">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1712597044">
   <File Type="ROUTE-PWR" Name="MineSweepWrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="MineSweepWrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="MineSweepWrapper_power_summary_routed.pb"/>
@@ -56,13 +56,13 @@
   <File Type="ROUTE-BUS-SKEW-RPX" Name="MineSweepWrapper_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="MineSweepWrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="MineSweepWrapper_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="LevelDetector_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="LevelDetector_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="LevelDetector_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="LevelDetector_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="MineSweepWrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="MineSweepWrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="MineSweepWrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="MineSweepWrapper_bus_skew_postroute_physopted.rpt"/>
   <File Type="BG-BIT" Name="MineSweepWrapper.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="LevelDetector_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="LevelDetector_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="MineSweepWrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="MineSweepWrapper_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-NKY" Name="MineSweepWrapper.nky"/>
   <File Type="BITSTR-BMM" Name="MineSweepWrapper_bd.bmm"/>
   <File Type="PDI-FILE" Name="MineSweepWrapper.pdi"/>

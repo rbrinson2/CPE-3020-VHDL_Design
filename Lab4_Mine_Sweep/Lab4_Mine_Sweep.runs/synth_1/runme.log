@@ -24,35 +24,66 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 618760
+INFO: [Synth 8-7075] Helper process launched with PID 688528
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1379.211 ; gain = 439.879
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1379.332 ; gain = 440.680
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'MineSweepWrapper' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:14]
+INFO: [Synth 8-638] synthesizing module 'MineSweepWrapper' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:16]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+INFO: [Synth 8-638] synthesizing module 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:27]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'SynchronizerChain' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:27]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
+	Parameter CHAIN_SIZE bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'SynchronizerChain' declared at 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/include/SynchronizerChain.vhd:15' bound to instance 'SynchronizerChain_inst' of component 'SynchronizerChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:22]
 INFO: [Synth 8-638] synthesizing module 'MineSweep' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd:21]
 INFO: [Synth 8-638] synthesizing module 'Randomizer' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd:20]
-WARNING: [Synth 8-2897] clock signal used as data [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd:140]
-WARNING: [Synth 8-2897] clock signal used as data [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd:141]
 INFO: [Synth 8-256] done synthesizing module 'Randomizer' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/Randomizer.vhd:20]
-INFO: [Synth 8-638] synthesizing module 'MoveDetect' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MoveDetect.vhd:22]
-INFO: [Synth 8-256] done synthesizing module 'MoveDetect' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MoveDetect.vhd:22]
-INFO: [Synth 8-638] synthesizing module 'TileDriver' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'TileDriver' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd:17]
+INFO: [Synth 8-638] synthesizing module 'TileDriver' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'TileDriver' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/TileDriver.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'MineSweep' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd:21]
-INFO: [Synth 8-256] done synthesizing module 'MineSweepWrapper' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'MineSweepWrapper' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:16]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1490.992 ; gain = 551.660
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1489.312 ; gain = 550.660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1490.992 ; gain = 551.660
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1489.312 ; gain = 550.660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1490.992 ; gain = 551.660
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1489.312 ; gain = 550.660
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1490.992 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1489.312 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -63,31 +94,31 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/MineSweepWrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1542.855 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1587.527 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 The system cannot find the path specified.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1542.855 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1587.527 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'currState_reg' in module 'MoveDetect'
+INFO: [Synth 8-802] inferred FSM for state register 'currState_reg' in module 'MineSweep'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -95,11 +126,11 @@ INFO: [Synth 8-802] inferred FSM for state register 'currState_reg' in module 'M
                  playing |                               01 |                               01
             movedetected |                               10 |                               10
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'currState_reg' using encoding 'sequential' in module 'MoveDetect'
-WARNING: [Synth 8-327] inferring latch for variable 'gamePlayMode_reg' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MoveDetect.vhd:66]
-WARNING: [Synth 8-327] inferring latch for variable 'DETECT.moveTracker_reg' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MoveDetect.vhd:65]
+INFO: [Synth 8-3354] encoded FSM with state register 'currState_reg' using encoding 'sequential' in module 'MineSweep'
+WARNING: [Synth 8-327] inferring latch for variable 'DETECT.moveTracker_reg' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd:82]
+WARNING: [Synth 8-327] inferring latch for variable 'gamePlayMode_reg' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweep.vhd:49]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -115,16 +146,16 @@ Detailed RTL Component Info :
 	               16 Bit    Registers := 1     
 	               15 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 16    
 	                2 Bit    Registers := 2     
 +---Muxes : 
 	   3 Input   16 Bit        Muxes := 2     
-	   2 Input   16 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 4     
 	   3 Input    5 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 2     
-	   2 Input    2 Bit        Muxes := 46    
+	   2 Input    2 Bit        Muxes := 2     
 	  21 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 15    
+	   2 Input    1 Bit        Muxes := 17    
 	   3 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -143,25 +174,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -179,37 +210,51 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.527 ; gain = 648.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-----------------+------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name      | RTL Name                                             | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-----------------+------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|MineSweepWrapper | MOVE_SYNC[0].SynchronizerChain_inst/syncChain_reg[3] | 4      | 16    | YES          | NO                 | YES               | 16     | 0       | 
++-----------------+------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -222,47 +267,49 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |BUFG  |     2|
-|2     |LUT1  |     2|
-|3     |LUT2  |    18|
-|4     |LUT3  |    16|
-|5     |LUT4  |    80|
-|6     |LUT5  |    34|
-|7     |LUT6  |    61|
-|8     |MUXF7 |     2|
-|9     |FDCE  |    51|
-|10    |LD    |    17|
-|11    |IBUF  |    18|
-|12    |OBUF  |    16|
-+------+------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |LUT1   |     3|
+|3     |LUT2   |    26|
+|4     |LUT3   |     8|
+|5     |LUT4   |    16|
+|6     |LUT5   |    54|
+|7     |LUT6   |    34|
+|8     |MUXF7  |     2|
+|9     |SRL16E |    16|
+|10    |FDCE   |    69|
+|11    |FDRE   |    16|
+|12    |LD     |    17|
+|13    |IBUF   |    18|
+|14    |OBUF   |    16|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.527 ; gain = 648.875
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1542.855 ; gain = 551.660
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1542.855 ; gain = 603.523
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1587.527 ; gain = 550.660
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.527 ; gain = 648.875
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1542.855 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1587.527 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 19 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1542.855 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1587.527 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 17 instances were transformed.
   LD => LDCE: 16 instances
   LD => LDCE (inverted pins: G): 1 instance 
 
 The system cannot find the path specified.
-Synth Design complete | Checksum: 3d56a044
+Synth Design complete | Checksum: 3361078b
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+49 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 1542.855 ; gain = 993.340
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1542.855 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 1587.527 ; gain = 1038.449
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1587.527 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.runs/synth_1/MineSweepWrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file MineSweepWrapper_utilization_synth.rpt -pb MineSweepWrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr  8 11:07:46 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  8 13:24:36 2024...
