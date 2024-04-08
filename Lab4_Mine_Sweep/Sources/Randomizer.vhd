@@ -1,3 +1,19 @@
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 04/08/2024 
+-- Design Name: Randomizer
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- Waits for the gameplay mode to activate. Once that occurs
+-- it starts the timers going. If a move is detected, it then
+-- updates the bomblocation based on where the timers are at 
+-- that moment
+---------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -5,25 +21,27 @@ use ieee.numeric_std.all;
 --Randomizer============================================================ Entity
 entity Randomizer is
     port(
-        ---------- Inputs
+        ---------- Input Ports
         clock           : in std_logic;
         reset           : in std_logic;
-        startEn         : in std_logic;
+        moveDet         : in std_logic;
         gamePlayMode    : in std_logic;
         
-        ---------- Outputs
+        ---------- Output Ports
         bombLocation    : out std_logic_vector (14 downto 0)
     );
 end entity Randomizer;
 
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
+    ---------- Constants
     constant ACTIVE : std_logic := '1';
     constant DOUBLEWIDTH : std_logic := '1';
     constant SINGLEWIDTH : std_logic := '0';
     
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
+    -- Every two clock cycles, generates a pulse
     procedure bomb2Counter(
         counter : inout integer range 0 to 1;
         clockOut : out std_logic
@@ -40,6 +58,7 @@ architecture Randomizer_ARCH of Randomizer is
     end procedure bomb2Counter;
 
     --Bomb-3-Pulse-Generator----------------------------------------- Procedure
+    -- Every three clock cyles, generates a pulse
     procedure bomb3Counter(
         counter : inout integer range 0 to 2;
         clockOut : out std_logic
@@ -54,7 +73,8 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
 
-    --Collision-Detection--------------------------------------------- Porocess
+    --Collision-Detection-------------------------------------------- Procedure
+    -- Determines if two bombs are overlapping
     procedure collisionDetect (
         bomb1 : inout std_logic_vector(4 downto 0);
         bomb2 : inout std_logic_vector(4 downto 0);
@@ -68,42 +88,60 @@ architecture Randomizer_ARCH of Randomizer is
         bomb1Pos    := to_integer(unsigned(bomb1(3 downto 0)));
         bomb2Pos    := to_integer(unsigned(bomb2(3 downto 0)));
         bomb3Pos    := to_integer(unsigned(bomb3(3 downto 0)));
+
+        -- Bomb (1,2) and bomb (1,3) collisions
+        -- If doublewide
         if (bomb1(4) = DOUBLEWIDTH) then
             if ((bomb1Pos = bomb2Pos) or (bomb1Pos + 1 = bomb2Pos)) then  
                 report "Collision between bomb1 and bomb2";
-                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
+                bomb1(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
             end if;
             if ((bomb1Pos = bomb3Pos) or (bomb1Pos + 1 = bomb3Pos)) then  
                 report "Collision between bomb1 and bomb3";
-                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
+                bomb1(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
             end if;
+        
+        -- If singlewide
         elsif (bomb1(4) = SINGLEWIDTH) then 
             if ((bomb1Pos = bomb2Pos)) then  
                 report "Collsion between bomb1 and bomb2";
-                bomb1(3 downto 0) := std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
+                bomb1(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
             end if;
             if ((bomb1Pos = bomb3Pos)) then  
                 report "Collision between bomb1 and bomb3";
-                bomb1(3 downto 0) :=  std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
+                bomb1(3 downto 0) 
+                    :=  std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
             end if;
         end if;
+
+        -- Bomb (2,3) collisions
+        -- If doublewide
         if (bomb2(4) = DOUBLEWIDTH) then
             if ((bomb2Pos = bomb3Pos) or (bomb2Pos + 1 = bomb3Pos)) then
                 report "Collision between bomb2 and bomb3";
-                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
+                bomb2(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
             end if;
             if ((bomb2Pos = bomb1Pos) or (bomb2Pos + 1 = bomb1Pos)) then
                 report "Collision between bomb2 and bomb1";
-                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
+                bomb2(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
             end if;
+        
+        -- If singlewid
         elsif (bomb2(4) = SINGLEWIDTH) then
             if ((bomb2Pos = bomb3Pos)) then
                 report "Collision between bomb2 and bomb3";
-                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
+                bomb2(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
             end if;
             if ((bomb2Pos = bomb1Pos)) then
                 report "Collision between bomb2 and bomb1";
-                bomb2(3 downto 0) := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
+                bomb2(3 downto 0) 
+                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
             end if;
         end if;
     end procedure;
@@ -148,8 +186,8 @@ begin
                     bomb3 := std_logic_vector(unsigned(bomb3) + 1);
                 end if;
 
-                -- If startEn activates, latch the bomb positions
-                if (startEn = ACTIVE) then
+                -- If moveDet activates, latch the bomb positions
+                if (moveDet = ACTIVE) then
                     collisionDetect(bomb1, bomb2, bomb3);
                     bombLocation <= bomb1 & bomb2 & bomb3;
                 end if;

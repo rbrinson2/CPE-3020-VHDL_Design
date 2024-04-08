@@ -1,3 +1,20 @@
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 04/08/2024 
+-- Design Name: MineSweep
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- Houses the state machine for the control signals and the 
+-- individual modules. The state machine starts by waiting 
+-- until the board returns to a zero state after a reset. Once
+-- the zero state has been entered, the SM move to playing mode
+-- and waits for a move to be made, telling the randomizer
+-- to send bomb locations to the tile driver
+---------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -19,22 +36,19 @@ end entity MineSweep;
 
 --================================================================ ARCHITECTURE
 architecture MineSweep_ARCH of MineSweep is
-    ---------- Constants
-    constant ACTIVE : std_logic := '1';
-    
     ---------- Types
     type detect_t is (WAITING, PLAYING, MOVEDETECTED);
+
+    ---------- Constants
+    constant ACTIVE         : std_logic := '1';
 
     ---------- Signals
     signal bombLocation     : std_logic_vector(14 downto 0);
     signal gamePlayMode     : std_logic;    
-    signal startEn          : std_logic;
-    
-
-    ---------- Signals
-    signal nextState    : detect_t;
-    signal currState    : detect_t;
-    signal zeroMode     : std_logic;
+    signal moveDet          : std_logic;
+    signal nextState        : detect_t;
+    signal currState        : detect_t;
+    signal zeroMode         : std_logic;
 
 begin
     
@@ -45,29 +59,38 @@ begin
         port map(
             clock        => clock,
             reset        => reset,
-            startEn      => startEn,
+            moveDet      => moveDet,
             gamePlayMode => gamePlayMode,
             bombLocation => bombLocation
         );
     
+    --Tile-Driver------------------------------------------------------ Instant
+    TileDriver_inst : entity work.TileDriver
+        port map(
+            clock         => clock,
+            reset         => reset,
+            bombLocations => bombLocation,
+            tiles         => tiles
+        );
+    
     --Move-Detect------------------------------------------------------ Instant 
     --Zero-Mode-------------------------------------------- Selected Assignment
-    with playerMove select
+    ZERO: with playerMove select
         zeroMode <= ACTIVE when "0000000000000000",
                     not ACTIVE when others;
     
     --Detect-Register-------------------------------------------------- Process
-    DETECT_REG : process (clock, reset) is
+    MOVEDETECT_REG : process (clock, reset) is
     begin
         if (reset = '1') then
             currState <= WAITING;
         elsif (rising_edge(clock)) then
             currState <= nextState;
         end if;
-    end process DETECT_REG;
+    end process MOVEDETECT_REG;
     
     --Detect----------------------------------------------------- State Machine
-    DETECT : process (currState, playerMove, zeroMode) is
+    MOVEDETECT : process (currState, playerMove, zeroMode) is
         variable moveTracker : std_logic_vector(15 downto 0) := (others => '0');
     begin
 
@@ -81,7 +104,7 @@ begin
                 -- Set default values
                 moveTracker := (others => '0');
                 gamePlayMode <= not ACTIVE;
-                startEn <= not ACTIVE;
+                moveDet <= not ACTIVE;
                 
                 -- Once Zero is reached, move state
                 if (zeroMode = ACTIVE) then
@@ -95,7 +118,7 @@ begin
 
                 -- Set values
                 gamePlayMode <= ACTIVE;
-                startEn <= not ACTIVE;
+                moveDet <= not ACTIVE;
                 
                 -- Check if a move has occured
                 for move in playerMove'range loop
@@ -111,20 +134,13 @@ begin
             
             when MOVEDETECTED =>
                 report "State: Move Detected";
-                startEn     <= ACTIVE;
+                moveDet     <= ACTIVE;
                 nextState   <= PLAYING;
         end case;        
 
-    end process DETECT;
+    end process MOVEDETECT;
     
-    --Tile-Driver------------------------------------------------------ Instant
-    TileDriver_inst : entity work.TileDriver
-        port map(
-            clock         => clock,
-            reset         => reset,
-            bombLocations => bombLocation,
-            tiles         => tiles
-        );
+    
     
 
     

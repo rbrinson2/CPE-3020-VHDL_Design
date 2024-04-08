@@ -1,4 +1,17 @@
-
+---------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 04/08/2024 
+-- Design Name: Tile Driver
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- The Module takes in the bomblocations created by the 
+-- randomizer and converts them to locations in the tile array.
+-- The module then outputs the bombs at that location. 
+---------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -20,7 +33,8 @@ architecture TileDriver_ARCH of TileDriver is
     ---------- Consant
     constant zero : std_logic_vector(14 downto 0) := (others => '0');
     
-    --Tile-Shaper----------------------------------------------------- Function    
+    --Tile-Shaper----------------------------------------------------- Function
+    -- Determines if the bomb should be single wide or double wide    
     function tileShaper(width : std_logic) return std_logic_vector is
         constant DOUBLEWIDE : std_logic := '1';
         constant SINGLEWIDE : std_logic := '0';
@@ -60,12 +74,18 @@ begin
             if (bombLocations = zero) then
                 tempTiles := zero & '0';
             else
+                -- Convert each bombLocations into individual positions
+                -- of each bomb
                 bomb1Pos := to_integer(unsigned(bombLocations(13 downto 10)));
                 bomb2Pos := to_integer(unsigned(bombLocations(8 downto 5)));
                 bomb3Pos := to_integer(unsigned(bombLocations(3 downto 0)));
+                
+                -- Use bombLocations to determine the shape of each bomb
                 tile1Shape := tileShaper(bombLocations(14)); 
                 tile2Shape := tileShaper(bombLocations(9)); 
                 tile3Shape := tileShaper(bombLocations(4)); 
+
+                -- Push the bombs onto a temporary tile space
                 tempTiles := (others => '0'); 
                 for tile in 0 to (tempTiles'high - 1) loop
                     if (tile = bomb1Pos) then
@@ -80,7 +100,7 @@ begin
                 end loop;
             end if;
 
-            tempTiles := bombLocations & '0';
+            -- Update the tile space with the temporary one we created
             tiles <= tempTiles;
         end if;
     end process;
