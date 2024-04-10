@@ -36,15 +36,21 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
     type testArray_t is array(natural range<>) of std_logic_vector(15 downto 0);
     constant TEST_VECTOR : testArray_t := (
     ---playerMove---
-        X"0000",
         X"0001",
         X"0000",
         X"0001",
-        X"0000",
+        X"0011",
+        X"0111",
+        X"1111",
+        X"4567",
+        X"4321",
+        X"ABCD",
+        X"1234",
+        X"DCBA",
         X"0001",
-        X"0000",
-        X"0001",
-        X"0000"
+        X"0011",
+        X"0111",
+        X"1111"
     );
     
     
