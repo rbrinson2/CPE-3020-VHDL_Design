@@ -95,7 +95,6 @@ begin
     --Detect----------------------------------------------------- State Machine
     MOVEDETECT : process (currState, playerMove, zeroMode) is
         variable moveTracker : std_logic_vector(15 downto 0) := (others => '0');
-        variable newMoveFlag : std_logic;
     begin
 
         gamePlayMode <= not ACTIVE;
@@ -107,7 +106,6 @@ begin
                 
                 -- Set default values
                 moveTracker := (others => '0');
-                newMoveFlag := '0';
 
                 if (zeroMode = ACTIVE) then
                     nextState <= PLAYING;
@@ -120,26 +118,22 @@ begin
                 
                 gamePlayMode <= ACTIVE;
 
-                for i in playerMove'range loop
-                    if (playerMove(i) = ACTIVE) then
-                        if (moveTracker(i) = not ACTIVE) then
-                            newMoveFlag := ACTIVE;
-                            moveTracker(i) := ACTIVE;                    
-                        end if;
-                    end if;
-                end loop;
-
-                  
-                if (newMoveFlag = ACTIVE) then
-                    nextState <= MOVEDETECTED;
-                else 
+                if (playerMove = moveTracker) then
                     nextState <= PLAYING;
+                else
+                    for move in playerMove'range loop
+                        if (playerMove(move) /= moveTracker(move)) then
+                            moveTracker(move) := playerMove(move);
+                            moveDet <= ACTIVE;
+                        end if;
+                    end loop;
+
+                    nextState <= MOVEDETECTED;
                 end if;
 
             when MOVEDETECTED =>
                 --report "State: Move Detected";
                 gamePlayMode <= ACTIVE;
-                moveDet     <= ACTIVE;
                 nextState   <= PLAYING;
         end case;        
 
