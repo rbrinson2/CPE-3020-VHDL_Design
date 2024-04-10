@@ -14,27 +14,15 @@ entity MineSweepWrapper is
 end entity MineSweepWrapper;
 
 architecture MineSweepWrapper_ARCH of MineSweepWrapper is
-    signal swSync : std_logic_vector(15 downto 0);
       
 begin
     
-    MOVE_SYNC: for i in sw'range generate
-        SynchronizerChain_inst: SynchronizerChain
-            generic map(
-                CHAIN_SIZE => 4
-            )
-            port map(
-                reset   => btnU,
-                clock   => clk,
-                asyncIn => sw(i),
-                syncOut => swSync(i)
-            );
-    end generate;
-    MineSweep_inst : entity work.MineSweep
+    
+    MINESWEEP : entity work.MineSweep
         port map(
             clock      => clk,
             reset      => btnU,
-            playerMove => swSync,
+            playerMove => sw,
             tiles      => led 
         );
     

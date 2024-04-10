@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1712773270">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1712775405">
   <File Type="ROUTE-PWR" Name="MineSweepWrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="MineSweepWrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="MineSweepWrapper_power_summary_routed.pb"/>
@@ -86,8 +86,10 @@
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/Sources/physical_io_package.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/physical_io_package.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/physical_io_package.vhd"/>
+        <Attr Name="ImportTime" Val="1711633984"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -110,7 +112,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/include/SynchronizerChain.vhd">
+    <File Path="$PPRDIR/Sources/SynchronizerChain.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -122,13 +124,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/include/LevelDetector.vhd">
+    <File Path="$PPRDIR/Sources/LevelDetector.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/include/SevenSegmentDriver.vhd">
+    <File Path="$PPRDIR/Sources/SevenSegmentDriver.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

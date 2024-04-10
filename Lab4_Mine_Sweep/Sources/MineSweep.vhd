@@ -42,18 +42,36 @@ architecture MineSweep_ARCH of MineSweep is
     signal currState : move_t;
     signal nextState : move_t;
 
+    signal playerMoveSynch : std_logic_vector(15 downto 0);
     signal bombLocation : std_logic_vector(14 downto 0);
     signal gamePlayMode : std_logic;
     signal moveDet      : std_logic;
     
 begin
 
+    MOVE_SYNC: for i in playerMove'range generate
+        SynchronizerChain_inst: SynchronizerChain
+            generic map(
+                CHAIN_SIZE => 4
+            )
+            port map(
+                reset   => reset,
+                clock   => clock,
+                asyncIn => playerMove(i),
+                syncOut => playerMoveSynch(i)
+            );
+    end generate;
+
     TILES_PROC : process (clock, reset) is
+        variable tileLatch : std_logic_vector(15 downto 0);
     begin
         if reset = '1' then
-            tiles <= (others => '0'); 
+            tiles <= (others => '1'); 
         elsif rising_edge(clock) then
-            tiles <= '0' & bombLocation;
+            if (moveDet = ACTIVE) then
+                tileLatch := (others => '0');
+            end if;
+        tiles <= tileLatch;
         end if;
     end process TILES_PROC;
     
@@ -77,7 +95,7 @@ begin
         end if;
     end process MOVE_REG;
 
-    MOVE_FSM : process(currState, playerMove) is
+    MOVE_FSM : process(currState, playerMoveSynch) is
         variable moveTraker : std_logic_vector(15 downto 0);
     begin
         moveDet <= '0';
@@ -86,7 +104,7 @@ begin
         case currState is 
             when WAITING =>
                 moveTraker := (others => '0');
-                if (playerMove = moveTraker) then
+                if (playerMoveSynch = moveTraker) then
                     nextState <= PLAYING;
                 else 
                     nextState <= WAITING;
@@ -94,12 +112,12 @@ begin
             when PLAYING =>
                 gamePlayMode <= ACTIVE;
                 
-                if (playerMove = moveTraker) then
+                if (playerMoveSynch = moveTraker) then
                     nextState <= PLAYING;
                 else
-                    for move in playerMove'range loop
-                        if (playerMove(move) /= moveTraker(move)) then
-                            moveTraker(move) := playerMove(move);
+                    for move in playerMoveSynch'range loop
+                        if (playerMoveSynch(move) /= moveTraker(move)) then
+                            moveTraker(move) := playerMoveSynch(move);
                         end if;
                     end loop;
 
@@ -108,6 +126,7 @@ begin
                 end if;
 
             when MOVEDETECTED =>
+                moveDet <= ACTIVE;
                 gamePlayMode <= ACTIVE;
                 nextState <= PLAYING;
         end case;
