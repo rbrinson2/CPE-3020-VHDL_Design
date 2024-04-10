@@ -38,7 +38,7 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
     ---playerMove---
         X"0001",
         X"0000",
-        X"0001",
+        X"0004",
         X"0011",
         X"0111",
         X"1111",

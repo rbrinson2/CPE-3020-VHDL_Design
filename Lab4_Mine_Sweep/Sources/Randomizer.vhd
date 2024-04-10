@@ -189,7 +189,8 @@ begin
                 -- If moveDet activates, latch the bomb positions
                 if (moveDet = ACTIVE) then
                     collisionDetect(bomb1, bomb2, bomb3);
-                    bombLocation <= bomb1 & bomb2 & bomb3;
+                    --bombLocation <= bomb1 & bomb2 & bomb3;
+                    bombLocation <= (others => '1'); 
                 end if;
             end if;
         end if;

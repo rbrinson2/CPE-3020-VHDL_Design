@@ -42,20 +42,31 @@ architecture MineSweep_ARCH of MineSweep is
     signal currState : move_t;
     signal nextState : move_t;
 
+    signal bombLocation : std_logic_vector(14 downto 0);
     signal gamePlayMode : std_logic;
     signal moveDet      : std_logic;
-    signal zeroMode     : std_logic;
     
 begin
 
-    ZERO: with playerMove select
-        zeroMode <= ACTIVE when X"0000",
-                    not ACTIVE when others;
+    TILES_PROC : process (clock, reset) is
+    begin
+        if reset = '1' then
+            tiles <= (others => '0'); 
+        elsif rising_edge(clock) then
+            tiles <= '0' & bombLocation;
+        end if;
+    end process TILES_PROC;
     
-    TILEPULSE: with moveDet select
-        tiles <= X"FFFF" when ACTIVE,
-                 X"0000" when others;
 
+    RANDOMIZER : entity work.Randomizer
+        port map(
+            clock        => clock,
+            reset        => reset,
+            moveDet      => moveDet,
+            gamePlayMode => gamePlayMode,
+            bombLocation => bombLocation
+        );
+    
     
     MOVE_REG : process (clock, reset) is
     begin
@@ -66,7 +77,7 @@ begin
         end if;
     end process MOVE_REG;
 
-    MOVE : process(currState, playerMove, zeroMode) is
+    MOVE_FSM : process(currState, playerMove) is
         variable moveTraker : std_logic_vector(15 downto 0);
     begin
         moveDet <= '0';
@@ -75,7 +86,7 @@ begin
         case currState is 
             when WAITING =>
                 moveTraker := (others => '0');
-                if zeroMode = ACTIVE then
+                if (playerMove = moveTraker) then
                     nextState <= PLAYING;
                 else 
                     nextState <= WAITING;
@@ -88,11 +99,12 @@ begin
                 else
                     for move in playerMove'range loop
                         if (playerMove(move) /= moveTraker(move)) then
-                            moveDet <= ACTIVE;
                             moveTraker(move) := playerMove(move);
-                            nextState <= MOVEDETECTED;
                         end if;
                     end loop;
+
+                    moveDet <= ACTIVE;
+                    nextState <= MOVEDETECTED;
                 end if;
 
             when MOVEDETECTED =>
@@ -100,7 +112,7 @@ begin
                 nextState <= PLAYING;
         end case;
         
-    end process MOVE;
+    end process MOVE_FSM;
     
     
 end architecture MineSweep_ARCH;
