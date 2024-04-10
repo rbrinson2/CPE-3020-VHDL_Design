@@ -18,7 +18,7 @@ architecture MineSweepWrapper_ARCH of MineSweepWrapper is
       
 begin
     
-    MOVE_SYNC: for i in 0 to 15 generate
+    MOVE_SYNC: for i in sw'range generate
         SynchronizerChain_inst: SynchronizerChain
             generic map(
                 CHAIN_SIZE => 4

@@ -44,12 +44,12 @@ architecture Randomizer_ARCH of Randomizer is
     -- Every two clock cycles, generates a pulse
     procedure bomb2Counter(
         counter : inout integer range 0 to 1;
-        clockOut : out std_logic
+        clockOut : inout std_logic
     ) is
     begin
-        clockOut := not ACTIVE;
         if (counter < 1) then
             counter  := counter + 1;
+            clockOut := not ACTIVE;
         elsif (counter >= 1) then
             counter  := 0;
             clockOut := ACTIVE;
@@ -61,12 +61,12 @@ architecture Randomizer_ARCH of Randomizer is
     -- Every three clock cyles, generates a pulse
     procedure bomb3Counter(
         counter : inout integer range 0 to 2;
-        clockOut : out std_logic
+        clockOut : inout std_logic
     ) is
     begin
-        clockOut := not ACTIVE;
         if (counter < 2) then
             counter  := counter + 1;
+            clockOut := not ACTIVE;
         elsif (counter >= 2) then
             counter  := 0;
             clockOut := ACTIVE;
@@ -93,12 +93,12 @@ architecture Randomizer_ARCH of Randomizer is
         -- If doublewide
         if (bomb1(4) = DOUBLEWIDTH) then
             if ((bomb1Pos = bomb2Pos) or (bomb1Pos + 1 = bomb2Pos)) then  
-                report "Collision between bomb1 and bomb2";
+                --report "Collision between bomb1 and bomb2";
                 bomb1(3 downto 0) 
                     := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
             end if;
             if ((bomb1Pos = bomb3Pos) or (bomb1Pos + 1 = bomb3Pos)) then  
-                report "Collision between bomb1 and bomb3";
+                --report "Collision between bomb1 and bomb3";
                 bomb1(3 downto 0) 
                     := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
             end if;
@@ -106,12 +106,12 @@ architecture Randomizer_ARCH of Randomizer is
         -- If singlewide
         elsif (bomb1(4) = SINGLEWIDTH) then 
             if ((bomb1Pos = bomb2Pos)) then  
-                report "Collsion between bomb1 and bomb2";
+                --report "Collsion between bomb1 and bomb2";
                 bomb1(3 downto 0) 
                     := std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
             end if;
             if ((bomb1Pos = bomb3Pos)) then  
-                report "Collision between bomb1 and bomb3";
+                --report "Collision between bomb1 and bomb3";
                 bomb1(3 downto 0) 
                     :=  std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
             end if;
@@ -121,12 +121,12 @@ architecture Randomizer_ARCH of Randomizer is
         -- If doublewide
         if (bomb2(4) = DOUBLEWIDTH) then
             if ((bomb2Pos = bomb3Pos) or (bomb2Pos + 1 = bomb3Pos)) then
-                report "Collision between bomb2 and bomb3";
+                --report "Collision between bomb2 and bomb3";
                 bomb2(3 downto 0) 
                     := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
             end if;
             if ((bomb2Pos = bomb1Pos) or (bomb2Pos + 1 = bomb1Pos)) then
-                report "Collision between bomb2 and bomb1";
+                --report "Collision between bomb2 and bomb1";
                 bomb2(3 downto 0) 
                     := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
             end if;
@@ -134,12 +134,12 @@ architecture Randomizer_ARCH of Randomizer is
         -- If singlewid
         elsif (bomb2(4) = SINGLEWIDTH) then
             if ((bomb2Pos = bomb3Pos)) then
-                report "Collision between bomb2 and bomb3";
+                --report "Collision between bomb2 and bomb3";
                 bomb2(3 downto 0) 
                     := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
             end if;
             if ((bomb2Pos = bomb1Pos)) then
-                report "Collision between bomb2 and bomb1";
+                --report "Collision between bomb2 and bomb1";
                 bomb2(3 downto 0) 
                     := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
             end if;

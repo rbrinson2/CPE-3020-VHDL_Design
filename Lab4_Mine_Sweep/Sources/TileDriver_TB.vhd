@@ -47,7 +47,7 @@ begin
     --Stimulus--------------------------------------------------------- Process
     STIMULUS : process (clock) is
         variable seed   : integer := 1;
-        variable count  : integer := 1;
+        variable count  : integer := 0;
         variable x      : real;
         variable rand   : integer;
         
@@ -60,14 +60,13 @@ begin
             report "rand = " & integer'image(rand);
             
             -- Run 10 different random numbers
-            if (count < 10) then
-                count := count + 1;
-            elsif (count >= 10) then
+            count := count + 1;
+            if (count mod 5 = 0) then
+                -- Update bomblocations with the random number
+                bombLocations <= std_logic_vector(to_unsigned(rand, 15));
+            elsif (count >= 100) then
                 std.env.stop;
             end if;
-
-            -- Update bomblocations with the random number
-            bombLocations <= std_logic_vector(to_unsigned(rand, 15));
         end if;
     end process STIMULUS;
     

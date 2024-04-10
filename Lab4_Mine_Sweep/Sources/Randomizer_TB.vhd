@@ -59,11 +59,13 @@ begin
         elsif rising_edge(clock) then
             if (gamePlayMode = '1') then
                 count := count + 1;
-                if (count < 100) then 
-                    moveDet <= not moveDet;
-                else 
+                if (count mod 5 = 0) then 
+                    moveDet <= '1';
+                elsif (count >= 99) then
                     std.env.stop;
-                end if;
+                else 
+                    moveDet <= '0';
+                end if; 
             end if; 
         end if;
     end process STIMULUS;

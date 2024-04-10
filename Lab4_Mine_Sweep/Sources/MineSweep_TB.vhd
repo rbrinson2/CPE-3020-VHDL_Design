@@ -32,15 +32,31 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
 
     --------- Output Ports
     signal tiles : std_logic_vector(15 downto 0);
+
+    type testArray_t is array(natural range<>) of std_logic_vector(15 downto 0);
+    constant TEST_VECTOR : testArray_t := (
+    ---playerMove---
+        X"0000",
+        X"0001",
+        X"0000",
+        X"0001",
+        X"0000",
+        X"0001",
+        X"0000",
+        X"0001",
+        X"0000"
+    );
+    
+    
 begin
     
     ---------- Clock Generator
     clock <= not clock after 10 ns;
     ---------- Reset Generator
-    reset <= '1', '0' after 40 ns, '1' after 800 ns, '0' after 840 ns;
+    reset <= '1', '0' after 40 ns;--, '1' after 800 ns, '0' after 840 ns;
     
     --Minesweep-------------------------------------------------------- Insant
-    MineSweep_inst : entity work.MineSweep
+    DUT : entity work.MineSweep
         port map(
             clock      => clock,
             reset      => reset,
@@ -51,19 +67,24 @@ begin
     --Stimulus--------------------------------------------------------- Process
     STIMULUS : process (clock, reset) is
         variable count : integer := 0;
+        variable index : natural;
     begin
         if (reset = ACTIVE)then
-            playerMove <= (others => '0');
+            playerMove <= TEST_VECTOR(0);
+            index := 0;
 
         elsif (rising_edge(clock)) then
-            if (count < 100) then
-                count := count + 1;
-                if (count mod 5 = 0) then
-                    playerMove <= std_logic_vector(unsigned(playerMove) + 1);
+            
+            count := count + 1;
+            if (count mod 10 = 0) then
+                playerMove <= TEST_VECTOR(index);
+                index := index + 1;
+
+                if (index >= TEST_VECTOR'length) then
+                    std.env.stop;
                 end if;
-            else 
-                std.env.stop;
             end if;
+            
         end if;
     end process STIMULUS;
     

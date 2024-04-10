@@ -53,7 +53,8 @@ architecture MineSweep_ARCH of MineSweep is
 begin
     
 
-    
+    tiles <= '0' & bombLocation;
+
     --Randomizer------------------------------------------------------- Instant 
     RANDOMIZER : entity work.Randomizer
         port map(
@@ -65,18 +66,20 @@ begin
         );
     
     --Tile-Driver------------------------------------------------------ Instant
-    TileDriver_inst : entity work.TileDriver
-        port map(
-            clock         => clock,
-            reset         => reset,
-            bombLocations => bombLocation,
-            tiles         => tiles
-        );
-    
-    --Move-Detect------------------------------------------------------ Instant 
+    --TILEDRIVER : entity work.TileDriver
+    --    port map(
+    --        clock         => clock,
+    --        reset         => reset,
+    --        bombLocations => bombLocation,
+    --        tiles         => tiles
+    --    );
+    --
+
+
+    --Move-Detect------------------------------------------------------ Control  
     --Zero-Mode-------------------------------------------- Selected Assignment
     ZERO: with playerMove select
-        zeroMode <= ACTIVE when "0000000000000000",
+        zeroMode <= ACTIVE when X"0000",
                     not ACTIVE when others;
     
     --Detect-Register-------------------------------------------------- Process
@@ -92,48 +95,50 @@ begin
     --Detect----------------------------------------------------- State Machine
     MOVEDETECT : process (currState, playerMove, zeroMode) is
         variable moveTracker : std_logic_vector(15 downto 0) := (others => '0');
+        variable newMoveFlag : std_logic;
     begin
+
+        gamePlayMode <= not ACTIVE;
+        moveDet <= not ACTIVE;
 
         case (currState) is 
             when WAITING =>
-                report "State: Waiting";
-
-                -- Set default to stay in state
-                nextState <= WAITING;
+                --report "State: Waiting";
                 
                 -- Set default values
                 moveTracker := (others => '0');
-                gamePlayMode <= not ACTIVE;
-                moveDet <= not ACTIVE;
-                
-                -- Once Zero is reached, move state
+                newMoveFlag := '0';
+
                 if (zeroMode = ACTIVE) then
                     nextState <= PLAYING;
+                else 
+                    nextState <= WAITING;
                 end if;
 
             when PLAYING =>
-                report "State: Playing";
-                -- Set Default to remain in state
-                nextState <= PLAYING;
-
-                -- Set values
-                gamePlayMode <= ACTIVE;
-                moveDet <= not ACTIVE;
+                --report "State: Playing";
                 
-                -- Check if a move has occured
-                for move in playerMove'range loop
-                    if (playerMove(move) = ACTIVE 
-                        and moveTracker(move) = not ACTIVE
-                        and zeroMode = not ACTIVE
-                    ) then
-                        moveTracker(move) := ACTIVE;
-                        nextState <= MOVEDETECTED;
+                gamePlayMode <= ACTIVE;
+
+                for i in playerMove'range loop
+                    if (playerMove(i) = ACTIVE) then
+                        if (moveTracker(i) = not ACTIVE) then
+                            newMoveFlag := ACTIVE;
+                            moveTracker(i) := ACTIVE;                    
+                        end if;
                     end if;
                 end loop;
 
-            
+                  
+                if (newMoveFlag = ACTIVE) then
+                    nextState <= MOVEDETECTED;
+                else 
+                    nextState <= PLAYING;
+                end if;
+
             when MOVEDETECTED =>
-                report "State: Move Detected";
+                --report "State: Move Detected";
+                gamePlayMode <= ACTIVE;
                 moveDet     <= ACTIVE;
                 nextState   <= PLAYING;
         end case;        
