@@ -44,8 +44,8 @@ architecture MineSweep_ARCH of MineSweep is
 
     signal playerMoveSynch : std_logic_vector(15 downto 0);
     signal bombLocation : std_logic_vector(14 downto 0);
-    signal gamePlayMode : std_logic;
-    signal moveDet      : std_logic;
+    signal gamePlayMode : std_logic := '0';
+    signal moveDet      : std_logic := '0';
     
 begin
 
@@ -62,30 +62,17 @@ begin
             );
     end generate;
 
-    TILES_PROC : process (clock, reset) is
-        variable tileLatch : std_logic_vector(15 downto 0);
+    TEST : process (clock, reset) is
     begin
         if reset = '1' then
-            tiles <= (others => '1'); 
+            tiles <= (others => '0');  
         elsif rising_edge(clock) then
-            if (moveDet = ACTIVE) then
-                tileLatch := (others => '0');
+            if (gamePlayMode = ACTIVE) then
+                tiles <= (others => '1');
             end if;
-        tiles <= tileLatch;
         end if;
-    end process TILES_PROC;
-    
+    end process TEST;
 
-    RANDOMIZER : entity work.Randomizer
-        port map(
-            clock        => clock,
-            reset        => reset,
-            moveDet      => moveDet,
-            gamePlayMode => gamePlayMode,
-            bombLocation => bombLocation
-        );
-    
-    
     MOVE_REG : process (clock, reset) is
     begin
         if reset = ACTIVE then
@@ -102,13 +89,16 @@ begin
         gamePlayMode <= '0';
 
         case currState is 
+            --Waiting---------- State
             when WAITING =>
                 moveTraker := (others => '0');
-                if (playerMoveSynch = moveTraker) then
+                if (playerMoveSynch = X"0000") then
                     nextState <= PLAYING;
                 else 
                     nextState <= WAITING;
                 end if;
+
+            --Playing---------- State
             when PLAYING =>
                 gamePlayMode <= ACTIVE;
                 
@@ -124,10 +114,11 @@ begin
                     moveDet <= ACTIVE;
                     nextState <= MOVEDETECTED;
                 end if;
-
+            
+            --Move-Detected---------- State
             when MOVEDETECTED =>
                 moveDet <= ACTIVE;
-                gamePlayMode <= ACTIVE;
+                --gamePlayMode <= ACTIVE;
                 nextState <= PLAYING;
         end case;
         
