@@ -102,9 +102,6 @@ begin
 
         case (currState) is 
             when WAITING =>
-                --report "State: Waiting";
-                
-                -- Set default values
                 moveTracker := (others => '0');
 
                 if (zeroMode = ACTIVE) then
@@ -114,7 +111,6 @@ begin
                 end if;
 
             when PLAYING =>
-                --report "State: Playing";
                 
                 gamePlayMode <= ACTIVE;
 
@@ -132,7 +128,6 @@ begin
                 end if;
 
             when MOVEDETECTED =>
-                --report "State: Move Detected";
                 gamePlayMode <= ACTIVE;
                 nextState   <= PLAYING;
         end case;        
