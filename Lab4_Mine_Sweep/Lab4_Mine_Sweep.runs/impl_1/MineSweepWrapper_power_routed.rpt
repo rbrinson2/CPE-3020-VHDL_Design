@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Wed Apr 10 12:08:45 2024
+| Date             : Wed Apr 10 13:51:01 2024
 | Host             : rbrinson running 64-bit major release  (build 9200)
 | Command          : report_power -file MineSweepWrapper_power_routed.rpt -pb MineSweepWrapper_power_summary_routed.pb -rpx MineSweepWrapper_power_routed.rpx
 | Design           : MineSweepWrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.077        |
+| Total On-Chip Power (W)  | 0.078        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.005        |
+| Dynamic (W)              | 0.006        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -53,16 +53,17 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |      274 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |       99 |     20800 |            0.48 |
+| Slice Logic             |    <0.001 |      291 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      109 |     20800 |            0.52 |
 |   LUT as Shift Register |    <0.001 |       16 |      9600 |            0.17 |
-|   Register              |    <0.001 |       87 |     41600 |            0.21 |
-|   F7/F8 Muxes           |    <0.001 |        3 |     32600 |           <0.01 |
-|   Others                |     0.000 |       37 |       --- |             --- |
-| Signals                 |    <0.001 |      188 |       --- |             --- |
-| I/O                     |     0.003 |       34 |       106 |           32.08 |
+|   Register              |    <0.001 |       86 |     41600 |            0.21 |
+|   F7/F8 Muxes           |    <0.001 |        2 |     32600 |           <0.01 |
+|   CARRY4                |    <0.001 |        2 |      8150 |            0.02 |
+|   Others                |     0.000 |       38 |       --- |             --- |
+| Signals                 |    <0.001 |      205 |       --- |             --- |
+| I/O                     |     0.004 |       34 |       106 |           32.08 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.077 |          |           |                 |
+| Total                   |     0.078 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -141,8 +142,9 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| MineSweepWrapper |     0.005 |
+| MineSweepWrapper |     0.006 |
 |   MineSweep_inst |     0.001 |
+|     RANDOMIZER   |     0.001 |
 +------------------+-----------+
 
 

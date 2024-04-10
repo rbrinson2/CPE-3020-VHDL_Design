@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Wed Apr 10 12:08:45 2024
+| Date         : Wed Apr 10 13:51:00 2024
 | Host         : rbrinson running 64-bit major release  (build 9200)
 | Command      : report_methodology -file MineSweepWrapper_methodology_drc_routed.rpt -pb MineSweepWrapper_methodology_drc_routed.pb -rpx MineSweepWrapper_methodology_drc_routed.rpx
 | Design       : MineSweepWrapper
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 51
+             Violations found: 50
 +-----------+----------+--------------------------------+------------+
 | Rule      | Severity | Description                    | Violations |
 +-----------+----------+--------------------------------+------------+
 | TIMING-18 | Warning  | Missing input or output delay  | 33         |
-| TIMING-20 | Warning  | Non-clocked latch              | 17         |
+| TIMING-20 | Warning  | Non-clocked latch              | 16         |
 | LATCH-1   | Advisory | Existing latches in the design | 1          |
 +-----------+----------+--------------------------------+------------+
 
@@ -279,14 +279,9 @@ Non-clocked latch
 The latch MineSweep_inst/MOVEDETECT.moveTracker_reg[9] cannot be properly analyzed as its control pin MineSweep_inst/MOVEDETECT.moveTracker_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#17 Warning
-Non-clocked latch  
-The latch MineSweep_inst/MOVEDETECT.newMoveFlag_reg cannot be properly analyzed as its control pin MineSweep_inst/MOVEDETECT.newMoveFlag_reg/G is not reached by a timing clock
-Related violations: <none>
-
 LATCH-1#1 Advisory
 Existing latches in the design  
-There are 17 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+There are 16 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 
