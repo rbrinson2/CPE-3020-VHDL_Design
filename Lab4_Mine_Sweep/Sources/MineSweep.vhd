@@ -19,7 +19,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.physical_io_package.all;
 
 --====================================================================== ENTITY
 entity MineSweep is
@@ -49,8 +48,8 @@ architecture MineSweep_ARCH of MineSweep is
     
 begin
     
-    MOVE_SYNC2 : for i in playerMove'range generate
-        SYNC2 : process (clock, reset) is
+    MOVE_SYNC : for i in playerMove'range generate
+        SYNC : process (clock, reset) is
             variable syncChain : std_logic_vector(3 downto 0);
         begin
             if reset = '1' then 
@@ -60,10 +59,11 @@ begin
             end if;
 
             playerMoveSynch(i) <= syncChain(3);
-        end process SYNC2;
+        end process SYNC;
         
     end generate;    
-    
+
+
     RANDOM : entity work.Randomizer
         port map(
             clock        => clock,
