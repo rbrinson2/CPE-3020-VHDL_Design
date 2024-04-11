@@ -78,7 +78,7 @@ begin
         port map(
             clock         => clock,
             reset         => reset,
-            bombLocations => bombLocation,
+            bombLocation => bombLocation,
             tiles         => tiles
         );
 

@@ -8,7 +8,7 @@
 -- Target Devices: Basys 3
 -- 
 -- Description: 
--- The Module takes in the bomblocations created by the 
+-- The Module takes in the bombLocation created by the 
 -- randomizer and converts them to locations in the tile array.
 -- The module then outputs the bombs at that location. 
 ---------------------------------------------------------------
@@ -22,7 +22,7 @@ entity TileDriver is
     port(
         clock : in std_logic;
         reset : in std_logic;
-        bombLocations : in std_logic_vector(14 downto 0);
+        bombLocation : in std_logic_vector(14 downto 0);
 
         tiles : out std_logic_vector(15 downto 0)
     );
@@ -71,19 +71,19 @@ begin
             bomb2Pos := 0;
             bomb3Pos := 0;
         elsif (rising_edge(clock)) then
-            if (bombLocations = zero) then
-                tempTiles := zero & '0';
+            if (bombLocation = zero) then
+                tiles <= (others => '0');
             else
-                -- Convert each bombLocations into individual positions
+                -- Convert each bombLocation into individual positions
                 -- of each bomb
-                bomb1Pos := to_integer(unsigned(bombLocations(13 downto 10)));
-                bomb2Pos := to_integer(unsigned(bombLocations(8 downto 5)));
-                bomb3Pos := to_integer(unsigned(bombLocations(3 downto 0)));
+                bomb1Pos := to_integer(unsigned(bombLocation(13 downto 10)));
+                bomb2Pos := to_integer(unsigned(bombLocation(8 downto 5)));
+                bomb3Pos := to_integer(unsigned(bombLocation(3 downto 0)));
                 
-                -- Use bombLocations to determine the shape of each bomb
-                tile1Shape := tileShaper(bombLocations(14)); 
-                tile2Shape := tileShaper(bombLocations(9)); 
-                tile3Shape := tileShaper(bombLocations(4)); 
+                -- Use bombLocation to determine the shape of each bomb
+                tile1Shape := tileShaper(bombLocation(14)); 
+                tile2Shape := tileShaper(bombLocation(9)); 
+                tile3Shape := tileShaper(bombLocation(4)); 
 
                 -- Push the bombs onto a temporary tile space
                 tempTiles := (others => '0'); 
@@ -98,10 +98,11 @@ begin
                         tempTiles(tile + 1 downto tile) := tile3Shape;
                     end if;
                 end loop;
+                    
+                    
+                    tiles <= tempTiles;
             end if;
 
-            -- Update the tile space with the temporary one we created
-            tiles <= tempTiles;
         end if;
     end process;
 end architecture TileDriver_ARCH;
