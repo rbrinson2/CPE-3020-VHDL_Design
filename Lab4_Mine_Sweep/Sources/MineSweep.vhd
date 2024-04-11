@@ -74,16 +74,13 @@ begin
         );
     
 
-    TEST : process (clock, reset) is
-    begin
-        if reset = '1' then
-            tiles <= (others => '0');  
-        elsif rising_edge(clock) then
-            if (moveDet = ACTIVE) then
-                tiles <= '0' & bombLocation;
-            end if;
-        end if;
-    end process TEST;
+    TILEDRIVE : entity work.TileDriver
+        port map(
+            clock         => clock,
+            reset         => reset,
+            bombLocations => bombLocation,
+            tiles         => tiles
+        );
 
     MOVE_REG : process (clock, reset) is
     begin

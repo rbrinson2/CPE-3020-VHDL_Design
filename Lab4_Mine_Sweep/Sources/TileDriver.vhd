@@ -101,8 +101,7 @@ begin
             end if;
 
             -- Update the tile space with the temporary one we created
-            --tiles <= tempTiles;
-            tiles <= bombLocations & '0';
+            tiles <= tempTiles;
         end if;
     end process;
 end architecture TileDriver_ARCH;
