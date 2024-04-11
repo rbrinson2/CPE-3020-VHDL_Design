@@ -17,6 +17,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.minesweeppackage.all;
+
 --====================================================================== ENTITY
 entity Randomizer_TB is
 end entity Randomizer_TB;
@@ -27,7 +29,7 @@ architecture Randomizer_TB_ARCH of Randomizer_TB is
     signal reset    : std_logic;
     signal moveDet  : std_logic := '0';
     signal gamePlayMode : std_logic := '0';
-    signal bombLocation : std_logic_vector(14 downto 0);
+    signal bombLocation : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     
 begin
     

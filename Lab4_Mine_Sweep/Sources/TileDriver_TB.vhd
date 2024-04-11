@@ -18,6 +18,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
+use work.minesweeppackage.all;
+
 --======================================================================= ENITY
 entity TileDriver_TB is
 end entity TileDriver_TB;
@@ -27,8 +29,8 @@ architecture TileDriver_TB_ARCH of TileDriver_TB is
     
     signal clock            : std_logic := '0';
     signal reset            : std_logic;
-    signal bombLocations    : std_logic_vector(14 downto 0);
-    signal tiles            : std_logic_vector(15 downto 0);
+    signal bombLocation   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal tiles            : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
     
 begin
 
@@ -40,7 +42,7 @@ begin
         port map(
             clock         => clock,
             reset         => reset,
-            bombLocation => bombLocations,
+            bombLocation => bombLocation,
             tiles         => tiles
         );
     
@@ -63,7 +65,7 @@ begin
             count := count + 1;
             if (count mod 5 = 0) then
                 -- Update bomblocations with the random number
-                bombLocations <= std_logic_vector(to_unsigned(rand, 15));
+                bombLocation <= std_logic_vector(to_unsigned(rand, 16));
             elsif (count >= 100) then
                 std.env.stop;
             end if;

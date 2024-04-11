@@ -82,7 +82,7 @@ begin
         elsif (rising_edge(clock)) then
             
             count := count + 1;
-            if (count mod 10 = 0) then
+            if (count mod 20 = 10) then
                 playerMove <= TEST_VECTOR(index);
                 index := index + 1;
 

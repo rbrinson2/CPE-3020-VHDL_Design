@@ -23,27 +23,27 @@ use work.minesweeppackage.all;
 --Randomizer============================================================ Entity
 entity Randomizer is
     port(
-        ---------- Input Ports
+        ----------------------------------------------------------- Input Ports
         clock           : in std_logic;
         reset           : in std_logic;
         moveDet         : in std_logic;
         gamePlayMode    : in std_logic;
         
-        ---------- Output Ports
+        ---------------------------------------------------------- Output Ports
         bombLocation    : out std_logic_vector (BOMBBUSWIDTH - 1 downto 0)
     );
 end entity Randomizer;
 
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
-    ---------- Constants
+    ----------------------------------------------------------------- Constants
     constant ACTIVE     : std_logic := '1';
-    constant EDGE       : std_logic_vector(3 downto 0) := "1111";
-    constant ZERO       : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0');
-    constant BOMBSIZE   : integer := 5;
-    constant DOUBLEWIDTH : std_logic := '1';
-    constant SINGLEWIDTH : std_logic := '0';
     
+    ------------------------------------------------------------------- Signals
+    signal bomb1      : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2      : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3      : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -80,12 +80,32 @@ architecture Randomizer_ARCH of Randomizer is
     
     
 begin
+
+    FINAL: process(clock, reset)
+    begin
+        if (reset = ACTIVE) then
+            bombLocation <= (others => '0'); 
+        elsif (rising_edge(clock) )then
+            if (moveDet = ACTIVE) then
+                bombLocation <= finalBombLocations;
+            end if;
+        end if;
+    end process FINAL;
+
+    Collision_inst : entity work.Collision
+        port map(
+            clock               => clock,
+            reset               => reset,
+            bomb1               => bomb1,
+            bomb2               => bomb2,
+            bomb3               => bomb3,
+            finalBombLocations  => finalBombLocations
+        );
+    
+    
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
-        variable bomb1      : std_logic_vector(BOMBSIZE - 1 downto 0);
-        variable bomb2      : std_logic_vector(BOMBSIZE - 1 downto 0);
-        variable bomb3      : std_logic_vector(BOMBSIZE - 1 downto 0);
-        
+      
         variable bomb2Clock : std_logic;
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
@@ -93,10 +113,9 @@ begin
         
     begin
         if (reset = ACTIVE) then
-            bombLocation    <= (others => '0');
-            bomb1           := (others => '0');
-            bomb2           := (others => '0');
-            bomb3           := (others => '0');
+            bomb1           <= (others => '0');
+            bomb2           <= (others => '0');
+            bomb3           <= (others => '0');
             bomb2Clock      := not ACTIVE;
             bomb3Clock      := not ACTIVE;
             bomb2Count      := 0;
@@ -108,16 +127,12 @@ begin
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);
 
-                bomb1 := std_logic_vector(unsigned(bomb1) + 1);
+                bomb1 <= std_logic_vector(unsigned(bomb1) + 1);
                 if (bomb2Clock = ACTIVE) then
-                    bomb2 := std_logic_vector(unsigned(bomb2) - 1);
+                    bomb2 <= std_logic_vector(unsigned(bomb2) - 1);
                 end if;
                 if (bomb3Clock = ACTIVE) then
-                    bomb3 := std_logic_vector(unsigned(bomb3) + 1);
-                end if;
-
-                if (moveDet = ACTIVE) then
-                    
+                    bomb3 <= std_logic_vector(unsigned(bomb3) + 1);
                 end if;
             end if;
         end if;

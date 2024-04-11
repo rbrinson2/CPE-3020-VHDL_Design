@@ -6,8 +6,16 @@ use work.minesweeppackage.all;
 
 entity Collision is
     port(
+        ---------- Input Ports
         clock : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        bomb1 : in std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb2 : in std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb3 : in std_logic_vector(BOMBSIZE - 1 downto 0);
+
+        ---------- Ouput Ports
+        finalBombLocations : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0)
+
     );
 end entity Collision;
 
@@ -16,12 +24,10 @@ architecture Collisioin_ARCH of Collision is
     ---------- Constants
     constant ACTIVE     : std_logic := '1';
     constant EDGE       : std_logic_vector(3 downto 0) := "1111";
-    constant ZERO       : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0');
-    constant BOMBSIZE   : integer := 5;
-    constant DOUBLEWIDTH : std_logic := '1';
-    constant SINGLEWIDTH : std_logic := '0';
-
     
+    constant DOUBLEWIDTH : std_logic := '1';
+
+
     --BCD-to-One-Hot-------------------------------------------------- Function
     function bin2Hot(bombPos : std_logic_vector(4 downto 0))
         return std_logic_vector is
@@ -64,5 +70,15 @@ architecture Collisioin_ARCH of Collision is
         return mask;
     end function maskGen;
 begin
+
+    COLL_DET : process (clock, reset) is
+    begin
+        if (reset = ACTIVE) then
+            finalBombLocations <= (others => '0'); 
+        elsif rising_edge(clock) then
+            
+        end if;
+    end process COLL_DET;
+    
     
 end architecture Collisioin_ARCH;
