@@ -91,6 +91,7 @@ begin
         end if;
     end process MOVE_REG;
 
+    --TODO: Try to incorporate edge detection instead of sync
     MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
         variable moveTraker : std_logic_vector(15 downto 0);
     begin
