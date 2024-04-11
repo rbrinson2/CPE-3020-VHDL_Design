@@ -77,66 +77,7 @@ architecture Randomizer_ARCH of Randomizer is
             clockOut := ACTIVE;
         end if;
     end procedure bomb3Counter;
-
-    --Collision-Detection--------------------------------------------- Function
-    -- Determines if two bombs are overlapping
-    function collisionDetect (
-        bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
-        bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
-        bomb3 : std_logic_vector(BOMBSIZE - 1 downto 0)
-    )
-        return std_logic_vector 
-    is
-        variable temp : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        
-    begin
-        
-        --TODO: Create the Collision detector
     
-        return temp;
-    end function;
-
-    --BCD-to-One-Hot-------------------------------------------------- Function
-    function bin2Hot(bombPos : std_logic_vector(4 downto 0))
-        return std_logic_vector is
-        variable oneHot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable position : integer range 0 to 2**bombPos'length;
-    begin
-        oneHot   := (others => '0'); 
-        position := to_integer(unsigned(bombPos(3 downto 0)));
-        for i in oneHot'range loop
-            if (i = position) then
-                -- Map the bomb to here
-                oneHot(i) := ACTIVE;
-
-                -- Check if it's a doublewide bomb and if it's at the edge
-                if (bombPos(4) = DOUBLEWIDTH 
-                    and bombPos(3 downto 0) = EDGE
-                    ) then
-                    -- If it is at the edge
-                    oneHot(i - 1) := ACTIVE;
-                else
-                    -- If it's not at the edge
-                    oneHot(i + 1) := ACTIVE;
-                end if;
-            end if;
-        end loop;
-        return oneHot;
-    end function bin2Hot;
-    
-    --Mask-Generator-------------------------------------------------- Function
-    function maskGen(bomb : std_logic_vector(BOMBBUSWIDTH - 1 downto 0))
-        return std_logic_vector is
-        variable mask : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable leftShift : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable rightShift : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    begin
-        leftShift := bomb(bomb'length - 2 downto 0) & '0';
-        rightShift := '0' & bomb(bomb'length - 1 downto 1);
-        mask := bomb or leftShift or rightShift;
-
-        return mask;
-    end function maskGen;
     
 begin
     --Randomzier-Process----------------------------------------------- Process
@@ -176,7 +117,7 @@ begin
                 end if;
 
                 if (moveDet = ACTIVE) then
-                    bombLocation <= collisionDetect(bomb1, bomb2, bomb3);
+                    
                 end if;
             end if;
         end if;
