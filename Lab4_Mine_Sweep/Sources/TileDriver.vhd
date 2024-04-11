@@ -33,7 +33,7 @@ end entity TileDriver;
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
     ---------- Consant
-    constant zero : std_logic_vector(14 downto 0) := (others => '0');
+    constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0');
     
     --Tile-Shaper----------------------------------------------------- Function
     -- Determines if the bomb should be single wide or double wide    
@@ -73,7 +73,7 @@ begin
             bomb2Pos := 0;
             bomb3Pos := 0;
         elsif (rising_edge(clock)) then
-            if (bombLocation = zero) then
+            if (bombLocation = ZERO) then
                 tiles <= (others => '0');
             else
                 -- Convert each bombLocation into individual positions
