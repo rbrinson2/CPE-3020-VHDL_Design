@@ -17,14 +17,16 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.minesweeppackage.all;
+
 --====================================================================== Entity
 entity TileDriver is
     port(
         clock : in std_logic;
         reset : in std_logic;
-        bombLocation : in std_logic_vector(14 downto 0);
+        bombLocation : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
 
-        tiles : out std_logic_vector(15 downto 0)
+        tiles : out std_logic_vector(TILEBUSWIDTH - 1 downto 0)
     );
 end entity TileDriver;
 
@@ -52,7 +54,7 @@ architecture TileDriver_ARCH of TileDriver is
 begin
     --Tile-Driver-Process---------------------------------------------- Process
     process (clock, reset) is
-        variable tempTiles  : std_logic_vector(15 downto 0);
+        variable tempTiles  : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
         variable tile1Shape : std_logic_vector(1 downto 0);
         variable tile2Shape : std_logic_vector(1 downto 0);
         variable tile3Shape : std_logic_vector(1 downto 0);

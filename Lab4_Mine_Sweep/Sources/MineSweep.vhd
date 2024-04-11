@@ -19,6 +19,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.minesweeppackage.all;
 
 --====================================================================== ENTITY
 entity MineSweep is
@@ -26,10 +27,10 @@ entity MineSweep is
         --------- Inputs
         clock       : in std_logic;
         reset       : in std_logic;
-        playerMove  : in std_logic_vector(15 downto 0);
+        playerMove  : in std_logic_vector(MOVEWIDTH - 1 downto 0);
 
         ---------- Outputs
-        tiles       : out std_logic_vector(15 downto 0)
+        tiles       : out std_logic_vector(TILEBUSWIDTH - 1 downto 0)
     );
 end entity MineSweep;
 
@@ -41,10 +42,10 @@ architecture MineSweep_ARCH of MineSweep is
     signal currState : move_t;
     signal nextState : move_t;
 
-    signal bombLocation : std_logic_vector(14 downto 0);
-    signal playerMoveSynch : std_logic_vector(15 downto 0);
-    signal gamePlayMode : std_logic := '0';
-    signal moveDet      : std_logic := '0';
+    signal bombLocation     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal playerMoveSynch  : std_logic_vector(MOVEWIDTH - 1 downto 0);
+    signal gamePlayMode     : std_logic := '0';
+    signal moveDet          : std_logic := '0';
     
 begin
     
@@ -93,7 +94,7 @@ begin
 
     --TODO: Try to incorporate edge detection instead of sync
     MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
-        variable moveTraker : std_logic_vector(15 downto 0);
+        variable moveTraker : std_logic_vector(MOVEWIDTH - 1 downto 0);
     begin
         moveDet <= '0';
         gamePlayMode <= '0';

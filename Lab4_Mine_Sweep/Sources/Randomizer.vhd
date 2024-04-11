@@ -18,6 +18,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.minesweeppackage.all;
+
 --Randomizer============================================================ Entity
 entity Randomizer is
     port(
@@ -28,14 +30,17 @@ entity Randomizer is
         gamePlayMode    : in std_logic;
         
         ---------- Output Ports
-        bombLocation    : out std_logic_vector (14 downto 0)
+        bombLocation    : out std_logic_vector (BOMBBUSWIDTH - 1 downto 0)
     );
 end entity Randomizer;
 
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
     ---------- Constants
-    constant ACTIVE : std_logic := '1';
+    constant ACTIVE     : std_logic := '1';
+    constant EDGE       : std_logic_vector(3 downto 0) := "1111";
+    constant ZERO       : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0');
+    constant BOMBSIZE   : integer := 5;
     constant DOUBLEWIDTH : std_logic := '1';
     constant SINGLEWIDTH : std_logic := '0';
     
@@ -73,84 +78,73 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
 
-    --Collision-Detection-------------------------------------------- Procedure
+    --Collision-Detection--------------------------------------------- Function
     -- Determines if two bombs are overlapping
-    procedure collisionDetect (
-        bomb1 : inout std_logic_vector(4 downto 0);
-        bomb2 : inout std_logic_vector(4 downto 0);
-        bomb3 : inout std_logic_vector(4 downto 0)
-    ) 
+    function collisionDetect (
+        bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb3 : std_logic_vector(BOMBSIZE - 1 downto 0)
+    )
+        return std_logic_vector 
     is
-        variable bomb1Pos : integer range 0 to 15;
-        variable bomb2Pos : integer range 0 to 15;
-        variable bomb3Pos : integer range 0 to 15;
+        variable temp : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        
     begin
-        bomb1Pos    := to_integer(unsigned(bomb1(3 downto 0)));
-        bomb2Pos    := to_integer(unsigned(bomb2(3 downto 0)));
-        bomb3Pos    := to_integer(unsigned(bomb3(3 downto 0)));
-
-        -- Bomb (1,2) and bomb (1,3) collisions
-        -- If doublewide
-        if (bomb1(4) = DOUBLEWIDTH) then
-            if ((bomb1Pos = bomb2Pos) or (bomb1Pos + 1 = bomb2Pos)) then  
-                --report "Collision between bomb1 and bomb2";
-                bomb1(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
-            end if;
-            if ((bomb1Pos = bomb3Pos) or (bomb1Pos + 1 = bomb3Pos)) then  
-                --report "Collision between bomb1 and bomb3";
-                bomb1(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 3);
-            end if;
         
-        -- If singlewide
-        elsif (bomb1(4) = SINGLEWIDTH) then 
-            if ((bomb1Pos = bomb2Pos)) then  
-                --report "Collsion between bomb1 and bomb2";
-                bomb1(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
-            end if;
-            if ((bomb1Pos = bomb3Pos)) then  
-                --report "Collision between bomb1 and bomb3";
-                bomb1(3 downto 0) 
-                    :=  std_logic_vector(unsigned(bomb1(3 downto 0)) - 2);
-            end if;
-        end if;
+        --TODO: Create the Collision detector
+    
+        return temp;
+    end function;
 
-        -- Bomb (2,3) collisions
-        -- If doublewide
-        if (bomb2(4) = DOUBLEWIDTH) then
-            if ((bomb2Pos = bomb3Pos) or (bomb2Pos + 1 = bomb3Pos)) then
-                --report "Collision between bomb2 and bomb3";
-                bomb2(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
+    --BCD-to-One-Hot-------------------------------------------------- Function
+    function bin2Hot(bombPos : std_logic_vector(4 downto 0))
+        return std_logic_vector is
+        variable oneHot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable position : integer range 0 to 2**bombPos'length;
+    begin
+        oneHot   := (others => '0'); 
+        position := to_integer(unsigned(bombPos(3 downto 0)));
+        for i in oneHot'range loop
+            if (i = position) then
+                -- Map the bomb to here
+                oneHot(i) := ACTIVE;
+
+                -- Check if it's a doublewide bomb and if it's at the edge
+                if (bombPos(4) = DOUBLEWIDTH 
+                    and bombPos(3 downto 0) = EDGE
+                    ) then
+                    -- If it is at the edge
+                    oneHot(i - 1) := ACTIVE;
+                else
+                    -- If it's not at the edge
+                    oneHot(i + 1) := ACTIVE;
+                end if;
             end if;
-            if ((bomb2Pos = bomb1Pos) or (bomb2Pos + 1 = bomb1Pos)) then
-                --report "Collision between bomb2 and bomb1";
-                bomb2(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 3);
-            end if;
-        
-        -- If singlewid
-        elsif (bomb2(4) = SINGLEWIDTH) then
-            if ((bomb2Pos = bomb3Pos)) then
-                --report "Collision between bomb2 and bomb3";
-                bomb2(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
-            end if;
-            if ((bomb2Pos = bomb1Pos)) then
-                --report "Collision between bomb2 and bomb1";
-                bomb2(3 downto 0) 
-                    := std_logic_vector(unsigned(bomb2(3 downto 0)) + 2);
-            end if;
-        end if;
-    end procedure;
+        end loop;
+        return oneHot;
+    end function bin2Hot;
+    
+    --Mask-Generator-------------------------------------------------- Function
+    function maskGen(bomb : std_logic_vector(BOMBBUSWIDTH - 1 downto 0))
+        return std_logic_vector is
+        variable mask : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable leftShift : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable rightShift : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    begin
+        leftShift := bomb(bomb'length - 2 downto 0) & '0';
+        rightShift := '0' & bomb(bomb'length - 1 downto 1);
+        mask := bomb or leftShift or rightShift;
+
+        return mask;
+    end function maskGen;
+    
 begin
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
-        variable bomb1      : std_logic_vector(4 downto 0);
-        variable bomb2      : std_logic_vector(4 downto 0);
-        variable bomb3      : std_logic_vector(4 downto 0);
+        variable bomb1      : std_logic_vector(BOMBSIZE - 1 downto 0);
+        variable bomb2      : std_logic_vector(BOMBSIZE - 1 downto 0);
+        variable bomb3      : std_logic_vector(BOMBSIZE - 1 downto 0);
+        
         variable bomb2Clock : std_logic;
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
@@ -173,23 +167,16 @@ begin
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);
 
-                -- Increment bomb1 on each clock
                 bomb1 := std_logic_vector(unsigned(bomb1) + 1);
-
-                -- Decrement bomb2 on bomb2Clock pulse
                 if (bomb2Clock = ACTIVE) then
                     bomb2 := std_logic_vector(unsigned(bomb2) - 1);
                 end if;
-
-                -- Increment bomb3 on bomb3Clock pulse
                 if (bomb3Clock = ACTIVE) then
                     bomb3 := std_logic_vector(unsigned(bomb3) + 1);
                 end if;
 
-                -- If moveDet activates, latch the bomb positions
                 if (moveDet = ACTIVE) then
-                    collisionDetect(bomb1, bomb2, bomb3);
-                    bombLocation <= bomb1 & bomb2 & bomb3;
+                    bombLocation <= collisionDetect(bomb1, bomb2, bomb3);
                 end if;
             end if;
         end if;
