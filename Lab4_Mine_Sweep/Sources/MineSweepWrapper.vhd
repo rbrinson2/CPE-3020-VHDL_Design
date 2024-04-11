@@ -16,14 +16,13 @@ end entity MineSweepWrapper;
 architecture MineSweepWrapper_ARCH of MineSweepWrapper is
       
 begin
-    
-    
+
     MINESWEEP : entity work.MineSweep
         port map(
-            clock      => clk,
-            reset      => btnU,
-            playerMove => sw,
-            tiles      => led 
+            clock           => clk,
+            reset           => btnU,
+            playerMove      => sw,
+            tiles           => led 
         );
     
 end architecture MineSweepWrapper_ARCH;

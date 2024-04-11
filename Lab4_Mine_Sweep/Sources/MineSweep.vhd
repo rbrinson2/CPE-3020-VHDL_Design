@@ -42,33 +42,45 @@ architecture MineSweep_ARCH of MineSweep is
     signal currState : move_t;
     signal nextState : move_t;
 
-    signal playerMoveSynch : std_logic_vector(15 downto 0);
     signal bombLocation : std_logic_vector(14 downto 0);
+    signal playerMoveSynch : std_logic_vector(15 downto 0);
     signal gamePlayMode : std_logic := '0';
     signal moveDet      : std_logic := '0';
     
 begin
+    
+    MOVE_SYNC2 : for i in playerMove'range generate
+        SYNC2 : process (clock, reset) is
+            variable syncChain : std_logic_vector(3 downto 0);
+        begin
+            if reset = '1' then 
+                syncChain := (others => '0'); 
+            elsif rising_edge(clock) then
+                syncChain := syncChain(2 downto 0) & playerMove(i);
+            end if;
 
-    MOVE_SYNC: for i in playerMove'range generate
-        SynchronizerChain_inst: SynchronizerChain
-            generic map(
-                CHAIN_SIZE => 4
-            )
-            port map(
-                reset   => reset,
-                clock   => clock,
-                asyncIn => playerMove(i),
-                syncOut => playerMoveSynch(i)
-            );
-    end generate;
+            playerMoveSynch(i) <= syncChain(3);
+        end process SYNC2;
+        
+    end generate;    
+    
+    RANDOM : entity work.Randomizer
+        port map(
+            clock        => clock,
+            reset        => reset,
+            moveDet      => moveDet,
+            gamePlayMode => gamePlayMode,
+            bombLocation => bombLocation
+        );
+    
 
     TEST : process (clock, reset) is
     begin
         if reset = '1' then
             tiles <= (others => '0');  
         elsif rising_edge(clock) then
-            if (gamePlayMode = ACTIVE) then
-                tiles <= (others => '1');
+            if (moveDet = ACTIVE) then
+                tiles <= '0' & bombLocation;
             end if;
         end if;
     end process TEST;
@@ -82,17 +94,19 @@ begin
         end if;
     end process MOVE_REG;
 
-    MOVE_FSM : process(currState, playerMoveSynch) is
+    MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
         variable moveTraker : std_logic_vector(15 downto 0);
     begin
         moveDet <= '0';
         gamePlayMode <= '0';
 
         case currState is 
+
             --Waiting---------- State
             when WAITING =>
                 moveTraker := (others => '0');
-                if (playerMoveSynch = X"0000") then
+
+                if (playerMove = X"0000" and playerMoveSynch = X"0000") then
                     nextState <= PLAYING;
                 else 
                     nextState <= WAITING;
@@ -102,11 +116,15 @@ begin
             when PLAYING =>
                 gamePlayMode <= ACTIVE;
                 
-                if (playerMoveSynch = moveTraker) then
+                if (playerMoveSynch = moveTraker
+                    and playerMove = moveTraker
+                ) then
                     nextState <= PLAYING;
                 else
                     for move in playerMoveSynch'range loop
-                        if (playerMoveSynch(move) /= moveTraker(move)) then
+                        if (playerMoveSynch(move) /= moveTraker(move)
+                            and playerMove(move) /= moveTraker(move)
+                        ) then
                             moveTraker(move) := playerMoveSynch(move);
                         end if;
                     end loop;
@@ -118,7 +136,7 @@ begin
             --Move-Detected---------- State
             when MOVEDETECTED =>
                 moveDet <= ACTIVE;
-                --gamePlayMode <= ACTIVE;
+                gamePlayMode <= ACTIVE;
                 nextState <= PLAYING;
         end case;
         
