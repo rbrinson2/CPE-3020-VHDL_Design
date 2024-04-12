@@ -40,10 +40,10 @@ architecture Randomizer_ARCH of Randomizer is
     constant ACTIVE     : std_logic := '1';
     
     ------------------------------------------------------------------- Signals
-    signal bomb1      : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb2      : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3      : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2                : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3                : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal finalBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -81,6 +81,7 @@ architecture Randomizer_ARCH of Randomizer is
     
 begin
 
+    
     FINAL: process(clock, reset)
     begin
         if (reset = ACTIVE) then
