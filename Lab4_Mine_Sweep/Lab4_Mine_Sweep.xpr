@@ -64,7 +64,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="basys3"/>
     <Option Name="FeatureSet" Val="FeatureSet_Classic"/>
-    <Option Name="WTXSimLaunchSim" Val="61"/>
+    <Option Name="WTXSimLaunchSim" Val="72"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -99,6 +99,15 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/Sources/physical_io_package.vhd"/>
           <Attr Name="ImportTime" Val="1711633984"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepPackage.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="xil_defaultlib"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepPackage.vhd"/>
+          <Attr Name="ImportTime" Val="1712863907"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -145,22 +154,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/Sources/Collision.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/Sources/Collision.vhd"/>
-          <Attr Name="ImportTime" Val="1712947328"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepPackage.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepPackage.vhd"/>
-          <Attr Name="ImportTime" Val="1712863907"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="MineSweepWrapper"/>
@@ -201,7 +194,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="MineSweep_TB"/>
+        <Option Name="TopModule" Val="Randomizer_TB"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
