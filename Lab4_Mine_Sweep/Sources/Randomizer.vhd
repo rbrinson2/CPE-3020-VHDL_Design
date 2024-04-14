@@ -86,6 +86,29 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
     
+    --Binary-To-Onehot------------------------------------------------ Function
+    function bin2Hot(bomb : std_logic_vector(BOMBSIZE - 1 downto 0))
+        return std_logic_vector 
+    is
+        variable oneHot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable position : integer range 0 to 15;
+        
+    begin
+        position := to_integer(unsigned(bomb(3 downto 0)));
+        for i in oneHot'range loop
+            if (i = position) then
+                oneHot(i) := ACTIVE;
+                if (bomb(4) = ACTIVE) then
+                    if (position /= 0) then
+                        oneHot(i - 1) := ACTIVE;
+                    end if;
+                end if;
+            end if;
+        end loop;
+        
+        return oneHot;
+    end function bin2Hot;
+    
     --Bomb-1-Collision-Test------------------------------------------- Function
     function bomb1CollDet(
         bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -232,6 +255,8 @@ begin
                 bomb1Local := bomb1;
                 bomb2Local := bomb2;
                 bomb3Local := bomb3;
+
+                interBombLocations <= bin2Hot(bomb1Local) or bin2Hot(bomb2Local);
             end if;
         end if;
     end process COLLISIONCHAIN1;
