@@ -38,6 +38,8 @@ end entity Randomizer;
 architecture Randomizer_ARCH of Randomizer is
     ----------------------------------------------------------------- Constants
     constant ACTIVE     : std_logic := '1';
+    constant DOUBLE     : std_logic := '1';
+    
     
     ------------------------------------------------------------------- Signals
     signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -78,6 +80,90 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
     
+    --Bomb-1-Collision-Test------------------------------------------- Function
+    function bomb1CollDet(
+        bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb3 : std_logic_vector(BOMBSIZE - 1 downto 0)
+
+    ) 
+    return std_logic_vector
+    is
+        variable displace  : integer range 0 to 15;
+        variable bomb1Temp : integer range 0 to 15;
+        variable bomb2Temp : integer range 0 to 15;
+        variable bomb3Temp : integer range 0 to 15;
+    begin
+        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)));
+        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
+        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
+        if (bomb1(4) = DOUBLE) then
+            if (
+                -- Check to see if bomb 2 is in exclusion zone
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 3
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace  := bomb2Temp - bomb1Temp - 3;
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            if (
+                -- Check to see if bomb 3 is in exclusion zone
+                bomb3Temp < bomb1Temp + 2
+                and bomb3Temp > bomb1Temp - 3
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace  := bomb3Temp - bomb1Temp - 3;
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            if (
+                -- Check to see if bomb 2 is in exclusion zone
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 3
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace  := bomb2Temp - bomb1Temp - 3;
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+        
+        else 
+            if (
+                -- Check to see if bomb 2 is in exclusion zone
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 2
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace  := to_integer(unsigned(bomb2)) - to_integer(unsigned(bomb1) - 2);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            if (
+                -- Check to see if bomb 3 is in exclusion zone
+                bomb3Temp < bomb1Temp + 2
+                and bomb3Temp > bomb1Temp - 2
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace := bomb3Temp - bomb1Temp - 2;
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            if (
+                -- Check to see if bomb 2 is in exclusion zone
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 2
+            ) then
+                -- Temp is the value you need to add to bomb1 to move
+                -- it far enough away from bomb2
+                displace  := to_integer(unsigned(bomb2)) - to_integer(unsigned(bomb1) - 2);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+        end if;
+
+        return bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp), 4);
+    end function bomb1CollDet;
     
 begin
 
@@ -93,24 +179,17 @@ begin
         end if;
     end process FINAL;
 
-    Collision_inst : entity work.Collision
-        port map(
-            clock               => clock,
-            reset               => reset,
-            bomb1               => bomb1,
-            bomb2               => bomb2,
-            bomb3               => bomb3,
-            finalBombLocations  => finalBombLocations
-        );
-    
+
     
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
-      
+        variable bomb1Var : std_logic_vector(BOMBSIZE - 1 downto 0);
+        
         variable bomb2Clock : std_logic;
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
         variable bomb3Count : integer range 0 to 3;
+        
         
     begin
         if (reset = ACTIVE) then
@@ -120,7 +199,7 @@ begin
             bomb2Clock      := not ACTIVE;
             bomb3Clock      := not ACTIVE;
             bomb2Count      := 0;
-            bomb3Count      := 0;
+            bomb3Count      := 0;   
 
         elsif (rising_edge(clock)) then
             if (gamePlayMode = ACTIVE) then
@@ -128,7 +207,12 @@ begin
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);
 
-                bomb1 <= std_logic_vector(unsigned(bomb1) + 1);
+                bomb1 <= bomb1CollDet(
+                    std_logic_vector(unsigned(bomb1) + 1), 
+                    bomb2, 
+                    bomb3
+                );
+
                 if (bomb2Clock = ACTIVE) then
                     bomb2 <= std_logic_vector(unsigned(bomb2) - 1);
                 end if;

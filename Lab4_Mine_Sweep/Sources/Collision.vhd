@@ -41,7 +41,9 @@ architecture Collisioin_ARCH of Collision is
         variable bomb123Collision : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
         variable max              : integer range 0 to 15;
         variable min              : integer range 0 to 15;
+        variable diff             : integer range 0 to 15;
     begin
+        diff := 0;
         max := 0;
         min := 15;
         bomb12Collision := bomb1Mask and bomb2Hot;
@@ -56,12 +58,15 @@ architecture Collisioin_ARCH of Collision is
                     min := i;
                 end if;
             end loop;    
-            bomb2Hot := bomb2Hot rol (max - min + 1); 
-            bomb2Mask := bomb2Hot or (bomb2Hot sll 1) or (bomb2Hot srl 1);
-            report "bomb2Mask: " & to_string(bomb2Mask);
+            diff := max - min + 1;
+            bomb2Hot := bomb2Hot((diff - 1) downto 0) & bomb2Hot(15 downto diff);
+            bomb2Mask := bomb2Hot 
+                        or bomb2Hot(bomb2Hot'length - 2 downto 0) & '0'
+                        or '0' & bomb2Hot(bomb2Hot'length - 1 downto 0);
             
         end if;
         
+        diff :=0;
         max := 0;
         min := 15;
 
@@ -77,8 +82,9 @@ architecture Collisioin_ARCH of Collision is
                 if (bomb12Mask(i) = ACTIVE) then
                     min := i;
                 end if;
-            end loop;    
-            bomb3Hot := bomb3Hot ror (max - min + 1); 
+            end loop;  
+            diff := max - min + 1; 
+            bomb3Hot := bomb3Hot((diff - 1) downto 0) & bomb3Hot(15 downto diff); 
         end if;
     end procedure collisionRes;
     
