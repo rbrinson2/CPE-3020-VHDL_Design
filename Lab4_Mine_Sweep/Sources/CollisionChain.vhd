@@ -13,7 +13,7 @@ entity CollisionChain is
         bomb2Temp : in std_logic_vector(BOMBSIZE - 1 downto 0);
         bomb3Temp : in std_logic_vector(BOMBSIZE - 1 downto 0);
 
-        finalBombLocations : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0)
+        bombLocations : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0)
     );
 end entity CollisionChain;
 
@@ -21,10 +21,12 @@ end entity CollisionChain;
 architecture CollisionChain_ARCH of CollisionChain is
     constant ACTIVE : std_logic := '1';
     constant DOUBLE : std_logic := '1';
-    constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := X"0000";
+    constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0') ;
     
     signal bomb2Local : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal interBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    
     
     --Binary-To-Onehot------------------------------------------------ Function
     function bin2Hot(bomb : std_logic_vector(BOMBSIZE - 1 downto 0))
@@ -59,9 +61,9 @@ architecture CollisionChain_ARCH of CollisionChain is
     return std_logic_vector
     is
         variable displace  : integer range 0 to 20;
-        variable bomb1Temp : integer range 0 to 15;
-        variable bomb2Temp : integer range 0 to 15;
-        variable bomb3Temp : integer range 0 to 15;
+        variable bomb1Temp : integer range 0 to 20;
+        variable bomb2Temp : integer range 0 to 20;
+        variable bomb3Temp : integer range 0 to 20;
         variable bomb2Final : std_logic_vector(BOMBSIZE - 1 downto 0);
     begin
         bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)) + 4);
@@ -145,10 +147,10 @@ architecture CollisionChain_ARCH of CollisionChain is
     ) 
     return std_logic_vector
     is
-        variable displace  : integer range -15 to 15;
-        variable bomb1Temp : integer range 0 to 15;
-        variable bomb2Temp : integer range 0 to 15;
-        variable bomb3Temp : integer range 0 to 15;
+        variable displace  : integer range 0 to 20;
+        variable bomb1Temp : integer range 0 to 20;
+        variable bomb2Temp : integer range 0 to 20;
+        variable bomb3Temp : integer range 0 to 20;
         variable bomb3Final : std_logic_vector(BOMBSIZE - 1 downto 0);
     begin
         bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)) + 4);
@@ -219,27 +221,29 @@ architecture CollisionChain_ARCH of CollisionChain is
             end if;
         end if;
 
-        bomb3Final := bomb3(4) & std_logic_vector(to_unsigned(bomb3Temp - 4, 4));
+        bomb3Final := bomb3(4) & std_logic_vector(to_unsigned(bomb3Temp, 4));
         return bomb3Final;
     end function bomb3CollDet;
     
 begin
     
-
+    bombLocations <= finalBombLocations or ZERO;
+    
     --Collision-Chain-Part-1------------------------------------------- Process
     COLLISIONCHAIN1 : process (clock, reset) is
     begin
         if reset = ACTIVE then
-            interBombLocations <= (others => '0'); 
             bomb2Local <= (others => '0'); 
+            interBombLocations <= (others => '0'); 
         elsif rising_edge(clock) then
             if (moveDetEdge = ACTIVE) then
                 bomb2Local <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
+                interBombLocations <= bin2Hot(bomb1Temp) or bin2Hot(bomb2Local);
             end if;
         end if;
     end process COLLISIONCHAIN1;
 
-    interBombLocations <= ZERO or bin2Hot(bomb1Temp) or bin2Hot(bomb2Local);
+    
 
     --Collision-Chain-Part-2------------------------------------------- Process
     COLLISIONCHAIN2 : process (clock, reset) is
@@ -250,7 +254,7 @@ begin
             finalBombLocations <= (others => '0'); 
         elsif rising_edge(clock) then
             bomb3Local := bomb3CollDet(bomb1Temp, bomb2Local, bomb3Temp);
-            finalBombLocations <= interBombLocations or bomb3Local;
+            finalBombLocations <= interBombLocations or bin2Hot(bomb3Local);
         end if;
     end process COLLISIONCHAIN2;
     

@@ -40,8 +40,7 @@ architecture Randomizer_ARCH of Randomizer is
     ----------------------------------------------------------------- Constants
     constant ACTIVE     : std_logic := '1';
     constant DOUBLE     : std_logic := '1';
-    
-    
+
     ------------------------------------------------------------------- Signals
     signal moveDetEdge          : std_logic;
     signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -94,9 +93,9 @@ architecture Randomizer_ARCH of Randomizer is
     return std_logic_vector
     is
         variable displace  : integer range 0 to 20;
-        variable bomb1Temp : integer range 0 to 15;
-        variable bomb2Temp : integer range 0 to 15;
-        variable bomb3Temp : integer range 0 to 15;
+        variable bomb1Temp : integer range 0 to 20;
+        variable bomb2Temp : integer range 0 to 20;
+        variable bomb3Temp : integer range 0 to 20;
         variable bomb1Final : std_logic_vector(BOMBSIZE - 1 downto 0);
     begin
         bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)) + 4);
@@ -167,7 +166,7 @@ architecture Randomizer_ARCH of Randomizer is
             end if;
         end if;
 
-        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp - 4, 4));
+        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
         return bomb1Final;
     end function bomb1CollDet;
 
@@ -178,12 +177,11 @@ begin
     FINAL: process(clock, reset)
     begin
         if (reset = ACTIVE) then
-            bombLocation <= (others => '0'); 
             bomb1Temp <= (others => '0');
             bomb2Temp <= (others => '0');
             bomb3Temp <= (others => '0');
         elsif (rising_edge(clock) )then
-            if (moveDetEdge = ACTIVE) then
+            if (moveDet = ACTIVE) then
                 bomb1Temp <= bomb1;
                 bomb2Temp <= bomb2;
                 bomb3Temp <= bomb3;
@@ -210,7 +208,7 @@ begin
             bomb1Temp          => bomb1Temp,
             bomb2Temp          => bomb2Temp,
             bomb3Temp          => bomb3Temp,
-            finalBombLocations => bombLocation
+            bombLocations => bombLocation
         );
     
 
