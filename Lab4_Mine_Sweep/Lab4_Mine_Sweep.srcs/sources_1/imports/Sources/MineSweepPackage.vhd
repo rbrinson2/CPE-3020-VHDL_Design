@@ -12,5 +12,4 @@ package MineSweepPackage is
     constant TILEBUSWIDTH   : integer := 16;
     constant ZERO           : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) 
                                 := (others => '0');
-    
 end package MineSweepPackage;

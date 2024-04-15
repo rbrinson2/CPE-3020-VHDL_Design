@@ -1,10 +1,10 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'MineSweepWrapper'
 ERROR: [VRFC 10-3006] 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/minesweep.vdb' needs to be re-saved since 'xil_defaultlib.minesweeppackage' changed
 ERROR: [VRFC 10-3032] 'xil_defaultlib.minesweep' failed to restore
-ERROR: [VRFC 10-2987] 'minesweep' is not compiled in library 'xil_defaultlib' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:35]
+ERROR: [VRFC 10-2987] 'minesweep' is not compiled in library 'xil_defaultlib' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd:35]
 ERROR: [VRFC 10-3006] 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/minesweep.vdb' needs to be re-saved since 'xil_defaultlib.minesweeppackage' changed
 ERROR: [VRFC 10-3032] 'xil_defaultlib.minesweep' failed to restore
-ERROR: [VRFC 10-9458] unit 'minesweepwrapper_arch' is ignored due to previous errors [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd:30]
-INFO: [VRFC 10-8704] VHDL file 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Sources/MineSweepWrapper.vhd' is ignored due to errors
+ERROR: [VRFC 10-9458] unit 'minesweepwrapper_arch' is ignored due to previous errors [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd:30]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep/Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd' is ignored due to errors

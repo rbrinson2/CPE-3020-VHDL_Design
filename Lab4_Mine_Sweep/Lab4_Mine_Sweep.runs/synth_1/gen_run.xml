@@ -25,8 +25,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/MineSweepWrapper.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepWrapper.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepWrapper.vhd"/>
+        <Attr Name="ImportTime" Val="1713201812"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -39,20 +41,26 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/MineSweep.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweep.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweep.vhd"/>
+        <Attr Name="ImportTime" Val="1713202678"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/Randomizer.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/Randomizer.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/Randomizer.vhd"/>
+        <Attr Name="ImportTime" Val="1713207765"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/Sources/TileDriver.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/TileDriver.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/TileDriver.vhd"/>
+        <Attr Name="ImportTime" Val="1713201453"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
