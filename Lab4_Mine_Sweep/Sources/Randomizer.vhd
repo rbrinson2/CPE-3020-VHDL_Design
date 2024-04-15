@@ -159,7 +159,7 @@ architecture Randomizer_ARCH of Randomizer is
             bomb1Temp := bomb1Temp - 16;
         end if;
         bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
-        report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
+        --report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
         return bomb1Final;
     end function bomb1CollDet;
 

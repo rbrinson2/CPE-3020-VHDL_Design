@@ -128,7 +128,7 @@ architecture CollisionChain_ARCH of CollisionChain is
             bomb2Temp := bomb2Temp - 16;
         end if;
         bomb2Final := bomb2(4) & std_logic_vector(to_unsigned(bomb2Temp, 4));
-        report "Bomb 2 Final = " & integer'image(to_integer(unsigned(bomb2Final(3 downto 0))));
+        --report "Bomb 2 Final = " & integer'image(to_integer(unsigned(bomb2Final(3 downto 0))));
         return bomb2Final;
     end function bomb2CollDet;
 
@@ -162,6 +162,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 and bomb1Temp > bomb3Temp - 3
             ) then
                 displace  := bomb1Temp - (bomb3Temp - 4);
+                report "Bomb 3 Disp1: " & integer'image(displace);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check right
@@ -170,6 +171,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 and bomb2Temp > bomb3Temp - 3
             ) then
                 displace  := bomb2Temp - (bomb3Temp - 4);
+                report "Bomb 3 Disp2: " & integer'image(displace);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check left
@@ -177,8 +179,8 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb1Temp < bomb3Temp + 3
                 and bomb1Temp > bomb3Temp - 3
             ) then
-
-                displace  := bomb3Temp - (bomb3Temp - 4);
+                displace  := bomb1Temp - (bomb3Temp - 4);
+                report "Bomb 3 Disp3: " & integer'image(displace);
                 bomb3Temp := bomb3Temp + displace;
             end if;
         
@@ -213,7 +215,7 @@ architecture CollisionChain_ARCH of CollisionChain is
             bomb3Temp := bomb3Temp - 16;
         end if;
         bomb3Final := bomb3(4) & std_logic_vector(to_unsigned(bomb3Temp, 4));
-        report "Bomb 3 Final = " & integer'image(to_integer(unsigned(bomb3Final(3 downto 0))));
+        --report "Bomb 3 Final = " & integer'image(to_integer(unsigned(bomb3Final(3 downto 0))));
         return bomb3Final;
     end function bomb3CollDet;
     
@@ -262,6 +264,14 @@ begin
             bomb1Pos := to_integer(unsigned(bomb1Temp(3 downto 0)));
             bomb2Pos := to_integer(unsigned(bomb2Local(3 downto 0)));
             bomb3Pos := to_integer(unsigned(bomb3Local(3 downto 0)));
+
+            report "Bomb 1: " & integer'image(bomb1Pos) 
+                & " | Bomb 2: " & integer'image(to_integer(unsigned(bomb2Temp(3 downto 0))))
+                & " | Bomb 3: " & integer'image(to_integer(unsigned(bomb3Temp(3 downto 0)))); 
+
+            report "Bomb 1: " & integer'image(bomb1Pos) 
+                & " | Bomb 2: " & integer'image(bomb2Pos)
+                & " | Bomb 3: " & integer'image(bomb3Pos); 
 
             -- Set position of bomb 1
             mask(bomb1Pos) := ACTIVE;
