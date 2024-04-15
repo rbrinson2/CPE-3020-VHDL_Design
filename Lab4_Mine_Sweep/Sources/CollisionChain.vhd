@@ -74,26 +74,26 @@ architecture CollisionChain_ARCH of CollisionChain is
         if (bomb2(4) = DOUBLE) then
             -- Check left
             if (
-                bomb1Temp < bomb2Temp + 2
+                bomb1Temp < bomb2Temp + 3
                 and bomb1Temp > bomb2Temp - 3
             ) then
-                displace  := bomb1Temp - (bomb2Temp - 3);
+                displace  := bomb1Temp - (bomb2Temp - 4);
                 bomb2Temp := bomb2Temp + displace;
             end if;
             -- Check right
             if (
-                bomb3Temp < bomb2Temp + 2
+                bomb3Temp < bomb2Temp + 3
                 and bomb3Temp > bomb2Temp - 3
             ) then  
-                displace  := bomb3Temp - (bomb2Temp - 3);
+                displace  := bomb3Temp - (bomb2Temp - 4);
                 bomb2Temp := bomb2Temp + displace;
             end if;
             -- Check left
             if (     
-                bomb1Temp < bomb2Temp + 2
+                bomb1Temp < bomb2Temp + 3
                 and bomb1Temp > bomb2Temp - 3
             ) then
-                displace  := bomb1Temp - (bomb2Temp - 3);
+                displace  := bomb1Temp - (bomb2Temp - 4);
                 bomb2Temp := bomb2Temp + displace;
             end if;
         
@@ -103,7 +103,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb1Temp < bomb2Temp + 2
                 and bomb1Temp > bomb2Temp - 2
             ) then
-                displace  := bomb1Temp - (bomb2Temp - 2);
+                displace  := bomb1Temp - (bomb2Temp - 3);
                 bomb2Temp := bomb2Temp + displace;
             end if;
             -- Check right
@@ -111,7 +111,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb3Temp < bomb2Temp + 2
                 and bomb3Temp > bomb2Temp - 2
             ) then
-                displace  := bomb3Temp - (bomb2Temp - 2);
+                displace  := bomb3Temp - (bomb2Temp - 3);
                 bomb2Temp := bomb2Temp + displace;
             end if;
             -- Check left
@@ -119,11 +119,14 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb1Temp < bomb2Temp + 2
                 and bomb1Temp > bomb2Temp - 2
             ) then
-                displace  := bomb1Temp - (bomb2Temp - 2);
+                displace  := bomb1Temp - (bomb2Temp - 3);
                 bomb2Temp := bomb2Temp + displace;
             end if;
         end if;
 
+        if (bomb2Temp > 15) then
+            bomb2Temp := bomb2Temp - 16;
+        end if;
         bomb2Final := bomb2(4) & std_logic_vector(to_unsigned(bomb2Temp, 4));
         report "Bomb 2 Final = " & integer'image(to_integer(unsigned(bomb2Final(3 downto 0))));
         return bomb2Final;
@@ -155,27 +158,27 @@ architecture CollisionChain_ARCH of CollisionChain is
         if (bomb3(4) = DOUBLE) then
             -- Check left
             if (
-                bomb1Temp < bomb3Temp + 2
+                bomb1Temp < bomb3Temp + 3
                 and bomb1Temp > bomb3Temp - 3
             ) then
-                displace  := bomb1Temp - (bomb3Temp - 3);
+                displace  := bomb1Temp - (bomb3Temp - 4);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check right
             if (
-                bomb2Temp < bomb3Temp + 2
+                bomb2Temp < bomb3Temp + 3
                 and bomb2Temp > bomb3Temp - 3
             ) then
-                displace  := bomb2Temp - (bomb3Temp - 3);
+                displace  := bomb2Temp - (bomb3Temp - 4);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check left
             if (
-                bomb1Temp < bomb3Temp + 2
+                bomb1Temp < bomb3Temp + 3
                 and bomb1Temp > bomb3Temp - 3
             ) then
 
-                displace  := bomb3Temp - (bomb3Temp - 3);
+                displace  := bomb3Temp - (bomb3Temp - 4);
                 bomb3Temp := bomb3Temp + displace;
             end if;
         
@@ -185,7 +188,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb1Temp < bomb3Temp + 2
                 and bomb1Temp > bomb3Temp - 2
             ) then
-                displace  := bomb1Temp - (bomb3Temp - 2);
+                displace  := bomb1Temp - (bomb3Temp - 3);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check right
@@ -193,7 +196,7 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb2Temp < bomb3Temp + 2
                 and bomb2Temp > bomb3Temp - 2
             ) then
-                displace  := bomb2Temp - (bomb3Temp - 2);
+                displace  := bomb2Temp - (bomb3Temp - 3);
                 bomb3Temp := bomb3Temp + displace;
             end if;
             -- Check left
@@ -201,11 +204,14 @@ architecture CollisionChain_ARCH of CollisionChain is
                 bomb1Temp < bomb3Temp + 2
                 and bomb1Temp > bomb3Temp - 2
             ) then
-                displace  := bomb1Temp - (bomb3Temp - 2);
+                displace  := bomb1Temp - (bomb3Temp - 3);
                 bomb3Temp := bomb3Temp + displace;
             end if;
         end if;
 
+        if (bomb3Temp > 15) then
+            bomb3Temp := bomb3Temp - 16;
+        end if;
         bomb3Final := bomb3(4) & std_logic_vector(to_unsigned(bomb3Temp, 4));
         report "Bomb 3 Final = " & integer'image(to_integer(unsigned(bomb3Final(3 downto 0))));
         return bomb3Final;

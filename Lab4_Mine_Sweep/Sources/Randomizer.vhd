@@ -105,26 +105,26 @@ architecture Randomizer_ARCH of Randomizer is
         if (bomb1(4) = DOUBLE) then
             -- Check left
             if (
-                bomb2Temp < bomb1Temp + 2
+                bomb2Temp < bomb1Temp + 3
                 and bomb2Temp > bomb1Temp - 3
             ) then
-                displace  := bomb2Temp - (bomb1Temp - 3);
+                displace  := bomb2Temp - (bomb1Temp - 4);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             -- Check right
             if (
-                bomb3Temp < bomb1Temp + 2
+                bomb3Temp < bomb1Temp + 3
                 and bomb3Temp > bomb1Temp - 3
             ) then
-                displace  := bomb3Temp - (bomb1Temp - 3);
+                displace  := bomb3Temp - (bomb1Temp - 4);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             -- Check left
             if (
-                bomb2Temp < bomb1Temp + 2
+                bomb2Temp < bomb1Temp + 3
                 and bomb2Temp > bomb1Temp - 3
             ) then
-                displace  := bomb2Temp - (bomb1Temp - 3);
+                displace  := bomb2Temp - (bomb1Temp - 4);
                 bomb1Temp := bomb1Temp + displace;
             end if;
         
@@ -134,7 +134,7 @@ architecture Randomizer_ARCH of Randomizer is
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 2
             ) then
-                displace  := bomb2Temp - (bomb1Temp - 2);
+                displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             -- Check right
@@ -142,7 +142,7 @@ architecture Randomizer_ARCH of Randomizer is
                 bomb3Temp < bomb1Temp + 2
                 and bomb3Temp > bomb1Temp - 2
             ) then
-                displace  := bomb3Temp - (bomb1Temp - 2);
+                displace  := bomb3Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             -- Check left
@@ -150,11 +150,14 @@ architecture Randomizer_ARCH of Randomizer is
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 2
             ) then
-                displace  := bomb2Temp - (bomb1Temp - 2);
+                displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
         end if;
 
+        if (bomb1Temp > 15) then
+            bomb1Temp := bomb1Temp - 16;
+        end if;
         bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
         report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
         return bomb1Final;
