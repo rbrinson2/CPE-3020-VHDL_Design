@@ -20,7 +20,6 @@ use ieee.numeric_std.all;
 
 
 use work.MineSweepPackage.all;
-use work.physical_io_package.all;
 
 --Randomizer============================================================ Entity
 entity Randomizer is
@@ -50,8 +49,7 @@ architecture Randomizer_ARCH of Randomizer is
     signal bomb3                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb1Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal interBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal finalBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal bomb3Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -86,29 +84,6 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
     
-    --Binary-To-Onehot------------------------------------------------ Function
-    function bin2Hot(bomb : std_logic_vector(BOMBSIZE - 1 downto 0))
-        return std_logic_vector 
-    is
-        variable oneHot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable position : integer range 0 to 15;
-        
-    begin
-        position := to_integer(unsigned(bomb(3 downto 0)));
-        for i in oneHot'range loop
-            if (i = position) then
-                oneHot(i) := ACTIVE;
-                if (bomb(4) = ACTIVE) then
-                    if (position /= 0) then
-                        oneHot(i - 1) := ACTIVE;
-                    end if;
-                end if;
-            end if;
-        end loop;
-        
-        return oneHot;
-    end function bin2Hot;
-    
     --Bomb-1-Collision-Test------------------------------------------- Function
     function bomb1CollDet(
         bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -118,15 +93,15 @@ architecture Randomizer_ARCH of Randomizer is
     ) 
     return std_logic_vector
     is
-        variable displace  : integer range -15 to 15;
+        variable displace  : integer range 0 to 20;
         variable bomb1Temp : integer range 0 to 15;
         variable bomb2Temp : integer range 0 to 15;
         variable bomb3Temp : integer range 0 to 15;
         variable bomb1Final : std_logic_vector(BOMBSIZE - 1 downto 0);
     begin
-        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)));
-        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
-        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
+        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)) + 4);
+        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)) + 4);
+        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)) + 4);
         if (bomb1(4) = DOUBLE) then
             if (
                 -- Check to see if bomb 2 is in exclusion zone
@@ -135,10 +110,7 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace  := bomb2Temp - bomb1Temp - 3;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             if (
@@ -148,10 +120,7 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace  := bomb3Temp - bomb1Temp - 3;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb3Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             if (
@@ -161,10 +130,7 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace  := bomb2Temp - bomb1Temp - 3;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
         
@@ -176,10 +142,7 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace  := bomb2Temp - bomb1Temp - 3;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb2Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             if (
@@ -189,10 +152,7 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace := bomb3Temp - bomb1Temp - 2;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb3Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
             if (
@@ -202,34 +162,37 @@ architecture Randomizer_ARCH of Randomizer is
             ) then
                 -- Temp is the value you need to add to bomb1 to move
                 -- it far enough away from bomb2
-                displace  := bomb2Temp - bomb1Temp - 2;
-                if (displace < 0) then
-                    displace := 0;
-                end if;
+                displace  := bomb2Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
         end if;
 
-        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
+        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp - 4, 4));
         return bomb1Final;
     end function bomb1CollDet;
-    
-begin
 
+begin
+-------------------------------------------------------------------- ARCH BEGIN
     
-    
+    --Final------------------------------------------------------------ Process
     FINAL: process(clock, reset)
     begin
         if (reset = ACTIVE) then
             bombLocation <= (others => '0'); 
+            bomb1Temp <= (others => '0');
+            bomb2Temp <= (others => '0');
+            bomb3Temp <= (others => '0');
         elsif (rising_edge(clock) )then
-            if (moveDet = ACTIVE) then
-                bombLocation <= finalBombLocations;
+            if (moveDetEdge = ACTIVE) then
+                bomb1Temp <= bomb1;
+                bomb2Temp <= bomb2;
+                bomb3Temp <= bomb3;
             end if;
         end if;
     end process FINAL;
 
 
+    --Move-Level-Detect------------------------------------------------ Instant
     MOVELEVELDET : entity work.LevelDetector
         port map(
             reset    => reset,
@@ -238,38 +201,18 @@ begin
             pulseOut => moveDetEdge
         );
 
+    --Collision-Chain-------------------------------------------------- Instant
+    COLLISIONCHAIN : entity work.CollisionChain
+        port map(
+            clock              => clock,
+            reset              => reset,
+            moveDetEdge        => moveDetEdge,
+            bomb1Temp          => bomb1Temp,
+            bomb2Temp          => bomb2Temp,
+            bomb3Temp          => bomb3Temp,
+            finalBombLocations => bombLocation
+        );
     
-    --Collision-Chain-Part-1------------------------------------------- Process
-    COLLISIONCHAIN1 : process (clock, reset) is
-        variable bomb1Local : std_logic_vector(BOMBSIZE - 1 downto 0);
-        variable bomb2Local : std_logic_vector(BOMBSIZE - 1 downto 0);
-        variable bomb3Local : std_logic_vector(BOMBSIZE - 1 downto 0);
-    begin
-        if reset = ACTIVE then
-            interBombLocations <= (others => '0'); 
-            bomb1Local := (others => '0'); 
-            bomb2Local := (others => '0'); 
-            bomb3Local := (others => '0'); 
-        elsif rising_edge(clock) then
-            if (moveDetEdge = ACTIVE) then
-                bomb1Local := bomb1;
-                bomb2Local := bomb2;
-                bomb3Local := bomb3;
-
-                interBombLocations <= bin2Hot(bomb1Local) or bin2Hot(bomb2Local);
-            end if;
-        end if;
-    end process COLLISIONCHAIN1;
-
-    --Collision-Chain-Part-2------------------------------------------- Process
-    COLLISIONCHAIN2 : process (clock, reset) is
-    begin
-        if reset = ACTIVE then
-            finalBombLocations <= (others => '0'); 
-        elsif rising_edge(clock) then
-            finalBombLocations <= interBombLocations;
-        end if;
-    end process COLLISIONCHAIN2;
 
     
     --Randomzier-Process----------------------------------------------- Process
