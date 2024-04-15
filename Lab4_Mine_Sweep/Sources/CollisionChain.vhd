@@ -20,35 +20,11 @@ architecture CollisionChain_ARCH of CollisionChain is
     constant ACTIVE : std_logic := '1';
     constant DOUBLE : std_logic := '1';
     constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0') ;
-    constant ONES : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '1') ;
     
     
     signal bomb2Local : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3Local : std_logic_vector(BOMBSIZE - 1 downto 0);
     
-    --Binary-To-Onehot------------------------------------------------ Function
-    function bin2Hot(bomb : std_logic_vector(BOMBSIZE - 1 downto 0))
-        return std_logic_vector 
-    is
-        variable oneHot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable position : integer range 0 to 15;
-        
-    begin
-        position := to_integer(unsigned(bomb(3 downto 0)));
-        for i in oneHot'range loop
-            oneHot(i) := '0';
-            if (i = position) then
-                oneHot(i) := ACTIVE;
-                if (bomb(4) = ACTIVE) then
-                    if (position /= 0) then
-                        oneHot(i - 1) := ACTIVE;
-                    end if;
-                end if;
-            end if;
-        end loop;
-        
-        return oneHot;
-    end function bin2Hot;
 
     --Bomb-2-Collision-Test------------------------------------------- Function
     function bomb2CollDet(
@@ -263,9 +239,7 @@ begin
             bomb1Pos := to_integer(unsigned(bomb1Temp(3 downto 0)));
             bomb2Pos := to_integer(unsigned(bomb2Local(3 downto 0)));
             bomb3Pos := to_integer(unsigned(bomb3Local(3 downto 0)));
-            --bomb1Hot := bin2Hot(bomb1Temp);
-            --bomb2Hot := bin2Hot(bomb2Local);
-            --bomb3Hot := bin2Hot(bomb3Local);
+
             mask(bomb1Pos) := ACTIVE;
             if (bomb1Temp(4) = DOUBLE and bomb1Pos /= 0) then
                 mask(bomb1Pos - 1) := ACTIVE;
@@ -278,7 +252,7 @@ begin
             if (bomb3Local(4) = DOUBLE and bomb3Pos /= 0) then
                 mask(bomb3Pos - 1) := ACTIVE;
             end if;
-            --mask := mask or bomb1Hot or bomb2Hot or bomb3Hot;
+
             finalBombLocations <= mask;
         end if;
     end process COLLISIONCHAINFINAL;
