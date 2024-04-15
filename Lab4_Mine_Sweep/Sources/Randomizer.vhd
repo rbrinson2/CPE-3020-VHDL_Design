@@ -100,9 +100,9 @@ architecture Randomizer_ARCH of Randomizer is
         variable bomb3Temp : integer range 0 to 20;
         variable bomb1Final : std_logic_vector(BOMBSIZE - 1 downto 0);
     begin
-        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)) + 4);
-        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)) + 4);
-        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)) + 4);
+        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)));
+        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
+        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
         if (bomb1(4) = DOUBLE) then
             if (
                 -- Check to see if bomb 2 is in exclusion zone
@@ -169,6 +169,7 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
 
         bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
+        report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
         return bomb1Final;
     end function bomb1CollDet;
 
