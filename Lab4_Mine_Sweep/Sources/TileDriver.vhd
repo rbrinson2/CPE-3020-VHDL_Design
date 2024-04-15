@@ -9,8 +9,7 @@
 -- 
 -- Description: 
 -- The Module takes in the bombLocation created by the 
--- randomizer and converts them to locations in the tile array.
--- The module then outputs the bombs at that location. 
+-- randomizer and then outputs them onto the game board.
 ---------------------------------------------------------------
 
 library ieee;
@@ -32,8 +31,6 @@ end entity TileDriver;
 
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
-    ---------- Consant
-    constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0');
         
 begin
     --Tile-Driver-Process---------------------------------------------- Process

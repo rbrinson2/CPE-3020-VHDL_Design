@@ -9,9 +9,12 @@
 -- 
 -- Description: 
 -- Waits for the gameplay mode to activate. Once that occurs
--- it starts the timers going. If a move is detected, it then
--- updates the bomblocation based on where the timers are at 
--- that moment
+-- it starts the timers going. Bomb 1 increments with each
+-- clock pulse, bomb 2 decriments every other clock pulse,
+-- then finally bomb 3 increments every third clock pulse.
+-- If a move is detected, then the final process stores the 
+-- current value in finalBombLocations
+-- that been output by Collision Chain.
 ---------------------------------------------------------------
 
 library ieee;
@@ -37,20 +40,11 @@ end entity Randomizer;
 
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
-    ----------------------------------------------------------------- Constants
-    constant ACTIVE     : std_logic := '1';
-    constant DOUBLE     : std_logic := '1';
-
     ------------------------------------------------------------------- Signals
-    signal moveDetEdge          : std_logic;
     signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal finalBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    
-    --signal bomb1Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
-    --signal bomb2Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
-    --signal bomb3Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -86,6 +80,11 @@ architecture Randomizer_ARCH of Randomizer is
     end procedure bomb3Counter;
     
     --Bomb-1-Collision-Test------------------------------------------- Function
+    -- Uses the left, right, left model to detect collisions.
+    -- Done by checking if there is another bomb within a range
+    -- depending on the width of the bomb. If there is a bomb
+    -- in that range, it moves. It then checks the other and 
+    -- then the first. 
     function bomb1CollDet(
         bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
         bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -104,65 +103,53 @@ architecture Randomizer_ARCH of Randomizer is
         bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
         bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
         if (bomb1(4) = DOUBLE) then
+            -- Check left
             if (
-                -- Check to see if bomb 2 is in exclusion zone
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 3
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
+            -- Check right
             if (
-                -- Check to see if bomb 3 is in exclusion zone
                 bomb3Temp < bomb1Temp + 2
                 and bomb3Temp > bomb1Temp - 3
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb3Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
+            -- Check left
             if (
-                -- Check to see if bomb 2 is in exclusion zone
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 3
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb2Temp - (bomb1Temp - 3);
                 bomb1Temp := bomb1Temp + displace;
             end if;
         
         else 
+            -- Check left
             if (
-                -- Check to see if bomb 2 is in exclusion zone
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 2
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb2Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
+            -- Check right
             if (
-                -- Check to see if bomb 3 is in exclusion zone
                 bomb3Temp < bomb1Temp + 2
                 and bomb3Temp > bomb1Temp - 2
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb3Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
+            -- Check left
             if (
-                -- Check to see if bomb 2 is in exclusion zone
                 bomb2Temp < bomb1Temp + 2
                 and bomb2Temp > bomb1Temp - 2
             ) then
-                -- Temp is the value you need to add to bomb1 to move
-                -- it far enough away from bomb2
                 displace  := bomb2Temp - (bomb1Temp - 2);
                 bomb1Temp := bomb1Temp + displace;
             end if;
@@ -174,7 +161,7 @@ architecture Randomizer_ARCH of Randomizer is
     end function bomb1CollDet;
 
 begin
--------------------------------------------------------------------- ARCH BEGIN
+    ---------------------------------------------------------------- ARCH-BEGIN
     
     --Final------------------------------------------------------------ Process
     FINAL: process(clock, reset)
@@ -187,16 +174,6 @@ begin
             end if;
         end if;
     end process FINAL;
-
-
-    --Move-Level-Detect------------------------------------------------ Instant
-    MOVELEVELDET : entity work.LevelDetector
-        port map(
-            reset    => reset,
-            clock    => clock,
-            trigger  => moveDet,
-            pulseOut => moveDetEdge
-        );
 
     --Collision-Chain-------------------------------------------------- Instant
     COLLISIONCHAIN : entity work.CollisionChain
@@ -231,19 +208,22 @@ begin
 
         elsif (rising_edge(clock)) then
             if (gamePlayMode = ACTIVE) then
-                -- Call counting procedures for bomb2 and bomb3
+
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);
 
+                -- Increment bomb 1 and detect collisions
                 bomb1 <= bomb1CollDet(
                     std_logic_vector(unsigned(bomb1) + 1), 
                     bomb2, 
                     bomb3
                 );
 
+                -- Decriment bomb 2
                 if (bomb2Clock = ACTIVE) then
                     bomb2 <= std_logic_vector(unsigned(bomb2) - 1);
                 end if;
+                -- Increment bomb 1
                 if (bomb3Clock = ACTIVE) then
                     bomb3 <= std_logic_vector(unsigned(bomb3) + 1);
                 end if;

@@ -36,7 +36,6 @@ end entity MineSweep;
 
 --================================================================ ARCHITECTURE
 architecture MineSweep_ARCH of MineSweep is
-    constant ACTIVE : std_logic := '1';
     
     type move_t is (WAITING, PLAYING, MOVEDETECTED);
     signal currState : move_t;
@@ -49,6 +48,9 @@ architecture MineSweep_ARCH of MineSweep is
     
 begin
     
+    --Move-Sync-Generate---------------------------------------------- Generate
+    -- Generates a sync chain process for each player move
+    -- Used as a debouncer
     MOVE_SYNC : for i in playerMove'range generate
         SYNC : process (clock, reset) is
             variable syncChain : std_logic_vector(3 downto 0);
@@ -64,7 +66,7 @@ begin
         
     end generate;    
 
-
+    --Randomizer------------------------------------------------------- Instant
     RANDOM : entity work.Randomizer
         port map(
             clock        => clock,
@@ -74,7 +76,7 @@ begin
             bombLocation => bombLocation
         );
     
-
+    --Tile-Driver------------------------------------------------------ Instant
     TILEDRIVE : entity work.TileDriver
         port map(
             clock         => clock,
@@ -83,6 +85,7 @@ begin
             tiles         => tiles
         );
 
+    --Move-State-Register---------------------------------------------- Process
     MOVE_REG : process (clock, reset) is
     begin
         if reset = ACTIVE then
@@ -92,6 +95,11 @@ begin
         end if;
     end process MOVE_REG;
 
+    --Move-Finite-State-Machine-------------------------------------------- FSM
+    -- Takes the indicidual contributions of the player moves
+    -- signal and if any one of them is active, triggers a 
+    -- signal to be output so that bomb locations can be 
+    -- determinded. Works but barely.
     --TODO: Try to incorporate edge detection instead of sync
     MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
         variable moveTraker : std_logic_vector(MOVEWIDTH - 1 downto 0);
@@ -115,10 +123,17 @@ begin
             when PLAYING =>
                 gamePlayMode <= ACTIVE;
                 
+                -- If there is no change detected by the 
+                -- move tracker then we stay in the state.
+                -- Only worked if I included both signals
                 if (playerMoveSynch = moveTraker
                     and playerMove = moveTraker
                 ) then
                     nextState <= PLAYING;
+
+                -- If player move, and move tracker are different,
+                -- then change state to move detected. Could only
+                -- get it to work with both these signals together
                 else
                     for move in playerMoveSynch'range loop
                         if (playerMoveSynch(move) /= moveTraker(move)
