@@ -36,6 +36,7 @@ architecture CollisionChain_ARCH of CollisionChain is
     begin
         position := to_integer(unsigned(bomb(3 downto 0)));
         for i in oneHot'range loop
+            oneHot(i) := '0';
             if (i = position) then
                 oneHot(i) := ACTIVE;
                 if (bomb(4) = ACTIVE) then
@@ -248,14 +249,18 @@ begin
     
     COLLISIONCHAINFINAL : process (clock, reset) is
         variable mask : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable bomb1Hot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable bomb2Hot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        variable bomb3Hot : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     begin
         if reset = '1' then
             mask := ZERO;
             finalBombLocations <= (others => '0'); 
         elsif rising_edge(clock) then
-            mask := ZERO;
-            mask := ONES and (bin2Hot(bomb1Temp) or bin2Hot(bomb2Local) or bin2Hot(bomb3Local));
-
+            bomb1Hot := bin2Hot(bomb1Temp);
+            bomb2Hot := bin2Hot(bomb2Local);
+            bomb3Hot := bin2Hot(bomb3Local);
+            mask := bomb1Hot or bomb2Hot or bomb3Hot;
             finalBombLocations <= mask;
         end if;
     end process COLLISIONCHAINFINAL;
