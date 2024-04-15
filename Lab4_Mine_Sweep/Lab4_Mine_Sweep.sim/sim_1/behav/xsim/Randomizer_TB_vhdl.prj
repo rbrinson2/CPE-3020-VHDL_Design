@@ -2,6 +2,7 @@
 vhdl xil_defaultlib  \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/physical_io_package.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
 "../../../../Sources/Randomizer.vhd" \
 "../../../../Sources/TileDriver.vhd" \
 "../../../../Sources/MineSweep.vhd" \
