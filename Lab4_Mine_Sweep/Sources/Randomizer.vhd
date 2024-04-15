@@ -46,9 +46,11 @@ architecture Randomizer_ARCH of Randomizer is
     signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2                : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3                : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb1Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb2Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal finalBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    
+    --signal bomb1Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
+    --signal bomb2Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
+    --signal bomb3Temp            : std_logic_vector(BOMBSIZE - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -177,14 +179,10 @@ begin
     FINAL: process(clock, reset)
     begin
         if (reset = ACTIVE) then
-            bomb1Temp <= (others => '0');
-            bomb2Temp <= (others => '0');
-            bomb3Temp <= (others => '0');
+            bombLocation <= (others => '0'); 
         elsif (rising_edge(clock) )then
             if (moveDet = ACTIVE) then
-                bomb1Temp <= bomb1;
-                bomb2Temp <= bomb2;
-                bomb3Temp <= bomb3;
+                bombLocation <= finalBombLocations;
             end if;
         end if;
     end process FINAL;
@@ -204,11 +202,10 @@ begin
         port map(
             clock              => clock,
             reset              => reset,
-            moveDetEdge        => moveDetEdge,
-            bomb1Temp          => bomb1Temp,
-            bomb2Temp          => bomb2Temp,
-            bomb3Temp          => bomb3Temp,
-            bombLocations => bombLocation
+            bomb1Temp          => bomb1,
+            bomb2Temp          => bomb2,
+            bomb3Temp          => bomb3,
+            finalBombLocations => finalBombLocations
         );
     
 

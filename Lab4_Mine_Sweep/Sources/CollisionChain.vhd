@@ -8,12 +8,10 @@ entity CollisionChain is
     port(
         clock : in std_logic;
         reset : in std_logic;
-        moveDetEdge : in std_logic;
         bomb1Temp : in std_logic_vector(BOMBSIZE - 1 downto 0);
         bomb2Temp : in std_logic_vector(BOMBSIZE - 1 downto 0);
         bomb3Temp : in std_logic_vector(BOMBSIZE - 1 downto 0);
-
-        bombLocations : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0)
+        finalBombLocations : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0)
     );
 end entity CollisionChain;
 
@@ -22,11 +20,11 @@ architecture CollisionChain_ARCH of CollisionChain is
     constant ACTIVE : std_logic := '1';
     constant DOUBLE : std_logic := '1';
     constant ZERO : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '0') ;
+    constant ONES : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '1') ;
+    
     
     signal bomb2Local : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal interBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    
+    signal bomb3Local : std_logic_vector(BOMBSIZE - 1 downto 0);
     
     --Binary-To-Onehot------------------------------------------------ Function
     function bin2Hot(bomb : std_logic_vector(BOMBSIZE - 1 downto 0))
@@ -227,35 +225,40 @@ architecture CollisionChain_ARCH of CollisionChain is
     
 begin
     
-    bombLocations <= finalBombLocations or ZERO;
-    
     --Collision-Chain-Part-1------------------------------------------- Process
     COLLISIONCHAIN1 : process (clock, reset) is
     begin
         if reset = ACTIVE then
             bomb2Local <= (others => '0'); 
-            interBombLocations <= (others => '0'); 
         elsif rising_edge(clock) then
-            if (moveDetEdge = ACTIVE) then
-                bomb2Local <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
-                interBombLocations <= bin2Hot(bomb1Temp) or bin2Hot(bomb2Local);
-            end if;
+            bomb2Local <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
         end if;
     end process COLLISIONCHAIN1;
 
-    
-
     --Collision-Chain-Part-2------------------------------------------- Process
     COLLISIONCHAIN2 : process (clock, reset) is
-        variable bomb3Local : std_logic_vector(BOMBSIZE - 1 downto 0);
         
     begin
-        if reset = ACTIVE then
-            finalBombLocations <= (others => '0'); 
+        if reset = ACTIVE then 
+            bomb3Local <= (others => '0'); 
         elsif rising_edge(clock) then
-            bomb3Local := bomb3CollDet(bomb1Temp, bomb2Local, bomb3Temp);
-            finalBombLocations <= interBombLocations or bin2Hot(bomb3Local);
+            bomb3Local <= bomb3CollDet(bomb1Temp, bomb2Local, bomb3Temp);
         end if;
     end process COLLISIONCHAIN2;
+    
+    COLLISIONCHAINFINAL : process (clock, reset) is
+        variable mask : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    begin
+        if reset = '1' then
+            mask := ZERO;
+            finalBombLocations <= (others => '0'); 
+        elsif rising_edge(clock) then
+            mask := ZERO;
+            mask := ONES and (bin2Hot(bomb1Temp) or bin2Hot(bomb2Local) or bin2Hot(bomb3Local));
+
+            finalBombLocations <= mask;
+        end if;
+    end process COLLISIONCHAINFINAL;
+    
     
 end architecture CollisionChain_ARCH;
