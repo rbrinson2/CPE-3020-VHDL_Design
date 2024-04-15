@@ -2,14 +2,11 @@
 vhdl xil_defaultlib  \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/physical_io_package.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" \
+"../../../../Sources/MineSweepWrapper.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
+"../../../../Sources/MineSweep.vhd" \
 "../../../../Sources/Randomizer.vhd" \
 "../../../../Sources/TileDriver.vhd" \
-"../../../../Sources/MineSweep.vhd" \
-"../../../../Sources/SynchronizerChain.vhd" \
-"../../../../Sources/MineSweepWrapper.vhd" \
-"../../../../Sources/LevelDetector.vhd" \
-"../../../../Sources/SevenSegmentDriver.vhd" \
 "../../../../Sources/MineSweep_TB.vhd" \
 "../../../../Sources/Randomizer_TB.vhd" \
 "../../../../Sources/TileDriver_TB.vhd" \
