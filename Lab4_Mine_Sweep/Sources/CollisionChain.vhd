@@ -44,8 +44,12 @@ end entity CollisionChain;
 architecture CollisionChain_ARCH of CollisionChain is
     
     ------------------------------------------------------------------- Signals
-    signal bomb2Local : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3Local : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb1Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb1Col2 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2Col2 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3Col2 : std_logic_vector(BOMBSIZE - 1 downto 0);
     
 
     --Bomb-2-Collision-Test------------------------------------------- Function
@@ -227,9 +231,13 @@ begin
     COLLISIONCHAIN1 : process (clock, reset) is
     begin
         if reset = ACTIVE then
-            bomb2Local <= (others => '0'); 
+            bomb1Col1 <= (others => '0'); 
+            bomb2Col1 <= (others => '0'); 
+            bomb3Col1 <= (others => '0'); 
         elsif rising_edge(clock) then
-            bomb2Local <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
+            bomb1Col1 <= bomb1Temp;
+            bomb2Col1 <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
+            bomb3Col1 <= bomb3Temp;
         end if;
     end process COLLISIONCHAIN1;
 
@@ -239,9 +247,13 @@ begin
         
     begin
         if reset = ACTIVE then 
-            bomb3Local <= (others => '0'); 
+            bomb1Col2 <= (others => '0');
+            bomb2Col2 <= (others => '0');
+            bomb3Col2 <= (others => '0');
         elsif rising_edge(clock) then
-            bomb3Local <= bomb3CollDet(bomb1Temp, bomb2Local, bomb3Temp);
+            bomb1Col2 <= bomb1Col1;
+            bomb2Col2 <= bomb2Col1;
+            bomb3Col2 <= bomb3CollDet(bomb1Col1, bomb2Col1, bomb3Col1);
         end if;
     end process COLLISIONCHAIN2;
     
@@ -261,13 +273,13 @@ begin
             finalBombLocations <= (others => '0'); 
         elsif rising_edge(clock) then
             mask := ZERO;
-            bomb1Pos := to_integer(unsigned(bomb1Temp(3 downto 0)));
-            bomb2Pos := to_integer(unsigned(bomb2Local(3 downto 0)));
-            bomb3Pos := to_integer(unsigned(bomb3Local(3 downto 0)));
+            bomb1Pos := to_integer(unsigned(bomb1Col2(3 downto 0)));
+            bomb2Pos := to_integer(unsigned(bomb2Col2(3 downto 0)));
+            bomb3Pos := to_integer(unsigned(bomb3Col2(3 downto 0)));
 
-            report "Bomb 1: " & integer'image(bomb1Pos) 
-                & " | Bomb 2: " & integer'image(to_integer(unsigned(bomb2Temp(3 downto 0))))
-                & " | Bomb 3: " & integer'image(to_integer(unsigned(bomb3Temp(3 downto 0)))); 
+            --report "Bomb 1: " & integer'image(bomb1Pos) 
+            --    & " | Bomb 2: " & integer'image(to_integer(unsigned(bomb2Temp(3 downto 0))))
+            --    & " | Bomb 3: " & integer'image(to_integer(unsigned(bomb3Temp(3 downto 0)))); 
 
             report "Bomb 1: " & integer'image(bomb1Pos) 
                 & " | Bomb 2: " & integer'image(bomb2Pos)
@@ -275,19 +287,19 @@ begin
 
             -- Set position of bomb 1
             mask(bomb1Pos) := ACTIVE;
-            if (bomb1Temp(4) = DOUBLE and bomb1Pos /= 0) then
+            if (bomb1Col2(4) = DOUBLE and bomb1Pos /= 0) then
                 mask(bomb1Pos - 1) := ACTIVE;
             end if;
 
             -- Set position of bomb 2
             mask(bomb2Pos) := ACTIVE;
-            if (bomb2Local(4) = DOUBLE and bomb2Pos /= 0) then
+            if (bomb2Col2(4) = DOUBLE and bomb2Pos /= 0) then
                 mask(bomb2Pos - 1) := ACTIVE;
             end if;
 
             -- Set position of bomb 3
             mask(bomb3Pos) := ACTIVE;
-            if (bomb3Local(4) = DOUBLE and bomb3Pos /= 0) then
+            if (bomb3Col2(4) = DOUBLE and bomb3Pos /= 0) then
                 mask(bomb3Pos - 1) := ACTIVE;
             end if;
 
