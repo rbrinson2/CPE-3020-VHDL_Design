@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1713208935" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MineSweepWrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1713217383" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MineSweepWrapper.dcp">
   <File Type="PA-TCL" Name="MineSweepWrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="MineSweepWrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="MineSweepWrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="MineSweepWrapper.vds"/>
   <File Type="RDS-UTIL" Name="MineSweepWrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="MineSweepWrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="MineSweepWrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="MineSweepWrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="MineSweepWrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/Sources/physical_io_package.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepPackage.vhd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/Sources/physical_io_package.vhd"/>
-        <Attr Name="ImportTime" Val="1711633984"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepPackage.vhd"/>
+        <Attr Name="ImportTime" Val="1713203956"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepPackage.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/Sources/TileDriver.vhd">
       <FileInfo>
-        <Attr Name="Library" Val="xil_defaultlib"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepPackage.vhd"/>
-        <Attr Name="ImportTime" Val="1712863907"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/TileDriver.vhd"/>
+        <Attr Name="ImportTime" Val="1713201453"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -36,7 +38,15 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/CollisionChain.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/CollisionChain.vhd"/>
-        <Attr Name="ImportTime" Val="1713194731"/>
+        <Attr Name="ImportTime" Val="1713215119"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/physical_io_package.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/physical_io_package.vhd"/>
+        <Attr Name="ImportTime" Val="1711633984"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -53,14 +63,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/Randomizer.vhd"/>
         <Attr Name="ImportTime" Val="1713207765"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/Sources/TileDriver.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/Sources/TileDriver.vhd"/>
-        <Attr Name="ImportTime" Val="1713201453"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
