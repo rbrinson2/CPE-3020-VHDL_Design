@@ -44,6 +44,9 @@ end entity CollisionChain;
 architecture CollisionChain_ARCH of CollisionChain is
     
     ------------------------------------------------------------------- Signals
+    signal bomb1Col0 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2Col0 : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3Col0 : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb1Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3Col1 : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -51,7 +54,89 @@ architecture CollisionChain_ARCH of CollisionChain is
     signal bomb2Col2 : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3Col2 : std_logic_vector(BOMBSIZE - 1 downto 0);
     
+    --Bomb-1-Collision-Test------------------------------------------- Function
+    -- Uses the left, right, left model to detect collisions.
+    -- Done by checking if there is another bomb within a range
+    -- depending on the width of the bomb. If there is a bomb
+    -- in that range, it moves. It then checks the other and 
+    -- then the first. 
+    function bomb1CollDet(
+        bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
+        bomb3 : std_logic_vector(BOMBSIZE - 1 downto 0)
 
+    ) 
+    return std_logic_vector
+    is
+        variable displace  : integer range 0 to 20;
+        variable bomb1Temp : integer range 0 to 20;
+        variable bomb2Temp : integer range 0 to 20;
+        variable bomb3Temp : integer range 0 to 20;
+        variable bomb1Final : std_logic_vector(BOMBSIZE - 1 downto 0);
+    begin
+        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)));
+        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
+        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
+        if (bomb1(4) = DOUBLE) then
+            -- Check left
+            if (
+                bomb2Temp < bomb1Temp + 3
+                and bomb2Temp > bomb1Temp - 3
+            ) then
+                displace  := bomb2Temp - (bomb1Temp - 4);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            -- Check right
+            if (
+                bomb3Temp < bomb1Temp + 3
+                and bomb3Temp > bomb1Temp - 3
+            ) then
+                displace  := bomb3Temp - (bomb1Temp - 4);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            -- Check left
+            if (
+                bomb2Temp < bomb1Temp + 3
+                and bomb2Temp > bomb1Temp - 3
+            ) then
+                displace  := bomb2Temp - (bomb1Temp - 4);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+        
+        else 
+            -- Check left
+            if (
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 2
+            ) then
+                displace  := bomb2Temp - (bomb1Temp - 3);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            -- Check right
+            if (
+                bomb3Temp < bomb1Temp + 2
+                and bomb3Temp > bomb1Temp - 2
+            ) then
+                displace  := bomb3Temp - (bomb1Temp - 3);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+            -- Check left
+            if (
+                bomb2Temp < bomb1Temp + 2
+                and bomb2Temp > bomb1Temp - 2
+            ) then
+                displace  := bomb2Temp - (bomb1Temp - 3);
+                bomb1Temp := bomb1Temp + displace;
+            end if;
+        end if;
+
+        if (bomb1Temp > 15) then
+            bomb1Temp := bomb1Temp - 16;
+        end if;
+        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
+        --report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
+        return bomb1Final;
+    end function bomb1CollDet;
     --Bomb-2-Collision-Test------------------------------------------- Function
     -- Uses the left, right, left model to detect collisions.
     -- Done by checking if there is another bomb within a range
@@ -225,7 +310,20 @@ architecture CollisionChain_ARCH of CollisionChain is
     
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
-    
+    --Collision-Chain-Part-0------------------------------------------- Process
+    -- First chain does collision detection on bomb 2
+    COLLISIONCHAIN0 : process (clock, reset) is
+    begin
+        if reset = ACTIVE then
+            bomb1Col0 <= (others => '0'); 
+            bomb2Col0 <= (others => '0'); 
+            bomb3Col0 <= (others => '0'); 
+        elsif rising_edge(clock) then
+            bomb1Col0 <= bomb1CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
+            bomb2Col0 <= bomb2Temp;
+            bomb3Col0 <= bomb3Temp;
+        end if;
+    end process COLLISIONCHAIN0;
 
     --Collision-Chain-Part-1------------------------------------------- Process
     -- First chain does collision detection on bomb 2
@@ -236,9 +334,9 @@ begin
             bomb2Col1 <= (others => '0'); 
             bomb3Col1 <= (others => '0'); 
         elsif rising_edge(clock) then
-            bomb1Col1 <= bomb1Temp;
-            bomb2Col1 <= bomb2CollDet(bomb1Temp, bomb2Temp, bomb3Temp);
-            bomb3Col1 <= bomb3Temp;
+            bomb1Col1 <= bomb1Col0;
+            bomb2Col1 <= bomb2CollDet(bomb1Col0, bomb2Col0, bomb3Col0);
+            bomb3Col1 <= bomb3Col0;
         end if;
     end process COLLISIONCHAIN1;
 
