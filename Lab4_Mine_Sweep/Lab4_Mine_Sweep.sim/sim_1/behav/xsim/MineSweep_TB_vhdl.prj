@@ -1,10 +1,10 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" \
-"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/TileDriver.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd" \
-"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/physical_io_package.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/TileDriver.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweep.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/Randomizer.vhd" \
 "../../../../Lab4_Mine_Sweep.srcs/sim_1/imports/Sources/Randomizer_TB.vhd" \

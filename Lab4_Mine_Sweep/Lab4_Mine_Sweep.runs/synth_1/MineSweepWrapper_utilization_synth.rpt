@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Mon Apr 15 17:43:50 2024
+| Date         : Mon Apr 22 10:31:29 2024
 | Host         : rbrinson running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MineSweepWrapper_utilization_synth.rpt -pb MineSweepWrapper_utilization_synth.pb
 | Design       : MineSweepWrapper
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                |  357 |     0 |          0 |     20800 |  1.72 |
-|   LUT as Logic             |  341 |     0 |          0 |     20800 |  1.64 |
+| Slice LUTs*                |  376 |     0 |          0 |     20800 |  1.81 |
+|   LUT as Logic             |  360 |     0 |          0 |     20800 |  1.73 |
 |   LUT as Memory            |   16 |     0 |          0 |      9600 |  0.17 |
 |     LUT as Distributed RAM |    0 |     0 |            |           |       |
 |     LUT as Shift Register  |   16 |     0 |            |           |       |
 | Slice Registers            |  149 |     0 |          0 |     41600 |  0.36 |
 |   Register as Flip Flop    |  133 |     0 |          0 |     41600 |  0.32 |
 |   Register as Latch        |   16 |     0 |          0 |     41600 |  0.04 |
-| F7 Muxes                   |   12 |     0 |          0 |     16300 |  0.07 |
+| F7 Muxes                   |    0 |     0 |          0 |     16300 |  0.00 |
 | F8 Muxes                   |    0 |     0 |          0 |      8150 |  0.00 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -153,18 +153,17 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  188 |                 LUT |
+| LUT6     |  218 |                 LUT |
 | FDCE     |  117 |        Flop & Latch |
-| LUT5     |   83 |                 LUT |
-| LUT3     |   54 |                 LUT |
-| LUT2     |   53 |                 LUT |
-| LUT4     |   47 |                 LUT |
+| LUT5     |   62 |                 LUT |
+| LUT3     |   57 |                 LUT |
+| LUT2     |   54 |                 LUT |
+| LUT4     |   53 |                 LUT |
 | IBUF     |   18 |                  IO |
 | SRL16E   |   16 |  Distributed Memory |
 | OBUF     |   16 |                  IO |
 | LDCE     |   16 |        Flop & Latch |
 | FDRE     |   16 |        Flop & Latch |
-| MUXF7    |   12 |               MuxFx |
 | CARRY4   |    4 |          CarryLogic |
 | LUT1     |    3 |                 LUT |
 | BUFG     |    1 |               Clock |

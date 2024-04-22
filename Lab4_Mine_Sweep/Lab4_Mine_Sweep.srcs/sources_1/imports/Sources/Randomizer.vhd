@@ -30,21 +30,18 @@ entity Randomizer is
         ----------------------------------------------------------- Input Ports
         clock           : in std_logic;
         reset           : in std_logic;
-        moveDet         : in std_logic;
         gamePlayMode    : in std_logic;
         
         ---------------------------------------------------------- Output Ports
-        bombLocation    : out std_logic_vector (BOMBBUSWIDTH - 1 downto 0)
+        signal bomb1    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
+        signal bomb2    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
+        signal bomb3    : inout std_logic_vector(BOMBSIZE - 1 downto 0)
     );
 end entity Randomizer;
 
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
     ------------------------------------------------------------------- Signals
-    signal bomb1                : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb2                : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3                : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal finalBombLocations   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
      
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
@@ -166,29 +163,6 @@ architecture Randomizer_ARCH of Randomizer is
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
     
-    --Final------------------------------------------------------------ Process
-    FINAL: process(clock, reset)
-    begin
-        if (reset = ACTIVE) then
-            bombLocation <= (others => '0'); 
-        elsif (rising_edge(clock) )then
-            if (moveDet = ACTIVE) then
-                bombLocation <= finalBombLocations;
-            end if;
-        end if;
-    end process FINAL;
-
-    --Collision-Chain-------------------------------------------------- Instant
-    COLLISIONCHAIN : entity work.CollisionChain
-        port map(
-            clock              => clock,
-            reset              => reset,
-            bomb1Temp          => bomb1,
-            bomb2Temp          => bomb2,
-            bomb3Temp          => bomb3,
-            finalBombLocations => finalBombLocations
-        );
-    
 
     
     --Randomzier-Process----------------------------------------------- Process
@@ -221,7 +195,6 @@ begin
                     bomb2, 
                     bomb3
                 );
-
                 -- Decriment bomb 2
                 if (bomb2Clock = ACTIVE) then
                     bomb2 <= std_logic_vector(unsigned(bomb2) - 1);

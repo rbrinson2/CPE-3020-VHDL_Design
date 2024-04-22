@@ -41,13 +41,29 @@ architecture MineSweep_ARCH of MineSweep is
     signal currState : move_t;
     signal nextState : move_t;
 
-    signal bombLocation     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal playerMoveSynch  : std_logic_vector(MOVEWIDTH - 1 downto 0);
-    signal gamePlayMode     : std_logic := '0';
-    signal moveDet          : std_logic := '0';
+    ---------------------------------------------------------- Internal Signals
+    signal bomb1Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bombLocation            : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal finalBombLocations      : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal playerMoveSynch         : std_logic_vector(MOVEWIDTH - 1 downto 0);
+    signal gamePlayMode            : std_logic := '0';
+    signal moveDet                 : std_logic := '0';
     
 begin
-    
+    --Final------------------------------------------------------------ Process
+    FINAL: process(clock, reset)
+    begin
+        if (reset = ACTIVE) then
+            bombLocation <= (others => '0'); 
+        elsif (rising_edge(clock) )then
+            if (moveDet = ACTIVE) then
+                bombLocation <= finalBombLocations;
+            end if;
+        end if;
+    end process FINAL;
+
     --Move-Sync-Generate---------------------------------------------- Generate
     -- Generates a sync chain process for each player move
     -- Used as a debouncer
@@ -71,9 +87,10 @@ begin
         port map(
             clock        => clock,
             reset        => reset,
-            moveDet      => moveDet,
             gamePlayMode => gamePlayMode,
-            bombLocation => bombLocation
+            bomb1        => bomb1Temp,
+            bomb2        => bomb2Temp,
+            bomb3        => bomb3Temp
         );
     
     --Tile-Driver------------------------------------------------------ Instant
@@ -83,6 +100,17 @@ begin
             reset         => reset,
             bombLocation => bombLocation,
             tiles         => tiles
+        );
+
+    --Collision-Chain-------------------------------------------------- Instant
+    COLLISIONCHAIN : entity work.CollisionChain
+        port map(
+            clock              => clock,
+            reset              => reset,
+            bomb1Temp          => bomb1Temp,
+            bomb2Temp          => bomb2Temp,
+            bomb3Temp          => bomb3Temp,
+            finalBombLocations => finalBombLocations
         );
 
     --Move-State-Register---------------------------------------------- Process

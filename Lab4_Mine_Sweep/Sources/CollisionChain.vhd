@@ -226,6 +226,7 @@ architecture CollisionChain_ARCH of CollisionChain is
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
     
+
     --Collision-Chain-Part-1------------------------------------------- Process
     -- First chain does collision detection on bomb 2
     COLLISIONCHAIN1 : process (clock, reset) is
