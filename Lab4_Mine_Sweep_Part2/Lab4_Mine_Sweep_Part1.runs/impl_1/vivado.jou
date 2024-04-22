@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Apr 22 11:50:14 2024
+# Process ID: 766036
+# Current directory: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/impl_1
+# Command line: vivado.exe -log MineSweepWrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source MineSweepWrapper.tcl -notrace
+# Log file: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/impl_1/MineSweepWrapper.vdi
+# Journal file: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/impl_1\vivado.jou
+# Running On: rbrinson, OS: Windows, CPU Frequency: 3992 MHz, CPU Physical cores: 16, Host memory: 33522 MB
+#-----------------------------------------------------------
+source MineSweepWrapper.tcl -notrace

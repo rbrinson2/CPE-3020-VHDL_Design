@@ -46,6 +46,7 @@ architecture MineSweep_ARCH of MineSweep is
     signal playerMoveSynch         : std_logic_vector(MOVEWIDTH - 1 downto 0);
     signal gamePlayMode            : std_logic := '0';
     signal moveDet                 : std_logic := '0';
+    signal firstMove               : std_logic := '0';
     
 begin
     --Final-Bomb-Location---------------------------------------------- Process
@@ -110,7 +111,7 @@ begin
         );
 
     --Move-Detect------------------------------------------------------ Instant
-    MoveDetect_inst : entity work.MoveDetect
+    MOVEDETECT : entity work.MoveDetect
         port map(
             clock           => clock,
             reset           => reset,
