@@ -46,6 +46,8 @@ architecture MineSweep_ARCH of MineSweep is
     signal playerMoveSynch         : std_logic_vector(MOVEWIDTH - 1 downto 0);
     signal gamePlayMode            : std_logic := '0';
     signal moveDet                 : std_logic := '0';
+    signal firstMoveDet            : std_logic := '0';
+    
     
 begin
     --Final-Bomb-Location---------------------------------------------- Process
@@ -54,12 +56,39 @@ begin
         if (reset = ACTIVE) then
             bombLocation <= (others => '0'); 
         elsif (rising_edge(clock) )then
-            if (moveDet = ACTIVE) then
+            if (
+                moveDet = ACTIVE
+                and firstMoveDet = ACTIVE
+            ) then
                 bombLocation <= finalBombLocations;
             end if;
         end if;
     end process FINALBOMBLOCATION;
 
+    FIRST_MOVE : process (clock, reset) is
+        variable count : integer range 0 to 2;
+        variable first : integer range 0 to 1;
+    begin
+        if reset = '1' then
+            firstMoveDet <= not ACTIVE;
+            count := 0;
+            first := 0;
+        elsif rising_edge(clock) then
+            if (moveDet = ACTIVE) then
+                if (first = 0) then
+                    if (count < 2) then
+                        firstMoveDet <= ACTIVE;
+                        count := count + 1;
+                    else 
+                        first := 1;
+                    end if;
+                elsif (first = 1) then
+                    firstMoveDet <= not ACTIVE;
+                end if;
+            end if;
+        end if;
+    end process FIRST_MOVE;
+    
     --Move-Sync-Generate---------------------------------------------- Generate
     -- Generates a sync chain process for each player move
     -- Used as a debouncer
