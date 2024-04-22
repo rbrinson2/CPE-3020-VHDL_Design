@@ -1,18 +1,15 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../Sources/physical_io_package.vhd" \
-"../../../../Sources/Randomizer.vhd" \
-"../../../../Sources/MoveDetect.vhd" \
-"../../../../Sources/TileDriver.vhd" \
-"../../../../Sources/MineSweep.vhd" \
-"../../../../Sources/include/SynchronizerChain.vhd" \
-"../../../../Sources/MineSweepWrapper.vhd" \
-"../../../../Sources/include/LevelDetector.vhd" \
-"../../../../Sources/include/SevenSegmentDriver.vhd" \
-"../../../../Sources/MineSweep_TB.vhd" \
-"../../../../Sources/MoveDetect_TB.vhd" \
-"../../../../Sources/Randomizer_TB.vhd" \
-"../../../../Sources/TileDriver_TB.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/TileDriver.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/physical_io_package.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/MineSweep.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sources_1/imports/Sources/Randomizer.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sim_1/imports/Sources/Randomizer_TB.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sim_1/imports/Sources/TileDriver_TB.vhd" \
+"../../../../Lab4_Mine_Sweep.srcs/sim_1/imports/Sources/MineSweep_TB.vhd" \
 
 # Do not sort compile order
 nosort

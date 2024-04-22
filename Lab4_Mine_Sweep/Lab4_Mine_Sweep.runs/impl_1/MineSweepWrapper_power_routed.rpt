@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Wed Apr 10 13:51:01 2024
+| Date             : Mon Apr 15 17:44:35 2024
 | Host             : rbrinson running 64-bit major release  (build 9200)
 | Command          : report_power -file MineSweepWrapper_power_routed.rpt -pb MineSweepWrapper_power_summary_routed.pb -rpx MineSweepWrapper_power_routed.rpx
 | Design           : MineSweepWrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.078        |
+| Total On-Chip Power (W)  | 0.086        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.006        |
+| Dynamic (W)              | 0.014        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -52,18 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |    <0.001 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |      291 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      109 |     20800 |            0.52 |
+| Clocks                  |     0.002 |        3 |       --- |             --- |
+| Slice Logic             |     0.002 |      615 |       --- |             --- |
+|   LUT as Logic          |     0.002 |      338 |     20800 |            1.63 |
+|   Register              |    <0.001 |      149 |     41600 |            0.36 |
 |   LUT as Shift Register |    <0.001 |       16 |      9600 |            0.17 |
-|   Register              |    <0.001 |       86 |     41600 |            0.21 |
-|   F7/F8 Muxes           |    <0.001 |        2 |     32600 |           <0.01 |
-|   CARRY4                |    <0.001 |        2 |      8150 |            0.02 |
-|   Others                |     0.000 |       38 |       --- |             --- |
-| Signals                 |    <0.001 |      205 |       --- |             --- |
-| I/O                     |     0.004 |       34 |       106 |           32.08 |
+|   F7/F8 Muxes           |    <0.001 |       12 |     32600 |            0.04 |
+|   CARRY4                |    <0.001 |        4 |      8150 |            0.05 |
+|   Others                |     0.000 |        6 |       --- |             --- |
+| Signals                 |     0.003 |      515 |       --- |             --- |
+| I/O                     |     0.008 |       34 |       106 |           32.08 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.078 |          |           |                 |
+| Total                   |     0.086 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.012 |       0.002 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.017 |       0.007 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,12 +139,13 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------------+-----------+
-| Name             | Power (W) |
-+------------------+-----------+
-| MineSweepWrapper |     0.006 |
-|   MineSweep_inst |     0.001 |
-|     RANDOMIZER   |     0.001 |
-+------------------+-----------+
++----------------------+-----------+
+| Name                 | Power (W) |
++----------------------+-----------+
+| MineSweepWrapper     |     0.014 |
+|   MINESWEEP          |     0.007 |
+|     RANDOM           |     0.005 |
+|       COLLISIONCHAIN |     0.002 |
++----------------------+-----------+
 
 
