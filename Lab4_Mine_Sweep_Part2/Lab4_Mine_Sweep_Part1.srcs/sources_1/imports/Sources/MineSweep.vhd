@@ -65,6 +65,7 @@ begin
         end if;
     end process FINALBOMBLOCATION;
 
+    --First-Move-Detection--------------------------------------------- Process
     FIRST_MOVE : process (clock, reset) is
         variable count : integer range 0 to 2;
         variable first : integer range 0 to 1;
@@ -113,6 +114,7 @@ begin
             clock        => clock,
             reset        => reset,
             gamePlayMode => gamePlayMode,
+            firstMoveDet => firstMoveDet,
             bomb1        => bomb1Temp,
             bomb2        => bomb2Temp,
             bomb3        => bomb3Temp
