@@ -91,7 +91,6 @@ OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweepPackage.vhd
   C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/CollisionChain.vhd
-  C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/LevelDetector.vhd
   C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/Randomizer.vhd
   C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd
   C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MoveDetect.vhd

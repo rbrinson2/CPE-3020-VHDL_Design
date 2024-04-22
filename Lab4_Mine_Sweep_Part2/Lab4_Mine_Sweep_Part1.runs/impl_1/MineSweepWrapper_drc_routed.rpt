@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Mon Apr 22 14:54:54 2024
+| Date         : Mon Apr 22 15:16:59 2024
 | Host         : rbrinson running 64-bit major release  (build 9200)
 | Command      : report_drc -file MineSweepWrapper_drc_routed.rpt -pb MineSweepWrapper_drc_routed.pb -rpx MineSweepWrapper_drc_routed.rpx
 | Design       : MineSweepWrapper
@@ -24,98 +24,93 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 17
+             Violations found: 16
 +----------+----------+-------------------+------------+
 | Rule     | Severity | Description       | Violations |
 +----------+----------+-------------------+------------+
-| PDRC-153 | Warning  | Gated clock check | 17         |
+| PDRC-153 | Warning  | Gated clock check | 16         |
 +----------+----------+-------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 PDRC-153#1 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/firstMove__0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/firstMove_reg_i_2/O, cell MINESWEEP/MOVEDETECT/firstMove_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[0]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[0]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[0]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[0] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[0]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[0]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[10]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[10]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[10]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[10] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[10]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[10]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[11]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[11]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[11]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#4 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[11] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[11]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[11]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[12]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[12]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[12]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#5 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[12] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[12]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[12]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[13]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[13]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[13]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#6 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[13] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[13]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[13]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[14]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[14]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[14]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[14] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[14]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[14]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[15]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[15]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[15]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#8 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[15] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[15]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[15]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[1]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#9 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[1] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[1]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[2]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[2]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#10 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[2] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[2]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[3]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[3]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#11 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[3] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[3]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[4]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[4]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[4]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#12 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[4] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[4]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[4]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[5]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[5]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#13 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[5] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[5]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[6]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[6]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#14 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[6] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[6]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[7]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[7]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#15 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[7] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[7]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[8]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[8]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[8]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#16 Warning
 Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[8] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[8]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[8]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#17 Warning
-Gated clock check  
-Net MINESWEEP/MOVEDETECT/moveTraker[9] is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[9]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[9]_i_2_n_0 is a gated clock net sourced by a combinational pin MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[9]_i_2/O, cell MINESWEEP/MOVEDETECT/MOVE_FSM.moveTraker_reg[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 
