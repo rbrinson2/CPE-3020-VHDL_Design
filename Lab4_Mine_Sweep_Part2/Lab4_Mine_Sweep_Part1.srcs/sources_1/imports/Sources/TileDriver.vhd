@@ -37,10 +37,10 @@ begin
     process (clock, reset) is
     begin
         if (reset = '1') then
-            tiles <= (others => '0');
+            tiles <= (others => '1');
         elsif (rising_edge(clock)) then
             if (bombLocation = ZERO) then
-                tiles <= (others => '0');
+                tiles <= (others => '1');
             else
                 tiles <= bombLocation;
             end if;

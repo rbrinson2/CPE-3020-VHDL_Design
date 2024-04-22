@@ -8,13 +8,16 @@ use work.minesweeppackage.all;
 
 entity MoveDetect is
     port(
+        ----------------------------------------------------------- Input Ports
         clock           : in std_logic;
         reset           : in std_logic;
         playerMove      : in std_logic_vector(MOVEWIDTH - 1 downto 0);
         playerMoveSynch : in std_logic_vector(MOVEWIDTH - 1 downto 0);
 
+        ---------------------------------------------------------- Output Ports
         gamePlayMode    : out std_logic := '0';
-        moveDet         : out std_logic := '0'
+        moveDet         : out std_logic := '0';
+        firstMoveDet    : out std_logic := '0'
     );
 end entity MoveDetect;
 
@@ -42,16 +45,19 @@ begin
     --TODO: Try to incorporate edge detection instead of sync
     MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
         variable moveTraker : std_logic_vector(MOVEWIDTH - 1 downto 0);
+        variable firstMove : integer range 0 to 1;
+        
     begin
         moveDet <= '0';
         gamePlayMode <= '0';
+        firstMoveDet <= '0';
 
         case currState is 
 
             --Waiting---------- State
             when WAITING =>
                 moveTraker := (others => '0');
-
+                firstMove  := 0;
                 if (playerMove = X"0000" and playerMoveSynch = X"0000") then
                     nextState <= PLAYING;
                 else 
@@ -81,6 +87,10 @@ begin
                             moveTraker(move) := playerMoveSynch(move);
                         end if;
                     end loop;
+                    if (firstMove = 0) then
+                        firstMove := 1;
+                        firstMoveDet <= ACTIVE;
+                    end if;
 
                     moveDet <= ACTIVE;
                     nextState <= MOVEDETECTED;

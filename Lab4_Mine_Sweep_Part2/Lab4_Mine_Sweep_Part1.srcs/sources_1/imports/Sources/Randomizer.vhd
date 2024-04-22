@@ -31,6 +31,7 @@ entity Randomizer is
         clock           : in std_logic;
         reset           : in std_logic;
         gamePlayMode    : in std_logic;
+        firstMoveDet    : in std_logic;
         
         ---------------------------------------------------------- Output Ports
         signal bomb1    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -76,89 +77,6 @@ architecture Randomizer_ARCH of Randomizer is
         end if;
     end procedure bomb3Counter;
     
-    --Bomb-1-Collision-Test------------------------------------------- Function
-    -- Uses the left, right, left model to detect collisions.
-    -- Done by checking if there is another bomb within a range
-    -- depending on the width of the bomb. If there is a bomb
-    -- in that range, it moves. It then checks the other and 
-    -- then the first. 
-    function bomb1CollDet(
-        bomb1 : std_logic_vector(BOMBSIZE - 1 downto 0);
-        bomb2 : std_logic_vector(BOMBSIZE - 1 downto 0);
-        bomb3 : std_logic_vector(BOMBSIZE - 1 downto 0)
-
-    ) 
-    return std_logic_vector
-    is
-        variable displace  : integer range 0 to 20;
-        variable bomb1Temp : integer range 0 to 20;
-        variable bomb2Temp : integer range 0 to 20;
-        variable bomb3Temp : integer range 0 to 20;
-        variable bomb1Final : std_logic_vector(BOMBSIZE - 1 downto 0);
-    begin
-        bomb1Temp := to_integer(unsigned(bomb1(3 downto 0)));
-        bomb2Temp := to_integer(unsigned(bomb2(3 downto 0)));
-        bomb3Temp := to_integer(unsigned(bomb3(3 downto 0)));
-        if (bomb1(4) = DOUBLE) then
-            -- Check left
-            if (
-                bomb2Temp < bomb1Temp + 3
-                and bomb2Temp > bomb1Temp - 3
-            ) then
-                displace  := bomb2Temp - (bomb1Temp - 4);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-            -- Check right
-            if (
-                bomb3Temp < bomb1Temp + 3
-                and bomb3Temp > bomb1Temp - 3
-            ) then
-                displace  := bomb3Temp - (bomb1Temp - 4);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-            -- Check left
-            if (
-                bomb2Temp < bomb1Temp + 3
-                and bomb2Temp > bomb1Temp - 3
-            ) then
-                displace  := bomb2Temp - (bomb1Temp - 4);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-        
-        else 
-            -- Check left
-            if (
-                bomb2Temp < bomb1Temp + 2
-                and bomb2Temp > bomb1Temp - 2
-            ) then
-                displace  := bomb2Temp - (bomb1Temp - 3);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-            -- Check right
-            if (
-                bomb3Temp < bomb1Temp + 2
-                and bomb3Temp > bomb1Temp - 2
-            ) then
-                displace  := bomb3Temp - (bomb1Temp - 3);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-            -- Check left
-            if (
-                bomb2Temp < bomb1Temp + 2
-                and bomb2Temp > bomb1Temp - 2
-            ) then
-                displace  := bomb2Temp - (bomb1Temp - 3);
-                bomb1Temp := bomb1Temp + displace;
-            end if;
-        end if;
-
-        if (bomb1Temp > 15) then
-            bomb1Temp := bomb1Temp - 16;
-        end if;
-        bomb1Final := bomb1(4) & std_logic_vector(to_unsigned(bomb1Temp, 4));
-        --report "Bomb 1 Final = " & integer'image(to_integer(unsigned(bomb1Final(3 downto 0))));
-        return bomb1Final;
-    end function bomb1CollDet;
 
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
@@ -171,7 +89,7 @@ begin
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
         variable bomb3Count : integer range 0 to 3;
-        
+        variable firstMove  : integer range 0 to 1;
         
     begin
         if (reset = ACTIVE) then
@@ -182,19 +100,23 @@ begin
             bomb3Clock      := not ACTIVE;
             bomb2Count      := 0;
             bomb3Count      := 0;   
+            firstMove       := 0;
 
         elsif (rising_edge(clock)) then
-            if (gamePlayMode = ACTIVE) then
+            if (
+                gamePlayMode = ACTIVE
+                --and firstMove = 0
+            ) then
+                if (firstMoveDet = ACTIVE) then
+                    firstMove := 1;
+                end if;
 
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);
 
-                -- Increment bomb 1 and detect collisions
-                bomb1 <= bomb1CollDet(
-                    std_logic_vector(unsigned(bomb1) + 1), 
-                    bomb2, 
-                    bomb3
-                );
+                -- Increment bomb 1 
+                bomb1 <= std_logic_vector(unsigned(bomb1) + 1);
+
                 -- Decriment bomb 2
                 if (bomb2Clock = ACTIVE) then
                     bomb2 <= std_logic_vector(unsigned(bomb2) - 1);

@@ -31,11 +31,12 @@ entity Randomizer is
         clock           : in std_logic;
         reset           : in std_logic;
         gamePlayMode    : in std_logic;
+        firstMoveDet    : in std_logic;
         
         ---------------------------------------------------------- Output Ports
-        signal bomb1    : out std_logic_vector(BOMBSIZE - 1 downto 0);
-        signal bomb2    : out std_logic_vector(BOMBSIZE - 1 downto 0);
-        signal bomb3    : out std_logic_vector(BOMBSIZE - 1 downto 0)
+        signal bomb1    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
+        signal bomb2    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
+        signal bomb3    : inout std_logic_vector(BOMBSIZE - 1 downto 0)
     );
 end entity Randomizer;
 
@@ -88,7 +89,7 @@ begin
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
         variable bomb3Count : integer range 0 to 3;
-        
+        variable firstMove  : integer range 0 to 1;
         
     begin
         if (reset = ACTIVE) then
@@ -99,9 +100,16 @@ begin
             bomb3Clock      := not ACTIVE;
             bomb2Count      := 0;
             bomb3Count      := 0;   
+            firstMove       := 0;
 
         elsif (rising_edge(clock)) then
-            if (gamePlayMode = ACTIVE) then
+            if (
+                gamePlayMode = ACTIVE
+                --and firstMove = 0
+            ) then
+                if (firstMoveDet = ACTIVE) then
+                    firstMove := 1;
+                end if;
 
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);

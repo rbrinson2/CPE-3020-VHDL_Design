@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1713800956">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1713812001">
   <File Type="ROUTE-PWR" Name="MineSweepWrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="MineSweepWrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="MineSweepWrapper_power_summary_routed.pb"/>
@@ -89,7 +89,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepPackage.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepPackage.vhd"/>
-        <Attr Name="ImportTime" Val="1713790408"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -97,7 +97,15 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/CollisionChain.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/CollisionChain.vhd"/>
-        <Attr Name="ImportTime" Val="1713796595"/>
+        <Attr Name="ImportTime" Val="1713799351"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/LevelDetector.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/LevelDetector.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -105,7 +113,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/Randomizer.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/Randomizer.vhd"/>
-        <Attr Name="ImportTime" Val="1713796595"/>
+        <Attr Name="ImportTime" Val="1713807165"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -113,7 +121,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/TileDriver.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/TileDriver.vhd"/>
-        <Attr Name="ImportTime" Val="1713790408"/>
+        <Attr Name="ImportTime" Val="1713806785"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -121,7 +129,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/MoveDetect.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/MoveDetect.vhd"/>
-        <Attr Name="ImportTime" Val="1713800026"/>
+        <Attr Name="ImportTime" Val="1713801816"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -129,7 +137,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweep.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweep.vhd"/>
-        <Attr Name="ImportTime" Val="1713800135"/>
+        <Attr Name="ImportTime" Val="1713806961"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -137,8 +145,59 @@
     <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweepWrapper.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweepWrapper.vhd"/>
-        <Attr Name="ImportTime" Val="1713790408"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/ClearTiles.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/ClearTiles.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/SynchronizerChain.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/SynchronizerChain.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/Randomizer_TB.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/Randomizer_TB.vhd"/>
+        <Attr Name="ImportTime" Val="1713802256"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/SevenSegmentDriver.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/SevenSegmentDriver.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/TileDriver_TB.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/TileDriver_TB.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweep_TB.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweep_TB.vhd"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -146,7 +205,7 @@
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/Sources/physical_io_package.vhd"/>
-        <Attr Name="ImportTime" Val="1711633984"/>
+        <Attr Name="ImportTime" Val="1713799073"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -173,6 +232,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/MineSweepWrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
