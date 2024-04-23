@@ -70,20 +70,20 @@ begin
         variable count : integer range 0 to 2;
         variable first : integer range 0 to 1;
     begin
-        if reset = '1' then
+        if (reset = ACTIVE) then
             firstMoveDet <= not ACTIVE;
             count := 0;
-            first := 0;
-        elsif rising_edge(clock) then
+            first := NOTFLAGGED;
+        elsif (rising_edge(clock) )then
             if (moveDet = ACTIVE) then
-                if (first = 0) then
+                if (first = NOTFLAGGED) then
                     if (count < 2) then
                         firstMoveDet <= ACTIVE;
                         count := count + 1;
                     else 
-                        first := 1;
+                        first := FLAGGED;
                     end if;
-                elsif (first = 1) then
+                elsif (first = FLAGGED) then
                     firstMoveDet <= not ACTIVE;
                 end if;
             end if;
@@ -97,7 +97,7 @@ begin
         SYNC : process (clock, reset) is
             variable syncChain : std_logic_vector(3 downto 0);
         begin
-            if reset = '1' then 
+            if reset = ACTIVE then 
                 syncChain := (others => '0'); 
             elsif rising_edge(clock) then
                 syncChain := syncChain(2 downto 0) & playerMove(i);
