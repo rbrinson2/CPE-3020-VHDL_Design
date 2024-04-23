@@ -66,7 +66,7 @@ architecture Randomizer_ARCH of Randomizer is
     --Bomb-3-Pulse-Generator----------------------------------------- Procedure
     -- Every three clock cyles, generates a pulse
     procedure bomb3Counter(
-        counter : inout integer range 0 to 2;
+        counter  : inout integer range 0 to 2;
         clockOut : inout std_logic
     ) is
     begin
@@ -85,9 +85,9 @@ begin
     
     FIRST_MOVE : process (clock, reset) is
     begin
-        if reset = '1' then
+        if (reset = ACTIVE) then
             firstMove <= not ACTIVE;
-        elsif rising_edge(clock) then
+        elsif (rising_edge(clock)) then
             if (firstMoveDet = ACTIVE) then
                 firstMove <= ACTIVE;
             end if;
