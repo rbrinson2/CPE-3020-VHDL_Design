@@ -29,6 +29,7 @@ architecture Randomizer_TB_ARCH of Randomizer_TB is
     signal reset    : std_logic;
     signal moveDet  : std_logic := '0';
     signal gamePlayMode : std_logic := '0';
+    signal firstMoveDet : std_logic := '0';
     signal bomb1Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -49,6 +50,7 @@ begin
             clock        => clock,
             reset        => reset,
             gamePlayMode => gamePlayMode,
+            firstMoveDet => firstMoveDet,
             bomb1        => bomb1Temp,
             bomb2        => bomb2Temp,
             bomb3        => bomb3Temp
@@ -57,16 +59,23 @@ begin
     --Stimulus--------------------------------------------------------- Process
     STIMULUS: process(clock, reset)
         variable count : integer range 0 to 100;
+        variable first : integer range 0 to 1;
         
     begin
         if reset = '1' then
             moveDet <= '0';
             count := 0;
+            first := 0;
         elsif rising_edge(clock) then
             if (gamePlayMode = '1') then
                 count := count + 1;
                 if (count mod 5 = 0) then 
                     moveDet <= '1';
+                    firstMoveDet <= not ACTIVE;
+                    if (first = 0) then
+                        firstMoveDet <= ACTIVE;
+                        first := 1;
+                    end if;
                 elsif (count >= 99) then
                     std.env.stop;
                 else 

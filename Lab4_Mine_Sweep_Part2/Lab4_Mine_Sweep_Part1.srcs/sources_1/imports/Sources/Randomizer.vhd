@@ -31,6 +31,7 @@ entity Randomizer is
         clock           : in std_logic;
         reset           : in std_logic;
         gamePlayMode    : in std_logic;
+        firstMoveDet    : in std_logic;
         
         ---------------------------------------------------------- Output Ports
         signal bomb1    : inout std_logic_vector(BOMBSIZE - 1 downto 0);
@@ -42,7 +43,9 @@ end entity Randomizer;
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
     ------------------------------------------------------------------- Signals
+    signal firstMove : std_logic;
      
+
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
     procedure bomb2Counter(
@@ -80,7 +83,17 @@ architecture Randomizer_ARCH of Randomizer is
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
     
-
+    FIRST_MOVE : process (clock, reset) is
+    begin
+        if reset = '1' then
+            firstMove <= not ACTIVE;
+        elsif rising_edge(clock) then
+            if (firstMoveDet = ACTIVE) then
+                firstMove <= ACTIVE;
+            end if;
+        end if;
+    end process FIRST_MOVE;
+    
     
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
@@ -102,7 +115,7 @@ begin
         elsif (rising_edge(clock)) then
             if (
                 gamePlayMode = ACTIVE
-                --and firstMove = not ACTIVE
+                and firstMove = not ACTIVE
             ) then
 
                 bomb2Counter(bomb2Count, bomb2Clock);
