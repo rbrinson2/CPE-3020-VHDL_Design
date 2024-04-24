@@ -31,6 +31,8 @@ architecture TileDriver_TB_ARCH of TileDriver_TB is
     signal reset            : std_logic;
     signal bombLocation   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     signal tiles            : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
+    signal hitDet             : std_logic;
+    signal clearTilesMask     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     
 begin
 
@@ -40,10 +42,12 @@ begin
     --Tile-Driver------------------------------------------------------ Instant
     DUT : entity work.TileDriver
         port map(
-            clock         => clock,
-            reset         => reset,
-            bombLocation => bombLocation,
-            tiles         => tiles
+            clock          => clock,
+            reset          => reset,
+            bombLocation   => bombLocation,
+            clearTilesMask => clearTilesMask,
+            hitDet         => hitDet,
+            tiles          => tiles
         );
     
     --Stimulus--------------------------------------------------------- Process

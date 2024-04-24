@@ -61,7 +61,7 @@ architecture ClearTiles_ARCH of ClearTiles is
             j := j - 1;
         end loop;
     end procedure ClearRight;
-    
+
 -------------------------------------------------------------------- Arch Begin    
 begin
     PLAYER_EDGE : for i in playerMoveSync'range generate
@@ -93,7 +93,7 @@ begin
             end loop;
         end if;
 
-        clearTilesMask <= clearTemp;
+        clearTilesMask <= not clearTemp;
     end process HIT_SCAN;
     
     

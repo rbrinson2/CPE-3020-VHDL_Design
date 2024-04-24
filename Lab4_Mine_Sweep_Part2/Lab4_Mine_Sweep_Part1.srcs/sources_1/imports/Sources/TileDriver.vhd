@@ -24,6 +24,8 @@ entity TileDriver is
         clock : in std_logic;
         reset : in std_logic;
         bombLocation : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        clearTilesMask : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        hitDet : in std_logic;
 
         tiles : out std_logic_vector(TILEBUSWIDTH - 1 downto 0)
     );
@@ -31,18 +33,28 @@ end entity TileDriver;
 
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
-        
+    signal tempTiles : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
+    
 begin
+    FINAL : process (clock, reset) is
+    begin
+        if (reset = ACTIVE) then
+            tiles <= (others => '1');
+        elsif rising_edge(clock) then
+            tiles <= tempTiles and clearTilesMask;
+        end if;
+    end process FINAL;
+    
     --Tile-Driver-Process---------------------------------------------- Process
     process (clock, reset) is
     begin
-        if (reset = '1') then
-            tiles <= (others => '1');
+        if (reset = ACTIVE) then
+            tempTiles <= (others => '1');
         elsif (rising_edge(clock)) then
             if (bombLocation = ZERO) then
-                tiles <= (others => '1');
+                tempTiles <= (others => '1');
             else
-                tiles <= bombLocation;
+                tempTiles <= bombLocation;
             end if;
 
         end if;

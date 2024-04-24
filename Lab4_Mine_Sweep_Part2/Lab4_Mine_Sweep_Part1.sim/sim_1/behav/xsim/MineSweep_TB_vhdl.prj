@@ -1,8 +1,9 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweepPackage.vhd" \
-"../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
 "../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/LevelDetector.vhd" \
+"../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/ClearTiles.vhd" \
+"../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/CollisionChain.vhd" \
 "../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/Randomizer.vhd" \
 "../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd" \
 "../../../../Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MoveDetect.vhd" \

@@ -1,4 +1,4 @@
----------------------------------------------------------------
+-----------------------------------------------------------------
 -- Class: CPE 3020
 -- Student: Ryan Brinson
 -- 
@@ -38,15 +38,17 @@ end entity MineSweep;
 architecture MineSweep_ARCH of MineSweep is
 
     ---------------------------------------------------------- Internal Signals
-    signal bomb1Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb2Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3Temp               : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bombLocation            : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal finalBombLocations      : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal playerMoveSynch         : std_logic_vector(MOVEWIDTH - 1 downto 0);
-    signal gamePlayMode            : std_logic := '0';
-    signal moveDet                 : std_logic := '0';
-    signal firstMoveDet            : std_logic := '0';
+    signal bomb1Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb2Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bomb3Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal tempBombLocation   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal clearTilesMask     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal playerMoveSync     : std_logic_vector(MOVEWIDTH - 1 downto 0);
+    signal gamePlayMode       : std_logic := '0';
+    signal hitDet             : std_logic;
+    signal moveDet            : std_logic := '0';
+    signal firstMoveDet       : std_logic := '0';
     
     
 begin
@@ -54,13 +56,13 @@ begin
     FINALBOMBLOCATION: process(clock, reset)
     begin
         if (reset = ACTIVE) then
-            bombLocation <= (others => '0'); 
+            finalBombLocations <= (others => '0'); 
         elsif (rising_edge(clock) )then
             if (
                 moveDet = ACTIVE
                 and firstMoveDet = ACTIVE
             ) then
-                bombLocation <= finalBombLocations;
+                finalBombLocations <= tempBombLocation;
             end if;
         end if;
     end process FINALBOMBLOCATION;
@@ -103,7 +105,7 @@ begin
                 syncChain := syncChain(2 downto 0) & playerMove(i);
             end if;
 
-            playerMoveSynch(i) <= syncChain(3);
+            playerMoveSync(i) <= syncChain(3);
         end process SYNC;
         
     end generate;    
@@ -123,10 +125,12 @@ begin
     --Tile-Driver------------------------------------------------------ Instant
     TILEDRIVE : entity work.TileDriver
         port map(
-            clock         => clock,
-            reset         => reset,
-            bombLocation => bombLocation,
-            tiles         => tiles
+            clock          => clock,
+            reset          => reset,
+            bombLocation   => finalBombLocations,
+            clearTilesMask => clearTilesMask,
+            hitDet         => hitDet,
+            tiles          => tiles
         );
 
     --Collision-Chain-------------------------------------------------- Instant
@@ -137,7 +141,7 @@ begin
             bomb1Temp          => bomb1Temp,
             bomb2Temp          => bomb2Temp,
             bomb3Temp          => bomb3Temp,
-            finalBombLocations => finalBombLocations
+            finalBombLocations => tempBombLocation
         );
 
     --Move-Detect------------------------------------------------------ Instant
@@ -146,11 +150,21 @@ begin
             clock           => clock,
             reset           => reset,
             playerMove      => playerMove,
-            playerMoveSynch => playerMoveSynch,
+            playerMoveSynch => playerMoveSync,
             gamePlayMode    => gamePlayMode,
             moveDet         => moveDet
         );
     
+    --Clear-Tiles------------------------------------------------------ Instant
+    ClearTiles_inst : entity work.ClearTiles
+        port map(
+            clock              => clock,
+            reset              => reset,
+            playerMoveSync     => playerMoveSync,
+            finalBombLocations => finalBombLocations,
+            clearTilesMask     => clearTilesMask,
+            hitDet             => hitDet
+        );
     
     
 end architecture MineSweep_ARCH;

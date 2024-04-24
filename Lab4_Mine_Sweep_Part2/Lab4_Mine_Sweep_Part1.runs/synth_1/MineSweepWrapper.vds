@@ -3,8 +3,8 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue Apr 23 09:16:32 2024
-# Process ID: 922188
+# Start of session at: Wed Apr 24 09:03:59 2024
+# Process ID: 1110572
 # Current directory: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/synth_1
 # Command line: vivado.exe -log MineSweepWrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MineSweepWrapper.tcl
 # Log file: C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/synth_1/MineSweepWrapper.vds
@@ -24,35 +24,40 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 928596
+INFO: [Synth 8-7075] Helper process launched with PID 1108016
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1379.348 ; gain = 440.965
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1378.180 ; gain = 440.121
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MineSweepWrapper' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd:30]
 INFO: [Synth 8-638] synthesizing module 'MineSweep' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweep.vhd:38]
 INFO: [Synth 8-638] synthesizing module 'Randomizer' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/Randomizer.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'Randomizer' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/Randomizer.vhd:44]
-INFO: [Synth 8-638] synthesizing module 'TileDriver' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd:33]
-INFO: [Synth 8-256] done synthesizing module 'TileDriver' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd:33]
+INFO: [Synth 8-638] synthesizing module 'TileDriver' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'TileDriver' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/TileDriver.vhd:35]
 INFO: [Synth 8-638] synthesizing module 'CollisionChain' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/CollisionChain.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'CollisionChain' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/CollisionChain.vhd:44]
 INFO: [Synth 8-638] synthesizing module 'MoveDetect' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MoveDetect.vhd:24]
 INFO: [Synth 8-256] done synthesizing module 'MoveDetect' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MoveDetect.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'ClearTiles' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/ClearTiles.vhd:26]
+INFO: [Synth 8-638] synthesizing module 'LevelDetector' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/LevelDetector.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'LevelDetector' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/LevelDetector.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'ClearTiles' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/ClearTiles.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'MineSweep' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweep.vhd:38]
 INFO: [Synth 8-256] done synthesizing module 'MineSweepWrapper' (0#1) [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MineSweepWrapper.vhd:30]
+WARNING: [Synth 8-7129] Port hitDet in module TileDriver is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.527 ; gain = 554.145
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1513.113 ; gain = 575.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.527 ; gain = 554.145
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1513.113 ; gain = 575.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.527 ; gain = 554.145
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1513.113 ; gain = 575.055
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1492.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1513.113 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -63,28 +68,28 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/MineSweepWrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1579.609 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1609.852 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1579.609 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1609.852 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'currState_reg' in module 'MoveDetect'
 ---------------------------------------------------------------------------------------------------
@@ -97,7 +102,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'currState_reg' in module 'M
 INFO: [Synth 8-3354] encoded FSM with state register 'currState_reg' using encoding 'sequential' in module 'MoveDetect'
 WARNING: [Synth 8-327] inferring latch for variable 'MOVE_FSM.moveTraker_reg' [C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.srcs/sources_1/imports/Sources/MoveDetect.vhd:69]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:16 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -111,20 +116,21 @@ Detailed RTL Component Info :
 	   2 Input    2 Bit       Adders := 2     
 	   2 Input    1 Bit       Adders := 1     
 +---Registers : 
-	               16 Bit    Registers := 3     
+	               16 Bit    Registers := 5     
 	                5 Bit    Registers := 12    
 	                4 Bit    Registers := 16    
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 38    
 +---Muxes : 
-	   2 Input   16 Bit        Muxes := 4     
+	   2 Input   16 Bit        Muxes := 516   
 	   3 Input   16 Bit        Muxes := 2     
 	   2 Input    5 Bit        Muxes := 21    
 	   2 Input    4 Bit        Muxes := 12    
 	   2 Input    2 Bit        Muxes := 4     
 	   3 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 22    
+	   2 Input    1 Bit        Muxes := 99    
 	   3 Input    1 Bit        Muxes := 2     
+	  16 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -142,25 +148,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 1579.609 ; gain = 641.227
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -178,37 +184,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -241,42 +247,43 @@ Report Cell Usage:
 |1     |BUFG   |     1|
 |2     |CARRY4 |     4|
 |3     |LUT1   |     4|
-|4     |LUT2   |    58|
-|5     |LUT3   |    76|
-|6     |LUT4   |    58|
-|7     |LUT5   |    56|
-|8     |LUT6   |   227|
-|9     |SRL16E |    16|
-|10    |FDCE   |   121|
-|11    |FDPE   |    16|
-|12    |FDRE   |    16|
-|13    |LD     |    16|
-|14    |IBUF   |    18|
-|15    |OBUF   |    16|
+|4     |LUT2   |    92|
+|5     |LUT3   |    77|
+|6     |LUT4   |    56|
+|7     |LUT5   |    80|
+|8     |LUT6   |   234|
+|9     |MUXF7  |    12|
+|10    |SRL16E |    16|
+|11    |FDCE   |   169|
+|12    |FDPE   |    32|
+|13    |FDRE   |    16|
+|14    |LD     |    16|
+|15    |IBUF   |    18|
+|16    |OBUF   |    16|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:30 . Memory (MB): peak = 1580.059 ; gain = 554.594
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.059 ; gain = 641.676
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 1609.852 ; gain = 575.055
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 1609.852 ; gain = 671.793
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1592.125 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1609.852 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1595.832 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1612.434 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 16 instances were transformed.
   LD => LDCE: 16 instances
 
-Synth Design complete | Checksum: 1aec846c
+Synth Design complete | Checksum: 342fe9b1
 INFO: [Common 17-83] Releasing license: Synthesis
-35 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+39 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:42 . Memory (MB): peak = 1595.832 ; gain = 1047.062
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1595.832 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:41 . Memory (MB): peak = 1612.434 ; gain = 1064.637
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1612.434 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/rbrin/Documents/GitHub/CPE-3020-VHDL_Design/Lab4_Mine_Sweep_Part2/Lab4_Mine_Sweep_Part1.runs/synth_1/MineSweepWrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file MineSweepWrapper_utilization_synth.rpt -pb MineSweepWrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 23 09:17:21 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 09:04:49 2024...
