@@ -38,19 +38,11 @@ begin
 
     --Tile-Driver-Process---------------------------------------------- Process
     process (clock, reset) is
-        variable temp : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
     begin
         if (reset = ACTIVE) then
             tiles <= (others => '1');
-            temp := (others => '1'); 
         elsif (rising_edge(clock)) then
-            if (bombLocation = ZERO) then
-                temp := (others => '1');
-            else
-                temp := bombLocation or (not clearTilesMask);
-            end if;
-
-            tiles <= temp;
+            tiles <= bombLocation or (not clearTilesMask);
         end if;
     end process;
 end architecture TileDriver_ARCH;
