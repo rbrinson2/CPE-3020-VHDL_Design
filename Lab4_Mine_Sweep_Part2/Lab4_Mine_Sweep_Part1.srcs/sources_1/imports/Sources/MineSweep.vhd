@@ -97,15 +97,15 @@ begin
     -- Used as a debouncer
     MOVE_SYNC : for i in playerMove'range generate
         SYNC : process (clock, reset) is
-            variable syncChain : std_logic_vector(3 downto 0);
+            variable syncChain : std_logic_vector(15 downto 0);
         begin
             if reset = ACTIVE then 
                 syncChain := (others => '0'); 
             elsif rising_edge(clock) then
-                syncChain := syncChain(2 downto 0) & playerMove(i);
+                syncChain := syncChain(14 downto 0) & playerMove(i);
             end if;
 
-            playerMoveSync(i) <= syncChain(3);
+            playerMoveSync(i) <= syncChain(15);
         end process SYNC;
         
     end generate;    
@@ -162,6 +162,7 @@ begin
             reset              => reset,
             playerMoveSync     => playerMoveSync,
             finalBombLocations => finalBombLocations,
+            gamePlayMode       => gamePlayMode,
             clearTilesMask     => clearTilesMask,
             hitDet             => hitDet
         );

@@ -14,6 +14,7 @@ entity ClearTiles is
         reset               : in std_logic;
         playerMoveSync      : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
         finalBombLocations  : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        gamePlayMode        : in std_logic;
         
         ---------------------------------------------------------- Output Ports
         clearTilesMask      : out std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
@@ -76,21 +77,24 @@ begin
     
     HIT_SCAN : process (clock, reset) is
         variable clearTemp : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        variable j : integer range 0 to 16;
     begin
         if (reset = ACTIVE) then
             hitDet <= not ACTIVE;
             clearTemp := (others => '0'); 
-            j := 0;
         elsif rising_edge(clock) then
-            for i in finalBombLocations'reverse_range loop
-                if (finalBombLocations(i) = '1' and newMove(i) = '1') then
-                    hitDet <= ACTIVE;
-                elsif (newMove(i) = '1') then
-                    ClearLeft(clearTemp, finalBombLocations, i);
-                    ClearRight(clearTemp, finalBombLocations, i);
-                end if;
-            end loop;
+            if (gamePlayMode = not ACTIVE) then
+                hitDet <= not ACTIVE;
+                clearTemp := (others => '0'); 
+            else 
+                for i in finalBombLocations'reverse_range loop
+                    if (finalBombLocations(i) = '1' and newMove(i) = '1') then
+                        hitDet <= ACTIVE;
+                    elsif (newMove(i) = '1') then
+                        ClearLeft(clearTemp, finalBombLocations, i);
+                        ClearRight(clearTemp, finalBombLocations, i);
+                    end if;
+                end loop;
+            end if;
         end if;
 
         clearTilesMask <= clearTemp;

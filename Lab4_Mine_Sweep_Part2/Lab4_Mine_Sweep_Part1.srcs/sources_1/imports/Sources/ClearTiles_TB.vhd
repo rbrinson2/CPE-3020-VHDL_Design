@@ -28,12 +28,14 @@ architecture ClearTiles_TB_ARCH of ClearTiles_TB is
     signal reset               : std_logic := '1'; 
     signal playerMoveSync      : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     signal finalBombLocations  : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal gamePlayMode        : std_logic := '0';
     signal clearTilesMask      : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
 
 begin
 
     clock <= not clock after 10 ns;
     reset <= not ACTIVE after 40 ns;
+    gamePlayMode <= ACTIVE after 400 ns;
     finalBombLocations <= "0001" & "1000" & "1100" & "0010" when reset = not ACTIVE else X"0000";
     
     DUT : entity work.ClearTiles
@@ -42,6 +44,7 @@ begin
             reset              => reset,
             playerMoveSync     => playerMoveSync,
             finalBombLocations => finalBombLocations,
+            gamePlayMode       => gamePlayMode,
             clearTilesMask     => clearTilesMask
         );
     

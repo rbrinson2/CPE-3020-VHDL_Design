@@ -24,7 +24,7 @@ end entity MoveDetect;
 architecture MoveDetect_ARCH of MoveDetect is
     type move_t is (WAITING, PLAYING, MOVEDETECTED);
     signal currState            : move_t;
-    signal nextState            : move_t;    
+    signal nextState            : move_t;   
     signal playerMoveZeroEn     : std_logic;
     signal playerMoveSyncZeroEn : std_logic;
 begin
@@ -46,6 +46,8 @@ begin
             currState <= nextState;
         end if;
     end process MOVE_REG;
+ 
+    
 
     --Move-Finite-State-Machine-------------------------------------------- FSM
     -- Takes the indicidual contributions of the player moves
@@ -101,14 +103,14 @@ begin
                     end loop;
                     
                     nextState <= MOVEDETECTED;
-                    moveDet <= ACTIVE;
+                    moveDet  <= ACTIVE;
                 end if;
             
             --Move-Detected---------- State
             when MOVEDETECTED =>
                 moveDet      <= ACTIVE;
-                gamePlayMode <= ACTIVE;
-                nextState    <= PLAYING;
+                gamePlayMode  <= ACTIVE;
+                nextState     <= PLAYING;
         end case;
         
     end process MOVE_FSM;
