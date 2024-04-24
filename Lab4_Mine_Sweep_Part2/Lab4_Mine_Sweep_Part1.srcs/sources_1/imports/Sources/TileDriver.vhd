@@ -41,7 +41,7 @@ begin
         if (reset = ACTIVE) then
             tiles <= (others => '1');
         elsif rising_edge(clock) then
-            tiles <= tempTiles and clearTilesMask;
+            tiles <= tempTiles or clearTilesMask;
         end if;
     end process FINAL;
     

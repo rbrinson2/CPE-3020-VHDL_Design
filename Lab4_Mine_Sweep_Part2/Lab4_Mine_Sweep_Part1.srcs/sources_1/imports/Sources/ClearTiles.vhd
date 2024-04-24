@@ -93,7 +93,7 @@ begin
             end loop;
         end if;
 
-        clearTilesMask <= not clearTemp;
+        clearTilesMask <= clearTemp;
     end process HIT_SCAN;
     
     
