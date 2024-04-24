@@ -25,6 +25,44 @@ end entity ClearTiles;
 --Clear-Tiles===================================================== Architecture
 architecture ClearTiles_ARCH of ClearTiles is
     signal newMove : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+
+    --Left-Clear----------------------------------------------------- Procedure
+    procedure ClearLeft(
+        clear         : inout std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        bombLocations : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        i             : in integer range 0 to 15
+    ) is
+        variable j : integer range 0 to 15;
+    begin
+        j := i;
+        while (bombLocations(j) /= '1') loop
+            clear(j) := '1';
+            if (j = 15) then
+                exit;
+            end if;
+            j := j + 1;
+        end loop;
+    end procedure ClearLeft;
+
+    --Right-Clear---------------------------------------------------- Procedure
+    procedure ClearRight(
+        clear         : inout std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        bombLocations : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+        i             : in integer range 0 to 15
+    ) is
+        variable j : integer range 0 to 15;
+    begin
+        j := i;
+        while (bombLocations(j) /= '1') loop
+            clear(j) := '1';
+            if (j = 0) then
+                exit;
+            end if;
+            j := j - 1;
+        end loop;
+    end procedure ClearRight;
+    
+-------------------------------------------------------------------- Arch Begin    
 begin
     PLAYER_EDGE : for i in playerMoveSync'range generate
         LEVEL_DETECT : entity work.LevelDetector
@@ -49,22 +87,8 @@ begin
                 if (finalBombLocations(i) = '1' and newMove(i) = '1') then
                     hitDet <= ACTIVE;
                 elsif (newMove(i) = '1') then
-                    j := i;
-                    while (finalBombLocations(j) /= '1') loop
-                        clearTemp(j) := '1';
-                        if (j = 15) then
-                            exit;
-                        end if;
-                        j := j + 1;
-                    end loop;
-                    j := i;
-                    while (finalBombLocations(j) /= '1') loop
-                        clearTemp(j) := '1';
-                        if (j = 0) then
-                            exit;
-                        end if;
-                        j := j - 1;
-                    end loop;
+                    ClearLeft(clearTemp, finalBombLocations, i);
+                    ClearRight(clearTemp, finalBombLocations, i);
                 end if;
             end loop;
         end if;
