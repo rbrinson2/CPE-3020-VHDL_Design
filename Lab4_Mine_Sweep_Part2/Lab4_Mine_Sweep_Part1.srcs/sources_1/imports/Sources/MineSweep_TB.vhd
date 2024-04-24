@@ -16,6 +16,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.minesweeppackage.all;
 
 --====================================================================== ENTITY
 entity MineSweep_TB is
@@ -33,24 +34,19 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
     --------- Output Ports
     signal tiles : std_logic_vector(15 downto 0);
 
-    type testArray_t is array(natural range<>) of std_logic_vector(15 downto 0);
+    type testArray_t is array(natural range<>) of std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     constant TEST_VECTOR : testArray_t := (
-    ---playerMove---
-        X"0001",
-        X"0000",
-        X"0004",
-        X"0011",
-        X"0111",
-        X"1111",
-        X"4567",
-        X"4321",
-        X"ABCD",
-        X"1234",
-        X"DCBA",
-        X"0001",
-        X"0011",
-        X"0111",
-        X"1111"
+             --PlayerMove--
+     "0000" & "0000" & "0000" & "0000",
+     "0000" & "0000" & "0100" & "0000",
+     "0000" & "0100" & "0100" & "0000",
+     "0000" & "0100" & "0100" & "1000",
+     "0100" & "0100" & "0100" & "1000",
+     "0100" & "0100" & "0100" & "1000",
+     "0000" & "0000" & "0000" & "0000",
+     "0000" & "0010" & "0000" & "0000",
+     "0000" & "0010" & "1000" & "0000",
+     "0000" & "0010" & "1000" & "0001"
     );
     
     
@@ -58,9 +54,12 @@ begin
     
     ---------- Clock Generator
     clock <= not clock after 10 ns;
-    ---------- Reset Generator
-    reset <= '1', '0' after 40 ns;--, '1' after 800 ns, '0' after 840 ns;
-    
+
+    reset <= 
+        '1' after 0 ns,
+        '0' after 40 ns,
+        '1' after 2200 ns,
+        '0' after 2240 ns;
     --Minesweep-------------------------------------------------------- Insant
     DUT : entity work.MineSweep
         port map(

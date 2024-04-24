@@ -23,11 +23,20 @@ end entity MoveDetect;
 
 architecture MoveDetect_ARCH of MoveDetect is
     type move_t is (WAITING, PLAYING, MOVEDETECTED);
-    signal currState : move_t;
-    signal nextState : move_t;    
+    signal currState            : move_t;
+    signal nextState            : move_t;   
+    signal playerMoveZeroEn     : std_logic;
+    signal playerMoveSyncZeroEn : std_logic;
 begin
 
-        
+    PLAYER_MOVE_ZERO_EN: with playerMove select
+        playerMoveZeroEn <= ACTIVE when X"0000",
+            not ACTIVE when others;
+    
+    PLAYER_MOVE_SYNC_ZERO_EN:with playerMoveSynch select
+        playerMoveSyncZeroEn <= ACTIVE when X"0000",
+            not ACTIVE when others;
+    
     --Move-State-Register---------------------------------------------- Process
     MOVE_REG : process (clock, reset) is
     begin
@@ -37,6 +46,8 @@ begin
             currState <= nextState;
         end if;
     end process MOVE_REG;
+ 
+    
 
     --Move-Finite-State-Machine-------------------------------------------- FSM
     -- Takes the indicidual contributions of the player moves
@@ -44,7 +55,10 @@ begin
     -- signal to be output so that bomb locations can be 
     -- determinded. Works but barely.
     --TODO: Try to incorporate edge detection instead of sync
-    MOVE_FSM : process(currState, playerMove, playerMoveSynch) is
+    MOVE_FSM : process(
+        currState, playerMove, playerMoveSynch, 
+        playerMoveZeroEn, playerMoveSyncZeroEn
+    ) is
         variable moveTraker : std_logic_vector(MOVEWIDTH - 1 downto 0);        
     begin
         moveDet <= '0';
@@ -55,10 +69,13 @@ begin
             --Waiting---------- State
             when WAITING =>
                 moveTraker := (others => '0');
-                if (playerMove = X"0000" and playerMoveSynch = X"0000") then
+                if (
+                    playerMoveZeroEn = ACTIVE 
+                    and playerMoveSyncZeroEn = ACTIVE
+                ) then
                     nextState <= PLAYING;
                 else 
-                    nextState <= WAITING;
+                    nextState <= currState;
                 end if;
 
             --Playing---------- State
@@ -71,7 +88,7 @@ begin
                 if (playerMoveSynch = moveTraker
                     and playerMove = moveTraker
                 ) then
-                    nextState <= PLAYING;
+                    nextState <= currState;
 
                 -- If player move, and move tracker are different,
                 -- then change state to move detected. Could only
@@ -86,14 +103,14 @@ begin
                     end loop;
                     
                     nextState <= MOVEDETECTED;
-                    moveDet <= ACTIVE;
+                    moveDet  <= ACTIVE;
                 end if;
             
             --Move-Detected---------- State
             when MOVEDETECTED =>
                 moveDet      <= ACTIVE;
-                gamePlayMode <= ACTIVE;
-                nextState    <= PLAYING;
+                gamePlayMode  <= ACTIVE;
+                nextState     <= PLAYING;
         end case;
         
     end process MOVE_FSM;
