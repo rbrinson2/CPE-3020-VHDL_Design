@@ -33,28 +33,28 @@ end entity TileDriver;
 
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
-    signal tempTiles : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
+    --signal tempTiles : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
     
 begin
-    FINAL : process (clock, reset) is
-    begin
-        if (reset = ACTIVE) then
-            tiles <= (others => '1');
-        elsif rising_edge(clock) then
-            tiles <= tempTiles or clearTilesMask;
-        end if;
-    end process FINAL;
+    --FINAL : process (clock, reset) is
+    --begin
+    --    if (reset = ACTIVE) then
+    --        tiles <= (others => '1');
+    --    elsif rising_edge(clock) then
+    --        tiles <= tempTiles or clearTilesMask;
+    --    end if;
+    --end process FINAL;
     
     --Tile-Driver-Process---------------------------------------------- Process
     process (clock, reset) is
     begin
         if (reset = ACTIVE) then
-            tempTiles <= (others => '1');
+            tiles <= (others => '1');
         elsif (rising_edge(clock)) then
             if (bombLocation = ZERO) then
-                tempTiles <= (others => '1');
+                tiles <= (others => '1');
             else
-                tempTiles <= bombLocation;
+                tiles <= bombLocation;
             end if;
 
         end if;
