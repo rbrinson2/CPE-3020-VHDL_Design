@@ -14,8 +14,8 @@ entity Timer is
         hitDet    : in std_logic;
 
         ----------------------------------------------------------- Ouput Ports
-        upperDigit : out std_logic_vector(3 downto 0);
-        lowerDigit : out std_logic_vector(3 downto 0);
+        upperDigit    : out std_logic_vector(3 downto 0);
+        lowerDigit    : out std_logic_vector(3 downto 0);
         timerZeroMode : out std_logic
     );
 end entity Timer;
@@ -33,9 +33,12 @@ architecture Timer_ARCH of Timer is
     signal currState : state_t;
 
     ---------------------------------------------------------- Internal Signals
-    signal countDownMode : std_logic;
+    signal countDownMode         : std_logic;
+    signal internalTimerZeroMode : std_logic;
 
 begin
+
+    timerZeroMode <= internalTimerZeroMode;
     
     --Timer-State-Machine-Register------------------------------------- Process
     TIMER_REG : process (clock, reset) is
@@ -48,7 +51,7 @@ begin
     end process TIMER_REG;
 
     --Timer-State-Machine-Mechanics------------------------------------ Process
-    TIMER_FSM : process (currState, firstMoveDet, timerZeroMode, hitDet) is
+    TIMER_FSM : process (currState, firstMoveDet, internalTimerZeroMode, hitDet) is
     begin
         countDownMode <= not ACTIVE;
 
@@ -61,7 +64,7 @@ begin
             when COUNTDOWN =>
                 countDownMode <= ACTIVE;
                 nextState <= currState;
-                if (timerZeroMode = ACTIVE or hitDet = ACTIVE) then
+                if (internalTimerZeroMode = ACTIVE or hitDet = ACTIVE) then
                     nextState <= DONE;
                 end if;
             when DONE =>
@@ -79,7 +82,7 @@ begin
         if (reset = ACTIVE) then
             upperDigit <= (others => '0');
             lowerDigit <= (others => '0');
-            timerZeroMode <= not ACTIVE;
+            internalTimerZeroMode <= not ACTIVE;
             count := 0;
             upper := SIX;
             lower := ZERO;
@@ -95,7 +98,7 @@ begin
                             upper := upper - 1;
                             lower := NINE;
                         else 
-                            timerZeroMode <= ACTIVE;
+                            internalTimerZeroMode <= ACTIVE;
                         end if;
                     end if;
                 end if;

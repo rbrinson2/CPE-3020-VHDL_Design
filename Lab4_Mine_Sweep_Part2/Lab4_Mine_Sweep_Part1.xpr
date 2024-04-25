@@ -150,6 +150,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/Sources/Timer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Sources/SevenSegmentDriver.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/Sources/SevenSegmentDriver.vhd"/>
+          <Attr Name="ImportTime" Val="1713799073"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/Sources/MineSweep.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/Sources/MineSweep.vhd"/>
@@ -180,15 +194,6 @@
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/Sources/Randomizer_TB.vhd"/>
           <Attr Name="ImportTime" Val="1713802256"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Sources/SevenSegmentDriver.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/Sources/SevenSegmentDriver.vhd"/>
-          <Attr Name="ImportTime" Val="1713799073"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
