@@ -54,6 +54,7 @@ architecture MineSweep_ARCH of MineSweep is
     ----- G
     signal gameOverMode       : std_logic;
     signal gamePlayMode       : std_logic := '0';
+    signal gameWinMode       : std_logic;
     ----- H
     signal hitDet             : std_logic;
     ----- L
@@ -71,7 +72,15 @@ architecture MineSweep_ARCH of MineSweep is
 
 begin
 
-    GAME_OVER: gameOverMode <= hitDet or timerZeroMode;
+    GAME_OVER: gameOverMode <= hitDet or timerZeroMode or gameWinMode;
+    GAME_WIN : process (finalBombLocations, clearTilesMask) is
+    begin
+        gameWinMode <= not ACTIVE;
+        if ((finalBombLocations or clearTilesMask) = ONES) then
+            gameWinMode <= ACTIVE;
+        end if;
+    end process GAME_WIN;
+    
     
     --Final-Bomb-Location---------------------------------------------- Process
     FINALBOMBLOCATION: process(clock, reset)
@@ -197,6 +206,7 @@ begin
             reset         => reset,
             firstMoveDet  => firstMoveDet,
             hitDet        => hitDet,
+            gameOverMode  => gameOverMode,
             upperDigit    => upperDigit,
             lowerDigit    => lowerDigit,
             timerZeroMode => timerZeroMode

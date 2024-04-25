@@ -15,6 +15,7 @@ architecture Timer_TB_ARCH of Timer_TB is
     signal reset         : std_logic := '1';
     signal firstMoveDet  : std_logic := '0';
     signal hitDet        : std_logic := '0';
+    signal gameOverMode  : std_logic := '0';
     signal upperDigit    : std_logic_vector(3 downto 0);
     signal lowerDigit    : std_logic_vector(3 downto 0);
     signal timerZeroMode : std_logic;
@@ -50,6 +51,7 @@ begin
             reset         => reset,
             firstMoveDet  => firstMoveDet,
             hitDet        => hitDet,
+            gameOverMode  => gameOverMode,
             upperDigit    => upperDigit,
             lowerDigit    => lowerDigit,
             timerZeroMode => timerZeroMode

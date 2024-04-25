@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Thu Apr 25 11:26:33 2024
+| Date         : Thu Apr 25 12:53:56 2024
 | Host         : rbrinson running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file MineSweepWrapper_control_sets_placed.rpt
 | Design       : MineSweepWrapper
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              32 |           20 |
-| No           | No                    | Yes                    |             175 |           61 |
+| No           | No                    | No                     |              32 |           21 |
+| No           | No                    | Yes                    |             175 |           66 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             116 |           33 |
+| Yes          | No                    | Yes                    |             116 |           39 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,32 +73,32 @@ Table of Contents
 +--------------------------------------+------------------------------------------+------------------+------------------+----------------+--------------+
 |             Clock Signal             |               Enable Signal              | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +--------------------------------------+------------------------------------------+------------------+------------------+----------------+--------------+
-|  MINESWEEP/MOVEDETECT/moveTraker[1]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[2]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[3]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[0]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[8]  |                                          |                  |                1 |              1 |         1.00 |
 |  MINESWEEP/MOVEDETECT/moveTraker[4]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[0]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[3]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[6]  |                                          |                  |                1 |              1 |         1.00 |
 |  MINESWEEP/MOVEDETECT/moveTraker[9]  |                                          |                  |                1 |              1 |         1.00 |
 |  MINESWEEP/MOVEDETECT/moveTraker[10] |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[7]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[15] |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[6]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[13] |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[11] |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[5]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[8]  |                                          |                  |                1 |              1 |         1.00 |
-|  MINESWEEP/MOVEDETECT/moveTraker[14] |                                          |                  |                1 |              1 |         1.00 |
 |  MINESWEEP/MOVEDETECT/moveTraker[12] |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[13] |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[1]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[14] |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[2]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[5]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[7]  |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[11] |                                          |                  |                1 |              1 |         1.00 |
+|  MINESWEEP/MOVEDETECT/moveTraker[15] |                                          |                  |                1 |              1 |         1.00 |
 |  clk_IBUF_BUFG                       | MINESWEEP/TILEDRIVE/timerPulse1_out      | btnU_IBUF        |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG                       | MINESWEEP/RANDOM/bomb3[4]_i_1_n_0        | btnU_IBUF        |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG                       | MINESWEEP/RANDOM/bomb2[4]_i_1_n_0        | btnU_IBUF        |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG                       | MINESWEEP/MOVEDETECT/E[0]                | btnU_IBUF        |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG                       | MINESWEEP/MOVEDETECT/firstMoveDet_reg[0] | btnU_IBUF        |                3 |             16 |         5.33 |
-|  clk_IBUF_BUFG                       | MINESWEEP/TILEDRIVE/tiles[15]_i_1_n_0    | btnU_IBUF        |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG                       | MINESWEEP/RANDOM/bomb3[4]_i_1_n_0        | btnU_IBUF        |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG                       | MINESWEEP/RANDOM/bomb2[4]_i_1_n_0        | btnU_IBUF        |                4 |              5 |         1.25 |
+|  clk_IBUF_BUFG                       | MINESWEEP/MOVEDETECT/E[0]                | btnU_IBUF        |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                       | MINESWEEP/TILEDRIVE/tiles[15]_i_1_n_0    | btnU_IBUF        |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG                       | MINESWEEP/MOVEDETECT/firstMoveDet_reg[0] | btnU_IBUF        |                5 |             16 |         3.20 |
 |  clk_IBUF_BUFG                       | MINESWEEP/TILEDRIVE/flashMode            | btnU_IBUF        |                7 |             26 |         3.71 |
-|  clk_IBUF_BUFG                       |                                          |                  |                4 |             32 |         8.00 |
-|  clk_IBUF_BUFG                       | MINESWEEP/TIMER/countDownMode            | btnU_IBUF        |                9 |             36 |         4.00 |
-|  clk_IBUF_BUFG                       |                                          | btnU_IBUF        |               61 |            175 |         2.87 |
+|  clk_IBUF_BUFG                       |                                          |                  |                5 |             32 |         6.40 |
+|  clk_IBUF_BUFG                       | MINESWEEP/TIMER/countDownMode            | btnU_IBUF        |               11 |             36 |         3.27 |
+|  clk_IBUF_BUFG                       |                                          | btnU_IBUF        |               66 |            175 |         2.65 |
 +--------------------------------------+------------------------------------------+------------------+------------------+----------------+--------------+
 
 

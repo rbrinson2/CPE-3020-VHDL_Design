@@ -8,10 +8,11 @@ use work.minesweeppackage.all;
 entity Timer is
     port(
         ----------------------------------------------------------- Input Ports
-        clock : in std_logic;
-        reset : in std_logic;
+        clock        : in std_logic;
+        reset        : in std_logic;
         firstMoveDet : in std_logic;
-        hitDet    : in std_logic;
+        hitDet       : in std_logic;
+        gameOverMode : in std_logic;
 
         ----------------------------------------------------------- Ouput Ports
         upperDigit    : out std_logic_vector(3 downto 0);
@@ -51,7 +52,13 @@ begin
     end process TIMER_REG;
 
     --Timer-State-Machine-Mechanics------------------------------------ Process
-    TIMER_FSM : process (currState, firstMoveDet, internalTimerZeroMode, hitDet) is
+    TIMER_FSM : process (
+        currState, 
+        firstMoveDet, 
+        internalTimerZeroMode, 
+        hitDet, 
+        gameOverMode
+        ) is
     begin
         countDownMode <= not ACTIVE;
 
@@ -64,7 +71,11 @@ begin
             when COUNTDOWN =>
                 countDownMode <= ACTIVE;
                 nextState <= currState;
-                if (internalTimerZeroMode = ACTIVE or hitDet = ACTIVE) then
+                if (
+                    internalTimerZeroMode = ACTIVE 
+                    or hitDet = ACTIVE 
+                    or gameOverMode = ACTIVE
+                    ) then
                     nextState <= DONE;
                 end if;
             when DONE =>
