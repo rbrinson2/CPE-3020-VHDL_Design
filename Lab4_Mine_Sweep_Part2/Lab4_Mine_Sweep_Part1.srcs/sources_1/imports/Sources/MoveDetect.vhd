@@ -13,6 +13,7 @@ entity MoveDetect is
         reset           : in std_logic;
         playerMove      : in std_logic_vector(MOVEWIDTH - 1 downto 0);
         playerMoveSynch : in std_logic_vector(MOVEWIDTH - 1 downto 0);
+        doneMode        : in std_logic;
 
         ---------------------------------------------------------- Output Ports
         gamePlayMode    : out std_logic := '0';
@@ -22,7 +23,7 @@ end entity MoveDetect;
 
 
 architecture MoveDetect_ARCH of MoveDetect is
-    type move_t is (WAITING, PLAYING, MOVEDETECTED);
+    type move_t is (WAITING, PLAYING, MOVEDETECTED, DONE);
     signal currState            : move_t;
     signal nextState            : move_t;   
     signal playerMoveZeroEn     : std_logic;
@@ -57,7 +58,8 @@ begin
     --TODO: Try to incorporate edge detection instead of sync
     MOVE_FSM : process(
         currState, playerMove, playerMoveSynch, 
-        playerMoveZeroEn, playerMoveSyncZeroEn
+        playerMoveZeroEn, playerMoveSyncZeroEn,
+        doneMode
     ) is
         variable moveTraker : std_logic_vector(MOVEWIDTH - 1 downto 0);        
     begin
@@ -81,11 +83,14 @@ begin
             --Playing---------- State
             when PLAYING =>
                 gamePlayMode <= ACTIVE;
+
+                if (doneMode = ACTIVE) then
+                    nextState <= DONE;
                 
                 -- If there is no change detected by the 
                 -- move tracker then we stay in the state.
                 -- Only worked if I included both signals
-                if (playerMoveSynch = moveTraker
+                elsif (playerMoveSynch = moveTraker
                     and playerMove = moveTraker
                 ) then
                     nextState <= currState;
@@ -96,7 +101,7 @@ begin
                 else
                     for move in playerMoveSynch'range loop
                         if (playerMoveSynch(move) /= moveTraker(move)
-                            and playerMove(move) /= moveTraker(move)
+                            --and playerMove(move) /= moveTraker(move)
                         ) then
                             moveTraker(move) := playerMoveSynch(move);
                         end if;
@@ -111,6 +116,9 @@ begin
                 moveDet      <= ACTIVE;
                 gamePlayMode  <= ACTIVE;
                 nextState     <= PLAYING;
+
+            when DONE =>
+                nextState <= currState;
         end case;
         
     end process MOVE_FSM;

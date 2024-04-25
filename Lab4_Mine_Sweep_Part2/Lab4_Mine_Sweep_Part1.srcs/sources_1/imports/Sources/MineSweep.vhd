@@ -47,6 +47,7 @@ architecture MineSweep_ARCH of MineSweep is
     signal playerMoveSync     : std_logic_vector(MOVEWIDTH - 1 downto 0);
     signal gamePlayMode       : std_logic := '0';
     signal hitDet             : std_logic;
+    signal doneMode           : std_logic;
     signal moveDet            : std_logic := '0';
     signal firstMoveDet       : std_logic := '0';
     
@@ -130,6 +131,7 @@ begin
             bombLocation   => finalBombLocations,
             clearTilesMask => clearTilesMask,
             hitDet         => hitDet,
+            doneMode       => doneMode,
             tiles          => tiles
         );
 
@@ -151,12 +153,13 @@ begin
             reset           => reset,
             playerMove      => playerMove,
             playerMoveSynch => playerMoveSync,
+            doneMode        => doneMode,
             gamePlayMode    => gamePlayMode,
             moveDet         => moveDet
         );
     
     --Clear-Tiles------------------------------------------------------ Instant
-    ClearTiles_inst : entity work.ClearTiles
+    CLEARTILE : entity work.ClearTiles
         port map(
             clock              => clock,
             reset              => reset,
