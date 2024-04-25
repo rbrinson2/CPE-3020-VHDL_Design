@@ -22,6 +22,8 @@ entity MineSweepWrapper is
         clk     : in std_logic;
         btnU    : in std_logic;
         sw      : in std_logic_vector(15 downto 0);
+        an      : out std_logic_vector(3 downto 0);
+        seg     : out std_logic_vector(6 downto 0);
         led     : out std_logic_vector(15 downto 0)
     );
 end entity MineSweepWrapper;
@@ -37,6 +39,8 @@ begin
             clock           => clk,
             reset           => btnU,
             playerMove      => sw,
+            anodes          => an,
+            sevenSegs       => seg,
             tiles           => led 
         );
     

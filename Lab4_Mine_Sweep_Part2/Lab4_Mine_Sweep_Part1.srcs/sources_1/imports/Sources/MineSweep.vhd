@@ -24,12 +24,14 @@ use work.minesweeppackage.all;
 --====================================================================== ENTITY
 entity MineSweep is
     port(
-        --------- Inputs
+        ----------------------------------------------------------- Input Ports
         clock       : in std_logic;
         reset       : in std_logic;
         playerMove  : in std_logic_vector(MOVEWIDTH - 1 downto 0);
 
-        ---------- Outputs
+        ---------------------------------------------------------- Output Ports
+        anodes      : out std_logic_vector(3 downto 0);
+        sevenSegs   : out std_logic_vector(6 downto 0);
         tiles       : out std_logic_vector(TILEBUSWIDTH - 1 downto 0)
     );
 end entity MineSweep;
@@ -38,21 +40,39 @@ end entity MineSweep;
 architecture MineSweep_ARCH of MineSweep is
 
     ---------------------------------------------------------- Internal Signals
+    ----- B
     signal bomb1Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb2Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
     signal bomb3Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal tempBombLocation   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    ----- C
     signal clearTilesMask     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-    signal playerMoveSync     : std_logic_vector(MOVEWIDTH - 1 downto 0);
-    signal gamePlayMode       : std_logic := '0';
-    signal hitDet             : std_logic;
+    ----- D
     signal doneMode           : std_logic;
-    signal moveDet            : std_logic := '0';
+    ----- F
+    signal finalBombLocations : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     signal firstMoveDet       : std_logic := '0';
+    ----- G
+    signal gameOverMode       : std_logic;
+    signal gamePlayMode       : std_logic := '0';
+    ----- H
+    signal hitDet             : std_logic;
+    ----- L
+    signal lowerDigit         : std_logic_vector(3 downto 0);
+    ----- M
+    signal moveDet            : std_logic := '0';
+    ----- P
+    signal playerMoveSync     : std_logic_vector(MOVEWIDTH - 1 downto 0);
+    ----- T
+    signal tempBombLocation   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
+    signal timerZeroMode      : std_logic;
+    ----- U
+    signal upperDigit         : std_logic_vector(3 downto 0);
     
-    
+
 begin
+
+    GAME_OVER: gameOverMode <= hitDet or timerZeroMode;
+    
     --Final-Bomb-Location---------------------------------------------- Process
     FINALBOMBLOCATION: process(clock, reset)
     begin
@@ -130,7 +150,7 @@ begin
             reset          => reset,
             bombLocation   => finalBombLocations,
             clearTilesMask => clearTilesMask,
-            hitDet         => hitDet,
+            gameOverMode   => gameOverMode,
             doneMode       => doneMode,
             tiles          => tiles
         );
@@ -169,6 +189,34 @@ begin
             clearTilesMask     => clearTilesMask,
             hitDet             => hitDet
         );
+
+    --Timer------------------------------------------------------------ Instant
+    TIMER : entity work.Timer
+        port map(
+            clock         => clock,
+            reset         => reset,
+            firstMoveDet  => firstMoveDet,
+            hitDet        => hitDet,
+            upperDigit    => upperDigit,
+            lowerDigit    => lowerDigit,
+            timerZeroMode => timerZeroMode
+        );
     
+    --Seven-Segment---------------------------------------------------- Instant
+    SEVEN_SEG : entity work.SevenSegmentDriver
+        port map(
+            reset     => reset,
+            clock     => clock,
+            digit3    => upperDigit,
+            digit2    => lowerDigit,
+            digit1    => "0000",
+            digit0    => "0000",
+            blank3    => '0',
+            blank2    => '0',
+            blank1    => '1',
+            blank0    => '1',
+            sevenSegs => sevenSegs,
+            anodes    => anodes
+        );
     
 end architecture MineSweep_ARCH;

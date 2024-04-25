@@ -32,6 +32,8 @@ architecture MineSweep_TB_ARCH of MineSweep_TB is
     signal playerMove : std_logic_vector(15 downto 0) := (others => '0');
 
     --------- Output Ports
+    signal anodes : std_logic_vector(3 downto 0);
+    signal sevenSegs : std_logic_vector(6 downto 0);
     signal tiles : std_logic_vector(15 downto 0);
 
     type testArray_t is array(natural range<>) of std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
@@ -66,6 +68,8 @@ begin
             clock      => clock,
             reset      => reset,
             playerMove => playerMove,
+            anodes     => anodes,
+            sevenSegs  => sevenSegs,
             tiles      => tiles
         );
     
