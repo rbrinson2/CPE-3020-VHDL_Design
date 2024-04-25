@@ -88,7 +88,7 @@ begin
     
 
     FLASH_TIMER : process (clock, reset) is
-        variable count      : integer range 0 to ONESECTIMER;
+        variable count      : integer range 0 to ONESECTIMER/2;
         variable flashCount : integer range 0 to 8;
     begin
         if (reset = ACTIVE) then
@@ -103,7 +103,7 @@ begin
 
             if (flashMode = ACTIVE) then
                 count := count + 1;
-                if (count >= ONESECTIMER) then
+                if (count >= ONESECTIMER/2) then
                     timerPulse <= ACTIVE;
                     count := 0;
                     flashCount := flashCount + 1;

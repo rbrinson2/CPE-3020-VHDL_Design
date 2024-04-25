@@ -86,7 +86,7 @@ begin
         elsif rising_edge(clock) then
             if (countDownMode = ACTIVE) then
                 count := count + 1;
-                if (count >= 2) then
+                if (count >= ONESECTIMER) then
                     count := 0;
                     if (lower /= ZERO) then
                         lower := lower - 1;
