@@ -14,5 +14,8 @@ package MineSweepPackage is
     constant ONES         : std_logic_vector(BOMBBUSWIDTH - 1 downto 0) := (others => '1') ;
     constant FLAGGED      : integer := 1;
     constant NOTFLAGGED   : integer := 0;
+    constant ONESECTIMER  : integer := (10**8 - 1);
+
+    type Flag_t is (FLAGGED_S, NOTFLAGGED_S);
     
 end package MineSweepPackage;
