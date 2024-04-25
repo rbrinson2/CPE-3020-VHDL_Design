@@ -11,14 +11,13 @@ end entity Timer_TB;
 
 
 architecture Timer_TB_ARCH of Timer_TB is
-    signal clock : std_logic := '0';
-    signal reset : std_logic := '1';
-    signal firstMove : std_logic := '0';
-    signal hitDet : std_logic := '0';
-    signal upperDigit : std_logic_vector(3 downto 0);
-    signal lowerDigit: std_logic_vector(3 downto 0);
+    signal clock         : std_logic := '0';
+    signal reset         : std_logic := '1';
+    signal firstMoveDet  : std_logic := '0';
+    signal hitDet        : std_logic := '0';
+    signal upperDigit    : std_logic_vector(3 downto 0);
+    signal lowerDigit    : std_logic_vector(3 downto 0);
     signal timerZeroMode : std_logic;
-    signal timerZeroEn : std_logic;
 begin
     
     clock <= not clock after 10 ns;
@@ -26,7 +25,7 @@ begin
         '0' after 40 ns,
         '1' after 2800 ns,
         '0' after 2840 ns;
-    firstMove <= 
+    firstMoveDet <= 
         '1' after 60 ns,
         '0' after 80 ns,
         '1' after 2870 ns,
@@ -49,12 +48,11 @@ begin
         port map(
             clock         => clock,
             reset         => reset,
-            firstMove     => firstMove,
+            firstMoveDet  => firstMoveDet,
             hitDet        => hitDet,
             upperDigit    => upperDigit,
             lowerDigit    => lowerDigit,
-            timerZeroMode => timerZeroMode,
-            timerZeroEn   => timerZeroEn
+            timerZeroMode => timerZeroMode
         );
     
 end architecture Timer_TB_ARCH;

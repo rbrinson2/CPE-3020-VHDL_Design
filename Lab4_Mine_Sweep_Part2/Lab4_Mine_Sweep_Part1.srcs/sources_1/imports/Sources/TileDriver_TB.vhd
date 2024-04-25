@@ -52,7 +52,7 @@ architecture TileDriver_TB_ARCH of TileDriver_TB is
     signal reset            : std_logic;
     signal bombLocation     : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     signal tiles            : std_logic_vector(TILEBUSWIDTH - 1 downto 0);
-    signal hitDet           : std_logic;
+    signal gameOverMode     : std_logic;
     signal doneMode         : std_logic;
     signal clearTilesMask   : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     
@@ -69,7 +69,7 @@ begin
             reset          => reset,
             bombLocation   => bombLocation,
             clearTilesMask => clearTilesMask,
-            hitDet         => hitDet,
+            gameOverMode   => gameOverMode,
             doneMode       => doneMode,
             tiles          => tiles
         );
@@ -83,12 +83,12 @@ begin
             count := 0;
             index := 0;
             clearTilesMask <= stim(0).move;
-            hitDet <= stim(0).hit;
+            gameOverMode <= stim(0).hit;
         elsif (rising_edge(clock)) then
             count := count + 1;
             if (count mod 10 = 5) then
                 clearTilesMask <= stim(index).move;
-                hitDet <= stim(index).hit;
+                gameOverMode <= stim(index).hit;
                 if (index < stim'length - 1) then
                     index := index + 1;
                 elsif (count >= 150) then

@@ -25,7 +25,7 @@ entity TileDriver is
         reset          : in std_logic;
         bombLocation   : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
         clearTilesMask : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
-        hitDet         : in std_logic;
+        gameOverMode   : in std_logic;
   
         doneMode       : out std_logic;
         tiles          : out std_logic_vector(TILEBUSWIDTH - 1 downto 0)
@@ -34,11 +34,12 @@ end entity TileDriver;
 
 --================================================================ Architecture
 architecture TileDriver_ARCH of TileDriver is
+    ------------------------------------------------------------- State Signals
     type state_t is (NORMAL, FLASHING, DONE);
-
     signal currState    : state_t;
     signal nextState    : state_t;
 
+    ------------------------------------------------------------------- Signals
     signal normalMode   : std_logic;
     signal flashMode    : std_logic;
     signal flashDone    : std_logic;
@@ -58,14 +59,14 @@ begin
     
 
 
-    STATE_MACHINE : process(currstate, hitDet, flashDone) is
+    STATE_MACHINE : process(currstate, gameOverMode, flashDone) is
     begin
         normalMode <= not ACTIVE;
         flashMode  <= not ACTIVE;
         doneMode   <= not ACTIVE;
         case currState is 
             when NORMAL =>
-                if (hitDet = ACTIVE) then
+                if (gameOverMode = ACTIVE) then
                     nextState <= FLASHING;
                 else 
                     normalMode <= ACTIVE;

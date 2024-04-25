@@ -4,34 +4,40 @@ use ieee.numeric_std.all;
 
 use work.minesweeppackage.all;
 
+--===================================================================== ENITITY
 entity Timer is
     port(
+        ----------------------------------------------------------- Input Ports
         clock : in std_logic;
         reset : in std_logic;
-        firstMove : in std_logic;
+        firstMoveDet : in std_logic;
         hitDet    : in std_logic;
 
+        ----------------------------------------------------------- Ouput Ports
         upperDigit : out std_logic_vector(3 downto 0);
         lowerDigit : out std_logic_vector(3 downto 0);
-        timerZeroMode : out std_logic;
-        timerZeroEn  : out std_logic
+        timerZeroMode : out std_logic
     );
 end entity Timer;
 
-
+--================================================================ ARCHITECTURE
 architecture Timer_ARCH of Timer is
+    ----------------------------------------------------------------- Constants
     constant ZERO : unsigned(3 downto 0) := "0000";
     constant SIX  : unsigned(3 downto 0) := "0110";
     constant NINE : unsigned(3 downto 0) := "1001";
     
+    ------------------------------------------------------------- State Signals
     type state_t is (WAITING, COUNTDOWN, DONE);
     signal nextState : state_t;
     signal currState : state_t;
 
+    ---------------------------------------------------------- Internal Signals
     signal countDownMode : std_logic;
 
 begin
     
+    --Timer-State-Machine-Register------------------------------------- Process
     TIMER_REG : process (clock, reset) is
     begin
         if (reset = ACTIVE) then
@@ -41,14 +47,15 @@ begin
         end if;
     end process TIMER_REG;
 
-    TIMER_FSM : process (currState, firstMove, timerZeroMode, hitDet) is
+    --Timer-State-Machine-Mechanics------------------------------------ Process
+    TIMER_FSM : process (currState, firstMoveDet, timerZeroMode, hitDet) is
     begin
         countDownMode <= not ACTIVE;
 
         case currState is 
             when WAITING =>
                 nextState <= currState;
-                if (firstMove = ACTIVE) then
+                if (firstMoveDet = ACTIVE) then
                     nextState <= COUNTDOWN;
                 end if;
             when COUNTDOWN =>
@@ -63,7 +70,7 @@ begin
     end process TIMER_FSM;
     
     
-
+    --Countdown-Timer-------------------------------------------------- Process
     COUNT_DOWN : process (clock, reset) is
         variable count : integer range 0 to ONESECTIMER;
         variable upper : unsigned(3 downto 0);
@@ -73,7 +80,6 @@ begin
             upperDigit <= (others => '0');
             lowerDigit <= (others => '0');
             timerZeroMode <= not ACTIVE;
-            timerZeroEn <= not ACTIVE; 
             count := 0;
             upper := SIX;
             lower := ZERO;
