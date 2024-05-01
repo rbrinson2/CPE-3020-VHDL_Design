@@ -1,4 +1,19 @@
-
+-----------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 5/1/24
+-- Design Name: Clear Tiles
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- When the module gets the signal that it is in gameplay mode,
+-- it compares the bomblocation bus to the playermove bus. If
+-- there is a difference then ClearTiles will either create a
+-- mask to be sent to TileDriver, or it will send a signal 
+-- out signalling that a hit has been detected.
+---------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,6 +43,10 @@ architecture ClearTiles_ARCH of ClearTiles is
     signal newMove : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
 
     --Left-Clear----------------------------------------------------- Procedure
+    -- Algorithmically sets individual bits in the vector to active
+    --  starting at the players move location (i), increments
+    --  and ends when it reaches an active bit or 15 on the 
+    --  bombLocation vector.
     procedure ClearLeft(
         clear         : inout std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
         bombLocations : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
@@ -46,6 +65,10 @@ architecture ClearTiles_ARCH of ClearTiles is
     end procedure ClearLeft;
 
     --Right-Clear---------------------------------------------------- Procedure
+    -- Algorithmically sets individual bits in the vector to active
+    --  starting at the players move location (i), decrincrements
+    --  and ends when it reaches an active bit or 0 on the 
+    --  bombLocation vector.
     procedure ClearRight(
         clear         : inout std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
         bombLocations : in std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
@@ -65,6 +88,9 @@ architecture ClearTiles_ARCH of ClearTiles is
 
 -------------------------------------------------------------------- Arch Begin    
 begin
+    --Edge-Detection--------------------------------------------------- Instant
+    -- Creates an edge detection for each time playerMoveSycn
+    --  changes and outputs it as newMove.
     PLAYER_EDGE : for i in playerMoveSync'range generate
         LEVEL_DETECT : entity work.LevelDetector
             port map(
@@ -75,6 +101,12 @@ begin
             );
     end generate PLAYER_EDGE;
     
+    --Hit-Scan--------------------------------------------------------- Process
+    -- When gamplayMode is active, this process compares the 
+    --  location of the bombs with what move the player just
+    --  made. If the move is the same as a bomb location,
+    --  it activates hitDet, otherwise it calls the clearing
+    --  procedures.
     HIT_SCAN : process (clock, reset) is
         variable clearTemp : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     begin

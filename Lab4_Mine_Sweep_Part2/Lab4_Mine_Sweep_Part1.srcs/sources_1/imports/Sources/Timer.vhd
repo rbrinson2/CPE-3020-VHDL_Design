@@ -1,3 +1,20 @@
+-----------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 5/1/24
+-- Design Name: Timer
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- Uses a state machine in conjuction with internal and external
+--  signals to know when to start and stop the timer. When the
+--  first move is detected, the timer will start at 60s and 
+--  count down. The timer will stop if either: zero is reched 
+--  or a hitDet signal is activated.
+---------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

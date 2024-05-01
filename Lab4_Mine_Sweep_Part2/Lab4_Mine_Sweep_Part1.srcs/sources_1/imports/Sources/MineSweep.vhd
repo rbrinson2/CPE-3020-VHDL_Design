@@ -8,12 +8,16 @@
 -- Target Devices: Basys 3
 -- 
 -- Description: 
--- Houses the state machine for the control signals and the 
--- individual modules. The state machine starts by waiting 
--- until the board returns to a zero state after a reset. Once
--- the zero state has been entered, the SM move to playing mode
--- and waits for a move to be made, telling the randomizer
--- to send bomb locations to the tile driver
+-- The primary job of this module is to iteract with the 
+--  external signals as well as route all the internal signals
+--  to the appropriate entities. 
+
+-- It also manages the game over, game win, first move, and
+--  debouncing. Game over and game win are based off internal 
+--  signals recieved from various entities. The move synch 
+--  process uses a synch chain to limit bouncing of the switches.
+--  and finally the first move lets multiple modules know that 
+--  game has started.
 ---------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;

@@ -9,12 +9,12 @@
 -- 
 -- Description: 
 -- Waits for the gameplay mode to activate. Once that occurs
--- it starts the timers going. Bomb 1 increments with each
--- clock pulse, bomb 2 decriments every other clock pulse,
--- then finally bomb 3 increments every third clock pulse.
--- If a move is detected, then the final process stores the 
--- current value in finalBombLocations
--- that been output by Collision Chain.
+--  it starts the timers going. Bomb 1 increments with each
+--  clock pulse, bomb 2 decriments every other clock pulse,
+--  then finally bomb 3 increments every third clock pulse.
+--  If a move is detected, then the final process stores the 
+--  current value in finalBombLocations that been output by 
+--  Collision Chain.
 ---------------------------------------------------------------
 
 library ieee;

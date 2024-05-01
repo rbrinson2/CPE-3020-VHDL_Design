@@ -1,3 +1,15 @@
+-----------------------------------------------------------------
+-- Class: CPE 3020
+-- Student: Ryan Brinson
+-- 
+-- Date: 04/08/2024 
+-- Design Name: MineSweep Package
+-- Lab Name: Lab 4 - Mine Sweep
+-- Target Devices: Basys 3
+-- 
+-- Description: 
+-- Only holds constants used throughout the project.
+---------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
