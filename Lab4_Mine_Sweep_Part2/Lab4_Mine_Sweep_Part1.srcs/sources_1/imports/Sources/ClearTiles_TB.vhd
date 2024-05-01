@@ -35,8 +35,10 @@ begin
 
     clock <= not clock after 10 ns;
     reset <= not ACTIVE after 40 ns;
-    gamePlayMode <= ACTIVE after 400 ns;
-    finalBombLocations <= "0001" & "1000" & "1100" & "0010" when reset = not ACTIVE else X"0000";
+    
+    GAMEPLAY: gamePlayMode <= ACTIVE after 400 ns;
+    
+    BOMB_LOCATION: finalBombLocations <= "0001" & "1000" & "1100" & "0010" when reset = not ACTIVE else X"0000";
     
     DUT : entity work.ClearTiles
         port map(
