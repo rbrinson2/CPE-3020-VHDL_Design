@@ -52,8 +52,8 @@ architecture MineSweep_ARCH of MineSweep is
     signal moveDet                 : std_logic := '0';
     
 begin
-    --Final-Bomb-Location---------------------------------------------- Process
-    FINALBOMBLOCATION: process(clock, reset)
+    --Final------------------------------------------------------------ Process
+    FINAL: process(clock, reset)
     begin
         if (reset = ACTIVE) then
             bombLocation <= (others => '0'); 
@@ -62,7 +62,7 @@ begin
                 bombLocation <= finalBombLocations;
             end if;
         end if;
-    end process FINALBOMBLOCATION;
+    end process FINAL;
 
     --Move-Sync-Generate---------------------------------------------- Generate
     -- Generates a sync chain process for each player move

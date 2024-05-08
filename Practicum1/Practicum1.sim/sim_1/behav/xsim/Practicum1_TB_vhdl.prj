@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Sources/Practicum1.vhd" \
-"../../../../Sources/Practicum1_TB.vhd" \
-
-# Do not sort compile order
-nosort

@@ -29,9 +29,7 @@ architecture Randomizer_TB_ARCH of Randomizer_TB is
     signal reset    : std_logic;
     signal moveDet  : std_logic := '0';
     signal gamePlayMode : std_logic := '0';
-    signal bomb1Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb2Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
-    signal bomb3Temp : std_logic_vector(BOMBSIZE - 1 downto 0);
+    signal bombLocation : std_logic_vector(BOMBBUSWIDTH - 1 downto 0);
     
 begin
     
@@ -43,15 +41,14 @@ begin
     --Gameplay mode enable
     gamePlayMode <= '0', '1' after 80 ns;
 
-    --Randomizer------------------------------------------------------- Instant
+    --Randomizer-------------------------------------------------------- Insant
     DUT : entity work.Randomizer
         port map(
             clock        => clock,
             reset        => reset,
+            moveDet      => moveDet,
             gamePlayMode => gamePlayMode,
-            bomb1        => bomb1Temp,
-            bomb2        => bomb2Temp,
-            bomb3        => bomb3Temp
+            bombLocation => bombLocation
         );
     
     --Stimulus--------------------------------------------------------- Process

@@ -9,12 +9,12 @@
 -- 
 -- Description: 
 -- Waits for the gameplay mode to activate. Once that occurs
--- it starts the timers going. Bomb 1 increments with each
--- clock pulse, bomb 2 decriments every other clock pulse,
--- then finally bomb 3 increments every third clock pulse.
--- If a move is detected, then the final process stores the 
--- current value in finalBombLocations
--- that been output by Collision Chain.
+--  it starts the timers going. Bomb 1 increments with each
+--  clock pulse, bomb 2 decriments every other clock pulse,
+--  then finally bomb 3 increments every third clock pulse.
+--  If a move is detected, then the final process stores the 
+--  current value in finalBombLocations that been output by 
+--  Collision Chain.
 ---------------------------------------------------------------
 
 library ieee;
@@ -43,7 +43,9 @@ end entity Randomizer;
 --Randomizer-Architecture========================================= Architecture
 architecture Randomizer_ARCH of Randomizer is
     ------------------------------------------------------------------- Signals
+    signal firstMove : std_logic;
      
+
     --Bomb-2-Pulse-Generator----------------------------------------- Procedure
     -- Every two clock cycles, generates a pulse
     procedure bomb2Counter(
@@ -64,7 +66,7 @@ architecture Randomizer_ARCH of Randomizer is
     --Bomb-3-Pulse-Generator----------------------------------------- Procedure
     -- Every three clock cyles, generates a pulse
     procedure bomb3Counter(
-        counter : inout integer range 0 to 2;
+        counter  : inout integer range 0 to 2;
         clockOut : inout std_logic
     ) is
     begin
@@ -81,7 +83,17 @@ architecture Randomizer_ARCH of Randomizer is
 begin
     ---------------------------------------------------------------- ARCH-BEGIN
     
-
+    FIRST_MOVE : process (clock, reset) is
+    begin
+        if (reset = ACTIVE) then
+            firstMove <= not ACTIVE;
+        elsif (rising_edge(clock)) then
+            if (firstMoveDet = ACTIVE) then
+                firstMove <= ACTIVE;
+            end if;
+        end if;
+    end process FIRST_MOVE;
+    
     
     --Randomzier-Process----------------------------------------------- Process
     RANDOMIZER_PROC: process(clock, reset) is
@@ -89,7 +101,6 @@ begin
         variable bomb3Clock : std_logic;
         variable bomb2Count : integer range 0 to 2;
         variable bomb3Count : integer range 0 to 3;
-        variable firstMove  : integer range 0 to 1;
         
     begin
         if (reset = ACTIVE) then
@@ -100,16 +111,12 @@ begin
             bomb3Clock      := not ACTIVE;
             bomb2Count      := 0;
             bomb3Count      := 0;   
-            firstMove       := 0;
 
         elsif (rising_edge(clock)) then
             if (
                 gamePlayMode = ACTIVE
-                --and firstMove = 0
+                and firstMove = not ACTIVE
             ) then
-                if (firstMoveDet = ACTIVE) then
-                    firstMove := 1;
-                end if;
 
                 bomb2Counter(bomb2Count, bomb2Clock);
                 bomb3Counter(bomb3Count, bomb3Clock);

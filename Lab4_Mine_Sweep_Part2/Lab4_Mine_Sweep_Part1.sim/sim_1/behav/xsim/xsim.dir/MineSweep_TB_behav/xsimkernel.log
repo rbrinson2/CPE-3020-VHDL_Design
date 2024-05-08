@@ -1,7 +1,0 @@
-Running: xsim.dir/MineSweep_TB_behav/xsimk.exe -simmode gui -wdb MineSweep_TB_behav.wdb -simrunnum 0 -socket 52154
-Design successfully loaded
-Design Loading Memory Usage: 7944 KB (Peak: 7944 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 8680 KB (Peak: 8680 KB)
-Simulation CPU Usage: 0 ms
