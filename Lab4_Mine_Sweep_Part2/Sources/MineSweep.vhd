@@ -42,7 +42,7 @@ end entity MineSweep;
 
 --================================================================ ARCHITECTURE
 architecture MineSweep_ARCH of MineSweep is
-
+    
     ---------------------------------------------------------- Internal Signals
     ----- B
     signal bomb1Temp          : std_logic_vector(BOMBSIZE - 1 downto 0);
